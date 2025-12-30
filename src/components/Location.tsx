@@ -20,7 +20,7 @@ export function Location() {
             <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/50 z-[1]" />
 
             <div className="max-w-7xl mx-auto relative z-10">
-                <div className="text-center mb-16 italic text-white">
+                <div className="text-center mb-16 text-white">
                     <motion.p
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
@@ -51,8 +51,8 @@ export function Location() {
                     >
                         <div className="p-10 bg-white shadow-2xl border-l-4 border-[#9a7d45] relative overflow-hidden text-[#1a3c34]">
                             <div className="relative z-10">
-                                <h3 className="text-2xl font-serif text-[#1a3c34] mb-6 italic">Visítanos</h3>
-                                <div className="space-y-6 text-[#1a3c34]/80 font-serif italic">
+                                <h3 className="text-2xl font-serif text-[#1a3c34] mb-6">Visítanos</h3>
+                                <div className="space-y-6 text-[#1a3c34]/80 font-serif">
                                     <div className="flex gap-4">
                                         <MapPin className="w-6 h-6 text-[#9a7d45] shrink-0" />
                                         <div>
@@ -75,7 +75,7 @@ export function Location() {
                                         href="https://maps.google.com/?q=Fredonia,Antioquia,Vía Cerro Tusa"
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="inline-flex items-center gap-3 px-8 py-4 bg-[#1a3c34] text-white font-serif italic hover:bg-[#9a7d45] transition-all duration-500 group"
+                                        className="inline-flex items-center gap-3 px-8 py-4 bg-[#1a3c34] text-white font-serif hover:bg-[#9a7d45] transition-all duration-500 group"
                                     >
                                         VER EN GOOGLE MAPS
                                         <Navigation className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />

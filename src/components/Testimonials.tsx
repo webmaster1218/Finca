@@ -35,7 +35,7 @@ export function Testimonials() {
             <div className="absolute bottom-0 left-0 w-96 h-96 bg-black/20 rounded-full blur-[120px] pointer-events-none" />
 
             <div className="max-w-7xl mx-auto relative z-10">
-                <div className="text-center mb-20 italic">
+                <div className="text-center mb-20">
                     <motion.p
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
@@ -81,7 +81,7 @@ export function Testimonials() {
                                 <Quote className="w-8 h-8 text-[#9a7d45]/20 mx-auto" />
                             </div>
 
-                            <p className="text-[#1a3c34]/80 font-serif italic text-lg leading-relaxed mb-8 flex-grow">
+                            <p className="text-[#1a3c34]/80 font-serif text-lg leading-relaxed mb-8 flex-grow">
                                 {t.text}
                             </p>
 
@@ -94,7 +94,7 @@ export function Testimonials() {
                                 <h4 className="text-[#1a3c34] font-serif font-bold text-lg uppercase tracking-widest border-t border-[#1a3c34]/10 pt-4">
                                     {t.name}
                                 </h4>
-                                <p className="text-[#9a7d45] font-serif italic text-sm">
+                                <p className="text-[#9a7d45] font-serif text-sm">
                                     {t.location}
                                 </p>
                             </div>

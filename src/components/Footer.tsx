@@ -9,7 +9,7 @@ export function Footer() {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-16 mb-20">
                     {/* Brand/Logo Section */}
                     <div className="space-y-6">
-                        <h2 className="text-3xl font-serif italic text-white mb-6">Finca Fredonia</h2>
+                        <h2 className="text-3xl font-serif italic text-white mb-6">La Juana de cerro tusa</h2>
                         <p className="text-white/60 font-serif italic leading-relaxed max-w-sm">
                             Donde la tradición antioqueña se encuentra con la exclusividad.
                             Vive una experiencia inolvidable a la sombra del Cerro Tusa.
@@ -38,7 +38,7 @@ export function Footer() {
                             </li>
                             <li className="flex items-center gap-4 text-white/80">
                                 <Mail className="w-5 h-5 text-[#9a7d45]" />
-                                <a href="mailto:hola@fincafredonia.com" className="hover:text-[#9a7d45] transition-colors">hola@fincafredonia.com</a>
+                                <a href="mailto:hola@lajuana.com" className="hover:text-[#9a7d45] transition-colors">hola@lajuana.com</a>
                             </li>
                         </ul>
                     </div>
@@ -59,7 +59,7 @@ export function Footer() {
 
                 {/* Bottom Bar */}
                 <div className="pt-12 border-t border-[#9a7d45]/10 flex flex-col md:flex-row justify-between items-center gap-6 text-xs text-white/40 uppercase tracking-[0.2em] font-serif">
-                    <p>© 2024 Finca Fredonia. Todos los derechos reservados.</p>
+                    <p>© 2024 La Juana de cerro tusa. Todos los derechos reservados.</p>
                     <div className="flex gap-8">
                         <a href="#" className="hover:text-white transition-colors">Privacidad</a>
                         <a href="#" className="hover:text-white transition-colors">Términos</a>

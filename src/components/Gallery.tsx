@@ -25,14 +25,14 @@ export function Gallery() {
                 <motion.p
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
-                    className="text-[#9a7d45] font-serif italic tracking-[0.4em] text-xs mb-6 uppercase"
+                    className="text-[#9a7d45] font-serif tracking-[0.4em] text-xs mb-6 uppercase"
                 >
                     Mosaico de Recuerdos
                 </motion.p>
                 <motion.h2
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    className="text-5xl md:text-7xl font-serif text-[#1a3c34] mb-8 italic"
+                    className="text-5xl md:text-7xl font-serif text-[#1a3c34] mb-8"
                 >
                     Galería del Alma
                 </motion.h2>
@@ -63,7 +63,7 @@ export function Gallery() {
                         {/* Minimalistic Overlay on Hover */}
                         <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
                             <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
-                                <h3 className="text-white font-serif italic text-2xl tracking-wide transform translate-y-4 group-hover:translate-y-0 transition-transform duration-700">
+                                <h3 className="text-white font-serif text-2xl tracking-wide transform translate-y-4 group-hover:translate-y-0 transition-transform duration-700">
                                     {img.title}
                                 </h3>
                                 <div className="w-8 h-[1px] bg-[#9a7d45] mt-4 scale-0 group-hover:scale-100 transition-transform duration-700 delay-100" />
