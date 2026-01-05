@@ -1,11 +1,13 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Trees, Menu, X, Phone } from "lucide-react";
+import { Trees, Menu, X, Globe } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import { useLanguage } from "@/context/LanguageContext";
 
 export function Navbar() {
+  const { language, setLanguage, t } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
@@ -18,12 +20,16 @@ export function Navbar() {
   }, []);
 
   const navLinks = [
-    { name: "La Finca", href: "#finca" },
-    { name: "Experiencias", href: "#experiencias" },
-    { name: "Testimonios", href: "#testimonios" },
-    { name: "Habitaciones", href: "#habitaciones" },
-    { name: "Ubicación", href: "#ubicacion" },
+    { name: t('nav.finca'), href: "#finca" },
+    { name: t('nav.experiences'), href: "#experiencias" },
+    { name: t('nav.testimonials'), href: "#testimonios" },
+    { name: t('nav.rooms'), href: "#habitaciones" },
+    { name: t('nav.location'), href: "#ubicacion" },
   ];
+
+  const toggleLanguage = () => {
+    setLanguage(language === 'es' ? 'en' : 'es');
+  };
 
   return (
     <nav
@@ -50,7 +56,7 @@ export function Navbar() {
           <Trees className={`w-6 h-6 mb-1 ${isScrolled ? "text-[#1a3c34]" : "text-[#9a7d45]"}`} />
           <span className={`text-xl font-serif italic tracking-tighter ${isScrolled ? "text-[#1a3c34]" : "text-white"
             }`}>
-            La Juana cerro tusa
+            {t('hero.title')} {t('hero.subtitle').toLowerCase()}
           </span>
         </Link>
 
@@ -67,15 +73,26 @@ export function Navbar() {
               </Link>
             ))}
           </div>
-          <a
-            href="https://wa.me/573210000000"
-            className={`px-6 py-2 border font-serif italic text-sm transition-all ${isScrolled
-              ? "border-[#1a3c34] text-[#1a3c34] hover:bg-[#1a3c34] hover:text-white"
-              : "border-white text-white hover:bg-white hover:text-[#1a3c34]"
-              }`}
-          >
-            Reservar
-          </a>
+
+          <div className="flex items-center gap-4">
+            <button
+              onClick={toggleLanguage}
+              className={`flex items-center gap-2 text-xs font-bold uppercase tracking-widest transition-all ${isScrolled ? "text-[#1a3c34]" : "text-white"} hover:opacity-70`}
+            >
+              <Globe className="w-4 h-4" />
+              {language === 'es' ? 'EN' : 'ES'}
+            </button>
+
+            <a
+              href="#habitaciones"
+              className={`px-6 py-2 border font-serif italic text-sm transition-all ${isScrolled
+                ? "border-[#1a3c34] text-[#1a3c34] hover:bg-[#1a3c34] hover:text-white"
+                : "border-white text-white hover:bg-white hover:text-[#1a3c34]"
+                }`}
+            >
+              {t('nav.reserve')}
+            </a>
+          </div>
         </div>
 
         <button
@@ -109,12 +126,24 @@ export function Navbar() {
                   {link.name}
                 </Link>
               ))}
-              <a
-                href="https://wa.me/573210000000"
-                className="btn-classic justify-center"
-              >
-                Reservar Ahora
-              </a>
+
+              <div className="flex flex-col gap-4 items-center">
+                <button
+                  onClick={toggleLanguage}
+                  className="flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-[#1a3c34]"
+                >
+                  <Globe className="w-5 h-5" />
+                  {language === 'es' ? 'English' : 'Español'}
+                </button>
+
+                <a
+                  href="#habitaciones"
+                  className="btn-classic justify-center w-full"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                >
+                  {t('nav.reserve')}
+                </a>
+              </div>
             </div>
           </motion.div>
         )}

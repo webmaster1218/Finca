@@ -7,7 +7,7 @@ const testimonials = [
     {
         name: "Familia Restrepo",
         location: "Medellín, CO",
-        text: "“Una experiencia que superó todas nuestras expectativas. La paz que se respira viendo el atardecer frente al Cerro Tusa no tiene precio. La casa es una joya colonial con todas las comodidades modernas.”",
+        text: "“Una experiencia que superó todas nuestras expectativas. La paz que se respira viendo el atardecer frente al Cerro Tusa no tiene precio. La casa es una joya arquitectónica con todas las comodidades modernas.”",
         rating: 5,
         image: "https://images.unsplash.com/photo-1511367461989-f85a21fda167?auto=format&fit=crop&q=80&w=400"
     },

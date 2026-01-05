@@ -1,7 +1,10 @@
+"use client";
+
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, Plus, Minus, X, Keyboard, ChevronLeft, ChevronRight } from "lucide-react";
 import { supabase } from "@/lib/supabase";
+import { useLanguage } from "@/context/LanguageContext";
 
 interface GuestCounts {
     adults: number;
@@ -16,6 +19,7 @@ interface OccupiedRange {
 }
 
 export function BookingCard() {
+    const { language, t } = useLanguage();
     const [isGuestOpen, setIsGuestOpen] = useState(false);
     const [isCalendarOpen, setIsCalendarOpen] = useState(false);
     const [guestCounts, setGuestCounts] = useState<GuestCounts>({
@@ -41,7 +45,16 @@ export function BookingCard() {
     const totalBasePrice = nights > 0 ? nights * pricePerNight : 0;
 
     const totalGuests = guestCounts.adults + guestCounts.children;
-    const guestLabel = `${totalGuests} huésped${totalGuests > 1 ? "s" : ""}${guestCounts.infants > 0 ? `, ${guestCounts.infants} bebé${guestCounts.infants > 1 ? "s" : ""}` : ""}${guestCounts.pets > 0 ? `, ${guestCounts.pets} mascota${guestCounts.pets > 1 ? "s" : ""}` : ""}`;
+
+    // Helper for labels
+    const getGuestLabel = () => {
+        const guests = `${totalGuests} ${totalGuests > 1 ? t('booking.guests_label') : t('booking.guest_label')}`;
+        const infants = guestCounts.infants > 0 ? `, ${guestCounts.infants} ${guestCounts.infants > 1 ? t('booking.infants_label') : t('booking.infant_label')}` : "";
+        const pets = guestCounts.pets > 0 ? `, ${guestCounts.pets} ${guestCounts.pets > 1 ? t('booking.pets_label') : t('booking.pet_label')}` : "";
+        return `${guests}${infants}${pets}`;
+    };
+
+    const guestLabel = getGuestLabel();
 
     useEffect(() => {
         async function fetchAvailability() {
@@ -129,7 +142,7 @@ export function BookingCard() {
 
     const formatDateLong = (date: Date) => {
         const options: Intl.DateTimeFormatOptions = { day: 'numeric', month: 'short', year: 'numeric' };
-        return date.toLocaleDateString('es-ES', options).replace('.', '');
+        return date.toLocaleDateString(language === 'es' ? 'es-ES' : 'en-US', options).replace('.', '');
     };
 
     const handleDateClick = (date: Date) => {
@@ -185,8 +198,8 @@ export function BookingCard() {
         <div className="bg-white rounded-xl shadow-[0_6px_16px_rgba(0,0,0,0.12)] border border-[#dddddd] p-6 w-full max-w-[400px] mx-auto sticky top-24">
             <div className="flex items-baseline justify-between mb-6">
                 <div>
-                    <span className="text-2xl font-bold text-[#222222]">$2.800.000 COP</span>
-                    <span className="text-[#222222] ml-1">noche</span>
+                    <span className="text-2xl font-bold text-[#222222]">{t('booking.price')}</span>
+                    <span className="text-[#222222] ml-1">{t('booking.night')}</span>
                 </div>
             </div>
 
@@ -196,14 +209,14 @@ export function BookingCard() {
                         onClick={() => { setIsCalendarOpen(true); setSelecting('checkIn'); setIsGuestOpen(false); }}
                         className={`p-3 text-left hover:bg-gray-50 transition-colors border-r border-[#b0b0b0] ${selecting === 'checkIn' && isCalendarOpen ? 'ring-2 ring-black ring-inset z-10' : ''}`}
                     >
-                        <span className="block text-[10px] font-bold uppercase text-[#222222]">Llegada</span>
+                        <span className="block text-[10px] font-bold uppercase text-[#222222]">{t('booking.checkin')}</span>
                         <span className="text-sm text-[#222222]">{formatDateShort(checkIn)}</span>
                     </button>
                     <button
                         onClick={() => { setIsCalendarOpen(true); setSelecting('checkOut'); setIsGuestOpen(false); }}
                         className={`p-3 text-left hover:bg-gray-50 transition-colors ${selecting === 'checkOut' && isCalendarOpen ? 'ring-2 ring-black ring-inset z-10' : ''}`}
                     >
-                        <span className="block text-[10px] font-bold uppercase text-[#222222]">Salida</span>
+                        <span className="block text-[10px] font-bold uppercase text-[#222222]">{t('booking.checkout')}</span>
                         <span className="text-sm text-[#222222]">{formatDateShort(checkOut)}</span>
                     </button>
                 </div>
@@ -219,7 +232,7 @@ export function BookingCard() {
                         >
                             <div className="flex flex-col md:flex-row justify-between mb-8">
                                 <div>
-                                    <h2 className="text-2xl font-semibold mb-1">{nights} noches</h2>
+                                    <h2 className="text-2xl font-semibold mb-1">{nights} {nights === 1 ? t('booking.night_single') : t('booking.nights')}</h2>
                                     <p className="text-sm text-[#717171]">{formatDateLong(checkIn)} - {formatDateLong(checkOut)}</p>
                                 </div>
                                 <div className="mt-4 md:mt-0 flex items-center border border-[#dddddd] rounded-xl overflow-visible self-start relative">
@@ -228,7 +241,7 @@ export function BookingCard() {
                                         className={`p-2 px-4 flex flex-col transition-all relative ${selecting === 'checkIn' ? 'bg-white ring-2 ring-black rounded-xl z-20' : 'bg-gray-50'}`}
                                         onClick={() => setSelecting('checkIn')}
                                     >
-                                        <span className="text-[10px] font-bold uppercase cursor-default">Llegada</span>
+                                        <span className="text-[10px] font-bold uppercase cursor-default">{t('booking.checkin')}</span>
                                         <div className="flex items-center gap-2">
                                             <input
                                                 type="text"
@@ -260,7 +273,7 @@ export function BookingCard() {
                                         className={`p-2 px-4 flex flex-col transition-all relative ${selecting === 'checkOut' ? 'bg-white ring-2 ring-black rounded-xl z-20' : 'bg-gray-50 border-l border-[#dddddd]'}`}
                                         onClick={() => setSelecting('checkOut')}
                                     >
-                                        <span className="text-[10px] font-bold uppercase cursor-default">Salida</span>
+                                        <span className="text-[10px] font-bold uppercase cursor-default">{t('booking.checkout')}</span>
                                         <div className="flex items-center gap-2">
                                             <input
                                                 type="text"
@@ -318,6 +331,7 @@ export function BookingCard() {
                                         checkIn={checkIn}
                                         checkOut={checkOut}
                                         isDateOccupied={isDateOccupied}
+                                        language={language}
                                     />
                                     <CalendarMonth
                                         month={viewMonth + 1}
@@ -326,6 +340,7 @@ export function BookingCard() {
                                         checkIn={checkIn}
                                         checkOut={checkOut}
                                         isDateOccupied={isDateOccupied}
+                                        language={language}
                                     />
                                 </div>
                             </div>
@@ -334,13 +349,13 @@ export function BookingCard() {
                                 <div className="flex items-center gap-4">
                                     <div className="flex items-center gap-2">
                                         <div className="w-4 h-4 rounded-full border border-black" />
-                                        <span className="text-[10px] uppercase font-bold">Disponible</span>
+                                        <span className="text-[10px] uppercase font-bold">{language === 'es' ? 'Disponible' : 'Available'}</span>
                                     </div>
                                     <div className="flex items-center gap-2">
                                         <div className="w-4 h-4 rounded-full bg-white border border-[#ebebeb] flex items-center justify-center overflow-hidden">
                                             <div className="w-full h-[1px] bg-[#ebebeb] rotate-45" />
                                         </div>
-                                        <span className="text-[10px] uppercase font-bold text-[#717171]">Ocupado</span>
+                                        <span className="text-[10px] uppercase font-bold text-[#717171]">{language === 'es' ? 'Ocupado' : 'Occupied'}</span>
                                     </div>
                                 </div>
                                 <div className="flex gap-4 items-center">
@@ -354,13 +369,13 @@ export function BookingCard() {
                                         }}
                                         className="text-sm font-semibold underline"
                                     >
-                                        Borrar fechas
+                                        {language === 'es' ? 'Borrar fechas' : 'Clear dates'}
                                     </button>
                                     <button
                                         onClick={() => setIsCalendarOpen(false)}
                                         className="bg-[#222222] text-white px-6 py-2.5 rounded-lg font-bold text-sm hover:bg-black transition-colors"
                                     >
-                                        Cierra
+                                        {language === 'es' ? 'Cerrar' : 'Close'}
                                     </button>
                                 </div>
                             </div>
@@ -374,7 +389,7 @@ export function BookingCard() {
                         className={`w-full p-3 text-left hover:bg-gray-50 transition-colors flex items-center justify-between ${isGuestOpen ? 'ring-2 ring-black ring-inset z-10' : ''}`}
                     >
                         <div>
-                            <span className="block text-[10px] font-bold uppercase text-[#222222]">Huéspedes</span>
+                            <span className="block text-[10px] font-bold uppercase text-[#222222]">{t('booking.guests')}</span>
                             <span className="text-sm text-[#222222] line-clamp-1">{guestLabel}</span>
                         </div>
                         <ChevronDown className={`w-5 h-5 transition-transform duration-300 ${isGuestOpen ? 'rotate-180' : ''}`} />
@@ -389,39 +404,41 @@ export function BookingCard() {
                                 className="absolute top-full left-0 right-0 mt-2 bg-white border border-[#dddddd] rounded-lg shadow-xl z-50 p-4 space-y-4"
                             >
                                 <GuestRow
-                                    label="Adultos"
-                                    sub="Edad 13 o más"
+                                    label={language === 'es' ? 'Adultos' : 'Adults'}
+                                    sub={language === 'es' ? 'Edad 13 o más' : 'Ages 13 or above'}
                                     count={guestCounts.adults}
                                     onUpdate={(d) => updateCount('adults', d)}
                                     min={1}
                                 />
                                 <GuestRow
-                                    label="Niños"
-                                    sub="De 2 a 12 años"
+                                    label={language === 'es' ? 'Niños' : 'Children'}
+                                    sub={language === 'es' ? 'De 2 a 12 años' : 'Ages 2-12'}
                                     count={guestCounts.children}
                                     onUpdate={(d) => updateCount('children', d)}
                                 />
                                 <GuestRow
-                                    label="Bebés"
-                                    sub="Menos de 2 años"
+                                    label={language === 'es' ? 'Bebés' : 'Infants'}
+                                    sub={language === 'es' ? 'Menos de 2 años' : 'Under 2'}
                                     count={guestCounts.infants}
                                     onUpdate={(d) => updateCount('infants', d)}
                                 />
                                 <GuestRow
-                                    label="Mascotas"
-                                    sub="¿Traes un animal de servicio?"
+                                    label={language === 'es' ? 'Mascotas' : 'Pets'}
+                                    sub={language === 'es' ? '¿Traes un animal de servicio?' : 'Bringing a service animal?'}
                                     count={guestCounts.pets}
                                     onUpdate={(d) => updateCount('pets', d)}
                                 />
                                 <p className="text-[12px] text-[#717171] leading-tight">
-                                    Este alojamiento tiene una capacidad máxima de 16 huéspedes, sin contar bebés.
+                                    {language === 'es'
+                                        ? 'Este alojamiento tiene una capacidad máxima de 16 huéspedes, sin contar bebés.'
+                                        : 'This home has a maximum capacity of 16 guests, excluding infants.'}
                                 </p>
                                 <div className="flex justify-end pt-2">
                                     <button
                                         onClick={() => setIsGuestOpen(false)}
                                         className="text-sm font-semibold underline hover:bg-gray-100 px-3 py-2 rounded-lg transition-colors"
                                     >
-                                        Cerrar
+                                        {language === 'es' ? 'Cerrar' : 'Close'}
                                     </button>
                                 </div>
                             </motion.div>
@@ -440,27 +457,27 @@ export function BookingCard() {
                         <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
                         </svg>
-                        Reserva hecha
+                        {t('booking.button.done')}
                     </>
                 ) : (
-                    'Reserva'
+                    t('booking.button')
                 )}
             </button>
 
-            <p className="text-center text-[#222222] text-sm mb-4">No se hará ningún cargo por el momento</p>
+            <p className="text-center text-[#222222] text-sm mb-4">{t('booking.no_charge')}</p>
 
             <div className="space-y-3 pt-4 border-t border-[#dddddd]">
                 <div className="flex justify-between text-[#222222]">
-                    <span className="underline">$2.800.000 COP x {nights} noche{nights > 1 ? 's' : ''}</span>
-                    <span>${totalBasePrice.toLocaleString('es-CO')} COP</span>
+                    <span className="underline">{t('booking.price')} x {nights} {nights === 1 ? t('booking.night_single') : t('booking.nights')}</span>
+                    <span>${totalBasePrice.toLocaleString(language === 'es' ? 'es-CO' : 'en-US')} COP</span>
                 </div>
                 <div className="flex justify-between text-[#222222]">
-                    <span className="underline">Tarifa de servicio</span>
+                    <span className="underline">{t('booking.service_fee')}</span>
                     <span>$0 COP</span>
                 </div>
                 <div className="flex justify-between font-bold text-[#222222] pt-3 border-t border-[#f0f0f0]">
-                    <span>Total</span>
-                    <span>${totalBasePrice.toLocaleString('es-CO')} COP</span>
+                    <span>{t('booking.total')}</span>
+                    <span>${totalBasePrice.toLocaleString(language === 'es' ? 'es-CO' : 'en-US')} COP</span>
                 </div>
             </div>
         </div>
@@ -494,7 +511,7 @@ function GuestRow({ label, sub, count, onUpdate, min = 0 }: { label: string, sub
     );
 }
 
-function CalendarMonth({ month, year, onDateSelect, checkIn, checkOut, isDateOccupied }: { month: number, year: number, onDateSelect: (d: Date) => void, checkIn: Date, checkOut: Date, isDateOccupied: (d: Date) => boolean }) {
+function CalendarMonth({ month, year, onDateSelect, checkIn, checkOut, isDateOccupied, language }: { month: number, year: number, onDateSelect: (d: Date) => void, checkIn: Date, checkOut: Date, isDateOccupied: (d: Date) => boolean, language: string }) {
     const today = new Date();
     today.setHours(0, 0, 0, 0);
 
@@ -507,14 +524,14 @@ function CalendarMonth({ month, year, onDateSelect, checkIn, checkOut, isDateOcc
     for (let i = 0; i < startOffset; i++) days.push(null);
     for (let i = 1; i <= daysInMonth; i++) days.push(new Date(year, month, i));
 
-    const dayLabels = ['L', 'Ma', 'Mi', 'J', 'V', 'S', 'D'];
-    const monthName = new Date(year, month).toLocaleDateString('es-ES', { month: 'long', year: 'numeric' });
+    const dayLabels = language === 'es' ? ['L', 'Ma', 'Mi', 'J', 'V', 'S', 'D'] : ['M', 'T', 'W', 'T', 'F', 'S', 'S'];
+    const monthName = new Date(year, month).toLocaleDateString(language === 'es' ? 'es-ES' : 'en-US', { month: 'long', year: 'numeric' });
 
     return (
         <div className="flex-1 min-w-[300px]">
             <h3 className="font-bold mb-6 text-center capitalize">{monthName}</h3>
             <div className="grid grid-cols-7 gap-y-1 text-center text-xs mb-4">
-                {dayLabels.map(l => <span key={l} className="text-[#717171] font-bold">{l}</span>)}
+                {dayLabels.map((l, idx) => <span key={`${l}-${idx}`} className="text-[#717171] font-bold">{l}</span>)}
             </div>
             <div className="grid grid-cols-7 gap-y-1 relative">
                 {days.map((date, i) => {

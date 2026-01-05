@@ -1,19 +1,24 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { User, Bed, Waves, Speaker, Bath, Home, Car, Droplets } from "lucide-react";
+import { User, Bed, Waves, Speaker, Bath, Home, Car, Droplets, Flame, Wifi } from "lucide-react";
 import { BookingCard } from "./BookingCard";
+import { useLanguage } from "@/context/LanguageContext";
 
 export function Rooms() {
+    const { t } = useLanguage();
+
     const specs = [
-        { label: "6 Habitaciones", icon: <Home className="w-5 h-5" /> },
-        { label: "8 Camas", icon: <Bed className="w-5 h-5" /> },
-        { label: "6 Baños", icon: <Bath className="w-5 h-5" /> },
-        { label: "16 Personas", icon: <User className="w-5 h-5" /> },
-        { label: "Piscina - Jacuzzi - Turco", icon: <Waves className="w-5 h-5" /> },
-        { label: "Agua Potable", icon: <Droplets className="w-5 h-5" /> },
-        { label: "Párking Cubierto", icon: <Car className="w-5 h-5" /> },
-        { label: "Kiosco", icon: <Home className="w-5 h-5" /> },
+        { label: t('amenity.rooms'), icon: <Home className="w-5 h-5" /> },
+        { label: t('amenity.beds'), icon: <Bed className="w-5 h-5" /> },
+        { label: t('amenity.baths'), icon: <Bath className="w-5 h-5" /> },
+        { label: t('amenity.people'), icon: <User className="w-5 h-5" /> },
+        { label: t('amenity.pool'), icon: <Waves className="w-5 h-5" /> },
+        { label: t('amenity.water'), icon: <Droplets className="w-5 h-5" /> },
+        { label: t('amenity.parking'), icon: <Car className="w-5 h-5" /> },
+        { label: t('amenity.firepit'), icon: <Flame className="w-5 h-5" /> },
+        { label: t('amenity.wifi'), icon: <Wifi className="w-5 h-5" /> },
+        { label: t('amenity.kiosk'), icon: <Home className="w-5 h-5" /> },
     ];
 
     return (
@@ -26,14 +31,14 @@ export function Rooms() {
                         whileInView={{ opacity: 1, y: 0 }}
                         className="text-[#9a7d45] font-serif tracking-[0.4em] text-xs md:text-sm mb-6 uppercase"
                     >
-                        Exclusividad Total
+                        {t('rooms.tag')}
                     </motion.p>
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         className="text-4xl md:text-7xl font-serif text-[#1a3c34] mb-8"
                     >
-                        Alquiler de Finca Completa
+                        {t('rooms.title')}
                     </motion.h2>
                     <motion.div
                         initial={{ width: 0 }}
@@ -50,13 +55,15 @@ export function Rooms() {
                         className="space-y-12"
                     >
                         <div className="space-y-6">
-                            <h3 className="text-3xl md:text-5xl font-serif text-[#1a3c34] leading-tight">
-                                Alquila tu finca ya para una <br /> experiencia inolvidable <br /> junto a cerro tusa
-                            </h3>
+                            <h3
+                                className="text-3xl md:text-5xl font-serif text-[#1a3c34] leading-tight"
+                                dangerouslySetInnerHTML={{ __html: t('rooms.desc.title').replace('invonvidable', 'inolvidable').replace(/\n/g, '<br />') }}
+                            />
                             <div className="w-16 h-[1px] bg-[#9a7d45]" />
-                            <p className="text-slate-600 leading-relaxed font-serif text-lg max-w-xl">
-                                Disfruta de <span className="text-[#9a7d45] font-bold">2 camareras</span> dedicadas a su confort y un <span className="text-[#9a7d45] font-bold">mayordomo</span> a su servicio. Seguridad, privacidad y naturaleza en un solo lugar.
-                            </p>
+                            <p
+                                className="text-slate-600 leading-relaxed font-serif text-lg max-w-xl"
+                                dangerouslySetInnerHTML={{ __html: t('rooms.staff') }}
+                            />
                         </div>
 
                         {/* Amenities Grid */}

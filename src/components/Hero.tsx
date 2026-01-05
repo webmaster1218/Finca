@@ -1,9 +1,11 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { MapPin } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export function Hero() {
+    const { t } = useLanguage();
+
     return (
         <section className="relative h-screen w-full flex items-center justify-center overflow-hidden">
             {/* Immersive Background */}
@@ -24,10 +26,10 @@ export function Hero() {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 1 }}
-                    className="flex items-center justify-center gap-2 mb-ñ8"
+                    className="flex items-center justify-center gap-2 mb-8"
                 >
                     <span className="text-white/80 font-serif tracking-[0.2em] text-sm uppercase">
-                        Venecia, Antioquia
+                        {t('hero.location')}
                     </span>
                 </motion.div>
 
@@ -37,8 +39,8 @@ export function Hero() {
                     transition={{ duration: 1.5, delay: 0.3 }}
                     className="text-5xl md:text-8xl font-serif text-white mb-8 tracking-normal leading-tight"
                 >
-                    Hospitalidad de <br />
-                    <span className="font-normal text-white/90">Gran Tradición</span>
+                    {t('hero.title_part1')} <br />
+                    <span className="font-normal text-white/90">{t('hero.title_part2')}</span>
                 </motion.h1>
 
                 <motion.div
@@ -54,8 +56,7 @@ export function Hero() {
                     transition={{ duration: 1, delay: 1.2 }}
                     className="text-lg md:text-xl text-white/90 mb-12 max-w-xl mx-auto font-serif leading-relaxed"
                 >
-                    Donde las nubes abrazan los cafetales y el tiempo se detiene
-                    para honrar nuestras raíces.
+                    {t('hero.subtitle_long')}
                 </motion.p>
 
                 <motion.div
@@ -64,9 +65,12 @@ export function Hero() {
                     transition={{ duration: 1, delay: 1.5 }}
                     className="flex justify-center"
                 >
-                    <button className="px-10 py-3 bg-white text-[#1a3c34] rounded-none font-serif tracking-wide transition-all duration-300 hover:bg-[#fdfaf6] border border-white/30 shadow-xl flex items-center gap-3">
-                        Descubrir la Experiencia
-                    </button>
+                    <a
+                        href="#experiencias"
+                        className="px-10 py-3 bg-white text-[#1a3c34] rounded-none font-serif tracking-wide transition-all duration-300 hover:bg-[#fdfaf6] border border-white/30 shadow-xl flex items-center gap-3"
+                    >
+                        {t('hero.cta')}
+                    </a>
                 </motion.div>
             </div>
         </section>

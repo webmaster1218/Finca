@@ -2,8 +2,11 @@
 
 import { motion } from "framer-motion";
 import { MapPin, Navigation } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 export function Location() {
+    const { t } = useLanguage();
+
     return (
         <section id="ubicacion" className="py-24 md:py-32 px-6 relative overflow-hidden">
             {/* Background Image for the whole section */}
@@ -26,14 +29,14 @@ export function Location() {
                         whileInView={{ opacity: 1 }}
                         className="text-[#9a7d45] font-serif tracking-[0.4em] text-xs mb-6 uppercase"
                     >
-                        Encuéntranos
+                        {t('location.tag')}
                     </motion.p>
                     <motion.h2
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         className="text-4xl md:text-6xl font-serif text-white mb-8"
                     >
-                        Nuestra Ubicación
+                        {t('location.title')}
                     </motion.h2>
                     <div className="flex items-center justify-center gap-4">
                         <div className="w-12 h-[1px] bg-[#9a7d45]/30" />
@@ -51,22 +54,21 @@ export function Location() {
                     >
                         <div className="p-10 bg-white shadow-2xl border-l-4 border-[#9a7d45] relative overflow-hidden text-[#1a3c34]">
                             <div className="relative z-10">
-                                <h3 className="text-2xl font-serif text-[#1a3c34] mb-6">Visítanos</h3>
+                                <h3 className="text-2xl font-serif text-[#1a3c34] mb-6">{t('location.visit')}</h3>
                                 <div className="space-y-6 text-[#1a3c34]/80 font-serif">
                                     <div className="flex gap-4">
                                         <MapPin className="w-6 h-6 text-[#9a7d45] shrink-0" />
                                         <div>
-                                            <p className="font-bold text-[#1a3c34]">Dirección</p>
-                                            <p>Venecia, Antioquia</p>
-                                            <p>Parcelación Rochiles</p>
+                                            <p className="font-bold text-[#1a3c34]">{t('location.address_label')}</p>
+                                            <p>{t('hero.location')}</p>
+                                            <p>{t('location.parcelacion')}</p>
                                         </div>
                                     </div>
                                     <div className="flex gap-4">
                                         <Navigation className="w-6 h-6 text-[#9a7d45] shrink-0" />
                                         <div>
-                                            <p className="font-bold text-[#1a3c34]">Referencia</p>
-                                            <p className="text-sm">A 1.5Km del
-                                                Parque Comfama cerró tusa</p>
+                                            <p className="font-bold text-[#1a3c34]">{t('location.ref_label')}</p>
+                                            <p className="text-sm">{t('location.ref_val')}</p>
                                         </div>
                                     </div>
                                 </div>
@@ -78,7 +80,7 @@ export function Location() {
                                         rel="noopener noreferrer"
                                         className="inline-flex items-center gap-3 px-8 py-4 bg-[#1a3c34] text-white font-serif hover:bg-[#9a7d45] transition-all duration-500 group"
                                     >
-                                        VER EN GOOGLE MAPS
+                                        {t('location.google_btn')}
                                         <Navigation className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                                     </a>
                                 </div>
