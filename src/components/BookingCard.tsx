@@ -1,14 +1,18 @@
-"use client";
-
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, Plus, Minus, X, Keyboard, ChevronLeft, ChevronRight } from "lucide-react";
+import { supabase } from "@/lib/supabase";
 
 interface GuestCounts {
     adults: number;
     children: number;
     infants: number;
     pets: number;
+}
+
+interface OccupiedRange {
+    start: Date;
+    end: Date;
 }
 
 export function BookingCard() {
@@ -21,10 +25,11 @@ export function BookingCard() {
         pets: 0
     });
 
-    // Default dates: Feb 2, 2026 and Feb 5, 2026 (matching reference image)
     const [checkIn, setCheckIn] = useState<Date>(new Date(2026, 1, 2));
     const [checkOut, setCheckOut] = useState<Date>(new Date(2026, 1, 5));
     const [selecting, setSelecting] = useState<'checkIn' | 'checkOut'>('checkIn');
+    const [occupiedDates, setOccupiedDates] = useState<OccupiedRange[]>([]);
+    const [isLoadingDays, setIsLoadingDays] = useState(true);
 
     const dropdownRef = useRef<HTMLDivElement>(null);
     const calendarRef = useRef<HTMLDivElement>(null);
@@ -37,17 +42,63 @@ export function BookingCard() {
     const guestLabel = `${totalGuests} huésped${totalGuests > 1 ? "s" : ""}${guestCounts.infants > 0 ? `, ${guestCounts.infants} bebé${guestCounts.infants > 1 ? "s" : ""}` : ""}${guestCounts.pets > 0 ? `, ${guestCounts.pets} mascota${guestCounts.pets > 1 ? "s" : ""}` : ""}`;
 
     useEffect(() => {
+        async function fetchAvailability() {
+            try {
+                const response = await fetch('/api/calendar/airbnb');
+                if (!response.ok) throw new Error('API Error');
+                const text = await response.text();
+
+                // Simple iCal parser for VEVENT components
+                const events: OccupiedRange[] = [];
+                const lines = text.split(/\r?\n/);
+                let currentEvent: any = null;
+
+                for (const line of lines) {
+                    if (line.startsWith('BEGIN:VEVENT')) {
+                        currentEvent = {};
+                    } else if (line.startsWith('END:VEVENT')) {
+                        if (currentEvent.start && currentEvent.end) {
+                            events.push({ start: currentEvent.start, end: currentEvent.end });
+                        }
+                        currentEvent = null;
+                    } else if (currentEvent) {
+                        if (line.startsWith('DTSTART')) {
+                            const val = line.split(':')[1];
+                            currentEvent.start = parseICalDate(val);
+                        } else if (line.startsWith('DTEND')) {
+                            const val = line.split(':')[1];
+                            currentEvent.end = parseICalDate(val);
+                        }
+                    }
+                }
+                setOccupiedDates(events);
+            } catch (error) {
+                console.error('Failed to load availability:', error);
+            } finally {
+                setIsLoadingDays(false);
+            }
+        }
+        fetchAvailability();
+
         function handleClickOutside(event: MouseEvent) {
             if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
                 setIsGuestOpen(false);
-            }
-            if (calendarRef.current && !calendarRef.current.contains(event.target as Node)) {
-                // Keep it open if clicking inside the popover handled by Framer Motion / container
             }
         }
         document.addEventListener("mousedown", handleClickOutside);
         return () => document.removeEventListener("mousedown", handleClickOutside);
     }, []);
+
+    const parseICalDate = (str: string) => {
+        const y = parseInt(str.substring(0, 4));
+        const m = parseInt(str.substring(4, 6)) - 1;
+        const d = parseInt(str.substring(6, 8));
+        return new Date(y, m, d);
+    };
+
+    const isDateOccupied = (date: Date) => {
+        return occupiedDates.some(range => date >= range.start && date < range.end);
+    };
 
     const updateCount = (type: keyof GuestCounts, delta: number) => {
         setGuestCounts(prev => {
@@ -73,6 +124,8 @@ export function BookingCard() {
     };
 
     const handleDateClick = (date: Date) => {
+        if (isDateOccupied(date)) return;
+
         if (selecting === 'checkIn') {
             setCheckIn(date);
             setSelecting('checkOut');
@@ -93,6 +146,26 @@ export function BookingCard() {
     };
 
     const [viewMonth, setViewMonth] = useState(1); // Default to February as in image
+
+    const handleReserva = async () => {
+        try {
+            // 1. Guardar en Supabase para sincronizar con Airbnb
+            const { error } = await supabase.from('bookings').insert({
+                check_in: checkIn.toISOString().split('T')[0],
+                check_out: checkOut.toISOString().split('T')[0],
+                guest_count: totalGuests,
+                source: 'website'
+            });
+
+            if (error) console.error('Error saving booking:', error);
+
+            // 2. Redirigir a WhatsApp
+            const message = `¡Hola! Quiero reservar la finca.\nLlegada: ${formatDateShort(checkIn)}\nSalida: ${formatDateShort(checkOut)}\nHuéspedes: ${totalGuests}`;
+            window.open(`https://wa.me/573210000000?text=${encodeURIComponent(message)}`, '_blank');
+        } catch (err) {
+            console.error('System error:', err);
+        }
+    };
 
     return (
         <div className="bg-white rounded-xl shadow-[0_6px_16px_rgba(0,0,0,0.12)] border border-[#dddddd] p-6 w-full max-w-[400px] mx-auto sticky top-24">
@@ -170,6 +243,7 @@ export function BookingCard() {
                                         onDateSelect={handleDateClick}
                                         checkIn={checkIn}
                                         checkOut={checkOut}
+                                        isDateOccupied={isDateOccupied}
                                     />
                                     <CalendarMonth
                                         month={viewMonth + 1}
@@ -177,14 +251,22 @@ export function BookingCard() {
                                         onDateSelect={handleDateClick}
                                         checkIn={checkIn}
                                         checkOut={checkOut}
+                                        isDateOccupied={isDateOccupied}
                                     />
                                 </div>
                             </div>
 
                             <div className="flex justify-between items-center mt-8 pt-4 border-t border-[#f0f0f0]">
-                                <button className="p-2 hover:bg-gray-100 rounded-full">
-                                    <Keyboard className="w-5 h-5" />
-                                </button>
+                                <div className="flex items-center gap-4">
+                                    <div className="flex items-center gap-2">
+                                        <div className="w-4 h-4 rounded-full border border-black" />
+                                        <span className="text-[10px] uppercase font-bold">Disponible</span>
+                                    </div>
+                                    <div className="flex items-center gap-2">
+                                        <div className="w-4 h-4 rounded-full bg-orange-100 border border-orange-200" />
+                                        <span className="text-[10px] uppercase font-bold text-orange-600">Ocupado</span>
+                                    </div>
+                                </div>
                                 <div className="flex gap-4 items-center">
                                     <button
                                         onClick={() => {
@@ -273,11 +355,8 @@ export function BookingCard() {
             </div>
 
             <button
-                onClick={() => {
-                    const message = `Hola! Quiero reservar la finca.\nLlegada: ${formatDateShort(checkIn)}\nSalida: ${formatDateShort(checkOut)}\nHuéspedes: ${totalGuests}`;
-                    window.open(`https://wa.me/573210000000?text=${encodeURIComponent(message)}`, '_blank');
-                }}
-                className="w-full py-3.5 bg-[#E31C5F] hover:bg-[#D70466] text-white font-semibold rounded-lg transition-colors mb-4 text-lg"
+                onClick={handleReserva}
+                className="w-full py-3.5 bg-[#E31C5F] hover:bg-[#D70466] text-white font-semibold rounded-lg transition-colors mb-4 text-lg shadow-lg active:scale-[0.98]"
             >
                 Reserva
             </button>
@@ -329,7 +408,7 @@ function GuestRow({ label, sub, count, onUpdate, min = 0 }: { label: string, sub
     );
 }
 
-function CalendarMonth({ month, year, onDateSelect, checkIn, checkOut }: { month: number, year: number, onDateSelect: (d: Date) => void, checkIn: Date, checkOut: Date }) {
+function CalendarMonth({ month, year, onDateSelect, checkIn, checkOut, isDateOccupied }: { month: number, year: number, onDateSelect: (d: Date) => void, checkIn: Date, checkOut: Date, isDateOccupied: (d: Date) => boolean }) {
     const today = new Date();
     today.setHours(0, 0, 0, 0);
 
@@ -360,16 +439,19 @@ function CalendarMonth({ month, year, onDateSelect, checkIn, checkOut }: { month
                     const isSelected = isCheckIn || isCheckOut;
                     const isInRange = date > checkIn && date < checkOut;
                     const isPast = date < today;
+                    const isOccupied = isDateOccupied(date);
 
                     return (
                         <div key={date.getTime()} className={`relative h-12 flex items-center justify-center ${isInRange ? 'bg-[#f7f7f7]' : ''} ${isCheckIn && checkOut > checkIn ? 'rounded-l-full bg-gradient-to-r from-transparent to-[#f7f7f7]' : ''} ${isCheckOut ? 'rounded-r-full bg-gradient-to-l from-transparent to-[#f7f7f7]' : ''}`}>
                             <button
-                                disabled={isPast}
+                                disabled={isPast || isOccupied}
                                 onClick={() => onDateSelect(date)}
                                 className={`
                                     h-11 w-11 flex items-center justify-center rounded-full text-sm transition-all z-10 font-medium
-                                    ${isSelected ? 'bg-[#222222] text-white shadow-lg' : 'hover:border hover:border-black'}
-                                    ${isPast ? 'text-[#ebebeb] cursor-not-allowed line-through' : 'text-[#222222]'}
+                                    ${isSelected ? 'bg-[#222222] text-white shadow-lg' : ''}
+                                    ${isOccupied ? 'bg-orange-50 text-orange-200 cursor-not-allowed line-through' : ''}
+                                    ${!isSelected && !isOccupied ? 'hover:border hover:border-black' : ''}
+                                    ${isPast ? 'text-[#ebebeb] cursor-not-allowed line-through' : (isOccupied ? 'text-orange-200' : 'text-[#222222]')}
                                 `}
                             >
                                 {date.getDate()}

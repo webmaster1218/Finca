@@ -51,7 +51,7 @@ export function Rooms() {
                     >
                         <div className="space-y-6">
                             <h3 className="text-3xl md:text-5xl font-serif text-[#1a3c34] leading-tight">
-                                El espacio perfecto para <br /> momentos inolvidables
+                                Alquila tu finca ya para una <br /> experiencia inolvidable <br /> junto a cerro tusa
                             </h3>
                             <div className="w-16 h-[1px] bg-[#9a7d45]" />
                             <p className="text-slate-600 leading-relaxed font-serif text-lg max-w-xl">

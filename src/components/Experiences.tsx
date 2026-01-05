@@ -44,7 +44,7 @@ export function Experiences() {
                 }}
             />
             {/* Dynamic Overlays for Readability and Depth */}
-            <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/50 z-[1]" />
+            <div className="absolute inset-0 bg-[#1a3c34]/60 z-[1]" />
 
             <div className="max-w-7xl mx-auto relative z-10">
                 <div className="text-center mb-20">
@@ -87,7 +87,7 @@ export function Experiences() {
                             />
 
                             {/* Gradient Overlay */}
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-60 group-hover:opacity-80 transition-opacity duration-500" />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
 
                             {/* Content */}
                             <div className="absolute inset-x-0 bottom-0 p-8 text-center text-white">
