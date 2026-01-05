@@ -73,7 +73,7 @@ export function Location() {
 
                                 <div className="mt-10 pt-10 border-t border-stone-100">
                                     <a
-                                        href="https://maps.google.com/?q=Fredonia,Antioquia,Vía Cerro Tusa"
+                                        href="https://www.google.com/maps?q=Parcelacion+Rochiles+Venecia+Antioquia"
                                         target="_blank"
                                         rel="noopener noreferrer"
                                         className="inline-flex items-center gap-3 px-8 py-4 bg-[#1a3c34] text-white font-serif hover:bg-[#9a7d45] transition-all duration-500 group"
@@ -93,7 +93,7 @@ export function Location() {
                         className="lg:col-span-8 h-[450px] md:h-[600px] w-full shadow-2xl relative order-1 lg:order-2"
                     >
                         <iframe
-                            src="https://maps.google.com/maps?q=Cerro%20Tusa,%20Fredonia,%20Antioquia&t=&z=14&ie=UTF8&iwloc=&output=embed"
+                            src="https://maps.google.com/maps?q=Parcelacion%20Rochiles,%20Venecia,%20Antioquia&t=&z=16&ie=UTF8&iwloc=&output=embed"
                             width="100%"
                             height="100%"
                             style={{ border: 0 }}

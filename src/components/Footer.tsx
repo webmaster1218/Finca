@@ -34,7 +34,7 @@ export function Footer() {
                             </li>
                             <li className="flex items-center gap-4 text-white/80">
                                 <Phone className="w-5 h-5 text-[#9a7d45]" />
-                                <a href="tel:+573210000000" className="hover:text-[#9a7d45] transition-colors">+57 321 000 0000</a>
+                                <a href="tel:+573196588185" className="hover:text-[#9a7d45] transition-colors">+57 319 658 8185</a>
                             </li>
                             <li className="flex items-center gap-4 text-white/80">
                                 <Mail className="w-5 h-5 text-[#9a7d45]" />
@@ -52,7 +52,7 @@ export function Footer() {
                             <li><a href="#testimonios" className="text-white/80 hover:text-[#9a7d45] transition-colors">Testimonios</a></li>
                             <li><a href="#finca" className="text-white/80 hover:text-[#9a7d45] transition-colors">La Finca</a></li>
                             <li><a href="#ubicacion" className="text-white/80 hover:text-[#9a7d45] transition-colors">Ubicación</a></li>
-                            <li><a href="https://wa.me/573210000000" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-[#9a7d45] transition-colors font-bold text-[#9a7d45]">Reservas</a></li>
+                            <li><a href="https://wa.me/573196588185" target="_blank" rel="noopener noreferrer" className="text-white/80 hover:text-[#9a7d45] transition-colors font-bold text-[#9a7d45]">Reservas</a></li>
                         </ul>
                     </div>
                 </div>

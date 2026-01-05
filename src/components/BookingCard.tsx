@@ -175,7 +175,7 @@ export function BookingCard() {
 
             // 3. Comentado por ahora para pruebas del sistema
             // const message = `¡Hola! Quiero reservar la finca.\nLlegada: ${formatDateShort(checkIn)}\nSalida: ${formatDateShort(checkOut)}\nHuéspedes: ${totalGuests}`;
-            // window.open(`https://wa.me/573210000000?text=${encodeURIComponent(message)}`, '_blank');
+            // window.open(`https://wa.me/573196588185?text=${encodeURIComponent(message)}`, '_blank');
         } catch (err) {
             console.error('System error:', err);
         }
