@@ -12,7 +12,7 @@ const galleryImages = [
     { url: "/imagenes/exterior/IMG_5106.webp", span: "md:col-span-2 md:row-span-2", title: "Fachada Colonial" },
     { url: "/imagenes/exterior/IMG_5121.webp", span: "md:col-span-1 md:row-span-1", title: "Naturaleza Viva" },
     { url: "/imagenes/habitaciones/IMG_5179.webp", span: "md:col-span-1 md:row-span-1", title: "Entornos de Paz" },
-    { url: "/imagenes/exterior/IMG_5133.webp", span: "md:col-span-1 md:row-span-1", title: "Cielos Fredonitas" },
+    { url: "/imagenes/exterior/IMG_5133.webp", span: "md:col-span-1 md:row-span-1", title: "Cielos de Venecia" },
 ];
 
 export function Gallery() {

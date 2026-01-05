@@ -27,7 +27,7 @@ export function Hero() {
                     className="flex items-center justify-center gap-2 mb-ñ8"
                 >
                     <span className="text-white/80 font-serif tracking-[0.2em] text-sm uppercase">
-                        Fredonia, Antioquia
+                        Venecia, Antioquia
                     </span>
                 </motion.div>
 

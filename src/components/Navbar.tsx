@@ -50,7 +50,7 @@ export function Navbar() {
           <Trees className={`w-6 h-6 mb-1 ${isScrolled ? "text-[#1a3c34]" : "text-[#9a7d45]"}`} />
           <span className={`text-xl font-serif italic tracking-tighter ${isScrolled ? "text-[#1a3c34]" : "text-white"
             }`}>
-            La Juana de cerro tusa
+            La Juana cerro tusa
           </span>
         </Link>
 

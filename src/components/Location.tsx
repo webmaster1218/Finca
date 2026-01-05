@@ -57,15 +57,16 @@ export function Location() {
                                         <MapPin className="w-6 h-6 text-[#9a7d45] shrink-0" />
                                         <div>
                                             <p className="font-bold text-[#1a3c34]">Dirección</p>
-                                            <p>Fredonia, Antioquia</p>
-                                            <p>Vía Cerro Tusa - Marsella</p>
+                                            <p>Venecia, Antioquia</p>
+                                            <p>Parcelación Rochiles</p>
                                         </div>
                                     </div>
                                     <div className="flex gap-4">
                                         <Navigation className="w-6 h-6 text-[#9a7d45] shrink-0" />
                                         <div>
                                             <p className="font-bold text-[#1a3c34]">Referencia</p>
-                                            <p className="text-sm">A pocos minutos de la imponente pirámide natural del Cerro Tusa.</p>
+                                            <p className="text-sm">A 1.5Km del
+                                                Parque Comfama cerró tusa</p>
                                         </div>
                                     </div>
                                 </div>

@@ -30,7 +30,7 @@ export function CerroTusaFeature() {
                     </p>
 
                     <a href="#finca" className="px-10 py-3 bg-white text-[#1a3c34] font-serif hover:bg-[#fdfaf6] transition-all inline-flex items-center gap-4 group border border-white/20 shadow-lg">
-                        Conocer más de Fredonia <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
+                        Conocer más de Venecia <ArrowRight className="w-5 h-5 group-hover:translate-x-2 transition-transform" />
                     </a>
                 </motion.div>
 

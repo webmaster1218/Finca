@@ -13,8 +13,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "La Juana de cerro tusa | Tradición y Lujo",
-  description: "Una experiencia clásica en las montañas de Fredonia, Antioquia.",
+  title: "La Juana cerro tusa | Tradición y Lujo",
+  description: "Una experiencia clásica en las montañas de Venecia, Antioquia.",
 };
 
 export default function RootLayout({

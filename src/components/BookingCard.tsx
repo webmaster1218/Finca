@@ -30,6 +30,8 @@ export function BookingCard() {
     const [selecting, setSelecting] = useState<'checkIn' | 'checkOut'>('checkIn');
     const [occupiedDates, setOccupiedDates] = useState<OccupiedRange[]>([]);
     const [isLoadingDays, setIsLoadingDays] = useState(true);
+    const [viewMonth, setViewMonth] = useState(1); // Default to February as in image
+    const [isBooked, setIsBooked] = useState(false);
 
     const dropdownRef = useRef<HTMLDivElement>(null);
     const calendarRef = useRef<HTMLDivElement>(null);
@@ -83,6 +85,13 @@ export function BookingCard() {
         function handleClickOutside(event: MouseEvent) {
             if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
                 setIsGuestOpen(false);
+            }
+            if (calendarRef.current && !calendarRef.current.contains(event.target as Node)) {
+                // Check if the click was NOT on the inputs that trigger the calendar
+                const isInputClick = (event.target as HTMLElement).closest('button[onClick*="setIsCalendarOpen"]');
+                if (!isInputClick) {
+                    setIsCalendarOpen(false);
+                }
             }
         }
         document.addEventListener("mousedown", handleClickOutside);
@@ -145,8 +154,6 @@ export function BookingCard() {
         }
     };
 
-    const [viewMonth, setViewMonth] = useState(1); // Default to February as in image
-
     const handleReserva = async () => {
         try {
             // 1. Guardar en Supabase para sincronizar con Airbnb
@@ -157,11 +164,18 @@ export function BookingCard() {
                 source: 'website'
             });
 
-            if (error) console.error('Error saving booking:', error);
+            if (error) {
+                console.error('Error saving booking:', error);
+                return;
+            }
 
-            // 2. Redirigir a WhatsApp
-            const message = `¡Hola! Quiero reservar la finca.\nLlegada: ${formatDateShort(checkIn)}\nSalida: ${formatDateShort(checkOut)}\nHuéspedes: ${totalGuests}`;
-            window.open(`https://wa.me/573210000000?text=${encodeURIComponent(message)}`, '_blank');
+            // 2. Mostrar estado de éxito para pruebas
+            setIsBooked(true);
+            setTimeout(() => setIsBooked(false), 3000); // Reset after 3 seconds
+
+            // 3. Comentado por ahora para pruebas del sistema
+            // const message = `¡Hola! Quiero reservar la finca.\nLlegada: ${formatDateShort(checkIn)}\nSalida: ${formatDateShort(checkOut)}\nHuéspedes: ${totalGuests}`;
+            // window.open(`https://wa.me/573210000000?text=${encodeURIComponent(message)}`, '_blank');
         } catch (err) {
             console.error('System error:', err);
         }
@@ -208,14 +222,74 @@ export function BookingCard() {
                                     <h2 className="text-2xl font-semibold mb-1">{nights} noches</h2>
                                     <p className="text-sm text-[#717171]">{formatDateLong(checkIn)} - {formatDateLong(checkOut)}</p>
                                 </div>
-                                <div className="mt-4 md:mt-0 flex border border-black rounded-xl overflow-hidden self-start">
-                                    <div className={`p-2 px-4 border-r border-[#dddddd] flex flex-col ${selecting === 'checkIn' ? 'bg-white ring-2 ring-black' : 'bg-gray-100'}`}>
-                                        <span className="text-[10px] font-bold uppercase">Llegada</span>
-                                        <span className="text-sm font-semibold">{formatDateShort(checkIn)}</span>
+                                <div className="mt-4 md:mt-0 flex items-center border border-[#dddddd] rounded-xl overflow-visible self-start relative">
+                                    {/* Campo LLEGADA */}
+                                    <div
+                                        className={`p-2 px-4 flex flex-col transition-all relative ${selecting === 'checkIn' ? 'bg-white ring-2 ring-black rounded-xl z-20' : 'bg-gray-50'}`}
+                                        onClick={() => setSelecting('checkIn')}
+                                    >
+                                        <span className="text-[10px] font-bold uppercase cursor-default">Llegada</span>
+                                        <div className="flex items-center gap-2">
+                                            <input
+                                                type="text"
+                                                value={formatDateShort(checkIn)}
+                                                onChange={(e) => {
+                                                    const parts = e.target.value.split('/');
+                                                    if (parts.length === 3) {
+                                                        const d = parseInt(parts[0]), m = parseInt(parts[1]) - 1, y = parseInt(parts[2]);
+                                                        const date = new Date(y, m, d);
+                                                        if (!isNaN(date.getTime())) setCheckIn(date);
+                                                    }
+                                                }}
+                                                className="text-sm font-semibold bg-transparent border-none p-0 focus:outline-none w-20"
+                                            />
+                                            <button
+                                                onClick={(e) => {
+                                                    e.stopPropagation();
+                                                    setCheckIn(new Date());
+                                                }}
+                                                className="text-[#717171] hover:text-black"
+                                            >
+                                                <X className="w-3.5 h-3.5" />
+                                            </button>
+                                        </div>
                                     </div>
-                                    <div className={`p-2 px-4 flex flex-col ${selecting === 'checkOut' ? 'bg-white ring-2 ring-black' : 'bg-gray-100'}`}>
-                                        <span className="text-[10px] font-bold uppercase">Salida</span>
-                                        <span className="text-sm font-semibold">{formatDateShort(checkOut)}</span>
+
+                                    {/* Campo SALIDA */}
+                                    <div
+                                        className={`p-2 px-4 flex flex-col transition-all relative ${selecting === 'checkOut' ? 'bg-white ring-2 ring-black rounded-xl z-20' : 'bg-gray-50 border-l border-[#dddddd]'}`}
+                                        onClick={() => setSelecting('checkOut')}
+                                    >
+                                        <span className="text-[10px] font-bold uppercase cursor-default">Salida</span>
+                                        <div className="flex items-center gap-2">
+                                            <input
+                                                type="text"
+                                                placeholder="DD/MM/YYYY"
+                                                value={nights > 0 ? formatDateShort(checkOut) : ''}
+                                                onChange={(e) => {
+                                                    const parts = e.target.value.split('/');
+                                                    if (parts.length === 3) {
+                                                        const d = parseInt(parts[0]), m = parseInt(parts[1]) - 1, y = parseInt(parts[2]);
+                                                        const date = new Date(y, m, d);
+                                                        if (!isNaN(date.getTime()) && date > checkIn) setCheckOut(date);
+                                                    }
+                                                }}
+                                                className={`text-sm font-semibold bg-transparent border-none p-0 focus:outline-none w-20 ${nights === 0 ? 'text-[#717171]' : ''}`}
+                                            />
+                                            {nights > 0 && (
+                                                <button
+                                                    onClick={(e) => {
+                                                        e.stopPropagation();
+                                                        const freshOut = new Date(checkIn);
+                                                        freshOut.setDate(checkIn.getDate() + 1);
+                                                        setCheckOut(freshOut);
+                                                    }}
+                                                    className="text-[#717171] hover:text-black"
+                                                >
+                                                    <X className="w-3.5 h-3.5" />
+                                                </button>
+                                            )}
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -263,8 +337,10 @@ export function BookingCard() {
                                         <span className="text-[10px] uppercase font-bold">Disponible</span>
                                     </div>
                                     <div className="flex items-center gap-2">
-                                        <div className="w-4 h-4 rounded-full bg-orange-100 border border-orange-200" />
-                                        <span className="text-[10px] uppercase font-bold text-orange-600">Ocupado</span>
+                                        <div className="w-4 h-4 rounded-full bg-white border border-[#ebebeb] flex items-center justify-center overflow-hidden">
+                                            <div className="w-full h-[1px] bg-[#ebebeb] rotate-45" />
+                                        </div>
+                                        <span className="text-[10px] uppercase font-bold text-[#717171]">Ocupado</span>
                                     </div>
                                 </div>
                                 <div className="flex gap-4 items-center">
@@ -356,9 +432,19 @@ export function BookingCard() {
 
             <button
                 onClick={handleReserva}
-                className="w-full py-3.5 bg-[#E31C5F] hover:bg-[#D70466] text-white font-semibold rounded-lg transition-colors mb-4 text-lg shadow-lg active:scale-[0.98]"
+                disabled={isBooked}
+                className={`w-full py-3.5 ${isBooked ? 'bg-green-600' : 'bg-[#E31C5F] hover:bg-[#D70466]'} text-white font-semibold rounded-lg transition-all mb-4 text-lg shadow-lg active:scale-[0.98] flex items-center justify-center gap-2`}
             >
-                Reserva
+                {isBooked ? (
+                    <>
+                        <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                        </svg>
+                        Reserva hecha
+                    </>
+                ) : (
+                    'Reserva'
+                )}
             </button>
 
             <p className="text-center text-[#222222] text-sm mb-4">No se hará ningún cargo por el momento</p>
@@ -449,9 +535,9 @@ function CalendarMonth({ month, year, onDateSelect, checkIn, checkOut, isDateOcc
                                 className={`
                                     h-11 w-11 flex items-center justify-center rounded-full text-sm transition-all z-10 font-medium
                                     ${isSelected ? 'bg-[#222222] text-white shadow-lg' : ''}
-                                    ${isOccupied ? 'bg-orange-50 text-orange-200 cursor-not-allowed line-through' : ''}
+                                    ${isOccupied ? 'text-[#ebebeb] cursor-not-allowed line-through' : ''}
                                     ${!isSelected && !isOccupied ? 'hover:border hover:border-black' : ''}
-                                    ${isPast ? 'text-[#ebebeb] cursor-not-allowed line-through' : (isOccupied ? 'text-orange-200' : 'text-[#222222]')}
+                                    ${isPast ? 'text-[#ebebeb] cursor-not-allowed line-through' : (isOccupied ? 'text-[#ebebeb]' : 'text-[#222222]')}
                                 `}
                             >
                                 {date.getDate()}
