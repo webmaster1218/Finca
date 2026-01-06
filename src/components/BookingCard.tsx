@@ -59,34 +59,56 @@ export function BookingCard() {
     useEffect(() => {
         async function fetchAvailability() {
             try {
-                const response = await fetch('/api/calendar/airbnb');
-                if (!response.ok) throw new Error('API Error');
-                const text = await response.text();
+                // 1. Fetch Airbnb bookings
+                const airbnbResponse = await fetch('/api/calendar/airbnb');
+                let airbnbEvents: OccupiedRange[] = [];
+                if (airbnbResponse.ok) {
+                    const text = await airbnbResponse.text();
+                    const lines = text.split(/\r?\n/);
+                    let currentEvent: any = null;
 
-                // Simple iCal parser for VEVENT components
-                const events: OccupiedRange[] = [];
-                const lines = text.split(/\r?\n/);
-                let currentEvent: any = null;
-
-                for (const line of lines) {
-                    if (line.startsWith('BEGIN:VEVENT')) {
-                        currentEvent = {};
-                    } else if (line.startsWith('END:VEVENT')) {
-                        if (currentEvent.start && currentEvent.end) {
-                            events.push({ start: currentEvent.start, end: currentEvent.end });
-                        }
-                        currentEvent = null;
-                    } else if (currentEvent) {
-                        if (line.startsWith('DTSTART')) {
-                            const val = line.split(':')[1];
-                            currentEvent.start = parseICalDate(val);
-                        } else if (line.startsWith('DTEND')) {
-                            const val = line.split(':')[1];
-                            currentEvent.end = parseICalDate(val);
+                    for (const line of lines) {
+                        if (line.startsWith('BEGIN:VEVENT')) {
+                            currentEvent = {};
+                        } else if (line.startsWith('END:VEVENT')) {
+                            if (currentEvent.start && currentEvent.end) {
+                                airbnbEvents.push({ start: currentEvent.start, end: currentEvent.end });
+                            }
+                            currentEvent = null;
+                        } else if (currentEvent) {
+                            if (line.startsWith('DTSTART')) {
+                                const val = line.split(':')[1];
+                                currentEvent.start = parseICalDate(val);
+                            } else if (line.startsWith('DTEND')) {
+                                const val = line.split(':')[1];
+                                currentEvent.end = parseICalDate(val);
+                            }
                         }
                     }
                 }
-                setOccupiedDates(events);
+
+                // 2. Fetch internal bookings from Supabase
+                const { data: internalBookings, error } = await supabase
+                    .from('bookings')
+                    .select('check_in, check_out');
+
+                const internalEvents: OccupiedRange[] = [];
+                if (!error && internalBookings) {
+                    internalBookings.forEach(b => {
+                        // Dividimos el string YYYY-MM-DD para crear una fecha local a las 00:00
+                        // Esto coincide con las fechas generadas por el calendario visual.
+                        const [y, m, d] = b.check_in.split('-').map(Number);
+                        const [y2, m2, d2] = b.check_out.split('-').map(Number);
+
+                        internalEvents.push({
+                            start: new Date(y, m - 1, d),
+                            end: new Date(y2, m2 - 1, d2)
+                        });
+                    });
+                }
+
+                // 3. Merge both
+                setOccupiedDates([...airbnbEvents, ...internalEvents]);
             } catch (error) {
                 console.error('Failed to load availability:', error);
             } finally {
