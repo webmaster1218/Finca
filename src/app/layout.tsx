@@ -15,6 +15,10 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "La Juana cerro tusa | Tradición y Lujo",
   description: "Una experiencia clásica en las montañas de Venecia, Antioquia.",
+  icons: {
+    icon: "/imagenes/logo/Logo.png",
+    apple: "/imagenes/logo/Logo.png",
+  },
 };
 
 import { LanguageProvider } from "@/context/LanguageContext";

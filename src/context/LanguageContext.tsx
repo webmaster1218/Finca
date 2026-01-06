@@ -108,6 +108,26 @@ const translations = {
         'footer.rights': 'Todos los derechos reservados.',
         'footer.brand_desc': 'Donde la tradición antioqueña se encuentra con la exclusividad. Vive una experiencia inolvidable a la sombra del Cerro Tusa.',
 
+        // Gallery
+        'gallery.tag': 'Mosaico de Recuerdos',
+        'gallery.title': 'Galería del Alma',
+        'gallery.img1': 'Arquitectura Tradicional',
+        'gallery.img2': 'Zonas Verdes',
+        'gallery.img3': 'La Majestuosidad del Valle',
+        'gallery.img4': 'Luces del Atardecer',
+        'gallery.img5': 'Senderos de la Finca',
+        'gallery.img6': 'Fachada Colonial',
+        'gallery.img7': 'Naturaleza Viva',
+        'gallery.img8': 'Entornos de Paz',
+        'gallery.img9': 'Cielos de Venecia',
+
+        // Testimonials
+        'testimonials.tag': 'Voces de Nuestros Huéspedes',
+        'testimonials.title': 'Historias Inolvidables',
+        'testimonials.res1.text': '“Una experiencia que superó todas nuestras expectativas. La paz que se respira viendo el atardecer frente al Cerro Tusa no tiene precio. La casa es una joya arquitectónica con todas las comodidades modernas.”',
+        'testimonials.res2.text': '“Buscábamos un lugar exclusivo para nuestro retiro directivo y Finca Fredonia fue el acierto total. El nivel de privacidad, la calidad del sonido pro y el entorno natural facilitaron un ambiente de trabajo único.”',
+        'testimonials.res3.text': '“Los detalles que enamoran no son solo un nombre, es la realidad. Desde la lencería de las habitaciones hasta el aroma a café del Diamante, todo está pensado para el descanso absoluto. Un lujo total.”',
+
         // Policies
         'policies.hero_title': 'Políticas y Términos',
         'policies.privacy_title': 'Política de Privacidad',
@@ -133,7 +153,7 @@ const translations = {
 
         // Hero
         'hero.title': 'La Juana',
-        'hero.subtitle': 'Tradition & Luxury',
+        'hero.subtitle': 'cerro tusa',
         'hero.location': 'Venecia, Antioquia',
         'hero.title_part1': 'Hospitality of',
         'hero.title_part2': 'Great Tradition',
@@ -218,6 +238,26 @@ const translations = {
         'footer.policies': 'Policies and Terms',
         'footer.rights': 'All rights reserved.',
         'footer.brand_desc': 'Where Antioquian tradition meets exclusivity. Live an unforgettable experience in the shadow of Cerro Tusa.',
+
+        // Gallery
+        'gallery.tag': 'Mosaic of Memories',
+        'gallery.title': 'Gallery of the Soul',
+        'gallery.img1': 'Traditional Architecture',
+        'gallery.img2': 'Green Areas',
+        'gallery.img3': 'The Majesty of the Valley',
+        'gallery.img4': 'Sunset Lights',
+        'gallery.img5': 'Farm Trails',
+        'gallery.img6': 'Colonial Façade',
+        'gallery.img7': 'Living Nature',
+        'gallery.img8': 'Environments of Peace',
+        'gallery.img9': 'Venice Skies',
+
+        // Testimonials
+        'testimonials.tag': 'Voice of Our Guests',
+        'testimonials.title': 'Unforgettable Stories',
+        'testimonials.res1.text': '“An experience that exceeded all our expectations. The peace felt while watching the sunset in front of Cerro Tusa is priceless. The house is an architectural gem with all modern comforts.”',
+        'testimonials.res2.text': '“We were looking for an exclusive place for our executive retreat and Finca Fredonia was the perfect choice. The level of privacy, quality of pro sound, and natural surroundings facilitated a unique work environment.”',
+        'testimonials.res3.text': '“Details that enchant is not just a name, it\'s the reality. From the bedroom linens to the coffee aroma of the Diamond, everything is designed for absolute rest. Total luxury.”',
 
         // Policies
         'policies.hero_title': 'Policies and Terms',

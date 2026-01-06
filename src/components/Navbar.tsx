@@ -52,12 +52,13 @@ export function Navbar() {
           </div>
         </div>
 
-        <Link href="/" className="flex flex-col items-center gap-0 group px-4">
-          <Trees className={`w-6 h-6 mb-1 ${isScrolled ? "text-[#1a3c34]" : "text-[#9a7d45]"}`} />
-          <span className={`text-xl font-serif italic tracking-tighter ${isScrolled ? "text-[#1a3c34]" : "text-white"
-            }`}>
-            {t('hero.title')} {t('hero.subtitle').toLowerCase()}
-          </span>
+        <Link href="/" className="relative flex items-center justify-center w-40 h-12 group">
+          <img
+            src="/imagenes/logo/Logo-sin-fondo.png"
+            alt="La Juana Logo"
+            className={`absolute top-1/2 -translate-y-1/2 transition-all duration-500 object-contain ${isScrolled ? "h-26" : "h-34"
+              }`}
+          />
         </Link>
 
         <div className="flex-1 md:flex hidden justify-end items-center gap-8">
