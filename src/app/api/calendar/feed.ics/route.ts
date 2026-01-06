@@ -13,14 +13,18 @@ export async function GET() {
         // para que Airbnb acepte la URL inicialmente.
         const calendar = ical({
             name: 'La Juana - Venecia Reservations',
-            prodId: { company: 'La Juana', product: 'Booking System', language: 'ES' }
+            prodId: { company: 'La Juana', product: 'Booking System', language: 'ES' },
+            timezone: 'America/Bogota'
         });
 
         if (!error && bookings) {
             bookings.forEach(booking => {
+                // Usamos las 12:00 para evitar que cambios de zona horaria 
+                // muevan la fecha al día anterior o siguiente.
                 calendar.createEvent({
-                    start: new Date(booking.check_in),
-                    end: new Date(booking.check_out),
+                    start: new Date(`${booking.check_in}T12:00:00`),
+                    end: new Date(`${booking.check_out}T12:00:00`),
+                    allDay: true,
                     summary: 'Reserva Web',
                     description: `Huéspedes: ${booking.guest_count}`,
                 });
