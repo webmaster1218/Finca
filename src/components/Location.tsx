@@ -13,7 +13,7 @@ export function Location() {
             <div
                 className="absolute inset-0 z-0"
                 style={{
-                    backgroundImage: 'url("/imagenes/espacios/IMG_9324.webp")',
+                    backgroundImage: 'url("/imagenes/location/IMG_9324.webp")',
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     backgroundAttachment: 'fixed'

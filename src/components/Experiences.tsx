@@ -6,23 +6,23 @@ import { useLanguage } from "@/context/LanguageContext";
 const experiences = [
     {
         key: "suites",
-        image: "/imagenes/habitaciones/IMG_5181.webp"
+        image: "/imagenes/experiences/IMG_5181.webp"
     },
     {
         key: "eco",
-        image: "/imagenes/exterior/IMG_5111.webp"
+        image: "/imagenes/experiences/IMG_5111.webp"
     },
     {
         key: "relax",
-        image: "/imagenes/habitaciones/IMG_5609.webp"
+        image: "/imagenes/experiences/IMG_5609.webp"
     },
     {
         key: "events",
-        image: "/imagenes/exterior/IMG_5132.webp"
+        image: "/imagenes/experiences/IMG_5132.webp"
     },
     {
         key: "diamond",
-        image: "/imagenes/espacios/IMG_9329.webp"
+        image: "/imagenes/experiences/IMG_9329.webp"
     },
 ];
 
@@ -35,7 +35,7 @@ export function Experiences() {
             <div
                 className="absolute inset-0 z-0"
                 style={{
-                    backgroundImage: 'url("/imagenes/espacios/IMG_52231.webp")',
+                    backgroundImage: 'url("/imagenes/experiences/IMG_52231.webp")',
                     backgroundSize: 'cover',
                     backgroundPosition: 'center',
                     backgroundAttachment: 'fixed'

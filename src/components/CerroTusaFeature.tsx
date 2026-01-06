@@ -60,7 +60,7 @@ export function CerroTusaFeature() {
                     <div className="relative z-10 bg-white p-4 shadow-2xl">
                         <div className="overflow-hidden">
                             <img
-                                src="/imagenes/exterior/IMG_5476.webp"
+                                src="/imagenes/cerro-tusa/IMG_5476.webp"
                                 alt={t('feature.title')}
                                 className="w-full h-[500px] object-cover transition-transform duration-[2s] group-hover:scale-110"
                             />
