@@ -1,4 +1,3 @@
-import { NextResponse } from 'next/server';
 import { getHospitableToken } from '@/lib/hospitable';
 
 export async function GET(request: Request) {
