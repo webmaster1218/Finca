@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { getHospitableToken } from '@/lib/hospitable';
 
 export async function GET(request: Request) {
     const { searchParams } = new URL(request.url);
@@ -8,7 +9,7 @@ export async function GET(request: Request) {
     console.log(`[API Calendar] Fetching calendar data. Params: start=${start}, end=${end}`);
 
     const propertyId = '64a2977f-a48b-4ec6-8bd1-f8e11db5b40a';
-    const apiToken = process.env.HOSPITABLE_API_TOKEN;
+    const apiToken = getHospitableToken();
 
     if (!apiToken) {
         console.error('[API Calendar] HOSPITABLE_API_TOKEN is not configured.');
@@ -59,7 +60,7 @@ export async function GET(request: Request) {
 
 export async function PUT(request: Request) {
     const propertyId = '64a2977f-a48b-4ec6-8bd1-f8e11db5b40a';
-    const apiToken = process.env.HOSPITABLE_API_TOKEN;
+    const apiToken = getHospitableToken();
 
     if (!apiToken) {
         return NextResponse.json({ error: 'HOSPITABLE_API_TOKEN is not configured' }, { status: 500 });
