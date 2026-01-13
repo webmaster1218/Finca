@@ -9,13 +9,16 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "@supabase/supabase-js": "^2.89.0",
+    "@fullcalendar/core": "^6.1.20",
+    "@fullcalendar/daygrid": "^6.1.20",
+    "@fullcalendar/interaction": "^6.1.20",
+    "@fullcalendar/multimonth": "^6.1.20",
+    "@fullcalendar/react": "^6.1.20",
+    "@fullcalendar/timegrid": "^6.1.20",
     "clsx": "^2.1.1",
     "framer-motion": "^12.23.26",
-    "ical-generator": "^10.0.0",
     "lucide-react": "^0.562.0",
     "next": "16.1.1",
-    "node-ical": "^0.22.1",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "tailwind-merge": "^3.4.0"

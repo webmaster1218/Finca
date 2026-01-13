@@ -13,11 +13,13 @@ export function Footer() {
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-16 mb-20">
                     {/* Brand/Logo Section */}
                     <div className="space-y-6">
-                        <img
-                            src="/imagenes/logo/Logo.png"
-                            alt="La Juana Logo"
-                            className="h-20 w-auto mb-6"
-                        />
+                        <Link href="/admin" className="inline-block hover:opacity-100 transition-none">
+                            <img
+                                src="/imagenes/logo/Logo.png"
+                                alt="La Juana Logo"
+                                className="h-20 w-auto mb-6"
+                            />
+                        </Link>
                         <p className="text-white/60 font-serif italic leading-relaxed max-w-sm">
                             {t('footer.brand_desc')}
                         </p>
