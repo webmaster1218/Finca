@@ -13,7 +13,7 @@ export async function GET(request: Request) {
 
     if (!apiToken) {
         console.error('[API Calendar] HOSPITABLE_API_TOKEN is not configured.');
-        return NextResponse.json({ error: 'HOSPITABLE_API_TOKEN is not configured' }, { status: 500 });
+        return Response.json({ error: 'HOSPITABLE_API_TOKEN is not configured' }, { status: 500 });
     }
 
     const url = new URL(`https://public.api.hospitable.com/v2/properties/${propertyId}/calendar`);
@@ -38,7 +38,7 @@ export async function GET(request: Request) {
         if (!response.ok) {
             const errorText = await response.text();
             console.error(`[API Calendar] Hospitable Error (${response.status}): ${errorText}`);
-            return NextResponse.json({ error: errorText }, { status: response.status });
+            return Response.json({ error: errorText }, { status: response.status });
         }
 
         const data = await response.json();
@@ -51,10 +51,10 @@ export async function GET(request: Request) {
             console.warn(`[API Calendar] Success, but no days found in response.`);
         }
 
-        return NextResponse.json(data);
+        return Response.json(data);
     } catch (error: any) {
         console.error('[API Calendar] Fetch failed:', error);
-        return NextResponse.json({ error: error.message }, { status: 500 });
+        return Response.json({ error: error.message }, { status: 500 });
     }
 }
 
@@ -63,7 +63,7 @@ export async function PUT(request: Request) {
     const apiToken = getHospitableToken();
 
     if (!apiToken) {
-        return NextResponse.json({ error: 'HOSPITABLE_API_TOKEN is not configured' }, { status: 500 });
+        return Response.json({ error: 'HOSPITABLE_API_TOKEN is not configured' }, { status: 500 });
     }
 
     try {
@@ -82,13 +82,13 @@ export async function PUT(request: Request) {
 
         if (!response.ok) {
             const errorData = await response.json().catch(() => ({}));
-            return NextResponse.json(errorData, { status: response.status });
+            return Response.json(errorData, { status: response.status });
         }
 
         const data = await response.json();
-        return NextResponse.json(data);
+        return Response.json(data);
     } catch (error: any) {
         console.error('[API Calendar] PUT failed:', error);
-        return NextResponse.json({ error: error.message }, { status: 500 });
+        return Response.json({ error: error.message }, { status: 500 });
     }
 }
