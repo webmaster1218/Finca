@@ -1,6 +1,11 @@
 import { NextResponse } from 'next/server';
 
+export const dynamic = 'force-dynamic';
+export const revalidate = 0;
+
 export async function GET() {
+    const allKeys = Object.keys(process.env);
+
     const findings = {
         HOSPITABLE_API_TOKEN: {
             exists: !!process.env.HOSPITABLE_API_TOKEN,
@@ -38,13 +43,15 @@ export async function GET() {
         process.env.HOSPITABLE_TOKEN_3,
         process.env.HOSPITABLE_TOKEN_4,
         process.env.HOSPITABLE_TOKEN_5
-    ].filter(Boolean).join('').length;
+    ].filter(Boolean).map(p => p!.trim()).join('').length;
 
     return NextResponse.json({
         message: "Diagnostic tool for Hospitable environment variables",
         findings,
+        allEnvKeys: allKeys.sort(), // List all keys to see what Hostinger is actually passing
         reconstructedTotalLength: totalLength,
         instructions: "If HOSPITABLE_API_TOKEN is false, ensure you set HOSPITABLE_TOKEN_1 through HOSPITABLE_TOKEN_5 in Hostinger. Total length should be approx 1100-1200 characters.",
-        serverTime: new Date().toISOString()
+        serverTime: new Date().toISOString(),
+        nodeVersion: process.version,
     });
 }
