@@ -1,3 +1,4 @@
+import { NextResponse } from 'next/server';
 import { getHospitableToken } from '@/lib/hospitable';
 
 export async function GET(request: Request) {
@@ -12,7 +13,10 @@ export async function GET(request: Request) {
 
     if (!apiToken) {
         console.error('[API Calendar] HOSPITABLE_API_TOKEN is not configured.');
-        return Response.json({ error: 'HOSPITABLE_API_TOKEN is not configured' }, { status: 500 });
+        return NextResponse.json({
+            error: 'HOSPITABLE_API_TOKEN is not configured',
+            details: 'Ensure HOSPITABLE_TOKEN_1 through TOKEN_5 are set in Hostinger environment variables.'
+        }, { status: 500 });
     }
 
     const url = new URL(`https://public.api.hospitable.com/v2/properties/${propertyId}/calendar`);
@@ -37,7 +41,11 @@ export async function GET(request: Request) {
         if (!response.ok) {
             const errorText = await response.text();
             console.error(`[API Calendar] Hospitable Error (${response.status}): ${errorText}`);
-            return Response.json({ error: errorText }, { status: response.status });
+            return NextResponse.json({
+                error: 'Hospitable API Error',
+                status: response.status,
+                details: errorText
+            }, { status: response.status });
         }
 
         const data = await response.json();
@@ -50,10 +58,10 @@ export async function GET(request: Request) {
             console.warn(`[API Calendar] Success, but no days found in response.`);
         }
 
-        return Response.json(data);
+        return NextResponse.json(data);
     } catch (error: any) {
         console.error('[API Calendar] Fetch failed:', error);
-        return Response.json({ error: error.message }, { status: 500 });
+        return NextResponse.json({ error: error.message }, { status: 500 });
     }
 }
 
@@ -62,7 +70,7 @@ export async function PUT(request: Request) {
     const apiToken = getHospitableToken();
 
     if (!apiToken) {
-        return Response.json({ error: 'HOSPITABLE_API_TOKEN is not configured' }, { status: 500 });
+        return NextResponse.json({ error: 'HOSPITABLE_API_TOKEN is not configured' }, { status: 500 });
     }
 
     try {
@@ -81,13 +89,13 @@ export async function PUT(request: Request) {
 
         if (!response.ok) {
             const errorData = await response.json().catch(() => ({}));
-            return Response.json(errorData, { status: response.status });
+            return NextResponse.json(errorData, { status: response.status });
         }
 
         const data = await response.json();
-        return Response.json(data);
+        return NextResponse.json(data);
     } catch (error: any) {
         console.error('[API Calendar] PUT failed:', error);
-        return Response.json({ error: error.message }, { status: 500 });
+        return NextResponse.json({ error: error.message }, { status: 500 });
     }
 }

@@ -17,10 +17,21 @@ export function getHospitableToken(): string {
     const part4 = process.env.HOSPITABLE_TOKEN_4 || '';
     const part5 = process.env.HOSPITABLE_TOKEN_5 || '';
 
+    const parts = [part1, part2, part3, part4, part5];
+    const foundParts = parts.filter(p => p.length > 0).length;
+
+    if (foundParts > 0) {
+        console.log(`[Auth Utility] Found ${foundParts} token parts.`);
+    }
+
     const reconstructed = `${part1}${part2}${part3}${part4}${part5}`.trim();
 
     if (!reconstructed) {
-        console.error('[Auth Utility] No Hospitable API Token found in environment variables.');
+        console.error('[Auth Utility] No Hospitable API Token found in environment variables (Full or Parts).');
+        // Log lengths for debugging without exposing secrets
+        console.log(`[Auth Utility] Part lengths: P1=${part1.length}, P2=${part2.length}, P3=${part3.length}, P4=${part4.length}, P5=${part5.length}`);
+    } else {
+        console.log(`[Auth Utility] Reconstructed token length: ${reconstructed.length}`);
     }
 
     return reconstructed;

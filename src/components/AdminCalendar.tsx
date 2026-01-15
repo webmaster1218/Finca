@@ -57,8 +57,10 @@ export default function AdminCalendar() {
     const [currentDateRange, setCurrentDateRange] = useState<{ start: string; end: string } | null>(null);
     const [dailyPrices, setDailyPrices] = useState<Record<string, { formatted: string; amount: number }>>({});
     const [isMobile, setIsMobile] = useState(false);
+    const [mounted, setMounted] = useState(false);
 
     useEffect(() => {
+        setMounted(true);
         const checkMobile = () => setIsMobile(window.innerWidth < 1024);
         checkMobile();
         window.addEventListener('resize', checkMobile);
@@ -313,7 +315,7 @@ export default function AdminCalendar() {
                 {priceData && (
                     <div className="mt-auto flex flex-col items-start lg:items-end">
                         <span className="text-[8px] lg:text-[10px] font-black text-[#1a3c34] leading-tight mb-0.5">
-                            {isMobile ?
+                            {mounted && isMobile ?
                                 `$${(priceData.amount / 1000000).toFixed(1)}M` :
                                 priceData.formatted
                             }
@@ -323,6 +325,15 @@ export default function AdminCalendar() {
             </div>
         );
     };
+
+    if (!mounted) {
+        return (
+            <div className="h-full flex flex-col items-center justify-center p-10 bg-white rounded-[2rem] shadow-sm animate-pulse">
+                <Loader2 className="w-8 h-8 animate-spin text-[#1a3c34] mb-4" />
+                <p className="text-slate-400 font-medium">Cargando calendario...</p>
+            </div>
+        );
+    }
 
     if (error) {
         return (
@@ -359,7 +370,7 @@ export default function AdminCalendar() {
                     plugins={[dayGridPlugin, interactionPlugin]}
                     initialView="dayGridMonth"
                     events={events}
-                    headerToolbar={isMobile ? {
+                    headerToolbar={(mounted && isMobile) ? {
                         left: 'prev,next',
                         center: 'title',
                         right: 'today'
@@ -378,11 +389,11 @@ export default function AdminCalendar() {
                     }}
                     eventClick={handleEventClick}
                     dateClick={handleDateClick}
-                    height={isMobile ? 'auto' : '100%'}
-                    contentHeight={isMobile ? 'auto' : '100%'}
-                    aspectRatio={isMobile ? 0.6 : 1.8}
+                    height={(mounted && isMobile) ? 'auto' : '100%'}
+                    contentHeight={(mounted && isMobile) ? 'auto' : '100%'}
+                    aspectRatio={(mounted && isMobile) ? 0.6 : 1.8}
                     eventContent={renderEventContent}
-                    dayMaxEvents={isMobile ? 1 : 2}
+                    dayMaxEvents={(mounted && isMobile) ? 1 : 2}
                     eventDisplay="block"
                     nowIndicator={true}
                     stickyHeaderDates={true}

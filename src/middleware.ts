@@ -22,7 +22,8 @@ export function middleware(request: NextRequest) {
     if (pathname.startsWith('/api/calendar/hospitable')) {
         // Allow public GET access ONLY to the base calendar endpoint (for availability/prices)
         // Everything else (reservations, PUT/POST actions) requires authentication
-        const isPublicCalendar = pathname === '/api/calendar/hospitable' && request.method === 'GET';
+        const normalizedPath = pathname.replace(/\/$/, '');
+        const isPublicCalendar = normalizedPath === '/api/calendar/hospitable' && request.method === 'GET';
 
         if (!isPublicCalendar && !isAuthenticated(request)) {
             return NextResponse.json(
