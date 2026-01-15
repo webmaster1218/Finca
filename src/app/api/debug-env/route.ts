@@ -6,6 +6,10 @@ export async function GET() {
             exists: !!process.env.HOSPITABLE_API_TOKEN,
             length: process.env.HOSPITABLE_API_TOKEN?.length || 0
         },
+        ADMIN_USERNAME: {
+            exists: !!process.env.ADMIN_USERNAME,
+            length: process.env.ADMIN_USERNAME?.length || 0
+        },
         HOSPITABLE_TOKEN_1: {
             exists: !!process.env.HOSPITABLE_TOKEN_1,
             length: process.env.HOSPITABLE_TOKEN_1?.length || 0
