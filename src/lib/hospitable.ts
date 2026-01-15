@@ -24,7 +24,7 @@ export function getHospitableToken(): string {
         console.log(`[Auth Utility] Found ${foundParts} token parts.`);
     }
 
-    const reconstructed = `${part1}${part2}${part3}${part4}${part5}`.trim();
+    const reconstructed = [part1, part2, part3, part4, part5].map(p => p.trim()).join('');
 
     if (!reconstructed) {
         console.error('[Auth Utility] No Hospitable API Token found in environment variables (Full or Parts).');

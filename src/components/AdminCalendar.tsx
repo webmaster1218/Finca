@@ -1,9 +1,8 @@
 "use client";
 
-import React, { useEffect, useState, useCallback } from 'react';
-import FullCalendar from '@fullcalendar/react';
+import React, { useEffect, useState, useCallback, Suspense } from 'react';
+import dynamic from 'next/dynamic';
 import dayGridPlugin from '@fullcalendar/daygrid';
-import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import { Loader2, Calendar as CalendarIcon, Info, DollarSign, ExternalLink, X, User, Hash, CreditCard } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -46,6 +45,20 @@ const PLATFORM_COLORS: Record<string, string> = {
 };
 
 const BLOCK_COLOR = '#9a7d45'; // Dorado (bloqueado)
+
+// Definitive fix for hydration error with FullCalendar in Next.js
+const FullCalendarComponent = dynamic(
+    () => import('@fullcalendar/react').then((mod) => mod.default),
+    {
+        ssr: false,
+        loading: () => (
+            <div className="h-full w-full flex flex-col items-center justify-center p-10 bg-white">
+                <Loader2 className="w-8 h-8 animate-spin text-[#1a3c34] mb-4" />
+                <p className="text-slate-400 font-medium">Iniciando componente...</p>
+            </div>
+        )
+    }
+);
 
 export default function AdminCalendar() {
     const [events, setEvents] = useState<CalendarEvent[]>([]);
@@ -365,42 +378,51 @@ export default function AdminCalendar() {
 
     return (
         <div className={`${isMobile ? 'h-auto' : 'h-full'} flex flex-col admin-calendar-parent animate-in fade-in zoom-in-95 duration-500 relative`}>
-            <div className="flex-grow lg:flex-grow-0 lg:h-full relative bg-white rounded-2xl lg:rounded-[1.5rem] shadow-sm border border-slate-100 overflow-hidden">
-                <FullCalendar
-                    plugins={[dayGridPlugin, interactionPlugin]}
-                    initialView="dayGridMonth"
-                    events={events}
-                    headerToolbar={(mounted && isMobile) ? {
-                        left: 'prev,next',
-                        center: 'title',
-                        right: 'today'
-                    } : {
-                        left: 'prev,next today',
-                        center: 'title',
-                        right: 'dayGridMonth'
-                    }}
-                    locale={esLocale}
-                    datesSet={(dateInfo) => {
-                        const start = dateInfo.startStr.split('T')[0];
-                        const end = dateInfo.endStr.split('T')[0];
-                        if (currentDateRange?.start !== start || currentDateRange?.end !== end) {
-                            setCurrentDateRange({ start, end });
-                        }
-                    }}
-                    eventClick={handleEventClick}
-                    dateClick={handleDateClick}
-                    height={(mounted && isMobile) ? 'auto' : '100%'}
-                    contentHeight={(mounted && isMobile) ? 'auto' : '100%'}
-                    aspectRatio={(mounted && isMobile) ? 0.6 : 1.8}
-                    eventContent={renderEventContent}
-                    dayMaxEvents={(mounted && isMobile) ? 1 : 2}
-                    eventDisplay="block"
-                    nowIndicator={true}
-                    stickyHeaderDates={true}
-                    handleWindowResize={true}
-                    eventOrder="isCancelled,start,title"
-                    dayCellContent={renderDayCellContent}
-                />
+            <div className="flex-grow lg:flex-grow-0 lg:h-full relative bg-white rounded-2xl lg:rounded-[1.5rem] shadow-sm border border-slate-100 overflow-hidden min-h-[400px]">
+                {mounted && (
+                    <FullCalendarComponent
+                        // @ts-ignore
+                        plugins={[dayGridPlugin, interactionPlugin]}
+                        initialView="dayGridMonth"
+                        events={events}
+                        headerToolbar={isMobile ? {
+                            left: 'prev,next',
+                            center: 'title',
+                            right: 'today'
+                        } : {
+                            left: 'prev,next today',
+                            center: 'title',
+                            right: 'dayGridMonth'
+                        }}
+                        locale={esLocale}
+                        datesSet={(dateInfo) => {
+                            const start = dateInfo.startStr.split('T')[0];
+                            const end = dateInfo.endStr.split('T')[0];
+                            if (currentDateRange?.start !== start || currentDateRange?.end !== end) {
+                                setCurrentDateRange({ start, end });
+                            }
+                        }}
+                        eventClick={handleEventClick}
+                        dateClick={handleDateClick}
+                        height={isMobile ? 'auto' : '100%'}
+                        contentHeight={isMobile ? 'auto' : '100%'}
+                        aspectRatio={isMobile ? 0.6 : 1.8}
+                        eventContent={renderEventContent}
+                        dayMaxEvents={isMobile ? 1 : 2}
+                        eventDisplay="block"
+                        nowIndicator={true}
+                        stickyHeaderDates={true}
+                        handleWindowResize={true}
+                        eventOrder="isCancelled,start,title"
+                        dayCellContent={renderDayCellContent}
+                    />
+                )}
+
+                {!mounted && (
+                    <div className="h-full w-full flex items-center justify-center">
+                        <Loader2 className="w-8 h-8 animate-spin text-[#1a3c34]" />
+                    </div>
+                )}
 
                 {loading && (
                     <div className="absolute inset-0 z-10 bg-white/50 backdrop-blur-[1px] flex items-center justify-center">
