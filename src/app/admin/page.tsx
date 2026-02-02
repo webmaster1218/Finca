@@ -46,12 +46,12 @@ export default function AdminLoginPage() {
     };
 
     return (
-        <div className="min-h-screen bg-[#fdfaf6] flex items-center justify-center p-4 relative font-sans">
+        <div className="min-h-screen bg-[#fffbf0] flex items-center justify-center p-4 relative font-sans">
             {/* Back to Home Button */}
             <div className="absolute top-8 left-8">
                 <button
                     onClick={() => router.push('/')}
-                    className="flex items-center gap-2 text-[#1a3c34]/60 hover:text-[#1a3c34] font-bold text-sm transition-all group"
+                    className="flex items-center gap-2 text-[#6f7c4e]/60 hover:text-[#6f7c4e] font-bold text-sm transition-all group"
                 >
                     <ChevronRight className="w-4 h-4 rotate-180 group-hover:-translate-x-1 transition-transform" />
                     Volver al Inicio
@@ -60,11 +60,11 @@ export default function AdminLoginPage() {
 
             <div className="max-w-md w-full animate-in fade-in slide-in-from-bottom-4 duration-700">
                 <div className="text-center mb-10">
-                    <div className="inline-flex items-center justify-center w-20 h-20 rounded-3xl bg-[#1a3c34] text-white mb-6 shadow-2xl shadow-[#1a3c34]/20 relative">
+                    <div className="inline-flex items-center justify-center w-20 h-20 rounded-3xl bg-[#6f7c4e] text-white mb-6 shadow-2xl shadow-[#6f7c4e]/20 relative">
                         <Lock className="w-10 h-10" />
-                        <div className="absolute -inset-2 bg-[#1a3c34]/5 rounded-3xl -z-10 animate-pulse" />
+                        <div className="absolute -inset-2 bg-[#6f7c4e]/5 rounded-3xl -z-10 animate-pulse" />
                     </div>
-                    <h1 className="text-4xl font-serif font-bold text-[#1a3c34] mb-2 tracking-tight">Acceso Admin</h1>
+                    <h1 className="text-4xl font-serif font-bold text-[#6f7c4e] mb-2 tracking-tight">Acceso Admin</h1>
                     <p className="text-slate-500 font-medium">Gestiona las reservas de la Finca</p>
                 </div>
 
@@ -73,12 +73,12 @@ export default function AdminLoginPage() {
                         <div className="space-y-2">
                             <label className="text-xs font-bold uppercase tracking-widest text-[#9a7d45] ml-1">Usuario</label>
                             <div className="relative group">
-                                <User className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 group-focus-within:text-[#1a3c34] transition-colors" />
+                                <User className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 group-focus-within:text-[#6f7c4e] transition-colors" />
                                 <input
                                     type="text"
                                     value={username}
                                     onChange={(e) => setUsername(e.target.value)}
-                                    className="w-full bg-slate-50 border-none rounded-2xl py-4 pl-12 pr-4 focus:ring-2 focus:ring-[#1a3c34] transition-all outline-none text-slate-700 font-medium"
+                                    className="w-full bg-slate-50 border-none rounded-2xl py-4 pl-12 pr-4 focus:ring-2 focus:ring-[#6f7c4e] transition-all outline-none text-slate-700 font-medium"
                                     placeholder="admin"
                                     required
                                 />
@@ -88,12 +88,12 @@ export default function AdminLoginPage() {
                         <div className="space-y-2">
                             <label className="text-xs font-bold uppercase tracking-widest text-[#9a7d45] ml-1">Contraseña</label>
                             <div className="relative group">
-                                <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 group-focus-within:text-[#1a3c34] transition-colors" />
+                                <Lock className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-slate-400 group-focus-within:text-[#6f7c4e] transition-colors" />
                                 <input
                                     type="password"
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
-                                    className="w-full bg-slate-50 border-none rounded-2xl py-4 pl-12 pr-4 focus:ring-2 focus:ring-[#1a3c34] transition-all outline-none text-slate-700 font-medium"
+                                    className="w-full bg-slate-50 border-none rounded-2xl py-4 pl-12 pr-4 focus:ring-2 focus:ring-[#6f7c4e] transition-all outline-none text-slate-700 font-medium"
                                     placeholder="••••••••"
                                     required
                                 />
@@ -109,7 +109,7 @@ export default function AdminLoginPage() {
                         <button
                             type="submit"
                             disabled={isLoading}
-                            className="w-full bg-[#1a3c34] hover:bg-[#2a4d45] text-white font-bold py-4 rounded-2xl shadow-lg shadow-[#1a3c34]/20 transition-all flex items-center justify-center gap-3 active:scale-[0.98] disabled:opacity-70"
+                            className="w-full bg-[#6f7c4e] hover:bg-[#8a9866] text-white font-bold py-4 rounded-2xl shadow-lg shadow-[#6f7c4e]/20 transition-all flex items-center justify-center gap-3 active:scale-[0.98] disabled:opacity-70"
                         >
                             {isLoading ? (
                                 <Loader2 className="w-5 h-5 animate-spin" />

@@ -38,11 +38,11 @@ export default function AdminLayout({
     ];
 
     if (isLoginPage) {
-        return <div className="h-screen bg-[#fdfaf6]">{children}</div>;
+        return <div className="h-screen bg-[#fffbf0]">{children}</div>;
     }
 
     return (
-        <div className="h-screen bg-[#f8fafc] flex overflow-hidden font-sans">
+        <div className="h-screen bg-[#fffbf0] flex overflow-hidden font-sans">
             {/* Mobile Sidebar Overlay */}
             {isMobileOpen && (
                 <div
@@ -53,7 +53,7 @@ export default function AdminLayout({
 
             {/* Sidebar */}
             <aside
-                className={`bg-[#1a3c34] text-white flex flex-col shadow-2xl z-[70] flex-shrink-0 transition-all duration-300 ease-in-out fixed lg:relative h-full ${(isExpanded || isMobileOpen) ? 'w-64' : 'w-24'
+                className={`bg-[#6f7c4e] text-[#fffbf0] flex flex-col shadow-2xl z-[70] flex-shrink-0 transition-all duration-300 ease-in-out fixed lg:relative h-full ${(isExpanded || isMobileOpen) ? 'w-64' : 'w-24'
                     } ${isMobileOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
                     } group`}
                 onMouseEnter={() => setIsExpanded(true)}
@@ -63,7 +63,7 @@ export default function AdminLayout({
                 <div className="h-20 flex items-center px-6 overflow-hidden border-b border-white/5 relative">
                     <div className="flex-shrink-0 w-12 h-12 bg-transparent rounded-xl flex items-center justify-center">
                         <img
-                            src="/imagenes/logo/Logo.png"
+                            src="/identidad de marca/LOGO LA JUANA CERRO TUSA-02.png"
                             alt="La Juana Logo"
                             className="w-full h-full object-contain"
                         />
@@ -129,11 +129,11 @@ export default function AdminLayout({
                     <div className="flex items-center gap-2 lg:gap-4">
                         <button
                             onClick={() => setIsMobileOpen(true)}
-                            className="lg:hidden p-2 hover:bg-slate-100 rounded-xl transition-colors text-[#1a3c34]"
+                            className="lg:hidden p-2 hover:bg-slate-100 rounded-xl transition-colors text-[#6f7c4e]"
                         >
                             <Menu className="w-6 h-6" />
                         </button>
-                        <h2 className="font-serif font-bold text-lg lg:text-xl text-[#1a3c34] tracking-tight truncate">
+                        <h2 className="font-serif font-bold text-lg lg:text-xl text-[#6f7c4e] tracking-tight truncate">
                             La Juana
                         </h2>
                         <div className="h-4 w-px bg-slate-200 hidden sm:block" />
@@ -144,7 +144,7 @@ export default function AdminLayout({
 
                     <div className="flex items-center gap-3 lg:gap-6">
                         <div className="text-right hidden xs:block">
-                            <p className="text-[10px] lg:text-xs font-black text-[#1a3c34] uppercase tracking-tighter">Administrador</p>
+                            <p className="text-[10px] lg:text-xs font-black text-[#6f7c4e] uppercase tracking-tighter">Administrador</p>
                             <p className="text-[9px] text-emerald-500 font-bold uppercase animate-pulse">Online</p>
                         </div>
                         <div className="w-8 h-8 lg:w-9 lg:h-9 rounded-xl lg:rounded-2xl bg-slate-100 border border-slate-200 p-0.5 flex flex-shrink-0">

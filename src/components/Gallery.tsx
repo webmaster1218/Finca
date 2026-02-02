@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useLanguage } from "@/context/LanguageContext";
+import { useLanguage } from "../context/LanguageContext";
 
 const galleryImages = [
     { url: "/imagenes/gallery/IMG_5135.webp", span: "md:col-span-2 md:row-span-2", key: "gallery.img1" },
@@ -19,7 +19,7 @@ const galleryImages = [
 export function Gallery() {
     const { t } = useLanguage();
     return (
-        <section id="finca" className="py-24 bg-[#fdfaf6] relative overflow-hidden">
+        <section id="finca" className="py-24 bg-[#fffbf0] relative overflow-hidden">
             {/* Decorative vertical line */}
             <div className="absolute top-0 right-1/2 translate-x-1/2 w-[1px] h-24 bg-gradient-to-b from-[#9a7d45]/40 to-transparent" />
 
@@ -34,7 +34,7 @@ export function Gallery() {
                 <motion.h2
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    className="text-5xl md:text-7xl font-serif text-[#1a3c34] mb-8"
+                    className="text-5xl md:text-7xl font-serif text-[#6f7c4e] mb-8"
                 >
                     {t('gallery.title')}
                 </motion.h2>
@@ -50,7 +50,7 @@ export function Gallery() {
                 {galleryImages.map((img, i) => (
                     <div
                         key={i}
-                        className={`relative overflow-hidden group ${img.span} bg-[#142d27]`}
+                        className={`relative overflow-hidden group ${img.span} bg-[#6f7c4e]`}
                     >
                         <img
                             src={img.url}
@@ -61,7 +61,7 @@ export function Gallery() {
                         {/* Minimalistic Overlay on Hover */}
                         <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-700">
                             <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
-                                <h3 className="text-white font-serif text-2xl tracking-wide transform translate-y-4 group-hover:translate-y-0 transition-transform duration-700">
+                                <h3 className="text-[#fffbf0] font-serif text-2xl tracking-wide transform translate-y-4 group-hover:translate-y-0 transition-transform duration-700">
                                     {t(img.key)}
                                 </h3>
                                 <div className="w-8 h-[1px] bg-[#9a7d45] mt-4 scale-0 group-hover:scale-100 transition-transform duration-700 delay-100" />
@@ -76,3 +76,5 @@ export function Gallery() {
         </section>
     );
 }
+
+

@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import { User, Bed, Waves, Speaker, Bath, Home, Car, Droplets, Flame, Wifi } from "lucide-react";
 import { BookingCard } from "./BookingCard";
-import { useLanguage } from "@/context/LanguageContext";
+import { useLanguage } from "../context/LanguageContext";
 
 export function Rooms() {
     const { t } = useLanguage();
@@ -22,7 +22,7 @@ export function Rooms() {
     ];
 
     return (
-        <section id="habitaciones" className="relative min-h-screen flex items-center justify-center py-24 md:py-32 bg-[#fdfaf6] z-20">
+        <section id="habitaciones" className="relative min-h-screen flex items-center justify-center py-24 md:py-32 bg-[#fffbf0] z-20">
             <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
                 {/* Main Header */}
                 <div className="text-center mb-16 md:mb-24">
@@ -36,15 +36,23 @@ export function Rooms() {
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        className="text-4xl md:text-7xl font-serif text-[#1a3c34] mb-8"
+                        className="text-4xl md:text-7xl font-serif text-[#6f7c4e] mb-8"
                     >
                         {t('rooms.title')}
                     </motion.h2>
-                    <motion.div
-                        initial={{ width: 0 }}
-                        whileInView={{ width: "100px" }}
-                        className="h-[1px] bg-[#9a7d45] mx-auto"
-                    />
+                    <div className="flex items-center justify-center gap-4">
+                        <motion.div
+                            initial={{ width: 0 }}
+                            whileInView={{ width: "48px" }}
+                            className="h-[1px] bg-[#9a7d45]/40"
+                        />
+                        <div className="w-2 h-2 rotate-45 border border-[#9a7d45]/60" />
+                        <motion.div
+                            initial={{ width: 0 }}
+                            whileInView={{ width: "48px" }}
+                            className="h-[1px] bg-[#9a7d45]/40"
+                        />
+                    </div>
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -56,7 +64,7 @@ export function Rooms() {
                     >
                         <div className="space-y-6">
                             <h3
-                                className="text-3xl md:text-5xl font-serif text-[#1a3c34] leading-tight"
+                                className="text-3xl md:text-5xl font-serif text-[#6f7c4e] leading-tight"
                                 dangerouslySetInnerHTML={{ __html: t('rooms.desc.title').replace('invonvidable', 'inolvidable').replace(/\n/g, '<br />') }}
                             />
                             <div className="w-16 h-[1px] bg-[#9a7d45]" />
@@ -74,12 +82,12 @@ export function Rooms() {
                                     initial={{ opacity: 0, scale: 0.9 }}
                                     whileInView={{ opacity: 1, scale: 1 }}
                                     transition={{ delay: i * 0.05 }}
-                                    className="flex items-center gap-4 p-5 bg-white border border-[#9a7d45]/10 shadow-sm group transition-all duration-500 hover:border-[#9a7d45]/30 hover:shadow-md"
+                                    className="flex items-center gap-4 p-5 bg-[#fffbf0] border border-[#9a7d45]/10 shadow-sm group transition-all duration-500 hover:border-[#9a7d45]/30 hover:shadow-md"
                                 >
                                     <div className="text-[#9a7d45] transition-transform duration-500 group-hover:scale-110">
                                         {spec.icon}
                                     </div>
-                                    <span className="text-[#1a3c34] font-serif text-xs md:text-sm tracking-wide">
+                                    <span className="text-[#6f7c4e] font-serif text-xs md:text-sm tracking-wide">
                                         {spec.label}
                                     </span>
                                 </motion.div>
@@ -100,3 +108,4 @@ export function Rooms() {
         </section>
     );
 }
+

@@ -1,39 +1,23 @@
+@font-face {
+  font-family: 'Awaking';
+  src: url('/identidad de marca/Awaking.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@import "./design-tokens.css";
 @import "tailwindcss";
-
-:root {
-  /* Classic Palette - Timeless and Elegant */
-  --forest-classic: #1a3c34;
-  /* Deep heritage green */
-  --cream-soft: #fdfaf6;
-  /* Warm paper-like background */
-  --gold-muted: #9a7d45;
-  /* Muted gold/brass accent */
-  --slate-text: #2c3e50;
-  /* Classic ink blue/grey */
-
-  --primary: var(--forest-classic);
-  --secondary: var(--gold-muted);
-  --accent: var(--gold-muted);
-  --background: var(--cream-soft);
-  --foreground: var(--slate-text);
-
-  /* Fonts */
-  --font-serif: "Playfair Display", serif;
-  --font-sans: "Inter", sans-serif;
-}
-
-.dark {
-  --background: #020617;
-  --foreground: #f8fafc;
-}
 
 @theme {
   --font-serif: var(--font-serif);
   --font-sans: var(--font-sans);
 
-  --color-primary: var(--primary);
+  --color-brand-green: #6f7c4e;
+  --color-brand-cream: #fffbf0;
+  --color-brand-accent: #5e7682;
+  --color-primary: var(--color-brand-green);
   --color-secondary: var(--secondary);
-  --base-background: var(--background);
+  --base-background: var(--color-brand-cream);
   --base-foreground: var(--foreground);
 }
 
@@ -48,17 +32,17 @@
   h2,
   h3,
   h4 {
-    font-family: var(--font-serif);
-    @apply font-semibold;
+    font-family: 'Awaking', var(--font-serif);
+    @apply font-normal;
   }
 }
 
 @layer components {
   .btn-classic {
-    @apply px-10 py-3 bg-[#1a3c34] text-[#fdfaf6] rounded-none font-serif italic tracking-wide transition-all duration-300 hover:bg-[#2a4d45] border border-[#9a7d45]/30 shadow-sm flex items-center gap-3;
+    @apply px-10 py-3 bg-brand-green text-brand-cream rounded-none font-serif italic tracking-wide transition-all duration-300 hover:opacity-90 border border-[#9a7d45]/30 shadow-sm flex items-center gap-3;
   }
 
   .nav-link {
-    @apply text-slate-700/80 hover:text-[#1a3c34] transition-colors font-serif italic text-lg relative after:content-[''] after:absolute after:bottom-[-2px] after:left-0 after:w-0 after:h-[1px] after:bg-[#1a3c34] after:transition-all hover:after:w-full cursor-pointer;
+    @apply text-slate-700/80 hover:text-brand-green transition-colors font-serif italic text-lg relative after:content-[''] after:absolute after:bottom-[-2px] after:left-0 after:w-0 after:h-[1px] after:bg-brand-green after:transition-all hover:after:w-full cursor-pointer;
   }
 }

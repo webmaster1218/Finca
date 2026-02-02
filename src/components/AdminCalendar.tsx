@@ -40,8 +40,8 @@ const PLATFORM_COLORS: Record<string, string> = {
     booking: '#003580',
     homeaway: '#333D47',
     vrbo: '#333D47',
-    direct: '#1a3c34', // Color de marca
-    manual: '#1a3c34', // Color de marca
+    direct: '#6f7c4e', // Color de marca
+    manual: '#6f7c4e', // Color de marca
 };
 
 const BLOCK_COLOR = '#9a7d45'; // Dorado (bloqueado)
@@ -53,7 +53,7 @@ const FullCalendarComponent = dynamic(
         ssr: false,
         loading: () => (
             <div className="h-full w-full flex flex-col items-center justify-center p-10 bg-white">
-                <Loader2 className="w-8 h-8 animate-spin text-[#1a3c34] mb-4" />
+                <Loader2 className="w-8 h-8 animate-spin text-[#6f7c4e] mb-4" />
                 <p className="text-slate-400 font-medium">Iniciando componente...</p>
             </div>
         )
@@ -321,13 +321,13 @@ export default function AdminCalendar() {
 
         return (
             <div className={`w-full h-full flex flex-col p-1 lg:p-2 ${isMobile ? 'min-h-[45px]' : 'min-h-[100px]'} relative group overflow-hidden`}>
-                <span className="text-[10px] lg:text-base font-serif font-bold text-slate-400 group-hover:text-[#1a3c34] transition-colors leading-none">
+                <span className="text-[10px] lg:text-base font-serif font-bold text-slate-400 group-hover:text-[#6f7c4e] transition-colors leading-none">
                     {args.dayNumberText}
                 </span>
 
                 {priceData && (
                     <div className="mt-auto flex flex-col items-start lg:items-end">
-                        <span className="text-[8px] lg:text-[10px] font-black text-[#1a3c34] leading-tight mb-0.5">
+                        <span className="text-[8px] lg:text-[10px] font-black text-[#6f7c4e] leading-tight mb-0.5">
                             {mounted && isMobile ?
                                 `$${(priceData.amount / 1000000).toFixed(1)}M` :
                                 priceData.formatted
@@ -342,7 +342,7 @@ export default function AdminCalendar() {
     if (!mounted) {
         return (
             <div className="h-full flex flex-col items-center justify-center p-10 bg-white rounded-[2rem] shadow-sm animate-pulse">
-                <Loader2 className="w-8 h-8 animate-spin text-[#1a3c34] mb-4" />
+                <Loader2 className="w-8 h-8 animate-spin text-[#6f7c4e] mb-4" />
                 <p className="text-slate-400 font-medium">Cargando calendario...</p>
             </div>
         );
@@ -358,7 +358,7 @@ export default function AdminCalendar() {
                 <p className="text-slate-500 text-sm mb-6 max-w-xs">{error}</p>
                 <button
                     onClick={() => window.location.reload()}
-                    className="bg-[#1a3c34] text-white px-6 py-2 rounded-xl text-sm font-bold active:scale-95 transition-all"
+                    className="bg-[#6f7c4e] text-white px-6 py-2 rounded-xl text-sm font-bold active:scale-95 transition-all"
                 >
                     Reintentar
                 </button>
@@ -420,13 +420,13 @@ export default function AdminCalendar() {
 
                 {!mounted && (
                     <div className="h-full w-full flex items-center justify-center">
-                        <Loader2 className="w-8 h-8 animate-spin text-[#1a3c34]" />
+                        <Loader2 className="w-8 h-8 animate-spin text-[#6f7c4e]" />
                     </div>
                 )}
 
                 {loading && (
                     <div className="absolute inset-0 z-10 bg-white/50 backdrop-blur-[1px] flex items-center justify-center">
-                        <Loader2 className="w-8 h-8 animate-spin text-[#1a3c34]" />
+                        <Loader2 className="w-8 h-8 animate-spin text-[#6f7c4e]" />
                     </div>
                 )}
             </div>
@@ -441,9 +441,9 @@ export default function AdminCalendar() {
                             className="bg-white rounded-[2rem] shadow-2xl w-full max-w-lg overflow-hidden border border-slate-100"
                         >
                             <div className="flex justify-between items-center p-6 border-b border-slate-50 bg-slate-50/30">
-                                <h3 className="text-xl font-serif font-bold text-[#1a3c34] flex items-center gap-3">
-                                    <div className="p-2 bg-[#1a3c34]/5 rounded-xl">
-                                        <CalendarIcon className="w-5 h-5 text-[#1a3c34]" />
+                                <h3 className="text-xl font-serif font-bold text-[#6f7c4e] flex items-center gap-3">
+                                    <div className="p-2 bg-[#6f7c4e]/5 rounded-xl">
+                                        <CalendarIcon className="w-5 h-5 text-[#6f7c4e]" />
                                     </div>
                                     Detalle de Reserva
                                     <span className={`ml-2 text-[10px] px-2 py-1 rounded-full uppercase tracking-widest ${selectedEvent.status?.toLowerCase() === 'accepted' ? 'bg-green-100 text-green-700' :
@@ -523,7 +523,7 @@ export default function AdminCalendar() {
                             <div className="p-6 bg-slate-50/30">
                                 <button
                                     onClick={() => setSelectedEvent(null)}
-                                    className="w-full bg-[#1a3c34] hover:bg-[#254d42] text-white font-bold py-4 px-6 rounded-2xl transition-all shadow-lg shadow-[#1a3c34]/10 active:scale-[0.98]"
+                                    className="w-full bg-[#6f7c4e] hover:bg-[#8a9866] text-white font-bold py-4 px-6 rounded-2xl transition-all shadow-lg shadow-[#6f7c4e]/10 active:scale-[0.98]"
                                 >
                                     Cerrar Detalles
                                 </button>
@@ -542,9 +542,9 @@ export default function AdminCalendar() {
                         >
                             <div className="p-8 text-center">
                                 <div className="w-16 h-16 bg-slate-50 rounded-full flex items-center justify-center mx-auto mb-6">
-                                    <CalendarIcon className="w-8 h-8 text-[#1a3c34]" />
+                                    <CalendarIcon className="w-8 h-8 text-[#6f7c4e]" />
                                 </div>
-                                <h3 className="text-2xl font-serif font-bold text-[#1a3c34] mb-2">
+                                <h3 className="text-2xl font-serif font-bold text-[#6f7c4e] mb-2">
                                     {(() => {
                                         const [y, m, d] = selectedDate.split('-').map(Number);
                                         return new Date(y, m - 1, d).toLocaleDateString('es-CO', { day: 'numeric', month: 'long' });
@@ -564,7 +564,7 @@ export default function AdminCalendar() {
                                     <button
                                         disabled={isToggling}
                                         onClick={() => triggerToggleAvailability(selectedDate, false)}
-                                        className="w-full bg-[#1a3c34] hover:bg-[#254d42] text-white font-bold py-4 px-6 rounded-2xl transition-all shadow-lg active:scale-[0.98] disabled:opacity-50 flex items-center justify-center gap-2 mb-3"
+                                        className="w-full bg-[#6f7c4e] hover:bg-[#8a9866] text-white font-bold py-4 px-6 rounded-2xl transition-all shadow-lg active:scale-[0.98] disabled:opacity-50 flex items-center justify-center gap-2 mb-3"
                                     >
                                         {isToggling ? <Loader2 className="w-5 h-5 animate-spin" /> : 'Bloquear Día'}
                                     </button>
@@ -602,7 +602,7 @@ export default function AdminCalendar() {
 
                 .admin-calendar-parent .fc .fc-toolbar-title {
                     font-family: var(--font-serif);
-                    color: #1a3c34;
+                    color: #6f7c4e;
                     font-weight: 800;
                     font-size: 1.5rem;
                     letter-spacing: -0.01em;
@@ -623,13 +623,13 @@ export default function AdminCalendar() {
                 .admin-calendar-parent .fc .fc-button-primary:hover {
                     background-color: #f8fafc;
                     border-color: #cbd5e1;
-                    color: #1a3c34;
+                    color: #6f7c4e;
                 }
 
                 .admin-calendar-parent .fc .fc-button-primary:not(:disabled).fc-button-active,
                 .admin-calendar-parent .fc .fc-button-primary:active {
-                    background-color: #1a3c34 !important;
-                    border-color: #1a3c34 !important;
+                    background-color: #6f7c4e !important;
+                    border-color: #6f7c4e !important;
                     color: white !important;
                 }
 
@@ -673,7 +673,7 @@ export default function AdminCalendar() {
                 .admin-calendar-parent .fc-daygrid-more-link {
                     font-size: 0.7rem;
                     font-weight: 700;
-                    color: #1a3c34;
+                    color: #6f7c4e;
                     padding-left: 4px;
                 }
 
@@ -694,7 +694,7 @@ export default function AdminCalendar() {
                     border-top-right-radius: 1rem !important;
                     font-weight: 800 !important;
                     font-size: 0.9rem !important;
-                    color: #1a3c34 !important;
+                    color: #6f7c4e !important;
                 }
 
                 .fc-popover .fc-popover-body {

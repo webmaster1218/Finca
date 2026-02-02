@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { useLanguage } from "@/context/LanguageContext";
+import { useLanguage } from "../context/LanguageContext";
 
 const experiences = [
     {
@@ -42,28 +42,28 @@ export function Experiences() {
                 }}
             />
             {/* Dynamic Overlays for Readability and Depth */}
-            <div className="absolute inset-0 bg-[#1a3c34]/60 z-[1]" />
+            <div className="absolute inset-0 bg-[#6f7c4e]/60 z-[1]" />
 
             <div className="max-w-7xl mx-auto relative z-10">
                 <div className="text-center mb-20">
                     <motion.p
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
-                        className="text-white font-serif tracking-[0.4em] text-xs mb-6 uppercase shadow-sm"
+                        className="text-[#fffbf0] font-serif tracking-[0.4em] text-xs mb-6 uppercase shadow-sm"
                     >
                         {t('exp.tag')}
                     </motion.p>
                     <motion.h2
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        className="text-4xl md:text-7xl font-serif text-white mb-8 drop-shadow-lg"
+                        className="text-4xl md:text-7xl font-serif text-[#fffbf0] mb-8 drop-shadow-lg"
                     >
                         {t('exp.title')}
                     </motion.h2>
                     <div className="flex items-center justify-center gap-4">
-                        <div className="w-12 h-[1px] bg-white/30" />
-                        <div className="w-2 h-2 rotate-45 border border-white" />
-                        <div className="w-12 h-[1px] bg-white/30" />
+                        <div className="w-12 h-[1px] bg-[#fffbf0]/30" />
+                        <div className="w-2 h-2 rotate-45 border border-[#fffbf0]" />
+                        <div className="w-12 h-[1px] bg-[#fffbf0]/30" />
                     </div>
                 </div>
 
@@ -88,11 +88,11 @@ export function Experiences() {
                             <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent opacity-80 group-hover:opacity-100 transition-opacity duration-500" />
 
                             {/* Content */}
-                            <div className="absolute inset-x-0 bottom-0 p-8 text-center text-white">
+                            <div className="absolute inset-x-0 bottom-0 p-8 text-center text-[#fffbf0]">
                                 <h3 className="text-2xl md:text-3xl font-serif mb-2 tracking-tight group-hover:mb-4 transition-all duration-500 underline underline-offset-8 decoration-[#9a7d45]/0 group-hover:decoration-[#9a7d45]">
                                     {t(`exp.${exp.key}.title`)}
                                 </h3>
-                                <p className="text-white/60 text-xs md:text-sm font-serif opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                                <p className="text-[#fffbf0]/60 text-xs md:text-sm font-serif opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
                                     {t(`exp.${exp.key}.desc`)}
                                 </p>
                             </div>
@@ -106,3 +106,4 @@ export function Experiences() {
         </section>
     );
 }
+

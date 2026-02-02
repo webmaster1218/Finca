@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
+import { LanguageProvider } from "../context/LanguageContext";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -16,12 +17,10 @@ export const metadata: Metadata = {
   title: "La Juana cerro tusa | Tradición y Lujo",
   description: "Una experiencia clásica en las montañas de Venecia, Antioquia.",
   icons: {
-    icon: "/imagenes/logo/Logo.png",
-    apple: "/imagenes/logo/Logo.png",
+    icon: "/identidad de marca/LOGO LA JUANA CERRO TUSA-02.png",
+    apple: "/identidad de marca/LOGO LA JUANA CERRO TUSA-02.png",
   },
 };
-
-import { LanguageProvider } from "@/context/LanguageContext";
 
 export default function RootLayout({
   children,

@@ -12,12 +12,14 @@ interface LanguageContextType {
 
 const translations = {
     es: {
-        // Navbar
+        'nav.home': 'Inicio',
         'nav.finca': 'La Finca',
         'nav.experiences': 'Experiencias',
         'nav.testimonials': 'Testimonios',
         'nav.rooms': 'Habitaciones',
+        'nav.gallery': 'Galería',
         'nav.location': 'Ubicación',
+        'nav.tours': 'Tours',
         'nav.reserve': 'Reservar',
 
         // Hero
@@ -69,8 +71,8 @@ const translations = {
         'booking.pets_label': 'mascotas',
 
         // Experiences
-        'exp.tag': 'Aventuras y Tradición',
-        'exp.title': 'Detalles que Enamoran',
+        'exp.tag': 'Alojamiento',
+        'exp.title': 'Nuestras Estancias',
         'exp.suites.title': 'Suites de Lujo',
         'exp.suites.desc': 'Habitaciones con encanto tradicional y confort moderno',
         'exp.eco.title': 'Jacuzzi Privado',
@@ -141,14 +143,43 @@ const translations = {
         'common.occupied': 'Ocupado',
         'common.clear_dates': 'Borrar fechas',
         'common.close': 'Cerrar',
+
+        // Eco Tours
+        'tours.tag': 'Experiencias de Destino',
+        'tours.title': 'Aventuras que Inspiran',
+        'tours.subtitle': 'Complementa tu descanso con actividades exclusivas en convenio con Al Parche Venecia. Estas experiencias operan con reserva y una tarifa independiente para garantizar la mejor calidad y seguridad.',
+        'tours.cta': 'Ver Detalles',
+        'tours.video': 'Ver Video',
+        'tours.exigencia': 'Exigencia',
+        'tours.duracion': 'Duración',
+
+        'tours.cerrotusa.title': 'TOUR DE CERRO TUSA',
+        'tours.cerrotusa.desc': 'Conecta con el poder ancestral de la pirámide natural más grande del mundo en un recorrido místico.',
+        'tours.cerrotusa.details': 'Senderos ancestrales, Altar de ofrendas y Cima.',
+        'tours.cerrotusa.duration': '5 Horas',
+        'tours.cerrotusa.level': 'Nivel 5',
+
+        'tours.bees.title': 'TOUR DE LAS ABEJAS',
+        'tours.bees.desc': 'Una experiencia llena de naturaleza, conocimiento y sabor con traje de apicultor.',
+        'tours.bees.details': 'Degustación de miel pura y charla educativa.',
+        'tours.bees.duration': '4 Horas',
+        'tours.bees.level': 'Familiar',
+
+        'tours.town.title': 'RECORRIDO CABECERA MUNICIPAL',
+        'tours.town.desc': 'Conoce de cerca la cultura Veneciana, sus murales, museos e historia local.',
+        'tours.town.details': 'Calle de los murales, Museos y Templo.',
+        'tours.town.duration': '3 Horas',
+        'tours.town.level': 'Cultural',
     },
     en: {
-        // Navbar
+        'nav.home': 'Home',
         'nav.finca': 'The Ranch',
         'nav.experiences': 'Experiences',
         'nav.testimonials': 'Testimonials',
         'nav.rooms': 'Rooms',
+        'nav.gallery': 'Gallery',
         'nav.location': 'Location',
+        'nav.tours': 'Tours',
         'nav.reserve': 'Book Now',
 
         // Hero
@@ -200,8 +231,8 @@ const translations = {
         'booking.pets_label': 'pets',
 
         // Experiences
-        'exp.tag': 'Adventure & Tradition',
-        'exp.title': 'Details that Enchant',
+        'exp.tag': 'Accommodation',
+        'exp.title': 'Our Rooms',
         'exp.suites.title': 'Luxury Suites',
         'exp.suites.desc': 'Rooms with traditional charm and modern comfort',
         'exp.eco.title': 'Private Jacuzzi',
@@ -272,6 +303,33 @@ const translations = {
         'common.occupied': 'Occupied',
         'common.clear_dates': 'Clear dates',
         'common.close': 'Close',
+
+        // Eco Tours
+        'tours.tag': 'Destination Experiences',
+        'tours.title': 'Inspiring Adventures',
+        'tours.subtitle': 'Complement your stay with exclusive activities in partnership with Al Parche Venecia. These experiences operate via reservation and independent pricing to ensure the highest quality and safety.',
+        'tours.cta': 'View Details',
+        'tours.video': 'Watch Promo Video',
+        'tours.exigencia': 'Difficulty',
+        'tours.duracion': 'Duration',
+
+        'tours.cerrotusa.title': 'CERRO TUSA TOUR',
+        'tours.cerrotusa.desc': 'Connect with the power of the world\'s largest natural pyramid on a mystical journey.',
+        'tours.cerrotusa.details': 'Ancestral trails, Altar of offerings, and Summit.',
+        'tours.cerrotusa.duration': '5 Hours',
+        'tours.cerrotusa.level': 'Level 5',
+
+        'tours.bees.title': 'BEE TOUR',
+        'tours.bees.desc': 'An experience full of nature, knowledge, and flavor with a beekeeper suit.',
+        'tours.bees.details': 'Pure honey tasting and educational talk.',
+        'tours.bees.duration': '4 Hours',
+        'tours.bees.level': 'Family',
+
+        'tours.town.title': 'TOWN CENTER TOUR',
+        'tours.town.desc': 'Get to know Venetian culture, its murals, museums, and local history.',
+        'tours.town.details': 'Street of murals, Museums, and Temple.',
+        'tours.town.duration': '3 Hours',
+        'tours.town.level': 'Cultural',
     }
 };
 

@@ -1,0 +1,27 @@
+:root {
+  /* Classic Palette - Timeless and Elegant */
+  /* New Heritage Green */
+  --forest-classic: #6f7c4e;
+  /* Warm cream background */
+  --cream-soft: #fffbf0;
+  --gold-muted: #9a7d45;
+  /* Muted gold/brass accent */
+  --slate-text: #2c3e50;
+  /* Blue-grey accent color */
+  --brand-accent: #5e7682;
+
+  --primary: var(--forest-classic);
+  --secondary: var(--gold-muted);
+  --accent: var(--gold-muted);
+  --background: var(--cream-soft);
+  --foreground: var(--slate-text);
+
+  /* Fonts */
+  --font-serif: "Awaking", "Playfair Display", serif;
+  --font-sans: "Inter", sans-serif;
+}
+
+.dark {
+  --background: #020617;
+  --foreground: #f8fafc;
+}

@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { MapPin, Navigation } from "lucide-react";
-import { useLanguage } from "@/context/LanguageContext";
+import { useLanguage } from "../context/LanguageContext";
 
 export function Location() {
     const { t } = useLanguage();
@@ -23,7 +23,7 @@ export function Location() {
             <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/50 z-[1]" />
 
             <div className="max-w-7xl mx-auto relative z-10">
-                <div className="text-center mb-16 text-white">
+                <div className="text-center mb-16 text-[#fffbf0]">
                     <motion.p
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
@@ -34,7 +34,7 @@ export function Location() {
                     <motion.h2
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        className="text-4xl md:text-6xl font-serif text-white mb-8"
+                        className="text-4xl md:text-6xl font-serif text-[#fffbf0] mb-8"
                     >
                         {t('location.title')}
                     </motion.h2>
@@ -52,14 +52,14 @@ export function Location() {
                         whileInView={{ opacity: 1, x: 0 }}
                         className="lg:col-span-4 space-y-8 order-2 lg:order-1"
                     >
-                        <div className="p-10 bg-white shadow-2xl border-l-4 border-[#9a7d45] relative overflow-hidden text-[#1a3c34]">
+                        <div className="p-10 bg-[#fffbf0] shadow-2xl border-l-4 border-[#9a7d45] relative overflow-hidden text-[#6f7c4e]">
                             <div className="relative z-10">
-                                <h3 className="text-2xl font-serif text-[#1a3c34] mb-6">{t('location.visit')}</h3>
-                                <div className="space-y-6 text-[#1a3c34]/80 font-serif">
+                                <h3 className="text-2xl font-serif text-[#6f7c4e] mb-6">{t('location.visit')}</h3>
+                                <div className="space-y-6 text-[#6f7c4e]/80 font-serif">
                                     <div className="flex gap-4">
                                         <MapPin className="w-6 h-6 text-[#9a7d45] shrink-0" />
                                         <div>
-                                            <p className="font-bold text-[#1a3c34]">{t('location.address_label')}</p>
+                                            <p className="font-bold text-[#6f7c4e]">{t('location.address_label')}</p>
                                             <p>{t('hero.location')}</p>
                                             <p>{t('location.parcelacion')}</p>
                                         </div>
@@ -67,7 +67,7 @@ export function Location() {
                                     <div className="flex gap-4">
                                         <Navigation className="w-6 h-6 text-[#9a7d45] shrink-0" />
                                         <div>
-                                            <p className="font-bold text-[#1a3c34]">{t('location.ref_label')}</p>
+                                            <p className="font-bold text-[#6f7c4e]">{t('location.ref_label')}</p>
                                             <p className="text-sm">{t('location.ref_val')}</p>
                                         </div>
                                     </div>
@@ -78,7 +78,7 @@ export function Location() {
                                         href="https://www.google.com/maps?q=Parcelacion+Rochiles+Venecia+Antioquia"
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="inline-flex items-center gap-3 px-8 py-4 bg-[#1a3c34] text-white font-serif hover:bg-[#9a7d45] transition-all duration-500 group"
+                                        className="inline-flex items-center gap-3 px-8 py-4 bg-[#6f7c4e] text-[#fffbf0] font-serif hover:bg-[#9a7d45] transition-all duration-500 group"
                                     >
                                         {t('location.google_btn')}
                                         <Navigation className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
@@ -105,10 +105,11 @@ export function Location() {
                             className="grayscale-[20%] contrast-[1.1]"
                         />
                         {/* Decorative Overlay Frame */}
-                        <div className="absolute inset-0 pointer-events-none border-[12px] border-[#1a3c34]/5" />
+                        <div className="absolute inset-0 pointer-events-none border-[12px] border-[#6f7c4e]/5" />
                     </motion.div>
                 </div>
             </div>
         </section>
     );
 }
+

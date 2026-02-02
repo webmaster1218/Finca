@@ -4,15 +4,15 @@ import React from "react";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowLeft, Shield, FileText, Trees } from "lucide-react";
-import { useLanguage } from "@/context/LanguageContext";
+import { useLanguage } from "../../context/LanguageContext";
 
 export default function PoliticasPage() {
     const { t } = useLanguage();
 
     return (
-        <main className="min-h-screen bg-[#fdfaf6] text-[#1a3c34] font-serif">
+        <main className="min-h-screen bg-[#fffbf0] text-[#6f7c4e] font-serif">
             {/* Header / Nav Area */}
-            <nav className="p-6 border-b border-[#9a7d45]/10 bg-white/50 backdrop-blur-sm sticky top-0 z-50">
+            <nav className="p-6 border-b border-[#9a7d45]/10 bg-[#fffbf0]/50 backdrop-blur-sm sticky top-0 z-50">
                 <div className="max-w-4xl mx-auto flex justify-between items-center">
                     <Link href="/" className="flex items-center gap-2 group">
                         <ArrowLeft className="w-5 h-5 transition-transform group-hover:-translate-x-1" />
@@ -77,3 +77,4 @@ export default function PoliticasPage() {
         </main>
     );
 }
+
