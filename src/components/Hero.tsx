@@ -2,21 +2,52 @@
 
 import { motion } from "framer-motion";
 import { useLanguage } from "../context/LanguageContext";
+import Image from "next/image";
 
-export function Hero() {
+interface HeroProps {
+    mediaType?: "video" | "image";
+    mediaUrl?: string;
+    location?: string;
+    titlePart1?: string;
+    titlePart2?: string;
+    subtitle?: string;
+    ctaText?: string;
+    ctaLink?: string;
+}
+
+export function Hero({
+    mediaType = "video",
+    mediaUrl = "xl7Ywq7oR7E", // Default YouTube ID
+    location,
+    titlePart1,
+    titlePart2,
+    subtitle,
+    ctaText,
+    ctaLink = "#experiencias"
+}: HeroProps) {
     const { t } = useLanguage();
 
     return (
         <section id="hero" className="relative h-screen w-full flex items-center justify-center overflow-hidden">
             {/* Immersive Background */}
-            <div
-                className="absolute inset-0 bg-center bg-no-repeat"
-                style={{
-                    backgroundImage: 'url("/imagenes/exterior/IMG_51203.webp")',
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                }}
-            >
+            <div className="absolute inset-0 overflow-hidden pointer-events-none bg-black">
+                {mediaType === "video" ? (
+                    <iframe
+                        src={`https://www.youtube.com/embed/${mediaUrl}?autoplay=1&mute=1&controls=0&rel=0&showinfo=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&playsinline=1&start=5&end=37&vq=hd1080&playlist=${mediaUrl}&loop=1`}
+                        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[115vw] h-[64.68vw] min-h-[115vh] min-w-[204.44vh] border-none opacity-80"
+                        allow="autoplay; encrypted-media"
+                    />
+                ) : (
+                    <Image
+                        src={mediaUrl}
+                        alt="Hero Background"
+                        fill
+                        className="object-cover opacity-80"
+                        priority
+                        sizes="100vw"
+                        quality={95}
+                    />
+                )}
                 <div className="absolute inset-0 bg-black/40" />
             </div>
 
@@ -29,7 +60,7 @@ export function Hero() {
                     className="flex items-center justify-center gap-2 mb-8"
                 >
                     <span className="text-[#fffbf0]/80 font-serif tracking-[0.2em] text-sm uppercase">
-                        {t('hero.location')}
+                        {location || t('hero.location')}
                     </span>
                 </motion.div>
 
@@ -39,8 +70,8 @@ export function Hero() {
                     transition={{ duration: 1.5, delay: 0.3 }}
                     className="text-5xl md:text-8xl font-serif text-[#fffbf0] mb-8 tracking-normal leading-tight"
                 >
-                    {t('hero.title_part1')} <br />
-                    <span className="font-normal text-[#fffbf0]/90">{t('hero.title_part2')}</span>
+                    {titlePart1 || t('hero.title_part1')} <br />
+                    <span className="font-normal text-[#fffbf0]/90">{titlePart2 || t('hero.title_part2')}</span>
                 </motion.h1>
 
                 <motion.div
@@ -56,7 +87,7 @@ export function Hero() {
                     transition={{ duration: 1, delay: 1.2 }}
                     className="text-lg md:text-xl text-[#fffbf0]/90 mb-12 max-w-xl mx-auto font-serif leading-relaxed"
                 >
-                    {t('hero.subtitle_long')}
+                    {subtitle || t('hero.subtitle_long')}
                 </motion.p>
 
                 <motion.div
@@ -66,14 +97,15 @@ export function Hero() {
                     className="flex justify-center"
                 >
                     <a
-                        href="#experiencias"
+                        href={ctaLink}
                         className="px-10 py-3 bg-[#fffbf0] text-[#6f7c4e] rounded-none font-serif tracking-wide transition-all duration-300 hover:bg-[#fffbf0] border border-[#fffbf0]/30 shadow-xl flex items-center gap-3"
                     >
-                        {t('hero.cta')}
+                        {ctaText || t('hero.cta')}
                     </a>
                 </motion.div>
             </div>
         </section>
     );
 }
+
 

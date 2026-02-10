@@ -1,9 +1,11 @@
 "use client";
 
-import React, { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
-import { X, ChevronLeft, ChevronRight, Maximize2, Camera, Trees, Play, ArrowRight, Expand } from "lucide-react";
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { X, ChevronLeft, ChevronRight, Expand } from "lucide-react";
+import Image from "next/image";
 import { Navbar } from "../../components/Navbar";
+import { Hero } from "../../components/Hero";
 import { Footer } from "../../components/Footer";
 import { useLanguage } from "../../context/LanguageContext";
 
@@ -53,14 +55,6 @@ const galleryItems = [
     },
     {
         id: 6,
-        url: "/imagenes/espacios/IMG_5141.webp",
-        category: "espacios",
-        title: "Herencia Culinaria",
-        desc: "Donde los sabores tradicionales se funden con la elegancia del presente.",
-        span: "lg:col-span-1 lg:row-span-1"
-    },
-    {
-        id: 7,
         url: "/imagenes/espacios/IMG_5242.webp",
         category: "espacios",
         title: "Rincón Colonial",
@@ -68,16 +62,24 @@ const galleryItems = [
         span: "lg:col-span-1 lg:row-span-1"
     },
     {
-        id: 8,
+        id: 7,
         url: "/imagenes/espacios/IMG_5220.webp",
         category: "espacios",
         title: "Luz y Sombra",
         desc: "Juegos de iluminación natural que crean atmósferas mágicas.",
         span: "lg:col-span-2 lg:row-span-2"
     },
-    // ESTANCIAS / HABITACIONES
     {
-        id: 9,
+        id: 16,
+        url: "/imagenes/espacios/IMG_5221.webp",
+        category: "espacios",
+        title: "Reflejos",
+        desc: "La paz reflejada en cada ventana.",
+        span: "lg:col-span-1 lg:row-span-1"
+    },
+    // HABITACIONES
+    {
+        id: 8,
         url: "/imagenes/habitaciones/IMG_5145.webp",
         category: "habitaciones",
         title: "Refugio Ancestral",
@@ -85,7 +87,7 @@ const galleryItems = [
         span: "lg:col-span-1 lg:row-span-1"
     },
     {
-        id: 10,
+        id: 9,
         url: "/imagenes/habitaciones/IMG_5151.webp",
         category: "habitaciones",
         title: "Despertar Místico",
@@ -93,7 +95,7 @@ const galleryItems = [
         span: "lg:col-span-1 lg:row-span-1"
     },
     {
-        id: 11,
+        id: 10,
         url: "/imagenes/habitaciones/IMG_5561.webp",
         category: "habitaciones",
         title: "Suite del Sol",
@@ -101,24 +103,56 @@ const galleryItems = [
         span: "lg:col-span-2 lg:row-span-1"
     },
     {
-        id: 12,
+        id: 11,
         url: "/imagenes/habitaciones/IMG_5622.webp",
         category: "habitaciones",
         title: "Noches de Paz",
         desc: "El silencio de la montaña es la mejor melodía para un sueño reparador.",
-        span: "lg:col-span-1 lg:row-span-1"
+        span: "lg:col-span-1 lg:row-span-2"
     },
     {
-        id: 13,
+        id: 12,
         url: "/imagenes/habitaciones/IMG_5597.webp",
         category: "habitaciones",
         title: "Detalles que Hablan",
         desc: "Cada objeto en La Juana cuenta una historia de tradición y buen gusto.",
         span: "lg:col-span-1 lg:row-span-1"
     },
+    {
+        id: 22,
+        url: "/imagenes/habitaciones/IMG_5152.webp",
+        category: "habitaciones",
+        title: "Texturas Calmas",
+        desc: "Materiales nobles para un descanso profundo.",
+        span: "lg:col-span-1 lg:row-span-1"
+    },
+    {
+        id: 23,
+        url: "/imagenes/habitaciones/IMG_5153.webp",
+        category: "habitaciones",
+        title: "Armonía",
+        desc: "El equilibrio perfecto entre lo rústico y lo moderno.",
+        span: "lg:col-span-1 lg:row-span-1"
+    },
+    {
+        id: 24,
+        url: "/imagenes/habitaciones/IMG_5154.webp",
+        category: "habitaciones",
+        title: "Rincón de Lectura",
+        desc: "El lugar ideal para perderse en un buen libro.",
+        span: "lg:col-span-1 lg:row-span-1"
+    },
+    {
+        id: 19,
+        url: "/imagenes/habitaciones/IMG_5169.webp",
+        category: "habitaciones",
+        title: "Confort",
+        desc: "Descanso en armonía con la naturaleza.",
+        span: "lg:col-span-2 lg:row-span-1"
+    },
     // MAS EXTERIORES
     {
-        id: 14,
+        id: 13,
         url: "/imagenes/exterior/IMG_5132.webp",
         category: "exterior",
         title: "Senderos Secretos",
@@ -126,11 +160,43 @@ const galleryItems = [
         span: "lg:col-span-1 lg:row-span-2"
     },
     {
-        id: 15,
+        id: 14,
         url: "/imagenes/exterior/IMG_5111.webp",
         category: "exterior",
         title: "Vista Infinita",
         desc: "El horizonte se funde con el cielo en un abrazo eterno.",
+        span: "lg:col-span-1 lg:row-span-1"
+    },
+    {
+        id: 15,
+        url: "/imagenes/exterior/IMG_5136.webp",
+        category: "exterior",
+        title: "Horizonte",
+        desc: "Vistas inigualables desde la comodidad de la finca.",
+        span: "lg:col-span-2 lg:row-span-1"
+    },
+    {
+        id: 18,
+        url: "/imagenes/exterior/IMG_5112.webp",
+        category: "exterior",
+        title: "Atardecer",
+        desc: "El cielo se tiñe de colores al finalizar el día.",
+        span: "lg:col-span-1 lg:row-span-1"
+    },
+    {
+        id: 20,
+        url: "/imagenes/exterior/IMG_5131.webp",
+        category: "exterior",
+        title: "Paz en la Altura",
+        desc: "El aire puro de la montaña te da la bienvenida.",
+        span: "lg:col-span-1 lg:row-span-1"
+    },
+    {
+        id: 21,
+        url: "/imagenes/exterior/IMG_3096.webp",
+        category: "exterior",
+        title: "Montaña Mágica",
+        desc: "Cerro Tusa desde otro ángulo, siempre imponente.",
         span: "lg:col-span-1 lg:row-span-1"
     }
 ];
@@ -146,91 +212,31 @@ export default function GaleriaPage() {
     const { language, t } = useLanguage();
     const [filter, setFilter] = useState("all");
     const [selectedImage, setSelectedImage] = useState<number | null>(null);
-    const [isVideoOpen, setIsVideoOpen] = useState(false);
     const [hoveredId, setHoveredId] = useState<number | null>(null);
 
     const filteredItems = filter === "all" ? galleryItems : galleryItems.filter(img => img.category === filter);
-
-    // Parallax logic for Hero
-    const heroRef = useRef(null);
-    const { scrollYProgress } = useScroll({
-        target: heroRef,
-        offset: ["start start", "end start"]
-    });
-    const heroY = useTransform(scrollYProgress, [0, 1], [0, 200]);
-    const heroOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
     const openLightbox = (id: number) => setSelectedImage(id);
     const closeLightbox = () => setSelectedImage(null);
 
     return (
         <div className="min-h-screen bg-[#fffbf0] text-[#6f7c4e] selection:bg-[#6f7c4e] selection:text-[#fffbf0]">
-            {/* Film Grain Texture Overlay */}
-            <div className="fixed inset-0 z-[99] pointer-events-none opacity-[0.03] mix-blend-overlay">
-                <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] bg-repeat shadow-inner" />
-            </div>
+            {/* Removed Noise Overlay for performance */}
 
             <Navbar />
 
-            {/* Immersive Hero */}
-            <section ref={heroRef} className="relative h-screen flex items-center justify-center overflow-hidden bg-black">
-                <motion.div style={{ y: heroY, opacity: heroOpacity }} className="absolute inset-0">
-                    <img
-                        src="/imagenes/exterior/IMG_5135.webp"
-                        alt="Finca La Juana"
-                        className="w-full h-full object-cover opacity-60 scale-105 contrast-125"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-[#fffbf0]" />
-                </motion.div>
-
-                <div className="relative z-10 text-center px-6">
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        transition={{ duration: 1.5 }}
-                    >
-                        <motion.span
-                            initial={{ y: 20, opacity: 0 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            transition={{ delay: 0.5, duration: 0.8 }}
-                            className="text-[#fffbf0] font-serif tracking-[0.6em] uppercase text-[10px] mb-6 block"
-                        >
-                            {language === 'es' ? 'Una Visión de Gran Tradición' : 'A Vision of Great Tradition'}
-                        </motion.span>
-
-                        <div className="overflow-hidden mb-8">
-                            <motion.h1
-                                initial={{ y: "100%" }}
-                                animate={{ y: 0 }}
-                                transition={{ delay: 0.8, duration: 1, ease: [0.16, 1, 0.3, 1] }}
-                                className="text-6xl md:text-[10vw] font-serif text-[#fffbf0] leading-[0.9] italic"
-                            >
-                                {language === 'es' ? 'La Mirada' : 'The Vision'}
-                            </motion.h1>
-                        </div>
-
-                        <motion.div
-                            initial={{ width: 0 }}
-                            animate={{ width: "100%" }}
-                            transition={{ delay: 1.2, duration: 1.5 }}
-                            className="h-[1px] bg-[#fffbf0]/30 max-w-sm mx-auto"
-                        />
-                    </motion.div>
-                </div>
-
-                {/* Scroll Indicator */}
-                <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 2 }}
-                    className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4"
-                >
-                    <span className="text-[#fffbf0]/40 text-[9px] uppercase tracking-[0.4em] rotate-90 mb-8 whitespace-nowrap">
-                        Scroll Down
-                    </span>
-                    <div className="w-[1px] h-12 bg-gradient-to-b from-[#fffbf0]/40 to-transparent" />
-                </motion.div>
-            </section>
+            <Hero
+                mediaType="image"
+                mediaUrl="/imagenes/exterior/IMG_5135.webp"
+                location={language === 'es' ? 'Una Visión de Gran Tradición' : 'A Vision of Great Tradition'}
+                titlePart1={language === 'es' ? 'La Mirada' : 'The Vision'}
+                titlePart2=""
+                subtitle={language === 'es'
+                    ? 'Cada rincón de nuestra finca es una oda a la tierra que nos vio nacer.'
+                    : 'Every corner of our ranch is an ode to the land where we were born.'}
+                ctaText={language === 'es' ? 'Explorar' : 'Explore'}
+                ctaLink="#galeria-grid"
+            />
 
             {/* Narrative Introduction */}
             <section className="py-32 px-6">
@@ -272,33 +278,33 @@ export default function GaleriaPage() {
             </section>
 
             {/* Bento Style Gallery Grid */}
-            <section className="py-24 px-6 md:px-12 bg-[#fffbf0]">
+            <section id="galeria-grid" className="py-24 px-6 md:px-12 bg-[#fffbf0]">
                 <div className="max-w-screen-2xl mx-auto">
                     <motion.div
                         layout
-                        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 auto-rows-[300px] md:auto-rows-[400px]"
+                        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 auto-rows-[300px] md:auto-rows-[400px] grid-flow-row-dense"
                     >
                         <AnimatePresence mode="popLayout">
                             {filteredItems.map((item, index) => (
                                 <motion.div
                                     key={item.id}
                                     layout
-                                    initial={{ opacity: 0, y: 30 }}
-                                    whileInView={{ opacity: 1, y: 0 }}
-                                    exit={{ opacity: 0, scale: 0.9 }}
-                                    transition={{ duration: 0.8, delay: index * 0.05 }}
-                                    viewport={{ once: true }}
                                     className={`relative group overflow-hidden bg-[#6f7c4e]/5 ${item.span || ""}`}
                                     onMouseEnter={() => setHoveredId(item.id)}
                                     onMouseLeave={() => setHoveredId(null)}
                                     onClick={() => openLightbox(item.id)}
                                 >
                                     {/* Image with Parallax-esque effect on hover */}
-                                    <motion.img
-                                        src={item.url}
-                                        alt={item.title}
-                                        className="w-full h-full object-cover transition-transform duration-[1.5s] ease-out group-hover:scale-110"
-                                    />
+                                    <div className="relative w-full h-full transition-transform duration-[1.5s] ease-out group-hover:scale-110">
+                                        <Image
+                                            src={item.url}
+                                            alt={item.title}
+                                            fill
+                                            className="object-cover"
+                                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                                            quality={95}
+                                        />
+                                    </div>
 
                                     {/* Glassmorphic Overlay */}
                                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-700 flex flex-col justify-end p-8">
@@ -332,35 +338,8 @@ export default function GaleriaPage() {
                 </div>
             </section>
 
-            {/* Aesthetic Commercial Break */}
-            <section className="py-40 bg-[#6f7c4e] relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-[50vw] h-[50vw] bg-[#fffbf0]/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
-                <div className="max-w-7xl mx-auto px-6 text-center relative z-10">
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        className="space-y-12"
-                    >
-                        <h2 className="text-4xl md:text-7xl font-serif text-[#fffbf0] italic tracking-tight">
-                            {language === 'es' ? 'La esencia del lujo calmado.' : 'The essence of quiet luxury.'}
-                        </h2>
-
-                        <button
-                            onClick={() => setIsVideoOpen(true)}
-                            className="inline-flex flex-col items-center gap-6 group"
-                        >
-                            <div className="w-20 h-20 rounded-full border border-[#fffbf0]/30 flex items-center justify-center group-hover:scale-110 transition-transform duration-500">
-                                <Play className="w-6 h-6 text-[#fffbf0] fill-current" />
-                            </div>
-                            <span className="text-[#fffbf0] font-serif tracking-[0.5em] uppercase text-[10px]">
-                                {t('tours.video')}
-                            </span>
-                        </button>
-                    </motion.div>
-                </div>
-            </section>
-
             <Footer />
+
 
             {/* Designer Lightbox */}
             <AnimatePresence>
@@ -381,11 +360,16 @@ export default function GaleriaPage() {
                                 animate={{ scale: 1, opacity: 1 }}
                                 className="relative w-full h-[70vh] group"
                             >
-                                <img
-                                    src={galleryItems.find(img => img.id === selectedImage)?.url}
-                                    className="w-full h-full object-contain"
-                                    alt="Selected"
-                                />
+                                <div className="relative w-full h-full">
+                                    <Image
+                                        src={galleryItems.find(img => img.id === selectedImage)?.url || ""}
+                                        fill
+                                        className="object-contain"
+                                        alt="Selected"
+                                        priority
+                                        quality={95}
+                                    />
+                                </div>
 
                                 {/* Nav controls in Lightbox */}
                                 <div className="absolute inset-y-0 -left-16 flex items-center">
@@ -433,26 +417,6 @@ export default function GaleriaPage() {
                 )}
             </AnimatePresence>
 
-            {/* Video Modal Design */}
-            <AnimatePresence>
-                {isVideoOpen && (
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        className="fixed inset-0 z-[2000] bg-black/95 flex items-center justify-center p-4"
-                    >
-                        <button onClick={() => setIsVideoOpen(false)} className="absolute top-10 right-10 text-white/40 hover:text-white transition-colors">
-                            <X className="w-8 h-8" />
-                        </button>
-                        <div className="w-full max-w-6xl aspect-video bg-black rounded-sm overflow-hidden shadow-2xl border border-white/5">
-                            <video controls autoPlay className="w-full h-full object-contain">
-                                <source src="/eco%20tours/Video%20Promocional%20Al%20Parche%20Venecia.mp4" type="video/mp4" />
-                            </video>
-                        </div>
-                    </motion.div>
-                )}
-            </AnimatePresence>
         </div>
     );
 }
