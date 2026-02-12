@@ -8,7 +8,7 @@ import { useLanguage } from "../context/LanguageContext";
 const tours = [
     {
         key: "cerrotusa",
-        image: "/imagenes/cerro-tusa/IMG_5476.webp",
+        image: "/eco tours/SaveClip.App_522169608_18051317933624494_6236629626133625721_n.jpg",
         icon: <Mountain className="w-5 h-5" />
     },
     {
@@ -18,7 +18,7 @@ const tours = [
     },
     {
         key: "town",
-        image: "/imagenes/gallery/IMG_5243.webp",
+        image: "/eco tours/SaveClip.App_521930582_18051317924624494_1633705148474644517_n.jpg",
         icon: <MapPin className="w-5 h-5" />
     }
 ];

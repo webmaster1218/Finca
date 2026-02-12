@@ -12,8 +12,6 @@ export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
-  const isGalleryPage = pathname === "/galeria";
-
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -41,105 +39,80 @@ export function Navbar() {
         }`}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between h-full">
-        {isGalleryPage ? (
-          <div className="flex-1 hidden md:flex justify-start items-center">
-            <Link
-              href="/"
-              className={`flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.4em] transition-all py-4 ${isScrolled ? "text-[#6f7c4e]" : "text-[#fffbf0]"} hover:opacity-70 group`}
-            >
-              <ChevronLeft className="w-5 h-5 transition-transform group-hover:-translate-x-1" />
-              {language === 'es' ? 'Volver al Inicio' : 'Back to Home'}
-            </Link>
-          </div>
-        ) : (
-          <>
-            {/* Left Side: Empty or Logo depending on design */}
-            <div className="flex-1 md:flex hidden">
-              <div className="flex gap-8">
-                {navLinks.slice(0, 3).map((link) => (
-                  <Link
-                    key={link.name}
-                    href={link.href}
-                    className={`nav-link text-sm uppercase tracking-widest ${isScrolled ? "text-slate-800" : "text-[#fffbf0]"
-                      }`}
-                  >
-                    {link.name}
-                  </Link>
-                ))}
-              </div>
-            </div>
-
-            <Link href="/" className="relative flex items-center justify-center w-40 h-12 group">
-              <img
-                src="/identidad de marca/LOGO LA JUANA CERRO TUSA-05.png"
-                alt="La Juana Logo"
-                className={`absolute top-1/2 -translate-y-1/2 transition-all duration-500 object-contain ${isScrolled ? "h-26" : "h-34"
+        <div className="flex-1 flex justify-start items-center">
+          <div className="hidden md:flex gap-8">
+            {navLinks.slice(0, 3).map((link) => (
+              <Link
+                key={link.name}
+                href={link.href}
+                className={`nav-link text-sm uppercase tracking-widest ${isScrolled ? "text-slate-800" : "text-[#fffbf0]"
                   }`}
-                style={!isScrolled ? { filter: 'brightness(0) invert(1)' } : {}}
-              />
-            </Link>
+              >
+                {link.name}
+              </Link>
+            ))}
+          </div>
+        </div>
 
-            <div className="flex-1 md:flex hidden justify-end items-center gap-8">
-              <div className="flex gap-8">
-                {navLinks.slice(3).map((link) => (
-                  <Link
-                    key={link.name}
-                    href={link.href}
-                    className={`nav-link text-sm uppercase tracking-widest ${isScrolled ? "text-slate-800" : "text-[#fffbf0]"
-                      }`}
-                  >
-                    {link.name}
-                  </Link>
-                ))}
-              </div>
+        <Link href="/" className="relative flex items-center justify-center w-40 h-12 group">
+          <img
+            src="/identidad de marca/LOGO LA JUANA CERRO TUSA-05.png"
+            alt="La Juana Logo"
+            className={`absolute top-1/2 -translate-y-1/2 transition-all duration-500 object-contain ${isScrolled ? "h-26" : "h-34"
+              }`}
+            style={!isScrolled ? { filter: 'brightness(0) invert(1)' } : {}}
+          />
+        </Link>
 
-              <div className="flex items-center gap-4">
-                <button
-                  onClick={toggleLanguage}
-                  className={`flex items-center gap-2 text-xs font-bold uppercase tracking-widest transition-all ${isScrolled ? "text-[#6f7c4e]" : "text-[#fffbf0]"} hover:opacity-70`}
-                >
-                  <Globe className="w-4 h-4" />
-                  {language === 'es' ? 'EN' : 'ES'}
-                </button>
+        <div className="flex-1 flex justify-end items-center gap-8">
+          <div className="hidden md:flex gap-8">
+            {navLinks.slice(3).map((link) => (
+              <Link
+                key={link.name}
+                href={link.href}
+                className={`nav-link text-sm uppercase tracking-widest ${isScrolled ? "text-slate-800" : "text-[#fffbf0]"
+                  }`}
+              >
+                {link.name}
+              </Link>
+            ))}
+          </div>
 
-                <a
-                  href="/#habitaciones"
-                  className={`px-6 py-2 border font-serif italic text-sm transition-all ${isScrolled
-                    ? "border-[#6f7c4e] text-[#6f7c4e] hover:bg-[#6f7c4e] hover:text-[#fffbf0]"
-                    : "border-[#fffbf0] text-[#fffbf0] hover:bg-[#fffbf0] hover:text-[#6f7c4e]"
-                    }`}
-                >
-                  {t('nav.reserve')}
-                </a>
-              </div>
-            </div>
-          </>
-        )}
+          <div className="md:flex hidden items-center gap-4">
+            <button
+              onClick={toggleLanguage}
+              className={`flex items-center gap-2 text-xs font-bold uppercase tracking-widest transition-all ${isScrolled ? "text-[#6f7c4e]" : "text-[#fffbf0]"} hover:opacity-70`}
+            >
+              <Globe className="w-4 h-4" />
+              {language === 'es' ? 'EN' : 'ES'}
+            </button>
 
-        {isGalleryPage ? (
-          <Link
-            href="/"
-            className={`md:hidden flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] transition-all ${isScrolled ? "text-[#6f7c4e]" : "text-[#fffbf0]"} bg-[#fffbf0]/10 px-3 py-1.5 rounded-full backdrop-blur-sm`}
-          >
-            <ChevronLeft className="w-3 h-3" />
-            {language === 'es' ? 'Inicio' : 'Home'}
-          </Link>
-        ) : (
-          <button
-            className="md:hidden"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? (
-              <X className={isScrolled ? "text-[#6f7c4e]" : "text-[#fffbf0]"} />
-            ) : (
-              <Menu className={isScrolled ? "text-[#6f7c4e]" : "text-[#fffbf0]"} />
-            )}
-          </button>
-        )}
+            <a
+              href="/#habitaciones"
+              className={`px-6 py-2 border font-serif italic text-sm transition-all ${isScrolled
+                ? "border-[#6f7c4e] text-[#6f7c4e] hover:bg-[#6f7c4e] hover:text-[#fffbf0]"
+                : "border-[#fffbf0] text-[#fffbf0] hover:bg-[#fffbf0] hover:text-[#6f7c4e]"
+                }`}
+            >
+              {t('nav.reserve')}
+            </a>
+          </div>
+        </div>
+
+        <button
+          className="md:hidden"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+        >
+          {isMobileMenuOpen ? (
+            <X className={isScrolled ? "text-[#6f7c4e]" : "text-[#fffbf0]"} />
+          ) : (
+            <Menu className={isScrolled ? "text-[#6f7c4e]" : "text-[#fffbf0]"} />
+          )}
+        </button>
       </div>
 
       <AnimatePresence>
-        {isMobileMenuOpen && !isGalleryPage && (
+        {isMobileMenuOpen && (
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}

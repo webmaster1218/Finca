@@ -4,8 +4,8 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight, Expand } from "lucide-react";
 import Image from "next/image";
-import { Navbar } from "../../components/Navbar";
-import { Hero } from "../../components/Hero";
+import { NavbarGallery } from "../../components/NavbarGallery";
+import { HeroGallery } from "../../components/HeroGallery";
 import { Footer } from "../../components/Footer";
 import { useLanguage } from "../../context/LanguageContext";
 
@@ -223,10 +223,9 @@ export default function GaleriaPage() {
         <div className="min-h-screen bg-[#fffbf0] text-[#6f7c4e] selection:bg-[#6f7c4e] selection:text-[#fffbf0]">
             {/* Removed Noise Overlay for performance */}
 
-            <Navbar />
+            <NavbarGallery />
 
-            <Hero
-                mediaType="image"
+            <HeroGallery
                 mediaUrl="/imagenes/exterior/IMG_5135.webp"
                 location={language === 'es' ? 'Una Visión de Gran Tradición' : 'A Vision of Great Tradition'}
                 titlePart1={language === 'es' ? 'La Mirada' : 'The Vision'}
