@@ -17,7 +17,7 @@ interface HeroProps {
 
 export function Hero({
     mediaType = "video",
-    mediaUrl = "xl7Ywq7oR7E", // Default YouTube ID
+    mediaUrl = "649d-G22sWc", // Default YouTube ID
     location,
     titlePart1,
     titlePart2,
@@ -33,7 +33,7 @@ export function Hero({
             <div className="absolute inset-0 overflow-hidden pointer-events-none bg-black">
                 {mediaType === "video" ? (
                     <iframe
-                        src={`https://www.youtube.com/embed/${mediaUrl}?autoplay=1&mute=1&controls=0&rel=0&showinfo=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&playsinline=1&start=5&end=37&vq=hd1080&playlist=${mediaUrl}&loop=1`}
+                        src={`https://www.youtube.com/embed/${mediaUrl}?autoplay=1&mute=1&controls=0&rel=0&showinfo=0&iv_load_policy=3&modestbranding=1&enablejsapi=1&playsinline=1&vq=hd1080&playlist=${mediaUrl}&loop=1`}
                         className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[115vw] h-[64.68vw] min-h-[115vh] min-w-[204.44vh] border-none opacity-80"
                         allow="autoplay; encrypted-media"
                     />

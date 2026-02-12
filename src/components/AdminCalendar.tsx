@@ -4,7 +4,7 @@ import React, { useEffect, useState, useCallback, Suspense } from 'react';
 import dynamic from 'next/dynamic';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
-import { Loader2, Calendar as CalendarIcon, Info, DollarSign, ExternalLink, X, User, Hash, CreditCard } from 'lucide-react';
+import { Loader2, Calendar as CalendarIcon, Info, DollarSign, ExternalLink, X, User, Hash, CreditCard, CheckCircle2, AlertCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import esLocale from '@fullcalendar/core/locales/es';
 
@@ -31,6 +31,7 @@ interface CalendarEvent {
         guestCount?: number;
         checkIn?: string;
         checkOut?: string;
+        uuid?: string;
         original?: any;
     };
 }
@@ -67,10 +68,24 @@ export default function AdminCalendar() {
     const [selectedEvent, setSelectedEvent] = useState<CalendarEvent['extendedProps'] | null>(null);
     const [selectedDate, setSelectedDate] = useState<string | null>(null);
     const [isToggling, setIsToggling] = useState(false);
+    const [isCancelling, setIsCancelling] = useState(false);
     const [currentDateRange, setCurrentDateRange] = useState<{ start: string; end: string } | null>(null);
     const [dailyPrices, setDailyPrices] = useState<Record<string, { formatted: string; amount: number }>>({});
     const [isMobile, setIsMobile] = useState(false);
     const [mounted, setMounted] = useState(false);
+
+    // New states for Context Menu and Price Modal
+    const [contextMenu, setContextMenu] = useState<{ x: number; y: number; date: string } | null>(null);
+    const [priceModal, setPriceModal] = useState<{ date: string; amount: number } | null>(null);
+    const [newPrice, setNewPrice] = useState<string>('');
+    const [confirmCancel, setConfirmCancel] = useState<string | null>(null);
+    const [notification, setNotification] = useState<{ message: string; type: 'success' | 'error' } | null>(null);
+
+    const showNotification = useCallback((message: string, type: 'success' | 'error' = 'success') => {
+        setNotification({ message, type });
+        setTimeout(() => setNotification(null), 4000);
+    }, []);
+
 
     useEffect(() => {
         setMounted(true);
@@ -199,6 +214,7 @@ export default function AdminCalendar() {
                         status: fullStatus || 'N/A',
                         checkIn: reservation.check_in,
                         checkOut: reservation.check_out,
+                        uuid: reservation.uuid || reservation.id,
                         original: reservation
                     }
                 });
@@ -247,31 +263,44 @@ export default function AdminCalendar() {
     };
 
     const handleDateClick = (info: any) => {
-        // If there's an event on this day that is NOT a block (like a reservation), we don't allow blocking?
-        // Actually, Hospitable allows blocking even if there's a reservation.
-        setSelectedDate(info.dateStr);
+        // Disabled left-click as requested - using right-click context menu instead
     };
 
-    const triggerToggleAvailability = async (date: string, available: boolean) => {
+    const handleContextMenu = (e: React.MouseEvent, dateStr: string) => {
+        e.preventDefault();
+        setContextMenu({
+            x: e.clientX,
+            y: e.clientY,
+            date: dateStr
+        });
+    };
+
+    const triggerToggleAvailability = async (date: string, available: boolean, price?: number) => {
         setIsToggling(true);
         try {
+            const body: any = {
+                dates: [
+                    {
+                        date,
+                        available,
+                    }
+                ]
+            };
+
+            // If we are blocking, set defaults. If we are just updating price, send the price.
+            if (!available) {
+                body.dates[0].closed_for_checkout = true;
+                body.dates[0].closed_for_checkin = true;
+            }
+
+            if (price !== undefined) {
+                body.dates[0].price = { amount: price };
+            }
+
             const response = await fetch('/api/calendar/hospitable', {
                 method: 'PUT',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    dates: [
-                        {
-                            date,
-                            available,
-                            // When blocking, we can set some defaults like in n8n
-                            ...(!available && {
-                                price: { amount: 1000 }, // Placeholder or current price
-                                closed_for_checkout: true,
-                                closed_for_checkin: true
-                            })
-                        }
-                    ]
-                })
+                body: JSON.stringify(body)
             });
 
             if (response.ok) {
@@ -291,6 +320,32 @@ export default function AdminCalendar() {
         }
     };
 
+    const handleCancelReservation = async (uuid: string) => {
+        setIsCancelling(true);
+        setConfirmCancel(null);
+        try {
+            const response = await fetch(`/api/calendar/hospitable/reservations/${uuid}/cancel`, {
+                method: 'POST'
+            });
+
+            if (response.ok) {
+                showNotification('Reserva cancelada con éxito', 'success');
+                setSelectedEvent(null);
+                // Refresh data
+                if (currentDateRange) {
+                    await fetchCalendarData(currentDateRange.start, currentDateRange.end);
+                }
+            } else {
+                const err = await response.json();
+                showNotification(err.message || 'No se pudo cancelar la reserva', 'error');
+            }
+        } catch (err) {
+            showNotification('Error de conexión al intentar cancelar', 'error');
+        } finally {
+            setIsCancelling(false);
+        }
+    };
+
     const renderEventContent = (eventInfo: any) => {
         const { extendedProps } = eventInfo.event;
         const type = extendedProps.type;
@@ -301,7 +356,7 @@ export default function AdminCalendar() {
         return (
             <div className={`p-1 h-full flex flex-col justify-center overflow-hidden rounded-md ${isCancelled ? 'opacity-50 grayscale' : ''}`}>
                 <div className="flex items-center gap-1 min-w-0">
-                    <span className="font-bold text-[8px] lg:text-[10px] leading-tight truncate uppercase tracking-tighter">
+                    <span className={`font-bold text-[8px] lg:text-[10px] leading-tight truncate uppercase tracking-tighter ${isCancelled ? 'line-through decoration-white/50' : ''}`}>
                         {eventInfo.event.title}
                     </span>
                 </div>
@@ -315,21 +370,27 @@ export default function AdminCalendar() {
         );
     };
 
+
     const renderDayCellContent = (args: any) => {
         const dateStr = args.date.toISOString().split('T')[0];
         const priceData = dailyPrices[dateStr];
 
         return (
-            <div className={`w-full h-full flex flex-col p-1 lg:p-2 ${isMobile ? 'min-h-[45px]' : 'min-h-[100px]'} relative group overflow-hidden`}>
-                <span className="text-[10px] lg:text-base font-serif font-bold text-slate-400 group-hover:text-[#6f7c4e] transition-colors leading-none">
+            <div
+                className={`w-full h-full flex flex-col p-1 lg:p-2 ${isMobile ? 'min-h-[45px]' : 'min-h-[100px]'} relative group transition-colors hover:bg-slate-50/50 cursor-pointer overflow-hidden`}
+                onContextMenu={(e) => handleContextMenu(e, dateStr)}
+            >
+                {/* Day Number */}
+                <span className="text-[10px] lg:text-base font-serif font-bold text-slate-400 group-hover:text-[#6f7c4e] transition-colors leading-none mb-1">
                     {args.dayNumberText}
                 </span>
 
+                {/* Price Display */}
                 {priceData && (
                     <div className="mt-auto flex flex-col items-start lg:items-end">
                         <span className="text-[8px] lg:text-[10px] font-black text-[#6f7c4e] leading-tight mb-0.5">
                             {mounted && isMobile ?
-                                `$${(priceData.amount / 1000000).toFixed(1)}M` :
+                                `$${(priceData.amount / 1).toFixed(0)}` :
                                 priceData.formatted
                             }
                         </span>
@@ -339,6 +400,18 @@ export default function AdminCalendar() {
         );
     };
 
+    const handlePriceSubmit = async (e: React.FormEvent) => {
+        if (!priceModal) return;
+        e.preventDefault();
+        // Remove $ and . to get raw number
+        const rawValue = newPrice.replace(/[^0-9]/g, '');
+        const amount = parseInt(rawValue, 10);
+        if (isNaN(amount)) return;
+
+        await triggerToggleAvailability(priceModal.date, true, amount);
+        setPriceModal(null);
+        setNewPrice('');
+    };
     if (!mounted) {
         return (
             <div className="h-full flex flex-col items-center justify-center p-10 bg-white rounded-[2rem] shadow-sm animate-pulse">
@@ -378,6 +451,7 @@ export default function AdminCalendar() {
 
     return (
         <div className={`${isMobile ? 'h-auto' : 'h-full'} flex flex-col admin-calendar-parent animate-in fade-in zoom-in-95 duration-500 relative`}>
+
             <div className="flex-grow lg:flex-grow-0 lg:h-full relative bg-white rounded-2xl lg:rounded-[1.5rem] shadow-sm border border-slate-100 overflow-hidden min-h-[400px]">
                 {mounted && (
                     <FullCalendarComponent
@@ -388,11 +462,21 @@ export default function AdminCalendar() {
                         headerToolbar={isMobile ? {
                             left: 'prev,next',
                             center: 'title',
-                            right: 'today'
+                            right: 'today refresh'
                         } : {
-                            left: 'prev,next today',
+                            left: 'prev,next today refresh',
                             center: 'title',
                             right: 'dayGridMonth'
+                        }}
+                        customButtons={{
+                            refresh: {
+                                text: 'Actualizar',
+                                click: () => {
+                                    if (currentDateRange) {
+                                        fetchCalendarData(currentDateRange.start, currentDateRange.end);
+                                    }
+                                }
+                            }
                         }}
                         locale={esLocale}
                         datesSet={(dateInfo) => {
@@ -433,97 +517,162 @@ export default function AdminCalendar() {
 
             <AnimatePresence>
                 {selectedEvent && (
-                    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/40 p-4 backdrop-blur-sm">
+                    <div key="reservation-modal" className="fixed inset-0 z-[100] flex items-center justify-center bg-black/40 p-4 backdrop-blur-sm">
                         <motion.div
                             initial={{ opacity: 0, scale: 0.95, y: 20 }}
                             animate={{ opacity: 1, scale: 1, y: 0 }}
                             exit={{ opacity: 0, scale: 0.95, y: 20 }}
-                            className="bg-white rounded-[2rem] shadow-2xl w-full max-w-lg overflow-hidden border border-slate-100"
+                            className="bg-white rounded-[2.5rem] shadow-2xl w-full max-w-xl overflow-hidden relative border border-slate-100"
                         >
                             <div className="flex justify-between items-center p-6 border-b border-slate-50 bg-slate-50/30">
                                 <h3 className="text-xl font-serif font-bold text-[#6f7c4e] flex items-center gap-3">
-                                    <div className="p-2 bg-[#6f7c4e]/5 rounded-xl">
+                                    <div className="p-2 bg-[#6f7c4e]/5 rounded-xl shadow-inner">
                                         <CalendarIcon className="w-5 h-5 text-[#6f7c4e]" />
                                     </div>
                                     Detalle de Reserva
-                                    <span className={`ml-2 text-[10px] px-2 py-1 rounded-full uppercase tracking-widest ${selectedEvent.status?.toLowerCase() === 'accepted' ? 'bg-green-100 text-green-700' :
-                                        selectedEvent.status?.toLowerCase() === 'cancelled' || selectedEvent.status?.toLowerCase().includes('declined') ? 'bg-red-100 text-red-700' :
-                                            'bg-blue-100 text-blue-700'
-                                        }`}>
-                                        {selectedEvent.status}
-                                    </span>
+                                    {(() => {
+                                        const status = selectedEvent.status?.toLowerCase() || '';
+                                        let label = status;
+                                        let colorClass = 'bg-blue-100 text-blue-700';
+
+                                        if (status.includes('cancelled') || status.includes('declined')) {
+                                            label = 'CANCELADA';
+                                            colorClass = 'bg-red-50 text-red-600 border border-red-100';
+                                        } else if (status.includes('accepted') || status.includes('confirmed')) {
+                                            label = 'CONFIRMADA';
+                                            colorClass = 'bg-green-50 text-green-700 border border-green-100';
+                                        } else if (status.includes('pending')) {
+                                            label = 'PENDIENTE';
+                                            colorClass = 'bg-amber-50 text-amber-700 border border-amber-100';
+                                        } else {
+                                            label = label.toUpperCase();
+                                        }
+
+                                        return (
+                                            <span className={`ml-2 text-[10px] px-3 py-1 rounded-full font-bold tracking-widest ${colorClass}`}>
+                                                {label}
+                                            </span>
+                                        );
+                                    })()}
                                 </h3>
                                 <button
                                     onClick={() => setSelectedEvent(null)}
-                                    className="p-2 hover:bg-slate-100 rounded-xl transition-colors text-slate-400 hover:text-slate-600"
+                                    className="p-2 hover:bg-slate-100 rounded-xl transition-colors text-slate-400 hover:text-slate-600 shadow-sm"
                                 >
                                     <X className="w-5 h-5" />
                                 </button>
                             </div>
 
                             <div className="p-8 space-y-8">
-                                <div className="grid grid-cols-2 gap-8">
-                                    <div className="flex items-start gap-4">
-                                        <div className="p-3 bg-blue-50 rounded-2xl text-blue-600">
-                                            <User className="w-6 h-6" />
-                                        </div>
-                                        <div>
-                                            <label className="text-[10px] text-slate-400 font-bold uppercase tracking-wider block mb-1">Huésped</label>
-                                            <p className="text-slate-900 font-serif font-bold text-lg leading-tight">{selectedEvent.guestName}</p>
-                                            <p className="text-xs text-slate-500 mt-1 font-medium">{selectedEvent.phone}</p>
-                                        </div>
+                                {/* Row 1: Guest Info */}
+                                <div className="flex items-start gap-4">
+                                    <div className="p-3 bg-blue-50 rounded-2xl text-blue-600 shadow-sm shrink-0">
+                                        <User className="w-6 h-6" />
                                     </div>
+                                    <div className="min-w-0">
+                                        <label className="text-[10px] text-slate-400 font-bold uppercase tracking-wider block mb-1">Huésped principal</label>
+                                        <p className={`text-slate-900 font-serif font-bold text-xl leading-tight ${selectedEvent.isCancelled ? 'line-through decoration-slate-300 opacity-60' : ''}`}>
+                                            {selectedEvent.guestName}
+                                        </p>
+                                        <p className="text-sm text-slate-500 mt-1 font-medium">{selectedEvent.phone !== 'N/A' ? selectedEvent.phone : 'Sin teléfono'}</p>
+                                    </div>
+                                </div>
 
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                                    {/* Ocupación */}
                                     <div className="flex items-start gap-4">
-                                        <div className="p-3 bg-orange-50 rounded-2xl text-orange-600">
+                                        <div className="p-3 bg-orange-50 rounded-2xl text-orange-600 shadow-sm shrink-0">
                                             <Info className="w-6 h-6" />
                                         </div>
                                         <div>
-                                            <label className="text-[10px] text-slate-400 font-bold uppercase tracking-wider block mb-1">Personas</label>
-                                            <p className="text-slate-900 font-bold text-lg">{selectedEvent.guestCount} Huéspedes</p>
+                                            <label className="text-[10px] text-slate-400 font-bold uppercase tracking-wider block mb-1">Ocupación</label>
+                                            <p className="text-slate-900 font-bold text-lg">{selectedEvent.guestCount} {selectedEvent.guestCount === 1 ? 'Huésped' : 'Huéspedes'}</p>
                                         </div>
                                     </div>
-                                </div>
 
-                                <div className="grid grid-cols-2 gap-8">
-                                    <div className="flex items-start gap-4">
-                                        <div className="p-3 bg-purple-50 rounded-2xl text-purple-600">
+                                    {/* Origen */}
+                                    <div className="flex items-start gap-4 overflow-hidden">
+                                        <div className="p-3 bg-purple-50 rounded-2xl text-purple-600 shadow-sm shrink-0">
                                             <Hash className="w-6 h-6" />
                                         </div>
-                                        <div>
-                                            <label className="text-[10px] text-slate-400 font-bold uppercase tracking-wider block mb-1">Plataforma</label>
-                                            <p className="text-slate-900 font-bold text-sm tracking-tight">{selectedEvent.platform || 'Directo'}</p>
-                                            <p className="text-[10px] text-slate-400 font-mono mt-1">{selectedEvent.platformId}</p>
-                                        </div>
-                                    </div>
-
-                                    <div className="flex items-start gap-4">
-                                        <div className="p-3 bg-green-50 rounded-2xl text-green-600">
-                                            <DollarSign className="w-6 h-6" />
-                                        </div>
-                                        <div>
-                                            <label className="text-[10px] text-slate-400 font-bold uppercase tracking-wider block mb-1">Ingresos</label>
-                                            <p className="text-green-700 font-bold text-xl">{selectedEvent.revenue}</p>
+                                        <div className="min-w-0">
+                                            <label className="text-[10px] text-slate-400 font-bold uppercase tracking-wider block mb-1">Origen / Canal</label>
+                                            <p className="text-slate-900 font-bold text-sm tracking-tight capitalize truncate">{selectedEvent.platform || 'Directo'}</p>
+                                            <p className="text-[10px] text-slate-400 font-mono mt-1 truncate">{selectedEvent.platformId}</p>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div className="bg-slate-50/80 rounded-3xl p-6 grid grid-cols-2 gap-4">
-                                    <div>
-                                        <label className="text-[9px] text-slate-400 font-bold uppercase tracking-widest block mb-1">Check In</label>
-                                        <p className="text-slate-700 font-bold text-sm">{formatDate(selectedEvent.checkIn)}</p>
+                                {/* Row 3: Totals - Prominent */}
+                                <div className="bg-green-50/50 rounded-3xl p-6 border border-green-100 flex items-center gap-6">
+                                    <div className="p-4 bg-green-100/50 rounded-2xl text-green-700 shadow-sm shrink-0">
+                                        <DollarSign className="w-8 h-8" />
                                     </div>
-                                    <div>
-                                        <label className="text-[9px] text-slate-400 font-bold uppercase tracking-widest block mb-1">Check Out</label>
-                                        <p className="text-slate-700 font-bold text-sm">{formatDate(selectedEvent.checkOut)}</p>
+                                    <div className="min-w-0">
+                                        <label className="text-[11px] text-green-700/60 font-black uppercase tracking-[0.2em] block mb-1">Ingresos totales</label>
+                                        <p className="text-green-700 font-black text-2xl lg:text-3xl tracking-tight leading-none break-words">
+                                            {selectedEvent.revenue !== 'N/A' ? selectedEvent.revenue : '$0.00 COP'}
+                                        </p>
+                                    </div>
+                                </div>
+
+                                {/* Row 4: Dates */}
+                                <div className="bg-slate-50/80 rounded-3xl p-6 grid grid-cols-1 sm:grid-cols-2 gap-6 border border-slate-100 shadow-inner">
+                                    <div className="flex flex-col">
+                                        <label className="text-[9px] text-slate-400 font-bold uppercase tracking-widest block mb-2 px-1">Entrada (Check-in)</label>
+                                        <div className="bg-white rounded-2xl p-3 shadow-sm border border-slate-100/50">
+                                            <p className="text-slate-700 font-bold text-sm">{formatDate(selectedEvent.checkIn)}</p>
+                                        </div>
+                                    </div>
+                                    <div className="flex flex-col">
+                                        <label className="text-[9px] text-slate-400 font-bold uppercase tracking-widest block mb-2 px-1">Salida (Check-out)</label>
+                                        <div className="bg-white rounded-2xl p-3 shadow-sm border border-slate-100/50">
+                                            <p className="text-slate-700 font-bold text-sm">{formatDate(selectedEvent.checkOut)}</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
 
-                            <div className="p-6 bg-slate-50/30">
+                            <div className="p-6 bg-slate-50/10 flex flex-col sm:flex-row gap-3">
+                                {!selectedEvent.isCancelled && (selectedEvent.platform?.toLowerCase() === 'manual' || selectedEvent.platform?.toLowerCase() === 'direct') && (
+                                    <button
+                                        disabled={isCancelling}
+                                        onClick={() => {
+                                            const id = selectedEvent.uuid;
+                                            const originalUuid = selectedEvent.original?.uuid;
+                                            const originalId = selectedEvent.original?.id;
+                                            const platformId = selectedEvent.platformId;
+                                            const isManual = selectedEvent.platform?.toLowerCase() === 'manual' || selectedEvent.platform?.toLowerCase() === 'direct';
+
+                                            // For manual reservations, 'uuid' is the correct identifier
+                                            const idToUse = originalUuid || id;
+
+                                            console.log('[Cancel Preparation] Potential IDs:', {
+                                                id,
+                                                originalId,
+                                                originalUuid,
+                                                platformId
+                                            });
+
+                                            if (!isManual) {
+                                                showNotification('Solo se pueden cancelar reservas manuales directamente desde aquí.', 'error');
+                                                return;
+                                            }
+
+                                            if (idToUse) {
+                                                setConfirmCancel(idToUse);
+                                            } else {
+                                                showNotification('No se encontró el UUID de la reserva para cancelar.', 'error');
+                                            }
+                                        }}
+                                        className="flex-1 bg-red-50 hover:bg-red-100 text-red-600 font-bold py-4 px-6 rounded-2xl transition-all border border-red-200 flex items-center justify-center gap-2 active:scale-[0.98] disabled:opacity-50"
+                                    >
+                                        {isCancelling ? <Loader2 className="w-5 h-5 animate-spin" /> : 'Cancelar Reserva'}
+                                    </button>
+                                )}
                                 <button
                                     onClick={() => setSelectedEvent(null)}
-                                    className="w-full bg-[#6f7c4e] hover:bg-[#8a9866] text-white font-bold py-4 px-6 rounded-2xl transition-all shadow-lg shadow-[#6f7c4e]/10 active:scale-[0.98]"
+                                    className="flex-1 bg-[#6f7c4e] hover:bg-[#8a9866] text-white font-bold py-4 px-6 rounded-2xl transition-all shadow-lg shadow-[#6f7c4e]/10 active:scale-[0.98]"
                                 >
                                     Cerrar Detalles
                                 </button>
@@ -533,7 +682,7 @@ export default function AdminCalendar() {
                 )}
 
                 {selectedDate && (
-                    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-black/40 p-4 backdrop-blur-sm">
+                    <div key="date-modal" className="fixed inset-0 z-[100] flex items-center justify-center bg-black/40 p-4 backdrop-blur-sm">
                         <motion.div
                             initial={{ opacity: 0, scale: 0.95, y: 20 }}
                             animate={{ opacity: 1, scale: 1, y: 0 }}
@@ -579,6 +728,182 @@ export default function AdminCalendar() {
                             </div>
                         </motion.div>
                     </div>
+                )}
+
+                {contextMenu && (
+                    <>
+                        <div
+                            className="fixed inset-0 z-[110]"
+                            onClick={() => setContextMenu(null)}
+                            onContextMenu={(e) => { e.preventDefault(); setContextMenu(null); }}
+                        />
+                        <div
+                            className="fixed z-[120] bg-white rounded-2xl shadow-2xl border border-slate-100 p-2 min-w-[200px] animate-in fade-in zoom-in-95 duration-200"
+                            style={{ top: contextMenu.y, left: contextMenu.x }}
+                        >
+                            <div className="px-4 py-2 border-b border-slate-50 mb-1">
+                                <p className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+                                    {new Date(contextMenu.date + 'T00:00:00').toLocaleDateString('es-CO', { day: 'numeric', month: 'long' })}
+                                </p>
+                            </div>
+
+                            {events.find(e => e.start === contextMenu.date && e.extendedProps.type === 'block') ? (
+                                <button
+                                    onClick={() => {
+                                        triggerToggleAvailability(contextMenu.date, true);
+                                        setContextMenu(null);
+                                    }}
+                                    className="w-full flex items-center gap-3 px-4 py-3 text-sm font-bold text-green-600 hover:bg-green-50 rounded-xl transition-colors"
+                                >
+                                    <CalendarIcon className="w-4 h-4" />
+                                    Desbloquear Día
+                                </button>
+                            ) : (
+                                <button
+                                    onClick={() => {
+                                        triggerToggleAvailability(contextMenu.date, false);
+                                        setContextMenu(null);
+                                    }}
+                                    className="w-full flex items-center gap-3 px-4 py-3 text-sm font-bold text-[#6f7c4e] hover:bg-slate-50 rounded-xl transition-colors"
+                                >
+                                    <Loader2 className="w-4 h-4" />
+                                    Bloquear Día
+                                </button>
+                            )}
+
+                            <button
+                                onClick={() => {
+                                    const currentPrice = dailyPrices[contextMenu.date]?.amount || 0;
+                                    setPriceModal({ date: contextMenu.date, amount: currentPrice });
+                                    setNewPrice(currentPrice ? (currentPrice / 1).toString() : '');
+                                    setContextMenu(null);
+                                }}
+                                className="w-full flex items-center gap-3 px-4 py-3 text-sm font-bold text-slate-700 hover:bg-slate-50 rounded-xl transition-colors"
+                            >
+                                <DollarSign className="w-4 h-4" />
+                                Cambiar Precio
+                            </button>
+                        </div>
+                    </>
+                )}
+
+                {priceModal && (
+                    <div key="price-modal" className="fixed inset-0 z-[130] flex items-center justify-center bg-black/40 p-4 backdrop-blur-sm">
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            className="bg-white rounded-[2rem] shadow-2xl w-full max-w-sm overflow-hidden"
+                        >
+                            <form onSubmit={handlePriceSubmit} className="p-8">
+                                <div className="w-16 h-16 bg-blue-50 rounded-full flex items-center justify-center mx-auto mb-6">
+                                    <DollarSign className="w-8 h-8 text-blue-600" />
+                                </div>
+                                <h3 className="text-2xl font-serif font-bold text-slate-800 mb-2 text-center">Ajustar Precio</h3>
+                                <p className="text-slate-500 text-sm mb-6 text-center">
+                                    Fecha: {new Date(priceModal.date + 'T00:00:00').toLocaleDateString('es-CO', { day: 'numeric', month: 'long' })}
+                                </p>
+
+                                <div className="relative mb-6">
+                                    <span className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 font-bold">$</span>
+                                    <input
+                                        autoFocus
+                                        type="text"
+                                        value={newPrice}
+                                        onChange={(e) => setNewPrice(e.target.value)}
+                                        placeholder="0"
+                                        className="w-full bg-slate-50 border-2 border-slate-100 rounded-2xl py-4 pl-8 pr-4 text-xl font-bold text-slate-800 focus:border-[#6f7c4e] focus:bg-white outline-none transition-all"
+                                    />
+                                </div>
+
+                                <div className="grid grid-cols-2 gap-3">
+                                    <button
+                                        type="button"
+                                        onClick={() => setPriceModal(null)}
+                                        className="bg-slate-100 hover:bg-slate-200 text-slate-600 font-bold py-4 rounded-2xl transition-all"
+                                    >
+                                        Cancelar
+                                    </button>
+                                    <button
+                                        type="submit"
+                                        disabled={isToggling}
+                                        className="bg-[#6f7c4e] hover:bg-[#8a9866] text-white font-bold py-4 rounded-2xl transition-all shadow-lg flex items-center justify-center gap-2"
+                                    >
+                                        {isToggling ? <Loader2 className="w-5 h-5 animate-spin" /> : 'Guardar'}
+                                    </button>
+                                </div>
+                            </form>
+                        </motion.div>
+                    </div>
+                )}
+                {confirmCancel && (
+                    <div key="confirm-modal" className="fixed inset-0 z-[150] flex items-center justify-center bg-black/60 p-4 backdrop-blur-md">
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                            animate={{ opacity: 1, scale: 1, y: 0 }}
+                            exit={{ opacity: 0, scale: 0.9, y: 20 }}
+                            className="bg-white rounded-[2.5rem] shadow-2xl w-full max-w-sm overflow-hidden border border-slate-100 p-8 text-center"
+                        >
+                            <div className="w-20 h-20 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-6 text-red-500">
+                                <Info className="w-10 h-10" />
+                            </div>
+                            <h3 className="text-2xl font-serif font-black text-slate-800 mb-4">¿Confirmar Cancelación?</h3>
+                            <p className="text-slate-500 mb-8 leading-relaxed">
+                                Esta acción es irreversible. Se liberarán las fechas en el calendario y se notificará al sistema.
+                            </p>
+                            <div className="grid grid-cols-1 gap-3">
+                                <button
+                                    onClick={() => handleCancelReservation(confirmCancel)}
+                                    className="w-full bg-red-500 hover:bg-red-600 text-white font-black py-4 rounded-2xl transition-all shadow-lg shadow-red-200 active:scale-[0.98]"
+                                >
+                                    Sí, Cancelar Reserva
+                                </button>
+                                <button
+                                    onClick={() => setConfirmCancel(null)}
+                                    className="w-full bg-slate-100 hover:bg-slate-200 text-slate-600 font-bold py-4 rounded-2xl transition-all active:scale-[0.98]"
+                                >
+                                    No, Mantener Reserva
+                                </button>
+                            </div>
+                        </motion.div>
+                    </div>
+                )}
+            </AnimatePresence>
+
+            {/* Global Notification */}
+            <AnimatePresence>
+                {notification && (
+                    <motion.div
+                        initial={{ opacity: 0, y: 50, scale: 0.95 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, scale: 0.95 }}
+                        className="fixed bottom-8 left-1/2 -translate-x-1/2 z-[200] min-w-[320px] max-w-[90vw]"
+                    >
+                        <div className={`
+                            flex items-center gap-4 p-4 rounded-[1.5rem] shadow-2xl border backdrop-blur-xl
+                            ${notification.type === 'success'
+                                ? 'bg-[#6f7c4e] border-white/20 text-white'
+                                : 'bg-red-600 border-white/20 text-white'}
+                        `}>
+                            <div className="flex-shrink-0 w-10 h-10 rounded-xl bg-white/20 flex items-center justify-center">
+                                {notification.type === 'success' ? (
+                                    <CheckCircle2 className="w-6 h-6" />
+                                ) : (
+                                    <AlertCircle className="w-6 h-6" />
+                                )}
+                            </div>
+                            <div className="flex-grow">
+                                <p className="text-sm font-bold tracking-tight leading-tight">
+                                    {notification.message}
+                                </p>
+                            </div>
+                            <button
+                                onClick={() => setNotification(null)}
+                                className="flex-shrink-0 w-8 h-8 rounded-lg hover:bg-white/10 flex items-center justify-center transition-colors"
+                            >
+                                <X className="w-4 h-4" />
+                            </button>
+                        </div>
+                    </motion.div>
                 )}
             </AnimatePresence>
 
@@ -665,9 +990,29 @@ export default function AdminCalendar() {
                     border: none !important;
                 }
 
-                /* Ensure cell rows stay relatively even */
+                /* Ensure cell rows stay relatively even and full interactive */
                 .admin-calendar-parent .fc-daygrid-day-frame {
                     min-height: 100px;
+                    display: flex !important;
+                    flex-direction: column !important;
+                    padding: 0 !important;
+                }
+
+                .admin-calendar-parent .fc-daygrid-day-events {
+                    margin: 0 !important;
+                    padding: 0 !important;
+                    flex-grow: 1 !important;
+                    display: flex !important;
+                    flex-direction: column !important;
+                    min-height: 0 !important;
+                }
+
+                .admin-calendar-parent .fc-daygrid-day-content {
+                    padding: 0 !important;
+                    margin: 0 !important;
+                    flex-grow: 1 !important;
+                    display: flex !important;
+                    flex-direction: column !important;
                 }
 
                 .admin-calendar-parent .fc-daygrid-more-link {
@@ -681,29 +1026,69 @@ export default function AdminCalendar() {
                 .fc-popover {
                     z-index: 100 !important;
                     background: white !important;
-                    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1) !important;
-                    border: 1px solid #e2e8f0 !important;
-                    border-radius: 1rem !important;
-                    width: 300px !important;
+                    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+                    border: 1px solid #f1f5f9 !important;
+                    border-radius: 1.5rem !important;
+                    width: 350px !important;
+                    overflow: hidden !important;
+                    animation: popoverFadeIn 0.2s ease-out;
+                }
+
+                @keyframes popoverFadeIn {
+                    from { opacity: 0; transform: scale(0.95); }
+                    to { opacity: 1; transform: scale(1); }
                 }
 
                 .fc-popover .fc-popover-header {
-                    background: #f8fafc !important;
-                    padding: 12px 16px !important;
-                    border-top-left-radius: 1rem !important;
-                    border-top-right-radius: 1rem !important;
+                    background: white !important;
+                    padding: 1.25rem 1.5rem !important;
+                    border-bottom: 1px solid #f1f5f9 !important;
+                    font-family: var(--font-serif) !important;
                     font-weight: 800 !important;
-                    font-size: 0.9rem !important;
+                    font-size: 1.1rem !important;
                     color: #6f7c4e !important;
+                    display: flex !important;
+                    align-items: center !important;
+                    justify-content: space-between !important;
+                }
+
+                /* Styling the close button in popover */
+                .fc-popover .fc-popover-close {
+                    opacity: 0.5;
+                    transition: all 0.2s;
+                    font-size: 1.2rem;
+                    padding: 4px;
+                }
+
+                .fc-popover .fc-popover-close:hover {
+                    opacity: 1;
+                    background: #f8fafc;
+                    border-radius: 8px;
                 }
 
                 .fc-popover .fc-popover-body {
-                    padding: 12px 8px !important;
+                    padding: 1rem !important;
+                    max-height: 400px;
+                    overflow-y: auto;
                 }
 
                 .fc-popover .fc-event {
-                    margin-bottom: 8px !important;
-                    min-height: 40px !important;
+                    margin-bottom: 0.75rem !important;
+                    padding: 0.75rem !important;
+                    border-radius: 1rem !important;
+                    border: none !important;
+                    box-shadow: 0 1px 3px rgba(0,0,0,0.05) !important;
+                    transition: transform 0.2s, box-shadow 0.2s !important;
+                }
+
+                .fc-popover .fc-event:hover {
+                    transform: translateY(-2px);
+                    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+                }
+
+                .fc-popover .fc-event-title {
+                    font-weight: 700 !important;
+                    font-size: 0.9rem !important;
                 }
 
                 /* Mobile tweaks */

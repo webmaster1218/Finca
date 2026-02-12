@@ -2,8 +2,9 @@
 
 import { useState, useRef, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, Plus, Minus, X, Keyboard, ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronDown, Plus, Minus, X, Keyboard, ChevronLeft, ChevronRight, Phone } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
+import { useRouter } from "next/navigation";
 
 interface GuestCounts {
     adults: number;
@@ -19,6 +20,7 @@ interface OccupiedRange {
 
 export function BookingCard() {
     const { language, t } = useLanguage();
+    const router = useRouter();
     const [currentStep, setCurrentStep] = useState<'DATES' | 'INFO' | 'SUMMARY' | 'SUCCESS'>('DATES');
     const [isGuestOpen, setIsGuestOpen] = useState(false);
     const [isCalendarOpen, setIsCalendarOpen] = useState(false);
@@ -32,8 +34,20 @@ export function BookingCard() {
     });
 
     // Dates
-    const [checkIn, setCheckIn] = useState<Date>(new Date(2026, 1, 2));
-    const [checkOut, setCheckOut] = useState<Date>(new Date(2026, 1, 5));
+    const getInitialDates = () => {
+        const d = new Date();
+        d.setHours(0, 0, 0, 0);
+        // Start from tomorrow by default to avoid same-day booking issues if not allowed
+        const start = new Date(d);
+        start.setDate(d.getDate() + 1);
+        const end = new Date(start);
+        end.setDate(start.getDate() + 1);
+        return { start, end };
+    };
+
+    const defaults = getInitialDates();
+    const [checkIn, setCheckIn] = useState<Date>(defaults.start);
+    const [checkOut, setCheckOut] = useState<Date>(defaults.end);
     const [selecting, setSelecting] = useState<'checkIn' | 'checkOut'>('checkIn');
 
     // Guest Information
@@ -73,28 +87,60 @@ export function BookingCard() {
     useEffect(() => {
         async function fetchAvailability() {
             try {
+                // Fetch for a wide range to ensure everything is covered
                 const res = await fetch('/api/calendar/hospitable?start=2026-01-01&end=2027-01-01');
                 if (res.ok) {
                     const data = await res.json();
-                    const days = data[0]?.data?.days || [];
-                    const occupied: OccupiedRange[] = [];
 
+                    // Hospitable response structure for the calendar endpoint is usually:
+                    // { data: { days: [ { date, status: { available: boolean } } ] } }
+                    // OR it could be the array directly if normalized by our API route
+                    const calendarData = data.data || data;
+                    const days = calendarData.days || (Array.isArray(calendarData) ? calendarData[0]?.data?.days : []);
+
+                    const occupied: OccupiedRange[] = [];
                     let currentRange: OccupiedRange | null = null;
-                    days.forEach((day: any) => {
-                        if (!day.status.available) {
-                            const date = new Date(day.date + 'T00:00:00');
-                            if (!currentRange) {
-                                currentRange = { start: date, end: new Date(date.getTime() + 86400000) };
-                            } else {
-                                currentRange.end = new Date(date.getTime() + 86400000);
+
+                    if (Array.isArray(days)) {
+                        days.forEach((day: any) => {
+                            // available: false means it's booked/occupied
+                            if (day.status && day.status.available === false) {
+                                const date = new Date(day.date + 'T00:00:00');
+                                if (!currentRange) {
+                                    currentRange = { start: date, end: new Date(date.getTime() + 86400000) };
+                                } else {
+                                    // Extend range if consecutive
+                                    currentRange.end = new Date(date.getTime() + 86400000);
+                                }
+                            } else if (currentRange) {
+                                occupied.push(currentRange);
+                                currentRange = null;
                             }
-                        } else if (currentRange) {
-                            occupied.push(currentRange);
-                            currentRange = null;
-                        }
-                    });
-                    if (currentRange) occupied.push(currentRange);
+                        });
+                        if (currentRange) occupied.push(currentRange);
+                    }
+
                     setOccupiedDates(occupied);
+
+                    // If default dates are occupied, find first available ones
+                    const isOccupied = (d: Date) => occupied.some(r => d >= r.start && d < r.end);
+                    if (isOccupied(defaults.start) || isOccupied(defaults.end)) {
+                        // Find first available day for check-in
+                        let searchDate = new Date(defaults.start);
+                        // Search up to 6 months ahead
+                        for (let i = 0; i < 180; i++) {
+                            if (!isOccupied(searchDate)) {
+                                const nextDay = new Date(searchDate);
+                                nextDay.setDate(searchDate.getDate() + 1);
+                                if (!isOccupied(nextDay)) {
+                                    setCheckIn(searchDate);
+                                    setCheckOut(nextDay);
+                                    break;
+                                }
+                            }
+                            searchDate.setDate(searchDate.getDate() + 1);
+                        }
+                    }
                 }
             } catch (error) {
                 console.error('Failed to load availability:', error);
@@ -186,7 +232,7 @@ export function BookingCard() {
                         channel: guestInfo.email, // Using email as channel like in n8n
                         reservation_code: `WEB-${Date.now()}`,
                         financials: {
-                            accommodation: totalBasePrice,
+                            accommodation: 0,
                             cleaning_fee: 0,
                             linen_fee: 0,
                             management_fee: 0,
@@ -194,7 +240,12 @@ export function BookingCard() {
                             resort_fee: 0,
                             pet_fee: 0,
                             pass_through_taxes: 0,
-                            other_fees: [],
+                            other_fees: [
+                                {
+                                    amount: totalBasePrice * 100, // Total in cents/minor units
+                                    label: "string"
+                                }
+                            ],
                             currency: 'COP'
                         },
                         language: 'es'
@@ -202,7 +253,7 @@ export function BookingCard() {
                 });
 
                 if (response.ok) {
-                    setCurrentStep('SUCCESS');
+                    router.push('/gracias');
                 } else {
                     const err = await response.json();
                     setError(err.message || (language === 'es' ? 'Error al crear la reserva' : 'Error creating reservation'));
@@ -230,7 +281,7 @@ export function BookingCard() {
                 <h2 className="text-3xl font-bold text-[#222222] mb-4">¡Reserva Exitosa!</h2>
                 <p className="text-slate-600 mb-10 leading-relaxed text-lg">
                     Hemos recibido tu solicitud para el <strong>{formatDateShort(checkIn)}</strong> al <strong>{formatDateShort(checkOut)}</strong>.
-                    Te enviaremos un correo de confirmación en breve.
+                    Te enviaremos un correo para la confirmación y el contrato.
                 </p>
                 <button
                     onClick={() => setCurrentStep('DATES')}
@@ -473,16 +524,19 @@ export function BookingCard() {
                 )}
             </button>
 
+            <div className="mt-4 flex items-center justify-center gap-2 text-[#222222] text-sm">
+                <span className="text-[#717171]">{t('booking.help')}</span>
+                <a
+                    href="tel:+573196588185"
+                    className="font-bold underline hover:opacity-70 transition-opacity flex items-center gap-1.5"
+                >
+                    <Phone className="w-3.5 h-3.5" />
+                    +57 319 658 8185
+                </a>
+            </div>
+
             {currentStep === 'DATES' && (
                 <div className="mt-6">
-                    <div className="flex items-center justify-center gap-3 mb-6">
-                        <div className="h-[1px] bg-[#ebebeb] flex-1" />
-                        <p className="text-[10px] text-[#222222] font-semibold text-center whitespace-nowrap">
-                            NO SE HARÁ NINGÚN CARGO POR EL MOMENTO
-                        </p>
-                        <div className="h-[1px] bg-[#ebebeb] flex-1" />
-                    </div>
-
                     {nights > 0 && (
                         <div className="space-y-4 mt-8 pt-6 border-t border-[#ebebeb]">
                             <div className="flex justify-between text-base text-[#222222]">
@@ -562,7 +616,7 @@ export function BookingCard() {
                     </motion.div>
                 )}
             </AnimatePresence>
-        </div>
+        </div >
     );
 }
 

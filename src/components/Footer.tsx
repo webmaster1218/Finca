@@ -56,13 +56,13 @@ export function Footer() {
                     <div className="space-y-6">
                         <h3 className="text-xl font-serif italic text-[#fffbf0] mb-6">{t('footer.navigation')}</h3>
                         <ul className="space-y-4 font-serif italic">
-                            <li><a href="#experiencias" className="text-[#fffbf0]/80 hover:text-[#fffbf0] transition-colors">{t('nav.experiences')}</a></li>
-                            <li><a href="#tours" className="text-[#fffbf0]/80 hover:text-[#fffbf0] transition-colors">{t('nav.tours')}</a></li>
-                            <li><a href="#habitaciones" className="text-[#fffbf0]/80 hover:text-[#fffbf0] transition-colors">{t('nav.rooms')}</a></li>
-                            <li><a href="#testimonios" className="text-[#fffbf0]/80 hover:text-[#fffbf0] transition-colors">{t('nav.testimonials')}</a></li>
-                            <li><a href="#finca" className="text-[#fffbf0]/80 hover:text-[#fffbf0] transition-colors">{t('nav.finca')}</a></li>
-                            <li><a href="#ubicacion" className="text-[#fffbf0]/80 hover:text-[#fffbf0] transition-colors">{t('nav.location')}</a></li>
-                            <li><a href="#habitaciones" className="text-[#fffbf0]/80 hover:text-[#fffbf0] transition-colors font-bold text-[#fffbf0]">{t('nav.reserve')}</a></li>
+                            <li><a href="/#experiencias" className="text-[#fffbf0]/80 hover:text-[#fffbf0] transition-colors">{t('nav.experiences')}</a></li>
+                            <li><a href="/#tours" className="text-[#fffbf0]/80 hover:text-[#fffbf0] transition-colors">{t('nav.tours')}</a></li>
+                            <li><a href="/#habitaciones" className="text-[#fffbf0]/80 hover:text-[#fffbf0] transition-colors">{t('nav.rooms')}</a></li>
+                            <li><a href="/#testimonios" className="text-[#fffbf0]/80 hover:text-[#fffbf0] transition-colors">{t('nav.testimonials')}</a></li>
+                            <li><a href="/#finca" className="text-[#fffbf0]/80 hover:text-[#fffbf0] transition-colors">{t('nav.finca')}</a></li>
+                            <li><a href="/#ubicacion" className="text-[#fffbf0]/80 hover:text-[#fffbf0] transition-colors">{t('nav.location')}</a></li>
+                            <li><a href="/#habitaciones" className="text-[#fffbf0]/80 hover:text-[#fffbf0] transition-colors font-bold text-[#fffbf0]">{t('nav.reserve')}</a></li>
                         </ul>
                     </div>
                 </div>

@@ -71,6 +71,10 @@ export async function POST(request: Request) {
         const body = await request.json();
         body.property_id = propertyUuid;
 
+        console.log('[API Reservations] POST Payload:', JSON.stringify(body, null, 2));
+        console.log('[API Reservations] Token Length:', apiToken.length);
+        console.log('[API Reservations] Token Start:', apiToken.substring(0, 20), '... End:', apiToken.substring(apiToken.length - 20));
+
         const response = await fetch('https://public.api.hospitable.com/v2/reservations', {
             method: 'POST',
             headers: {
@@ -82,8 +86,13 @@ export async function POST(request: Request) {
         });
 
         if (!response.ok) {
-            const errorData = await response.json().catch(() => ({}));
-            return NextResponse.json(errorData, { status: response.status });
+            const errorText = await response.text();
+            console.error(`[API Reservations] Hospitable POST Error (${response.status}): ${errorText}`);
+            try {
+                return NextResponse.json(JSON.parse(errorText), { status: response.status });
+            } catch {
+                return NextResponse.json({ error: errorText }, { status: response.status });
+            }
         }
 
         const data = await response.json();

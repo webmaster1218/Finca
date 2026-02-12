@@ -21,6 +21,7 @@ const translations = {
         'nav.location': 'Ubicación',
         'nav.tours': 'Tours',
         'nav.reserve': 'Reservar',
+        'nav.call': 'Llamar',
 
         // Hero
         'hero.title': 'La Juana',
@@ -61,6 +62,7 @@ const translations = {
         'booking.no_charge': 'No se hará ningún cargo por el momento',
         'booking.service_fee': 'Tarifa de servicio',
         'booking.total': 'Total',
+        'booking.help': '¿Dudas? Llámanos:',
         'booking.nights': 'noches',
         'booking.night_single': 'noche',
         'booking.guest_label': 'huésped',
@@ -181,6 +183,7 @@ const translations = {
         'nav.location': 'Location',
         'nav.tours': 'Tours',
         'nav.reserve': 'Book Now',
+        'nav.call': 'Call',
 
         // Hero
         'hero.title': 'La Juana',
@@ -221,6 +224,7 @@ const translations = {
         'booking.no_charge': 'You won\'t be charged yet',
         'booking.service_fee': 'Service fee',
         'booking.total': 'Total',
+        'booking.help': 'Questions? Call us:',
         'booking.nights': 'nights',
         'booking.night_single': 'night',
         'booking.guest_label': 'guest',

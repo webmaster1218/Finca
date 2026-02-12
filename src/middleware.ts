@@ -20,12 +20,14 @@ export function middleware(request: NextRequest) {
 
     // 2. Protect Protected API Endpoints
     if (pathname.startsWith('/api/calendar/hospitable')) {
-        // Allow public GET access ONLY to the base calendar endpoint (for availability/prices)
-        // Everything else (reservations, PUT/POST actions) requires authentication
+        // Allow public access to:
+        // - GET /api/calendar/hospitable (availability)
+        // - POST /api/calendar/hospitable/reservations (creating bookings)
         const normalizedPath = pathname.replace(/\/$/, '');
         const isPublicCalendar = normalizedPath === '/api/calendar/hospitable' && request.method === 'GET';
+        const isPublicReservation = normalizedPath === '/api/calendar/hospitable/reservations' && request.method === 'POST';
 
-        if (!isPublicCalendar && !isAuthenticated(request)) {
+        if (!isPublicCalendar && !isPublicReservation && !isAuthenticated(request)) {
             return NextResponse.json(
                 { error: 'No autorizado' },
                 { status: 401 }
