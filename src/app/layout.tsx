@@ -17,8 +17,8 @@ export const metadata: Metadata = {
   title: "La Juana cerro tusa | Tradición y Lujo",
   description: "Una experiencia clásica en las montañas de Venecia, Antioquia.",
   icons: {
-    icon: "/identidad de marca/LOGO LA JUANA CERRO TUSA-02.png",
-    apple: "/identidad de marca/LOGO LA JUANA CERRO TUSA-02.png",
+    icon: "/favicon.png",
+    apple: "/favicon.png",
   },
 };
 

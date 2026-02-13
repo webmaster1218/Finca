@@ -24,3 +24,8 @@ public/eco tours/*.mp4
 public/eco tours/*.mov
 public/eco tours/*.avi
 public/eco tours/*.mkv
+public/videos/
+**/*.mp4
+**/*.mov
+**/*.avi
+**/*.mkv
