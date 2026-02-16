@@ -161,7 +161,7 @@ export function EcoTours() {
                                 autoPlay
                                 className="w-full h-full object-contain"
                             >
-                                <source src="/eco%20tours/Video%20Promocional%20Al%20Parche%20Venecia.mp4" type="video/mp4" />
+                                <source src="/VIDEO_AL_PARCHE.mp4" type="video/mp4" />
                                 Your browser does not support the video tag.
                             </video>
                         </div>
