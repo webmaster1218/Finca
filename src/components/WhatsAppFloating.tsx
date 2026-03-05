@@ -23,7 +23,7 @@ export function WhatsAppFloating() {
             </motion.a>
 
             <motion.a
-                href="https://wa.me/573196588185"
+                href="https://wa.me/573196588185?text=Hola%20La%20Juana%2C%20me%20interesa%20reservar%20para%20un%20grupo%20familiar.%20%C2%BF%20Tienen%20disponibilidad%20para%20estas%20fechas%3F"
                 target="_blank"
                 rel="noopener noreferrer"
                 initial={{ opacity: 0, scale: 0.8 }}

@@ -14,8 +14,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "La Juana cerro tusa | Tradición y Lujo",
-  description: "Una experiencia clásica en las montañas de Venecia, Antioquia.",
+  title: "La Juana | Alquiler de Finca de Lujo en Venecia Antioquia, Cerro Tusa",
+  description: "Descubre La Juana, una finca de lujo en Venecia, Antioquia. El hospedaje perfecto cerca a Medellín para familias con vistas increíbles al Cerro Tusa. Reserva tu alquiler de finca completa hoy.",
+  keywords: ["Finca de lujo en Venecia Antioquia", "Alquiler de finca cerca a Medellín para familias", "Hospedaje con vista al Cerro Tusa", "La Juana cerro tusa"],
   icons: {
     icon: "/favicon.png",
     apple: "/favicon.png",

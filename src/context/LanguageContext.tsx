@@ -29,13 +29,13 @@ const translations = {
         'hero.location': 'Venecia, Antioquia',
         'hero.title_part1': 'Hospitalidad de',
         'hero.title_part2': 'Gran Tradición',
-        'hero.subtitle_long': 'Donde las nubes abrazan los cafetales y el tiempo se detiene para honrar nuestras raíces.',
+        'hero.subtitle_long': 'Donde las nubes abrazan los cafetales y el tiempo se detiene para honrar nuestras raíces. Finca de lujo en Venecia Antioquia.',
         'hero.cta': 'Descubrir la Experiencia',
 
         // Rooms Section
         'rooms.tag': 'Exclusividad Total',
         'rooms.title': 'Alquiler de Finca Completa',
-        'rooms.desc.title': 'Alquila tu finca ya para una experiencia inolvidable junto a cerro tusa',
+        'rooms.desc.title': 'La mejor opción de alquiler de finca cerca a Medellín para familias junto a cerro tusa',
         'rooms.staff': 'Disfruta de <span class="text-[#9a7d45] font-bold">2 camareras</span> dedicadas a su confort y un <span class="text-[#9a7d45] font-bold">mayordomo</span> a su servicio. Seguridad, privacidad y naturaleza en un solo lugar.',
         'rooms.hospedaje': 'Hospedaje',
 
@@ -89,7 +89,7 @@ const translations = {
         // Cerro Tusa Feature
         'feature.tag': 'La Gran Pirámide Natural',
         'feature.title': 'Vistas que cuentan una historia',
-        'feature.desc': '“Desde nuestra terraza, el horizonte se rinde ante la imponente silueta del **Cerro Tusa**, creando un espectáculo de sombras y luces que parece sacado de un sueño tradicional.”',
+        'feature.desc': '“Desde nuestra terraza, el horizonte se rinde ante la imponente silueta del **Cerro Tusa**, creando un espectáculo de sombras y luces que parece sacado de un sueño tradicional.” Disfruta de un hospedaje con vista al Cerro Tusa.',
         'feature.cta': 'Ver mas sobre la finca',
         'feature.caption': '"El amanecer en lo más alto de Antioquia."',
 
@@ -129,7 +129,7 @@ const translations = {
         'testimonials.tag': 'Voces de Nuestros Huéspedes',
         'testimonials.title': 'Historias Inolvidables',
         'testimonials.res1.text': '“Una experiencia que superó todas nuestras expectativas. La paz que se respira viendo el atardecer frente al Cerro Tusa no tiene precio. La casa es una joya arquitectónica con todas las comodidades modernas.”',
-        'testimonials.res2.text': '“Buscábamos un lugar exclusivo para nuestro retiro directivo y Finca Fredonia fue el acierto total. El nivel de privacidad, la calidad del sonido pro y el entorno natural facilitaron un ambiente de trabajo único.”',
+        'testimonials.res2.text': '“Buscábamos un lugar exclusivo para nuestro retiro directivo y La Juana fue el acierto total. El nivel de privacidad, la calidad del sonido pro y el entorno natural facilitaron un ambiente de trabajo único.”',
         'testimonials.res3.text': '“Los detalles que enamoran no son solo un nombre, es la realidad. Desde la lencería de las habitaciones hasta el aroma a café del Diamante, todo está pensado para el descanso absoluto. Un lujo total.”',
 
         // Policies
@@ -191,13 +191,13 @@ const translations = {
         'hero.location': 'Venecia, Antioquia',
         'hero.title_part1': 'Hospitality of',
         'hero.title_part2': 'Great Tradition',
-        'hero.subtitle_long': 'Where clouds embrace the coffee fields and time stands still to honor our roots.',
+        'hero.subtitle_long': 'Where clouds embrace the coffee fields and time stands still to honor our roots. Luxury ranch in Venecia Antioquia.',
         'hero.cta': 'Discover the Experience',
 
         // Rooms Section
         'rooms.tag': 'Total Exclusivity',
         'rooms.title': 'Full Property Rental',
-        'rooms.desc.title': 'Rent your ranch now for an unforgettable experience next to Cerro Tusa',
+        'rooms.desc.title': 'The best ranch rental near Medellin for families next to Cerro Tusa',
         'rooms.staff': 'Enjoy <span class="text-[#9a7d45] font-bold">2 housekeepers</span> dedicated to your comfort and a <span class="text-[#9a7d45] font-bold">butler</span> at your service. Security, privacy, and nature in one place.',
         'rooms.hospedaje': 'Stay',
 
@@ -251,7 +251,7 @@ const translations = {
         // Cerro Tusa Feature
         'feature.tag': 'The Great Natural Pyramid',
         'feature.title': 'Views that tell a story',
-        'feature.desc': '“From our terrace, the horizon surrenders to the imposing silhouette of **Cerro Tusa**, creating a spectacle of shadows and lights that seems taken from a timeless dream.”',
+        'feature.desc': '“From our terrace, the horizon surrenders to the imposing silhouette of **Cerro Tusa**, creating a spectacle of shadows and lights that seems taken from a timeless dream.” Enjoy accommodation with views of Cerro Tusa.',
         'feature.cta': 'See more about the ranch',
         'feature.caption': '"The sunrise at the highest point of Antioquia."',
 
@@ -291,7 +291,7 @@ const translations = {
         'testimonials.tag': 'Voice of Our Guests',
         'testimonials.title': 'Unforgettable Stories',
         'testimonials.res1.text': '“An experience that exceeded all our expectations. The peace felt while watching the sunset in front of Cerro Tusa is priceless. The house is an architectural gem with all modern comforts.”',
-        'testimonials.res2.text': '“We were looking for an exclusive place for our executive retreat and Finca Fredonia was the perfect choice. The level of privacy, quality of pro sound, and natural surroundings facilitated a unique work environment.”',
+        'testimonials.res2.text': '“We were looking for an exclusive place for our executive retreat and La Juana was the perfect choice. The level of privacy, quality of pro sound, and natural surroundings facilitated a unique work environment.”',
         'testimonials.res3.text': '“Details that enchant is not just a name, it\'s the reality. From the bedroom linens to the coffee aroma of the Diamond, everything is designed for absolute rest. Total luxury.”',
 
         // Policies
