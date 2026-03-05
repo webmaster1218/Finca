@@ -24,11 +24,8 @@ export function Footer() {
                             {t('footer.brand_desc')}
                         </p>
                         <div className="flex gap-4">
-                            <a href="#" className="w-10 h-10 border border-[#fffbf0]/30 flex items-center justify-center hover:border-[#fffbf0] hover:bg-[#fffbf0]/10 transition-all">
+                            <a href="https://www.instagram.com/lajuanacerrotusa/" className="w-10 h-10 border border-[#fffbf0]/30 flex items-center justify-center hover:border-[#fffbf0] hover:bg-[#fffbf0]/10 transition-all">
                                 <Instagram className="w-5 h-5 text-[#fffbf0]" />
-                            </a>
-                            <a href="#" className="w-10 h-10 border border-[#fffbf0]/30 flex items-center justify-center hover:border-[#fffbf0] hover:bg-[#fffbf0]/10 transition-all">
-                                <Facebook className="w-5 h-5 text-[#fffbf0]" />
                             </a>
                         </div>
                     </div>
@@ -44,10 +41,6 @@ export function Footer() {
                             <li className="flex items-center gap-4 text-[#fffbf0]/80">
                                 <Phone className="w-5 h-5 text-[#fffbf0]" />
                                 <a href="tel:+573196588185" className="hover:text-[#fffbf0] transition-colors">+57 319 658 8185</a>
-                            </li>
-                            <li className="flex items-center gap-4 text-[#fffbf0]/80">
-                                <Mail className="w-5 h-5 text-[#fffbf0]" />
-                                <a href="mailto:hola@lajuana.com" className="hover:text-[#fffbf0] transition-colors">hola@lajuana.com</a>
                             </li>
                         </ul>
                     </div>
