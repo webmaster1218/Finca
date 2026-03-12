@@ -21,6 +21,9 @@ export const metadata: Metadata = {
     icon: "/favicon.png",
     apple: "/favicon.png",
   },
+  verification: {
+    google: "QIvhXhniE0DgvFshZOoaCTGiPm0w1ARVACde6fcsZis",
+  },
 };
 
 import Script from "next/script";
