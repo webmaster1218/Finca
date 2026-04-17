@@ -7,7 +7,7 @@ export function WhatsAppFloating() {
     return (
         <div className="fixed bottom-8 right-8 z-[100] flex flex-col gap-4 items-end">
             <motion.a
-                href="tel:+573196588185"
+                href="tel:+573021025621"
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 whileHover={{ scale: 1.1 }}
@@ -23,7 +23,7 @@ export function WhatsAppFloating() {
             </motion.a>
 
             <motion.a
-                href="https://wa.me/573196588185"
+                href="https://wa.me/573021025621"
                 target="_blank"
                 rel="noopener noreferrer"
                 initial={{ opacity: 0, scale: 0.8 }}

@@ -527,11 +527,11 @@ export function BookingCard() {
             <div className="mt-4 flex items-center justify-center gap-2 text-[#222222] text-sm">
                 <span className="text-[#717171]">{t('booking.help')}</span>
                 <a
-                    href="tel:+573196588185"
+                    href="tel:+573021025621"
                     className="font-bold underline hover:opacity-70 transition-opacity flex items-center gap-1.5"
                 >
                     <Phone className="w-3.5 h-3.5" />
-                    +57 319 658 8185
+                    +57 302 102 5621
                 </a>
             </div>
 
