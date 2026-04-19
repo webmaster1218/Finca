@@ -81,7 +81,7 @@ export function Hero({
                 ) : (
                     <Image
                         src={mediaUrl!}
-                        alt="Hero Background"
+                        alt="Finca de lujo La Juana en Venecia Antioquia"
                         fill
                         className="object-cover opacity-100"
                         priority

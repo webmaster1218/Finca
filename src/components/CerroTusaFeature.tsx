@@ -62,7 +62,7 @@ export function CerroTusaFeature() {
                         <div className="overflow-hidden relative h-[500px]">
                             <Image
                                 src="/imagenes/cerro-tusa/IMG_5476.webp"
-                                alt={t('feature.title')}
+                                alt="Vista panorámica al Cerro Tusa desde Finca La Juana"
                                 fill
                                 loading="lazy"
                                 sizes="(max-width: 768px) 100vw, 50vw"
