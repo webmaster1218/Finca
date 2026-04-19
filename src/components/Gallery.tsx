@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useLanguage } from "../context/LanguageContext";
+import Image from "next/image";
 
 const galleryImages = [
     { url: "/imagenes/gallery/IMG_5135.webp", span: "md:col-span-2 md:row-span-2", key: "gallery.img1" },
@@ -52,10 +53,13 @@ export function Gallery() {
                         key={i}
                         className={`relative overflow-hidden group ${img.span} bg-[#6f7c4e]`}
                     >
-                        <img
+                        <Image
                             src={img.url}
                             alt={t(img.key)}
-                            className="w-full h-full object-cover transition-transform duration-[4s] ease-out group-hover:scale-110"
+                            fill
+                            loading="lazy"
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+                            className="object-cover transition-transform duration-[4s] ease-out group-hover:scale-110"
                         />
 
                         {/* Minimalistic Overlay on Hover */}

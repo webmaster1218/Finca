@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Star, Quote } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
+import Image from "next/image";
 
 const testimonials = [
     {
@@ -70,11 +71,13 @@ export function Testimonials() {
                             className="bg-[#fffbf0] p-10 shadow-2xl flex flex-col items-center text-center relative group transition-all duration-500 hover:-translate-y-2"
                         >
                             <div className="absolute -top-6">
-                                <div className="w-20 h-20 rounded-full overflow-hidden border-4 border-[#fffbf0] shadow-lg">
-                                    <img
+                                <div className="w-20 h-20 rounded-full overflow-hidden border-4 border-[#fffbf0] shadow-lg relative">
+                                    <Image
                                         src={testi.image}
                                         alt={testi.name}
-                                        className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
+                                        fill
+                                        loading="lazy"
+                                        className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700"
                                     />
                                 </div>
                             </div>

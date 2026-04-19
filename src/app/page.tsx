@@ -1,14 +1,35 @@
+import dynamic from "next/dynamic";
 import { Navbar } from "../components/Navbar";
 import { Hero } from "../components/Hero";
-import { Gallery } from "../components/Gallery";
-import { Experiences } from "../components/Experiences";
-import { CerroTusaFeature } from "../components/CerroTusaFeature";
-import { Rooms } from "../components/Rooms";
-import { EcoTours } from "../components/EcoTours";
-import { Location } from "../components/Location";
-import { Testimonials } from "../components/Testimonials";
-import { Footer } from "../components/Footer";
-import { WhatsAppFloating } from "../components/WhatsAppFloating";
+
+// Below-the-fold: loaded lazily to reduce initial JS bundle
+const CerroTusaFeature = dynamic(() =>
+  import("../components/CerroTusaFeature").then((m) => m.CerroTusaFeature)
+);
+const Experiences = dynamic(() =>
+  import("../components/Experiences").then((m) => m.Experiences)
+);
+const EcoTours = dynamic(() =>
+  import("../components/EcoTours").then((m) => m.EcoTours)
+);
+const Rooms = dynamic(() =>
+  import("../components/Rooms").then((m) => m.Rooms)
+);
+const Gallery = dynamic(() =>
+  import("../components/Gallery").then((m) => m.Gallery)
+);
+const Testimonials = dynamic(() =>
+  import("../components/Testimonials").then((m) => m.Testimonials)
+);
+const Location = dynamic(() =>
+  import("../components/Location").then((m) => m.Location)
+);
+const Footer = dynamic(() =>
+  import("../components/Footer").then((m) => m.Footer)
+);
+const WhatsAppFloating = dynamic(() =>
+  import("../components/WhatsAppFloating").then((m) => m.WhatsAppFloating)
+);
 
 export default function Home() {
   return (

@@ -5,6 +5,7 @@ import { Trees, Menu, X, Globe, ChevronLeft } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useRouter, usePathname } from "next/navigation";
 import Link from "next/link";
+import Image from "next/image";
 import { useLanguage } from "../context/LanguageContext";
 
 export function Navbar() {
@@ -55,10 +56,13 @@ export function Navbar() {
         </div>
 
         <Link href="/" className="relative flex items-center justify-center w-40 h-12 group">
-          <img
+          <Image
             src="/identidad de marca/LOGO LA JUANA CERRO TUSA-05.png"
             alt="La Juana Logo"
-            className={`absolute top-1/2 -translate-y-1/2 transition-all duration-500 object-contain ${isScrolled ? "h-26" : "h-34"
+            width={160}
+            height={48}
+            priority
+            className={`transition-all duration-500 object-contain ${isScrolled ? "h-26" : "h-34"
               }`}
             style={!isScrolled ? { filter: 'brightness(0) invert(1)' } : {}}
           />

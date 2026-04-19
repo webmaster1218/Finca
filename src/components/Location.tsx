@@ -3,22 +3,45 @@
 import { motion } from "framer-motion";
 import { MapPin, Navigation } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
+import Image from "next/image";
+import { useState, useEffect, useRef } from "react";
 
 export function Location() {
     const { t } = useLanguage();
+    const [mapLoaded, setMapLoaded] = useState(false);
+    const mapRef = useRef<HTMLDivElement>(null);
+
+    useEffect(() => {
+        const observer = new IntersectionObserver(
+            ([entry]) => {
+                if (entry.isIntersecting) {
+                    setMapLoaded(true);
+                    observer.disconnect();
+                }
+            },
+            { rootMargin: "200px" }
+        );
+
+        if (mapRef.current) {
+            observer.observe(mapRef.current);
+        }
+
+        return () => observer.disconnect();
+    }, []);
 
     return (
         <section id="ubicacion" className="py-24 md:py-32 px-6 relative overflow-hidden">
             {/* Background Image for the whole section */}
-            <div
-                className="absolute inset-0 z-0"
-                style={{
-                    backgroundImage: 'url("/imagenes/location/IMG_9324.webp")',
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    backgroundAttachment: 'fixed'
-                }}
-            />
+            <div className="absolute inset-0 z-0">
+                <Image
+                    src="/imagenes/location/IMG_9324.webp"
+                    alt="Location Background"
+                    fill
+                    loading="lazy"
+                    sizes="100vw"
+                    className="object-cover"
+                />
+            </div>
             {/* Dynamic Overlays for Readability and Depth */}
             <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/50 z-[1]" />
 
@@ -90,20 +113,27 @@ export function Location() {
 
                     {/* Map Container */}
                     <motion.div
+                        ref={mapRef}
                         initial={{ opacity: 0, scale: 0.95 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         className="lg:col-span-8 h-[450px] md:h-[600px] w-full shadow-2xl relative order-1 lg:order-2"
                     >
-                        <iframe
-                            src="https://maps.google.com/maps?q=Parcelacion%20Rochiles,%20Venecia,%20Antioquia&t=&z=16&ie=UTF8&iwloc=&output=embed"
-                            width="100%"
-                            height="100%"
-                            style={{ border: 0 }}
-                            allowFullScreen
-                            loading="lazy"
-                            referrerPolicy="no-referrer-when-downgrade"
-                            className="grayscale-[20%] contrast-[1.1]"
-                        />
+                        {mapLoaded ? (
+                            <iframe
+                                src="https://maps.google.com/maps?q=Parcelacion%20Rochiles,%20Venecia,%20Antioquia&t=&z=16&ie=UTF8&iwloc=&output=embed"
+                                width="100%"
+                                height="100%"
+                                style={{ border: 0 }}
+                                allowFullScreen
+                                loading="lazy"
+                                referrerPolicy="no-referrer-when-downgrade"
+                                className="grayscale-[20%] contrast-[1.1]"
+                            />
+                        ) : (
+                            <div className="w-full h-full bg-stone-100 flex items-center justify-center">
+                                <p className="text-[#6f7c4e] font-serif italic">Cargando mapa...</p>
+                            </div>
+                        )}
                         {/* Decorative Overlay Frame */}
                         <div className="absolute inset-0 pointer-events-none border-[12px] border-[#6f7c4e]/5" />
                     </motion.div>

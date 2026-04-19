@@ -4,6 +4,7 @@ import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Play, Clock, Mountain, X, Info, MapPin, Beer } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
+import Image from "next/image";
 
 const tours = [
     {
@@ -81,10 +82,13 @@ export function EcoTours() {
                             className="group relative h-[550px] overflow-hidden shadow-2xl bg-brand-green"
                         >
                             {/* Background Image */}
-                            <img
+                            <Image
                                 src={tour.image}
                                 alt={t(`tours.${tour.key}.title`)}
-                                className="absolute inset-0 w-full h-full object-cover opacity-80"
+                                fill
+                                loading="lazy"
+                                sizes="(max-width: 768px) 100vw, 33vw"
+                                className="object-cover opacity-80"
                             />
 
                             {/* Gradient Overlay */}

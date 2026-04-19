@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useLanguage } from "../context/LanguageContext";
+import Image from "next/image";
 
 const experiences = [
     {
@@ -32,15 +33,16 @@ export function Experiences() {
     return (
         <section id="experiencias" className="py-24 md:py-32 px-6 relative overflow-hidden group/section">
             {/* Background Image for the whole section */}
-            <div
-                className="absolute inset-0 z-0"
-                style={{
-                    backgroundImage: 'url("/imagenes/experiences/IMG_52231.webp")',
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'center',
-                    backgroundAttachment: 'fixed'
-                }}
-            />
+            <div className="absolute inset-0 z-0">
+                <Image
+                    src="/imagenes/experiences/IMG_52231.webp"
+                    alt="Background Experiences"
+                    fill
+                    loading="lazy"
+                    sizes="100vw"
+                    className="object-cover"
+                />
+            </div>
             {/* Dynamic Overlays for Readability and Depth */}
             <div className="absolute inset-0 bg-[#6f7c4e]/60 z-[1]" />
 
@@ -78,10 +80,13 @@ export function Experiences() {
                             className="group relative h-[350px] md:h-[500px] overflow-hidden shadow-xl"
                         >
                             {/* Background Image */}
-                            <img
+                            <Image
                                 src={exp.image}
                                 alt={t(`exp.${exp.key}.title`)}
-                                className="absolute inset-0 w-full h-full object-cover transition-transform duration-[2s] group-hover:scale-110"
+                                fill
+                                loading="lazy"
+                                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 20vw"
+                                className="object-cover transition-transform duration-[2s] group-hover:scale-110"
                             />
 
                             {/* Gradient Overlay */}

@@ -4,6 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { useLanguage } from "../context/LanguageContext";
+import Image from "next/image";
 
 export function CerroTusaFeature() {
     const { t } = useLanguage();
@@ -58,11 +59,14 @@ export function CerroTusaFeature() {
                     <div className="absolute -bottom-6 -left-6 w-full h-full border border-[#9a7d45]/30 z-0" />
 
                     <div className="relative z-10 bg-[#fffbf0] p-4 shadow-2xl">
-                        <div className="overflow-hidden">
-                            <img
+                        <div className="overflow-hidden relative h-[500px]">
+                            <Image
                                 src="/imagenes/cerro-tusa/IMG_5476.webp"
                                 alt={t('feature.title')}
-                                className="w-full h-[500px] object-cover transition-transform duration-[2s] group-hover:scale-110"
+                                fill
+                                loading="lazy"
+                                sizes="(max-width: 768px) 100vw, 50vw"
+                                className="object-cover transition-transform duration-[2s] group-hover:scale-110"
                             />
                         </div>
                     </div>
