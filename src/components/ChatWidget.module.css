@@ -29,15 +29,15 @@
 .chatButton {
   background: linear-gradient(135deg, #6f7c4e, #9a7d45) !important;
   color: #fffbf0 !important;
-  width: 80px !important;
-  height: 80px !important;
+  width: 70px !important;
+  height: 70px !important;
   border-radius: 50% !important;
-  border: 4px solid rgba(255, 255, 255, 0.9) !important;
+  border: 2px solid rgba(255, 255, 255, 0.8) !important;
   cursor: pointer !important;
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  box-shadow: 0 8px 30px rgba(111, 124, 78, 0.7), 0 0 0 6px rgba(255, 215, 0, 0.5) !important;
+  box-shadow: 0 6px 20px rgba(111, 124, 78, 0.6), 0 0 0 3px rgba(255, 215, 0, 0.3) !important;
   transition: transform 0.3s ease, box-shadow 0.3s ease !important;
   position: relative !important;
   overflow: hidden !important;
@@ -45,13 +45,13 @@
 }
 
 .chatButton:hover {
-  transform: scale(1.2) !important;
-  box-shadow: 0 12px 40px rgba(111, 124, 78, 0.9), 0 0 0 8px rgba(255, 215, 0, 0.7) !important;
+  transform: scale(1.1) !important;
+  box-shadow: 0 8px 25px rgba(111, 124, 78, 0.8), 0 0 0 4px rgba(255, 215, 0, 0.4) !important;
 }
 
 .chatButton svg {
-  width: 36px !important;
-  height: 36px !important;
+  width: 32px !important;
+  height: 32px !important;
   stroke-width: 3 !important;
 }
 
