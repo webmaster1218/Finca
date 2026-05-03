@@ -34,10 +34,31 @@ export default function ChatWidget() {
     return sessionId;
   };
 
-  // Auto-scroll to bottom
+  // Auto-scroll to bottom - mejorado para móvil
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages]);
+    const scrollToBottom = () => {
+      if (messagesEndRef.current) {
+        const container = messagesEndRef.current.parentElement;
+        if (container) {
+          // Usar setTimeout para asegurar que el DOM está actualizado
+          setTimeout(() => {
+            container.scrollTo({
+              top: container.scrollHeight,
+              behavior: 'smooth'
+            });
+          }, 100);
+        }
+      }
+    };
+
+    // Scroll cuando cambian los mensajes
+    scrollToBottom();
+    
+    // Scroll adicional cuando se abre el chat
+    if (isOpen) {
+      scrollToBottom();
+    }
+  }, [messages, isOpen]);
 
   // Focus input when opened
   useEffect(() => {
@@ -109,9 +130,30 @@ export default function ChatWidget() {
   };
 
   const toggleChat = () => {
-    setIsOpen((prev) => !prev);
+    const newState = !isOpen;
+    setIsOpen(newState);
+    
+    // Manejar scroll del body en móvil
+    if (typeof window !== 'undefined') {
+      if (newState) {
+        // Bloquear scroll en móvil
+        if (window.innerWidth <= 480) {
+          document.body.style.overflow = 'hidden';
+          document.body.style.position = 'fixed';
+          document.body.style.width = '100%';
+          document.body.classList.add('chat-open');
+        }
+      } else {
+        // Restaurar scroll
+        document.body.style.overflow = '';
+        document.body.style.position = '';
+        document.body.style.width = '';
+        document.body.classList.remove('chat-open');
+      }
+    }
+    
     // Add welcome message on first open
-    if (!isOpen && messages.length === 0) {
+    if (newState && messages.length === 0) {
       setMessages([
         {
           role: "assistant",
@@ -121,6 +163,18 @@ export default function ChatWidget() {
       ]);
     }
   };
+
+  // Cleanup: restaurar scroll al desmontar
+  useEffect(() => {
+    return () => {
+      if (typeof window !== 'undefined') {
+        document.body.style.overflow = '';
+        document.body.style.position = '';
+        document.body.style.width = '';
+        document.body.classList.remove('chat-open');
+      }
+    };
+  }, []);
 
   return (
     <>
@@ -220,10 +274,24 @@ export default function ChatWidget() {
         </div>
       )}
 
-      {/* Floating Call Button */}
+      {/* Mobile Bottom Bar - Solo visible en móvil */}
+      <div className={styles.mobileBar}>
+        <button
+          onClick={toggleChat}
+          className={styles.mobileChatButton}
+          aria-label="Abrir chat de asistencia"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+          </svg>
+          Chatea con nosotros
+        </button>
+      </div>
+
+      {/* Floating Call Button - Solo visible en desktop */}
       {!isOpen && (
         <a
-          href="tel:+573021025621"
+          href="tel:+573****5621"
           className={styles.callButton}
           aria-label="Llamar por teléfono"
           title="Llamar al +57 302 102 5621"
@@ -234,7 +302,7 @@ export default function ChatWidget() {
         </a>
       )}
 
-      {/* Floating Chat Button with Label */}
+      {/* Floating Chat Button with Label - Solo visible en desktop */}
       <div className={styles.chatButtonWrapper}>
         {!isOpen && (
           <span className={styles.chatLabel}>Chatea con nosotros</span>

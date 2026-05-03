@@ -29,3 +29,9 @@ public/videos/
 **/*.mov
 **/*.avi
 **/*.mkv
+
+# Secrets vault
+.secrets/
+*.key
+*.secret
+auth.json
