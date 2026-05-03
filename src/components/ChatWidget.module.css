@@ -393,23 +393,35 @@
   }
 
   .chatButtonWrapper {
-    bottom: 90px;
-    right: 20px;
+    bottom: 90px !important;
+    right: 20px !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    flex-direction: row-reverse !important;
   }
 
   .chatButton {
-    width: 60px;
-    height: 60px;
+    width: 60px !important;
+    height: 60px !important;
   }
 
   .chatLabel {
-    display: none;
+    display: block !important;
+    background: rgba(111, 124, 78, 0.9) !important;
+    color: #fffbf0 !important;
+    padding: 4px 10px !important;
+    border-radius: 15px !important;
+    font-size: 11px !important;
+    font-weight: 600 !important;
+    white-space: nowrap !important;
+    box-shadow: 0 2px 8px rgba(111, 124, 78, 0.4) !important;
   }
 
   .callButton {
-    bottom: 90px;
-    left: 20px;
-    width: 50px;
-    height: 50px;
+    bottom: 90px !important;
+    left: 20px !important;
+    width: 50px !important;
+    height: 50px !important;
   }
 }
