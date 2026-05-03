@@ -345,19 +345,19 @@
 /* ===== Call Button ===== */
 .callButton {
   position: fixed;
-  bottom: 120px;
-  right: 30px;
+  bottom: 100px;
+  left: 30px;
   width: 56px;
   height: 56px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #2ecc71, #27ae60);
+  background: linear-gradient(135deg, #5b6bc0, #4a5aa8);
   color: white;
   border: none;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 16px rgba(46, 204, 113, 0.4), 0 0 0 2px rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 16px rgba(91, 107, 192, 0.4), 0 0 0 2px rgba(255, 255, 255, 0.3);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   z-index: 998;
   text-decoration: none;
@@ -366,7 +366,7 @@
 
 .callButton:hover {
   transform: scale(1.1);
-  box-shadow: 0 6px 20px rgba(46, 204, 113, 0.6), 0 0 0 3px rgba(255, 255, 255, 0.5);
+  box-shadow: 0 6px 20px rgba(91, 107, 192, 0.6), 0 0 0 3px rgba(255, 255, 255, 0.5);
 }
 
 @keyframes fadeInCall {
@@ -407,8 +407,8 @@
   }
 
   .callButton {
-    bottom: 110px;
-    right: 20px;
+    bottom: 90px;
+    left: 20px;
     width: 50px;
     height: 50px;
   }
