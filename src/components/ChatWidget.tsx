@@ -27,6 +27,9 @@ export default function ChatWidget() {
     if (!sessionId) {
       sessionId = `ses-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
       sessionStorage.setItem(SESSION_KEY, sessionId);
+      console.log("🔧 [ChatWidget] Nueva sesión creada:", sessionId);
+    } else {
+      console.log("🔧 [ChatWidget] Sesión existente:", sessionId);
     }
     return sessionId;
   };
@@ -53,6 +56,8 @@ export default function ChatWidget() {
     setIsLoading(true);
 
     try {
+      console.log("🔧 [ChatWidget] Enviando mensaje a webhook:", WEBHOOK_URL);
+      
       const response = await fetch(WEBHOOK_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -62,9 +67,14 @@ export default function ChatWidget() {
         }),
       });
 
-      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      console.log("🔧 [ChatWidget] Response status:", response.status);
+
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}`);
+      }
 
       const data = await response.json();
+      console.log("🔧 [ChatWidget] Response data:", data);
 
       // n8n returns array: [{ output: "..." }] or { output: "..." }
       let text = "";
@@ -79,6 +89,7 @@ export default function ChatWidget() {
       const assistantMessage: Message = { role: "assistant", content: text };
       setMessages((prev) => [...prev, assistantMessage]);
     } catch (error) {
+      console.error("🔧 [ChatWidget] Error en sendMessage:", error);
       const errorMsg: Message = {
         role: "assistant",
         content:
