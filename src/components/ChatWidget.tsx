@@ -105,7 +105,7 @@ export default function ChatWidget() {
         {
           role: "assistant",
           content:
-            "¡Hola! 👋 Soy el asistente virtual de La Juana Cerro Tusa. ¿En qué puedo ayudarte hoy? Puedo asesorarte sobre nuestra finca, habitaciones, experiencias, reservas y más.",
+            "¡Hola! 👋 Soy el asesor virtual de La Juana Cerro Tusa. ¿En qué puedo ayudarte hoy? Puedo asesorarte sobre nuestra finca, habitaciones, experiencias, reservas y más.",
         },
       ]);
     }
