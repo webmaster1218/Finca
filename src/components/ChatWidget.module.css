@@ -37,7 +37,7 @@
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  box-shadow: 0 8px 30px rgba(111, 124, 78, 0.7) !important, 0 0 0 6px rgba(255, 215, 0, 0.5) !important;
+  box-shadow: 0 8px 30px rgba(111, 124, 78, 0.7), 0 0 0 6px rgba(255, 215, 0, 0.5) !important;
   transition: transform 0.3s ease, box-shadow 0.3s ease !important;
   position: relative !important;
   overflow: hidden !important;
