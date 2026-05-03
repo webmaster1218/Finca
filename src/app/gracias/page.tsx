@@ -6,7 +6,9 @@ import { CheckCircle } from "lucide-react";
 
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { WhatsAppFloating } from "@/components/WhatsAppFloating";
+import dynamic from "next/dynamic";
+
+const ChatWidget = dynamic(() => import("@/components/ChatWidget"));
 
 export default function GraciasPage() {
     return (
@@ -52,7 +54,7 @@ export default function GraciasPage() {
                 </motion.div>
             </div>
             <Footer />
-            <WhatsAppFloating />
+            <ChatWidget />
         </main>
     );
 }

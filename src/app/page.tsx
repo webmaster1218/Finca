@@ -27,9 +27,7 @@ const Location = dynamic(() =>
 const Footer = dynamic(() =>
   import("../components/Footer").then((m) => m.Footer)
 );
-const WhatsAppFloating = dynamic(() =>
-  import("../components/WhatsAppFloating").then((m) => m.WhatsAppFloating)
-);
+const ChatWidget = dynamic(() => import("../components/ChatWidget"));
 
 export default function Home() {
   return (
@@ -44,7 +42,7 @@ export default function Home() {
       <Testimonials />
       <Location />
       <Footer />
-      <WhatsAppFloating />
+      <ChatWidget />
     </main>
   );
 }
