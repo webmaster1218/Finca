@@ -39,8 +39,26 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 20px rgba(111, 124, 78, 0.45);
+  box-shadow: 0 4px 20px rgba(111, 124, 78, 0.45), 0 0 0 2px rgba(255, 215, 0, 0.3);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.chatButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 30%, rgba(255, 215, 0, 0.2) 50%, transparent 70%);
+  transform: translateX(-100%);
+  transition: transform 0.6s;
+}
+
+.chatButton:hover::before {
+  transform: translateX(100%);
 }
 
 .chatButton:hover {
@@ -310,6 +328,58 @@
   cursor: not-allowed;
 }
 
+/* ===== Scrollbar ===== */
+.messagesContainer::-webkit-scrollbar {
+  width: 5px;
+}
+
+.messagesContainer::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.messagesContainer::-webkit-scrollbar-thumb {
+  background: #ccc;
+  border-radius: 3px;
+}
+
+/* ===== Call Button ===== */
+.callButton {
+  position: fixed;
+  bottom: 120px;
+  right: 30px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #2ecc71, #27ae60);
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(46, 204, 113, 0.4), 0 0 0 2px rgba(255, 255, 255, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 998;
+  text-decoration: none;
+  animation: fadeInCall 0.5s ease-out;
+}
+
+.callButton:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(46, 204, 113, 0.6), 0 0 0 3px rgba(255, 255, 255, 0.5);
+}
+
+@keyframes fadeInCall {
+  from { 
+    opacity: 0;
+    transform: translateY(20px) scale(0.8);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
 /* ===== Mobile Responsive ===== */
 @media (max-width: 480px) {
   .chatWindow {
@@ -335,18 +405,11 @@
   .chatLabel {
     display: none;
   }
-}
 
-/* ===== Scrollbar ===== */
-.messagesContainer::-webkit-scrollbar {
-  width: 5px;
-}
-
-.messagesContainer::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.messagesContainer::-webkit-scrollbar-thumb {
-  background: #ccc;
-  border-radius: 3px;
+  .callButton {
+    bottom: 110px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+  }
 }
