@@ -600,3 +600,37 @@
     flex-shrink: 0 !important;
   }
 }
+
+/* ===== Keyboard Detection (para todos los dispositivos) ===== */
+/* Detecta cuando el teclado está visible (viewport height < 500px) */
+@media (max-height: 500px) and (orientation: portrait) {
+  /* Forzar que el chat window se ajuste al teclado */
+  .chatWindow {
+    height: 100vh !important;
+    max-height: 100vh !important;
+  }
+  
+  /* Forzar que el input se mantenga visible sobre el teclado */
+  .inputContainer {
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    background: white !important;
+    border-top: 3px solid #e8e8e8 !important;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.2) !important;
+    transform: translateZ(0) !important;
+    will-change: transform !important;
+    z-index: 9999999 !important;
+  }
+  
+  /* Reducir padding de mensajes para dejar espacio al teclado */
+  .messagesContainer {
+    padding-bottom: 120px !important;
+  }
+  
+  /* Asegurar que los mensajes no queden ocultos */
+  .chatWindow {
+    padding-bottom: 0 !important;
+  }
+}
