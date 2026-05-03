@@ -471,6 +471,7 @@
   /* Mensajes optimizados para móvil */
   .messagesContainer {
     padding: 12px !important;
+    padding-bottom: 100px !important;
     background: #faf9f6 !important;
     /* Asegurar scroll suave */
     -webkit-overflow-scrolling: touch !important;
@@ -490,6 +491,10 @@
     border-top: 2px solid #e8e8e8 !important;
     background: white !important;
     min-height: 80px !important;
+    z-index: 1001 !important;
+    position: relative !important;
+    /* Asegurar que esté siempre visible */
+    transform: translateZ(0) !important;
   }
 
   .chatInput {

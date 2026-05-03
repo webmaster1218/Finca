@@ -284,7 +284,7 @@ export default function ChatWidget() {
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
           </svg>
-          Chatea con nosotros
+          ¿Hablamos de La Juana?
         </button>
       </div>
 
@@ -305,7 +305,7 @@ export default function ChatWidget() {
       {/* Floating Chat Button with Label - Solo visible en desktop */}
       <div className={styles.chatButtonWrapper}>
         {!isOpen && (
-          <span className={styles.chatLabel}>Chatea con nosotros</span>
+          <span className={styles.chatLabel}>¿Hablamos de La Juana?</span>
         )}
         <button
           onClick={toggleChat}
