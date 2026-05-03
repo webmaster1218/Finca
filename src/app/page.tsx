@@ -29,11 +29,6 @@ const Footer = dynamic(() =>
 );
 const ChatWidget = dynamic(() => import("../components/ChatWidget"), {
   loading: () => <div className="fixed bottom-6 right-6 w-16 h-16 bg-[#1a3c34] rounded-full animate-pulse shadow-lg" />, // Spinner de carga
-  ssr: false, // Deshabilitar SSR para evitar hidratación problems
-  onError: () => {
-    console.error("Error al cargar ChatWidget");
-    return null; // No mostrar nada si hay error
-  }
 });
 
 export default function Home() {
