@@ -138,83 +138,18 @@ export default function ChatWidget() {
     }
   };
 
-  // === SOLUCIÓN DEFINITIVA: visualViewport para teclado móvil ===
-  // Esta es la técnica que usan WhatsApp Web, Instagram DM, etc.
-  // Cuando el teclado aparece, visualViewport.height se reduce.
-  // Usamos ese valor para reposicionar el chat window dinámicamente.
+  // === Teclado móvil: scroll al input cuando se abre ===
   useEffect(() => {
-    if (typeof window === "undefined" || !isOpen) return;
-    // Solo activar en móvil
-    if (window.innerWidth > 480) return;
+    if (!isOpen || typeof window === "undefined" || window.innerWidth > 480) return;
 
-    const chatWindow = chatWindowRef.current;
-    if (!chatWindow) return;
-
-    const updateChatPosition = () => {
-      if (!window.visualViewport) return;
-
-      const vv = window.visualViewport;
-      const fullHeight = window.innerHeight;
-      const viewportHeight = vv.height;
-      const offsetTop = vv.offsetTop;
-
-      // El teclado ocupa la diferencia entre fullHeight y viewportHeight
-      const keyboardHeight = fullHeight - viewportHeight - offsetTop;
-
-      if (keyboardHeight > 50) {
-        // Teclado visible — reposicionar todo el chat
-        // El chat se encaja entre offsetTop y viewportHeight
-        chatWindow.style.position = "fixed";
-        chatWindow.style.top = `${offsetTop}px`;
-        chatWindow.style.height = `${viewportHeight}px`;
-        chatWindow.style.maxHeight = `${viewportHeight}px`;
-        chatWindow.style.bottom = "auto";
-      } else {
-        // Sin teclado — pantalla completa normal
-        chatWindow.style.position = "fixed";
-        chatWindow.style.top = "0";
-        chatWindow.style.height = `${viewportHeight}px`;
-        chatWindow.style.maxHeight = `${viewportHeight}px`;
-        chatWindow.style.bottom = "auto";
+    // Pequeño delay para que el teclado termine de aparecer
+    const timer = setTimeout(() => {
+      if (inputRef.current) {
+        inputRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
       }
+    }, 300);
 
-      // Forzar scroll al input después de reposicionar
-      setTimeout(() => {
-        if (inputRef.current) {
-          inputRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
-        }
-      }, 50);
-    };
-
-    // Escuchar cambios en visualViewport
-    const vv = window.visualViewport;
-    if (vv) {
-      vv.addEventListener("resize", updateChatPosition);
-      vv.addEventListener("scroll", updateChatPosition);
-    }
-
-    // También escuchar resize del window como fallback
-    window.addEventListener("resize", updateChatPosition);
-
-    // Ejecutar una vez al montar
-    updateChatPosition();
-
-    return () => {
-      if (vv) {
-        vv.removeEventListener("resize", updateChatPosition);
-        vv.removeEventListener("scroll", updateChatPosition);
-      }
-      window.removeEventListener("resize", updateChatPosition);
-
-      // Restaurar estilos inline
-      if (chatWindow) {
-        chatWindow.style.position = "";
-        chatWindow.style.top = "";
-        chatWindow.style.height = "";
-        chatWindow.style.maxHeight = "";
-        chatWindow.style.bottom = "";
-      }
-    };
+    return () => clearTimeout(timer);
   }, [isOpen]);
 
   // Cleanup al desmontar
