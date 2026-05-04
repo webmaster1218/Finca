@@ -176,6 +176,71 @@ export default function ChatWidget() {
     };
   }, []);
 
+  // Manejo inteligente del teclado en móviles
+  useEffect(() => {
+    if (typeof window === 'undefined' || !isOpen) return;
+
+    const handleVisualViewportChange = () => {
+      if (window.visualViewport) {
+        const viewport = window.visualViewport;
+        const keyboardVisible = viewport.height < window.innerHeight * 0.8;
+        
+        if (keyboardVisible && inputRef.current) {
+          // Scroll forzado para mantener el input visible
+          setTimeout(() => {
+            inputRef.current?.scrollIntoView({ 
+              behavior: 'smooth', 
+              block: 'center' 
+            });
+          }, 100);
+        }
+      }
+    };
+
+    // Listener para visualViewport (iOS 13+)
+    if (window.visualViewport) {
+      window.visualViewport.addEventListener('resize', handleVisualViewportChange);
+      window.visualViewport.addEventListener('scroll', handleVisualViewportChange);
+    }
+
+    // Listener para resize fallback
+    const handleResize = () => {
+      handleVisualViewportChange();
+    };
+    
+    window.addEventListener('resize', handleResize);
+
+    // Focus management mejorado
+    const handleFocus = () => {
+      // Pequeño delay para asegurar que el teclado está visible
+      setTimeout(() => {
+        if (inputRef.current) {
+          // Forzar scroll al input
+          inputRef.current.scrollIntoView({ 
+            behavior: 'smooth', 
+            block: 'center' 
+          });
+        }
+      }, 300);
+    };
+
+    const input = inputRef.current;
+    if (input) {
+      input.addEventListener('focus', handleFocus);
+    }
+
+    return () => {
+      if (window.visualViewport) {
+        window.visualViewport.removeEventListener('resize', handleVisualViewportChange);
+        window.visualViewport.removeEventListener('scroll', handleVisualViewportChange);
+      }
+      window.removeEventListener('resize', handleResize);
+      if (input) {
+        input.removeEventListener('focus', handleFocus);
+      }
+    };
+  }, [isOpen]);
+
   return (
     <>
       {/* Chat Window */}

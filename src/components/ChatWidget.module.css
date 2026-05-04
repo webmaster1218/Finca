@@ -608,9 +608,10 @@
   .chatWindow {
     height: 100vh !important;
     max-height: 100vh !important;
+    padding-bottom: 0 !important;
   }
   
-  /* Forzar que el input se mantenga visible sobre el teclado */
+  /* Forzar que el input se mantenga visible sobre el teclado - SOLUCIÓN AGRESIVA */
   .inputContainer {
     position: fixed !important;
     bottom: 0 !important;
@@ -622,15 +623,76 @@
     transform: translateZ(0) !important;
     will-change: transform !important;
     z-index: 9999999 !important;
+    padding: 30px !important;
+    /* Aumentar dramáticamente la altura */
+    min-height: 140px !important;
+    max-height: 180px !important;
   }
   
-  /* Reducir padding de mensajes para dejar espacio al teclado */
+  /* Input más grande y accesible */
+  .chatInput {
+    padding: 20px 30px !important;
+    font-size: 20px !important;
+    border: 3px solid #e0e0e0 !important;
+    border-radius: 40px !important;
+    min-height: 70px !important;
+    max-height: 100px !important;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08) !important;
+    /* Prevenir zoom */
+    font-size: 20px !important;
+  }
+  
+  .chatInput:focus {
+    border-color: #6f7c4e !important;
+    box-shadow: 0 0 0 6px rgba(111, 124, 78, 0.2) !important;
+  }
+  
+  /* Botón de enviar más grande */
+  .sendButton {
+    width: 70px !important;
+    height: 70px !important;
+    min-width: 70px !important;
+    min-height: 70px !important;
+    box-shadow: 0 4px 16px rgba(111, 124, 78, 0.4) !important;
+  }
+  
+  /* Reducir dramáticamente el espacio de mensajes */
   .messagesContainer {
-    padding-bottom: 120px !important;
+    padding: 8px !important;
+    padding-bottom: 200px !important; /* Espacio para el input gigante */
+    max-height: calc(100vh - 200px) !important;
   }
   
-  /* Asegurar que los mensajes no queden ocultos */
-  .chatWindow {
-    padding-bottom: 0 !important;
+  .message {
+    max-width: 85% !important;
+    padding: 8px 12px !important;
+    font-size: 14px !important;
+    line-height: 1.4 !important;
+  }
+}
+
+/* Para viewports aún más pequeños (teclados grandes) */
+@media (max-height: 400px) and (orientation: portrait) {
+  .inputContainer {
+    min-height: 160px !important;
+    max-height: 200px !important;
+    padding: 25px !important;
+  }
+  
+  .chatInput {
+    min-height: 80px !important;
+    max-height: 120px !important;
+    padding: 18px 25px !important;
+    font-size: 18px !important;
+  }
+  
+  .sendButton {
+    width: 80px !important;
+    height: 80px !important;
+  }
+  
+  .messagesContainer {
+    padding-bottom: 220px !important;
+    max-height: calc(100vh - 220px) !important;
   }
 }
