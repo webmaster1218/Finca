@@ -293,7 +293,7 @@ export default function ChatWidget() {
       {/* Floating Chat Button - Solo desktop */}
       <div className={styles.chatButtonWrapper}>
         {!isOpen && (
-          <span className={styles.chatLabel}>¿Hablamos de La Juana?</span>
+          <span className={styles.chatLabel}>¿Necesitas info de La Juana?</span>
         )}
         <button
           onClick={toggleChat}
