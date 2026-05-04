@@ -11,16 +11,14 @@
 }
 
 .chatLabel {
-  background: linear-gradient(135deg, #6f7c4e, #9a7d45);
-  color: #fffbf0;
-  padding: 6px 14px;
-  border-radius: 20px;
-  font-size: 13px;
-  font-weight: 600;
-  white-space: nowrap;
-  box-shadow: 0 2px 12px rgba(111, 124, 78, 0.35);
-  animation: fadeInLabel 0.3s ease-out;
-  letter-spacing: 0.01em;
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  width: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
+  position: absolute !important;
+  left: -9999px !important;
 }
 
 @keyframes fadeInLabel {
@@ -29,23 +27,48 @@
 }
 
 .chatButton {
-  background: linear-gradient(135deg, #6f7c4e, #9a7d45);
-  color: #fffbf0;
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 20px rgba(111, 124, 78, 0.45);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: linear-gradient(135deg, #6f7c4e, #9a7d45) !important;
+  color: #fffbf0 !important;
+  width: 70px !important;
+  height: 70px !important;
+  border-radius: 50% !important;
+  border: 2px solid rgba(255, 255, 255, 0.8) !important;
+  cursor: pointer !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 6px 20px rgba(111, 124, 78, 0.6), 0 0 0 3px rgba(255, 215, 0, 0.3) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+  position: relative !important;
+  overflow: hidden !important;
+  z-index: 1000 !important;
 }
 
 .chatButton:hover {
-  transform: scale(1.12);
-  box-shadow: 0 6px 25px rgba(111, 124, 78, 0.65);
+  transform: scale(1.1) !important;
+  box-shadow: 0 8px 25px rgba(111, 124, 78, 0.8), 0 0 0 4px rgba(255, 215, 0, 0.4) !important;
+}
+
+.chatButton svg {
+  width: 32px !important;
+  height: 32px !important;
+  stroke-width: 3 !important;
+}
+
+.chatButton::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 30%, rgba(255, 215, 0, 0.2) 50%, transparent 70%);
+  transform: translateX(-100%);
+  transition: transform 0.6s;
+}
+
+.chatButton:hover::before {
+  transform: translateX(100%);
 }
 
 .chatButtonActive {
@@ -182,6 +205,9 @@
   flex-direction: column;
   gap: 10px;
   background: #faf9f6;
+  /* ESTO ES CLAVE: el flex box se ajusta automáticamente */
+  /* cuando el chatWindow cambia de tamaño por visualViewport */
+  min-height: 0; /* Permite que flex: 1 reduzca el tamaño */
 }
 
 .message {
@@ -264,6 +290,7 @@
   background: white;
   gap: 8px;
   flex-shrink: 0;
+  /* NUNCA position: fixed aquí — el flex del chatWindow lo posiciona */
 }
 
 .chatInput {
@@ -310,33 +337,6 @@
   cursor: not-allowed;
 }
 
-/* ===== Mobile Responsive ===== */
-@media (max-width: 480px) {
-  .chatWindow {
-    bottom: 0;
-    right: 0;
-    width: 100vw;
-    height: 100vh;
-    max-height: 100vh;
-    max-width: 100vw;
-    border-radius: 0;
-  }
-
-  .chatButtonWrapper {
-    bottom: 90px;
-    right: 20px;
-  }
-
-  .chatButton {
-    width: 60px;
-    height: 60px;
-  }
-
-  .chatLabel {
-    display: none;
-  }
-}
-
 /* ===== Scrollbar ===== */
 .messagesContainer::-webkit-scrollbar {
   width: 5px;
@@ -349,4 +349,208 @@
 .messagesContainer::-webkit-scrollbar-thumb {
   background: #ccc;
   border-radius: 3px;
+}
+
+/* ===== Call Button ===== */
+.callButton {
+  position: fixed;
+  bottom: 100px;
+  left: 30px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #5b6bc0, #4a5aa8);
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(91, 107, 192, 0.4), 0 0 0 2px rgba(255, 255, 255, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 998;
+  text-decoration: none;
+  animation: fadeInCall 0.5s ease-out;
+}
+
+.callButton:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(91, 107, 192, 0.6), 0 0 0 3px rgba(255, 255, 255, 0.5);
+}
+
+@keyframes fadeInCall {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* ===== Mobile Responsive ===== */
+@media (max-width: 480px) {
+  /* Bloquear scroll del body cuando el chat está abierto */
+  body.chat-open {
+    overflow: hidden !important;
+    position: fixed !important;
+    width: 100% !important;
+  }
+
+  /* Chat Window - Pantalla completa en móvil */
+  .chatWindow {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    width: 100vw !important;
+    /* dvh = dynamic viewport height: se reduce automáticamente cuando el teclado aparece */
+    /* Fallback para navegadores sin soporte dvh */
+    height: 100vh !important;
+    height: 100dvh !important;
+    max-height: 100vh !important;
+    max-height: 100dvh !important;
+    max-width: 100vw !important;
+    border-radius: 0 !important;
+    z-index: 999999 !important;
+    animation: slideUpMobile 0.3s ease-out !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  @keyframes slideUpMobile {
+    from {
+      opacity: 0;
+      transform: translateY(100%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Header */
+  .chatHeader {
+    padding: 14px 16px !important;
+    flex-shrink: 0 !important;
+  }
+
+  .headerTitle {
+    font-size: 15px !important;
+  }
+
+  .headerStatus {
+    font-size: 11px !important;
+  }
+
+  .closeButton, .whatsappBtn {
+    width: 40px !important;
+    height: 40px !important;
+    min-width: 40px !important;
+    min-height: 40px !important;
+  }
+
+  .closeButton {
+    background: rgba(255, 255, 255, 0.9) !important;
+    color: #6f7c4e !important;
+  }
+
+  /* Messages */
+  .messagesContainer {
+    flex: 1 !important;
+    min-height: 0 !important;
+    padding: 12px !important;
+    -webkit-overflow-scrolling: touch !important;
+    scroll-behavior: smooth !important;
+  }
+
+  .message {
+    max-width: 88% !important;
+    font-size: 14px !important;
+  }
+
+  /* Input */
+  .inputContainer {
+    flex-shrink: 0 !important;
+    padding: 10px 12px !important;
+    /* Prevenir zoom en iOS */
+  }
+
+  .chatInput {
+    /* font-size >= 16px previene auto-zoom en iOS */
+    font-size: 16px !important;
+    padding: 12px 16px !important;
+    min-height: 44px !important;
+    border-radius: 22px !important;
+  }
+
+  .sendButton {
+    width: 44px !important;
+    height: 44px !important;
+    min-width: 44px !important;
+  }
+
+  /* Ocultar botones flotantes en móvil */
+  .chatButtonWrapper {
+    display: none !important;
+  }
+
+  .callButton {
+    display: none !important;
+  }
+
+  /* Mobile Bottom Bar */
+  .mobileBar {
+    position: fixed !important;
+    bottom: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    background: linear-gradient(135deg, #6f7c4e, #9a7d45) !important;
+    height: 64px !important;
+    min-height: 64px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    z-index: 1000 !important;
+    box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.25) !important;
+    border-top: 2px solid rgba(255, 255, 255, 0.4) !important;
+  }
+
+  .mobileChatButton {
+    background: rgba(255, 255, 255, 0.98) !important;
+    color: #6f7c4e !important;
+    border: none !important;
+    padding: 14px 28px !important;
+    border-radius: 30px !important;
+    font-size: 16px !important;
+    font-weight: 700 !important;
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 10px !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
+    transition: all 0.3s ease !important;
+    min-height: 48px !important;
+    justify-content: center !important;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+  }
+
+  .mobileChatButton:active {
+    transform: translateY(1px) !important;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
+  }
+
+  .mobileChatButton svg {
+    width: 22px !important;
+    height: 22px !important;
+    flex-shrink: 0 !important;
+  }
+}
+
+/* Desktop: Barra móvil oculta */
+@media (min-width: 481px) {
+  .mobileBar {
+    display: none !important;
+  }
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import styles from "./ChatWidget.module.css";
 import { formatChatMessage } from "@/lib/formatChat";
 
@@ -19,6 +19,7 @@ export default function ChatWidget() {
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const chatWindowRef = useRef<HTMLDivElement>(null);
 
   // Generate or retrieve session ID
   const getSessionId = (): string => {
@@ -27,24 +28,29 @@ export default function ChatWidget() {
     if (!sessionId) {
       sessionId = `ses-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
       sessionStorage.setItem(SESSION_KEY, sessionId);
-      console.log("🔧 [ChatWidget] Nueva sesión creada:", sessionId);
-    } else {
-      console.log("🔧 [ChatWidget] Sesión existente:", sessionId);
     }
     return sessionId;
   };
 
   // Auto-scroll to bottom
-  useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages]);
-
-  // Focus input when opened
-  useEffect(() => {
-    if (isOpen && inputRef.current) {
-      setTimeout(() => inputRef.current?.focus(), 100);
+  const scrollToBottom = useCallback(() => {
+    if (messagesEndRef.current) {
+      const container = messagesEndRef.current.parentElement;
+      if (container) {
+        setTimeout(() => {
+          container.scrollTo({
+            top: container.scrollHeight,
+            behavior: "smooth",
+          });
+        }, 100);
+      }
     }
-  }, [isOpen]);
+  }, []);
+
+  useEffect(() => {
+    scrollToBottom();
+    if (isOpen) scrollToBottom();
+  }, [messages, isOpen, scrollToBottom]);
 
   const sendMessage = async () => {
     const trimmed = input.trim();
@@ -56,8 +62,6 @@ export default function ChatWidget() {
     setIsLoading(true);
 
     try {
-      console.log("🔧 [ChatWidget] Enviando mensaje a webhook:", WEBHOOK_URL);
-      
       const response = await fetch(WEBHOOK_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -67,16 +71,11 @@ export default function ChatWidget() {
         }),
       });
 
-      console.log("🔧 [ChatWidget] Response status:", response.status);
-
       if (!response.ok) {
         throw new Error(`HTTP ${response.status}`);
       }
 
       const data = await response.json();
-      console.log("🔧 [ChatWidget] Response data:", data);
-
-      // n8n returns array: [{ output: "..." }] or { output: "..." }
       let text = "";
       if (Array.isArray(data)) {
         text = data[0]?.output || data[0]?.message || JSON.stringify(data[0]);
@@ -89,11 +88,11 @@ export default function ChatWidget() {
       const assistantMessage: Message = { role: "assistant", content: text };
       setMessages((prev) => [...prev, assistantMessage]);
     } catch (error) {
-      console.error("🔧 [ChatWidget] Error en sendMessage:", error);
+      console.error("[ChatWidget] Error:", error);
       const errorMsg: Message = {
         role: "assistant",
         content:
-          "Disculpa, hubo un problema de conexión. Por favor intenta de nuevo o contáctanos al +57 302 102 5621. ¡Estamos para ayudarte!",
+          "Disculpa, hubo un problema de conexión. Por favor intenta de nuevo o contáctanos al +57 302 102 5621.",
       };
       setMessages((prev) => [...prev, errorMsg]);
     } finally {
@@ -109,9 +108,26 @@ export default function ChatWidget() {
   };
 
   const toggleChat = () => {
-    setIsOpen((prev) => !prev);
-    // Add welcome message on first open
-    if (!isOpen && messages.length === 0) {
+    const newState = !isOpen;
+    setIsOpen(newState);
+
+    if (typeof window !== "undefined") {
+      if (newState) {
+        if (window.innerWidth <= 480) {
+          document.body.style.overflow = "hidden";
+          document.body.style.position = "fixed";
+          document.body.style.width = "100%";
+          document.body.classList.add("chat-open");
+        }
+      } else {
+        document.body.style.overflow = "";
+        document.body.style.position = "";
+        document.body.style.width = "";
+        document.body.classList.remove("chat-open");
+      }
+    }
+
+    if (newState && messages.length === 0) {
       setMessages([
         {
           role: "assistant",
@@ -122,11 +138,37 @@ export default function ChatWidget() {
     }
   };
 
+  // === Teclado móvil: scroll al input cuando se abre ===
+  useEffect(() => {
+    if (!isOpen || typeof window === "undefined" || window.innerWidth > 480) return;
+
+    // Pequeño delay para que el teclado termine de aparecer
+    const timer = setTimeout(() => {
+      if (inputRef.current) {
+        inputRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      }
+    }, 300);
+
+    return () => clearTimeout(timer);
+  }, [isOpen]);
+
+  // Cleanup al desmontar
+  useEffect(() => {
+    return () => {
+      if (typeof window !== "undefined") {
+        document.body.style.overflow = "";
+        document.body.style.position = "";
+        document.body.style.width = "";
+        document.body.classList.remove("chat-open");
+      }
+    };
+  }, []);
+
   return (
     <>
       {/* Chat Window */}
       {isOpen && (
-        <div className={styles.chatWindow}>
+        <div className={styles.chatWindow} ref={chatWindowRef}>
           {/* Header */}
           <div className={styles.chatHeader}>
             <div className={styles.headerLeft}>
@@ -150,7 +192,7 @@ export default function ChatWidget() {
                 title="Hablar con nosotros por WhatsApp"
               >
                 <svg width="18" height="18" viewBox="0 0 16 16" fill="currentColor">
-                  <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" />
+                  <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.38-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" />
                 </svg>
               </a>
               <button
@@ -220,10 +262,38 @@ export default function ChatWidget() {
         </div>
       )}
 
-      {/* Floating Button with Label */}
+      {/* Mobile Bottom Bar */}
+      <div className={styles.mobileBar}>
+        <button
+          onClick={toggleChat}
+          className={styles.mobileChatButton}
+          aria-label="Abrir chat de asistencia"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+          </svg>
+          ¿Hablamos de La Juana?
+        </button>
+      </div>
+
+      {/* Floating Call Button - Solo desktop */}
+      {!isOpen && (
+        <a
+          href="tel:+573021025621"
+          className={styles.callButton}
+          aria-label="Llamar por teléfono"
+          title="Llamar al +57 302 102 5621"
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+          </svg>
+        </a>
+      )}
+
+      {/* Floating Chat Button - Solo desktop */}
       <div className={styles.chatButtonWrapper}>
         {!isOpen && (
-          <span className={styles.chatLabel}>Chatea con nosotros</span>
+          <span className={styles.chatLabel}>¿Hablamos de La Juana?</span>
         )}
         <button
           onClick={toggleChat}
