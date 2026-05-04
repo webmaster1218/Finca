@@ -200,8 +200,10 @@ export default function ChatWidget() {
     updateChatPosition();
 
     return () => {
-      vv.removeEventListener("resize", updateChatPosition);
-      vv.removeEventListener("scroll", updateChatPosition);
+      if (vv) {
+        vv.removeEventListener("resize", updateChatPosition);
+        vv.removeEventListener("scroll", updateChatPosition);
+      }
       window.removeEventListener("resize", updateChatPosition);
 
       // Restaurar estilos inline
