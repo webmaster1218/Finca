@@ -188,8 +188,10 @@ export default function ChatWidget() {
 
     // Escuchar cambios en visualViewport
     const vv = window.visualViewport;
-    vv.addEventListener("resize", updateChatPosition);
-    vv.addEventListener("scroll", updateChatPosition);
+    if (vv) {
+      vv.addEventListener("resize", updateChatPosition);
+      vv.addEventListener("scroll", updateChatPosition);
+    }
 
     // También escuchar resize del window como fallback
     window.addEventListener("resize", updateChatPosition);
