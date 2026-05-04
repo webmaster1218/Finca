@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import styles from "./ChatWidget.module.css";
 import { formatChatMessage } from "@/lib/formatChat";
 
@@ -19,6 +19,7 @@ export default function ChatWidget() {
   const [isLoading, setIsLoading] = useState(false);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const chatWindowRef = useRef<HTMLDivElement>(null);
 
   // Generate or retrieve session ID
   const getSessionId = (): string => {
@@ -27,45 +28,29 @@ export default function ChatWidget() {
     if (!sessionId) {
       sessionId = `ses-${Date.now()}-${Math.random().toString(36).slice(2, 8)}`;
       sessionStorage.setItem(SESSION_KEY, sessionId);
-      console.log("🔧 [ChatWidget] Nueva sesión creada:", sessionId);
-    } else {
-      console.log("🔧 [ChatWidget] Sesión existente:", sessionId);
     }
     return sessionId;
   };
 
-  // Auto-scroll to bottom - mejorado para móvil
-  useEffect(() => {
-    const scrollToBottom = () => {
-      if (messagesEndRef.current) {
-        const container = messagesEndRef.current.parentElement;
-        if (container) {
-          // Usar setTimeout para asegurar que el DOM está actualizado
-          setTimeout(() => {
-            container.scrollTo({
-              top: container.scrollHeight,
-              behavior: 'smooth'
-            });
-          }, 100);
-        }
+  // Auto-scroll to bottom
+  const scrollToBottom = useCallback(() => {
+    if (messagesEndRef.current) {
+      const container = messagesEndRef.current.parentElement;
+      if (container) {
+        setTimeout(() => {
+          container.scrollTo({
+            top: container.scrollHeight,
+            behavior: "smooth",
+          });
+        }, 100);
       }
-    };
-
-    // Scroll cuando cambian los mensajes
-    scrollToBottom();
-    
-    // Scroll adicional cuando se abre el chat
-    if (isOpen) {
-      scrollToBottom();
     }
-  }, [messages, isOpen]);
+  }, []);
 
-  // Focus input when opened
   useEffect(() => {
-    if (isOpen && inputRef.current) {
-      setTimeout(() => inputRef.current?.focus(), 100);
-    }
-  }, [isOpen]);
+    scrollToBottom();
+    if (isOpen) scrollToBottom();
+  }, [messages, isOpen, scrollToBottom]);
 
   const sendMessage = async () => {
     const trimmed = input.trim();
@@ -77,8 +62,6 @@ export default function ChatWidget() {
     setIsLoading(true);
 
     try {
-      console.log("🔧 [ChatWidget] Enviando mensaje a webhook:", WEBHOOK_URL);
-      
       const response = await fetch(WEBHOOK_URL, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -88,16 +71,11 @@ export default function ChatWidget() {
         }),
       });
 
-      console.log("🔧 [ChatWidget] Response status:", response.status);
-
       if (!response.ok) {
         throw new Error(`HTTP ${response.status}`);
       }
 
       const data = await response.json();
-      console.log("🔧 [ChatWidget] Response data:", data);
-
-      // n8n returns array: [{ output: "..." }] or { output: "..." }
       let text = "";
       if (Array.isArray(data)) {
         text = data[0]?.output || data[0]?.message || JSON.stringify(data[0]);
@@ -110,11 +88,11 @@ export default function ChatWidget() {
       const assistantMessage: Message = { role: "assistant", content: text };
       setMessages((prev) => [...prev, assistantMessage]);
     } catch (error) {
-      console.error("🔧 [ChatWidget] Error en sendMessage:", error);
+      console.error("[ChatWidget] Error:", error);
       const errorMsg: Message = {
         role: "assistant",
         content:
-          "Disculpa, hubo un problema de conexión. Por favor intenta de nuevo o contáctanos al +57 302 102 5621. ¡Estamos para ayudarte!",
+          "Disculpa, hubo un problema de conexión. Por favor intenta de nuevo o contáctanos al +57 302 102 5621.",
       };
       setMessages((prev) => [...prev, errorMsg]);
     } finally {
@@ -132,27 +110,23 @@ export default function ChatWidget() {
   const toggleChat = () => {
     const newState = !isOpen;
     setIsOpen(newState);
-    
-    // Manejar scroll del body en móvil
-    if (typeof window !== 'undefined') {
+
+    if (typeof window !== "undefined") {
       if (newState) {
-        // Bloquear scroll en móvil
         if (window.innerWidth <= 480) {
-          document.body.style.overflow = 'hidden';
-          document.body.style.position = 'fixed';
-          document.body.style.width = '100%';
-          document.body.classList.add('chat-open');
+          document.body.style.overflow = "hidden";
+          document.body.style.position = "fixed";
+          document.body.style.width = "100%";
+          document.body.classList.add("chat-open");
         }
       } else {
-        // Restaurar scroll
-        document.body.style.overflow = '';
-        document.body.style.position = '';
-        document.body.style.width = '';
-        document.body.classList.remove('chat-open');
+        document.body.style.overflow = "";
+        document.body.style.position = "";
+        document.body.style.width = "";
+        document.body.classList.remove("chat-open");
       }
     }
-    
-    // Add welcome message on first open
+
     if (newState && messages.length === 0) {
       setMessages([
         {
@@ -164,88 +138,98 @@ export default function ChatWidget() {
     }
   };
 
-  // Cleanup: restaurar scroll al desmontar
+  // === SOLUCIÓN DEFINITIVA: visualViewport para teclado móvil ===
+  // Esta es la técnica que usan WhatsApp Web, Instagram DM, etc.
+  // Cuando el teclado aparece, visualViewport.height se reduce.
+  // Usamos ese valor para reposicionar el chat window dinámicamente.
   useEffect(() => {
-    return () => {
-      if (typeof window !== 'undefined') {
-        document.body.style.overflow = '';
-        document.body.style.position = '';
-        document.body.style.width = '';
-        document.body.classList.remove('chat-open');
+    if (typeof window === "undefined" || !isOpen) return;
+    // Solo activar en móvil
+    if (window.innerWidth > 480) return;
+
+    const chatWindow = chatWindowRef.current;
+    if (!chatWindow) return;
+
+    const updateChatPosition = () => {
+      if (!window.visualViewport) return;
+
+      const vv = window.visualViewport;
+      const fullHeight = window.innerHeight;
+      const viewportHeight = vv.height;
+      const offsetTop = vv.offsetTop;
+
+      // El teclado ocupa la diferencia entre fullHeight y viewportHeight
+      const keyboardHeight = fullHeight - viewportHeight - offsetTop;
+
+      if (keyboardHeight > 50) {
+        // Teclado visible — reposicionar todo el chat
+        // El chat se encaja entre offsetTop y viewportHeight
+        chatWindow.style.position = "fixed";
+        chatWindow.style.top = `${offsetTop}px`;
+        chatWindow.style.height = `${viewportHeight}px`;
+        chatWindow.style.maxHeight = `${viewportHeight}px`;
+        chatWindow.style.bottom = "auto";
+      } else {
+        // Sin teclado — pantalla completa normal
+        chatWindow.style.position = "fixed";
+        chatWindow.style.top = "0";
+        chatWindow.style.height = `${viewportHeight}px`;
+        chatWindow.style.maxHeight = `${viewportHeight}px`;
+        chatWindow.style.bottom = "auto";
       }
-    };
-  }, []);
 
-  // Manejo inteligente del teclado en móviles
-  useEffect(() => {
-    if (typeof window === 'undefined' || !isOpen) return;
-
-    const handleVisualViewportChange = () => {
-      if (window.visualViewport) {
-        const viewport = window.visualViewport;
-        const keyboardVisible = viewport.height < window.innerHeight * 0.8;
-        
-        if (keyboardVisible && inputRef.current) {
-          // Scroll forzado para mantener el input visible
-          setTimeout(() => {
-            inputRef.current?.scrollIntoView({ 
-              behavior: 'smooth', 
-              block: 'center' 
-            });
-          }, 100);
-        }
-      }
-    };
-
-    // Listener para visualViewport (iOS 13+)
-    if (window.visualViewport) {
-      window.visualViewport.addEventListener('resize', handleVisualViewportChange);
-      window.visualViewport.addEventListener('scroll', handleVisualViewportChange);
-    }
-
-    // Listener para resize fallback
-    const handleResize = () => {
-      handleVisualViewportChange();
-    };
-    
-    window.addEventListener('resize', handleResize);
-
-    // Focus management mejorado
-    const handleFocus = () => {
-      // Pequeño delay para asegurar que el teclado está visible
+      // Forzar scroll al input después de reposicionar
       setTimeout(() => {
         if (inputRef.current) {
-          // Forzar scroll al input
-          inputRef.current.scrollIntoView({ 
-            behavior: 'smooth', 
-            block: 'center' 
-          });
+          inputRef.current.scrollIntoView({ behavior: "smooth", block: "nearest" });
         }
-      }, 300);
+      }, 50);
     };
 
-    const input = inputRef.current;
-    if (input) {
-      input.addEventListener('focus', handleFocus);
-    }
+    // Escuchar cambios en visualViewport
+    const vv = window.visualViewport;
+    vv.addEventListener("resize", updateChatPosition);
+    vv.addEventListener("scroll", updateChatPosition);
+
+    // También escuchar resize del window como fallback
+    window.addEventListener("resize", updateChatPosition);
+
+    // Ejecutar una vez al montar
+    updateChatPosition();
 
     return () => {
-      if (window.visualViewport) {
-        window.visualViewport.removeEventListener('resize', handleVisualViewportChange);
-        window.visualViewport.removeEventListener('scroll', handleVisualViewportChange);
-      }
-      window.removeEventListener('resize', handleResize);
-      if (input) {
-        input.removeEventListener('focus', handleFocus);
+      vv.removeEventListener("resize", updateChatPosition);
+      vv.removeEventListener("scroll", updateChatPosition);
+      window.removeEventListener("resize", updateChatPosition);
+
+      // Restaurar estilos inline
+      if (chatWindow) {
+        chatWindow.style.position = "";
+        chatWindow.style.top = "";
+        chatWindow.style.height = "";
+        chatWindow.style.maxHeight = "";
+        chatWindow.style.bottom = "";
       }
     };
   }, [isOpen]);
+
+  // Cleanup al desmontar
+  useEffect(() => {
+    return () => {
+      if (typeof window !== "undefined") {
+        document.body.style.overflow = "";
+        document.body.style.position = "";
+        document.body.style.width = "";
+        document.body.classList.remove("chat-open");
+      }
+    };
+  }, []);
 
   return (
     <>
       {/* Chat Window */}
       {isOpen && (
-        <div className={styles.chatWindow}>
+        <div className={styles.chatWindow} ref={chatWindowRef}>
           {/* Header */}
           <div className={styles.chatHeader}>
             <div className={styles.headerLeft}>
@@ -269,7 +253,7 @@ export default function ChatWidget() {
                 title="Hablar con nosotros por WhatsApp"
               >
                 <svg width="18" height="18" viewBox="0 0 16 16" fill="currentColor">
-                  <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.338-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" />
+                  <path d="M13.601 2.326A7.854 7.854 0 0 0 7.994 0C3.627 0 .068 3.558.064 7.926c0 1.399.366 2.76 1.057 3.965L0 16l4.204-1.102a7.933 7.933 0 0 0 3.79.965h.004c4.368 0 7.926-3.558 7.93-7.93A7.898 7.898 0 0 0 13.6 2.326zM7.994 14.521a6.573 6.573 0 0 1-3.356-.92l-.24-.144-2.494.654.666-2.433-.156-.251a6.56 6.56 0 0 1-1.007-3.505c0-3.626 2.957-6.584 6.591-6.584a6.56 6.56 0 0 1 4.66 1.931 6.557 6.557 0 0 1 1.928 4.66c-.004 3.639-2.961 6.592-6.592 6.592zm3.615-4.934c-.197-.099-1.17-.578-1.353-.646-.182-.065-.315-.099-.445.099-.133.197-.513.646-.627.775-.114.133-.232.148-.43.05-.197-.1-.836-.308-1.592-.985-.59-.525-.985-1.175-1.103-1.372-.114-.198-.011-.304.088-.403.087-.088.197-.232.296-.346.1-.114.133-.198.198-.33.065-.134.034-.248-.015-.347-.05-.099-.445-1.076-.612-1.47-.16-.389-.323-.335-.445-.34-.114-.007-.247-.007-.38-.007a.729.729 0 0 0-.529.247c-.182.198-.691.677-.691 1.654 0 .977.71 1.916.81 2.049.098.133 1.394 2.132 3.383 2.992.47.205.84.326 1.129.418.475.152.904.129 1.246.08.38-.058 1.171-.48 1.38-.943.164-.464.164-.86.114-.943-.049-.084-.182-.133-.38-.232z" />
                 </svg>
               </a>
               <button
@@ -339,7 +323,7 @@ export default function ChatWidget() {
         </div>
       )}
 
-      {/* Mobile Bottom Bar - Solo visible en móvil */}
+      {/* Mobile Bottom Bar */}
       <div className={styles.mobileBar}>
         <button
           onClick={toggleChat}
@@ -353,10 +337,10 @@ export default function ChatWidget() {
         </button>
       </div>
 
-      {/* Floating Call Button - Solo visible en desktop */}
+      {/* Floating Call Button - Solo desktop */}
       {!isOpen && (
         <a
-          href="tel:+573****5621"
+          href="tel:+573021025621"
           className={styles.callButton}
           aria-label="Llamar por teléfono"
           title="Llamar al +57 302 102 5621"
@@ -367,7 +351,7 @@ export default function ChatWidget() {
         </a>
       )}
 
-      {/* Floating Chat Button with Label - Solo visible en desktop */}
+      {/* Floating Chat Button - Solo desktop */}
       <div className={styles.chatButtonWrapper}>
         {!isOpen && (
           <span className={styles.chatLabel}>¿Hablamos de La Juana?</span>
