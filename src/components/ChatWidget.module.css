@@ -1,7 +1,7 @@
 /* ===== Floating Chat Button ===== */
 .chatButtonWrapper {
   position: fixed;
-  bottom: 100px;
+  bottom: 30px;
   right: 30px;
   z-index: 999;
   display: flex;
@@ -29,7 +29,7 @@
 }
 
 .chatButton {
-  background: #25d366 !important;
+  background: #6f7c4e !important;
   color: #ffffff !important;
   width: 70px !important;
   height: 70px !important;
@@ -39,7 +39,7 @@
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45), 0 0 0 3px rgba(37, 211, 102, 0.2) !important;
+  box-shadow: 0 6px 20px rgba(111, 124, 78, 0.45), 0 0 0 3px rgba(111, 124, 78, 0.2) !important;
   transition: transform 0.3s ease, box-shadow 0.3s ease !important;
   position: relative !important;
   overflow: hidden !important;
@@ -48,13 +48,13 @@
 
 .chatButton:hover {
   transform: scale(1.1) !important;
-  box-shadow: 0 8px 25px rgba(37, 211, 102, 0.6), 0 0 0 4px rgba(37, 211, 102, 0.3) !important;
+  box-shadow: 0 8px 25px rgba(111, 124, 78, 0.6), 0 0 0 4px rgba(111, 124, 78, 0.3) !important;
 }
 
 .chatButton svg {
   width: 32px !important;
   height: 32px !important;
-  stroke-width: 3 !important;
+  stroke-width: 2 !important;
 }
 
 .chatButton::before {
@@ -79,9 +79,9 @@
 
 /* Pulse animation */
 @keyframes chatPulse {
-  0% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.45), 0 0 0 0 rgba(37, 211, 102, 0.6); }
-  70% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.45), 0 0 0 18px rgba(37, 211, 102, 0); }
-  100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.45), 0 0 0 0 rgba(37, 211, 102, 0); }
+  0% { box-shadow: 0 4px 20px rgba(111, 124, 78, 0.45), 0 0 0 0 rgba(111, 124, 78, 0.6); }
+  70% { box-shadow: 0 4px 20px rgba(111, 124, 78, 0.45), 0 0 0 18px rgba(111, 124, 78, 0); }
+  100% { box-shadow: 0 4px 20px rgba(111, 124, 78, 0.45), 0 0 0 0 rgba(111, 124, 78, 0); }
 }
 
 .chatButton:not(.chatButtonActive) {
@@ -380,6 +380,33 @@
   box-shadow: 0 6px 20px rgba(91, 107, 192, 0.6), 0 0 0 3px rgba(255, 255, 255, 0.5);
 }
 
+/* ===== WhatsApp Left Button ===== */
+.whatsappLeftButton {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #25d366, #1da851);
+  color: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4), 0 0 0 2px rgba(255, 255, 255, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 998;
+  text-decoration: none;
+  animation: fadeInCall 0.5s ease-out;
+}
+
+.whatsappLeftButton:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6), 0 0 0 3px rgba(255, 255, 255, 0.5);
+}
+
 @keyframes fadeInCall {
   from {
     opacity: 0;
@@ -498,7 +525,7 @@
     display: none !important;
   }
 
-  .callButton {
+  .callButton, .whatsappLeftButton {
     display: none !important;
   }
 
