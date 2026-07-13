@@ -6,10 +6,6 @@ import { CheckCircle } from "lucide-react";
 
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import dynamic from "next/dynamic";
-
-const ChatWidget = dynamic(() => import("@/components/ChatWidgetLoader"));
-
 export default function GraciasPage() {
     return (
         <main className="min-h-screen">
@@ -54,7 +50,6 @@ export default function GraciasPage() {
                 </motion.div>
             </div>
             <Footer />
-            <ChatWidget />
         </main>
     );
 }

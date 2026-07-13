@@ -52,7 +52,7 @@ const translations = {
         'amenity.wifi': 'WiFi de alta velocidad',
 
         // Booking Card
-        'booking.price': '$2.800.000 COP',
+        'booking.price': '$2.700.000 COP',
         'booking.night': 'noche',
         'booking.checkin': 'Llegada',
         'booking.checkout': 'Salida',
@@ -172,6 +172,35 @@ const translations = {
         'tours.town.details': 'Calle de los murales, Museos y Templo.',
         'tours.town.duration': '3 Horas',
         'tours.town.level': 'Cultural',
+
+        // Premium Tours Translations (Spanish)
+        'tours.premium.sec_title': 'Planes Premium All-Inclusive',
+        'tours.premium.sec_subtitle': 'Productos premium diseñados para vivir la experiencia definitiva en alianza con Comfama Parque Cerro Tusa.',
+        'tours.ascenso.title': 'El Ascenso Sagrado (Day Tour Premium)',
+        'tours.ascenso.tagline': 'Sube una montaña mítica, nada en una finca campestre y descubre un pueblo que los turistas nunca encuentran, todo en un día épico.',
+        'tours.ascenso.desc': 'A las 6:00 am salimos de Medellín en transporte privado. Desayunamos en Cocorollo. A las 9:00 am llegamos a La Juana, tomamos café y ascendemos el Cerro Tusa con guía del parque. Almorzamos en el restaurante de Graciela, luego disfrutamos de piscina, zonas húmedas y un masaje relajante con fisioterapeuta en La Juana.',
+        'tours.ascenso.price_info': '$195 USD / persona (2-3 pax) | $165 USD / persona (4+ pax)',
+        'tours.ascenso.duration': '12 Horas',
+        'tours.ascenso.capacity': '2 - 8 Personas',
+        'tours.ascenso.included': 'Transporte privado, desayuno Cocorollo, guía bilingüe, entrada y guía Parque Comfama, almuerzo típico en Graciela, masaje con fisioterapeuta, acceso a piscina y zonas húmedas en La Juana, agua y snacks, seguro y fotografía profesional.',
+        
+        'tours.diosa.title': 'El Retiro de la Diosa del Espejo (Stay & Climb 2D/1N)',
+        'tours.diosa.tagline': 'Escala una montaña mítica de día. Duerme en una finca campestre de noche. Vive Colombia como nunca antes.',
+        'tours.diosa.desc': 'Una experiencia inolvidable de 2 días. Incluye desayuno tradicional en Cocorollo, ascenso al cerro Tusa, almuerzo en el parque y tarde de bienestar en La Juana con masajes terapéuticos. En la noche disfruta de una cena gourmet y fogata con malvaviscos y vino. El Día 2 inicia con yoga, meditación, desayuno y un tour cultural por Venecia.',
+        'tours.diosa.price_info': '$445 USD / persona',
+        'tours.diosa.duration': '2 Días / 1 Noche',
+        'tours.diosa.capacity': '2 - 6 Personas',
+        'tours.diosa.included': 'Transporte privado, todas las comidas (desayuno D1, almuerzo D1, cena D1, desayuno D2, almuerzo D2), alojamiento 1 noche en La Juana, guía bilingüe, ascenso a Cerro Tusa, masaje, sesión de yoga y meditación, fogata con vino, tour cultural por Venecia, seguro y fotografía.',
+
+        'tours.details.book': 'Consultar disponibilidad',
+        'tours.details.itinerary': 'Itinerario del Viaje',
+        'tours.details.what_includes': '¿Qué incluye?',
+        'tours.details.what_not_includes': '¿Qué NO incluye?',
+        'tours.details.restrictions': 'Restricciones de Salud',
+        'tours.details.restrictions_desc': 'El tour NO es apto para personas con movilidad reducida severa ni condiciones cardíacas. Se requiere una condición física básica-moderada para el ascenso.',
+        'tours.details.reviews': 'Opiniones de Huéspedes',
+        'tours.details.meeting_point': 'Punto de Encuentro',
+        'tours.details.meeting_point_desc': 'Recogida privada en tu hotel en Medellín (El Poblado o Laureles).',
     },
     en: {
         'nav.home': 'Home',
@@ -214,7 +243,7 @@ const translations = {
         'amenity.wifi': 'High-speed WiFi',
 
         // Booking Card
-        'booking.price': '$2,800,000 COP',
+        'booking.price': '$2,700,000 COP',
         'booking.night': 'night',
         'booking.checkin': 'Check-in',
         'booking.checkout': 'Check-out',
@@ -334,6 +363,35 @@ const translations = {
         'tours.town.details': 'Street of murals, Museums, and Temple.',
         'tours.town.duration': '3 Hours',
         'tours.town.level': 'Cultural',
+
+        // Premium Tours Translations (English)
+        'tours.premium.sec_title': 'Premium All-Inclusive Plans',
+        'tours.premium.sec_subtitle': 'Premium tourist experiences designed for complete immersion, operated in partnership with Comfama Parque Cerro Tusa.',
+        'tours.ascenso.title': 'The Sacred Ascent (Day Tour Premium)',
+        'tours.ascenso.tagline': 'Climb a mythical mountain, swim in a countryside estate, and discover a village that tourists never find - all in one epic day.',
+        'tours.ascenso.desc': 'Depart from Medellin at 6:00 am in private transport. Enjoy breakfast at Cocorollo. Arrive at La Juana at 9:00 am for welcome coffee and climb Cerro Tusa with park guides. Taste typical lunch at Graciela restaurant, and relax with pools, wet areas, and a physiotherapist massage at La Juana.',
+        'tours.ascenso.price_info': '$195 USD / person (2-3 pax) | $165 USD / person (4+ pax)',
+        'tours.ascenso.duration': '12 Hours',
+        'tours.ascenso.capacity': '2 - 8 Guests',
+        'tours.ascenso.included': 'Private transport, Cocorollo breakfast, bilingual guide, Comfama entrance & guide, typical lunch at Graciela, physiotherapist massage, pool & wet area access at La Juana, snacks & water, insurance, and professional photography.',
+
+        'tours.diosa.title': 'The Mirror Goddess Retreat (Stay & Climb 2D/1N)',
+        'tours.diosa.tagline': 'Climb a mythical mountain by day. Sleep in a countryside estate by night. This is Colombia like you have never seen it.',
+        'tours.diosa.desc': 'An unforgettable 2-day experience. Includes breakfast at Cocorollo, Cerro Tusa summit climb, lunch at the park, and a wellness afternoon at La Juana with therapeutic massages. Enjoy a gourmet dinner and bonfire with marshmallows and wine. Day 2 starts with yoga, meditation, breakfast, and a cultural town tour.',
+        'tours.diosa.price_info': '$445 USD / person',
+        'tours.diosa.duration': '2 Days / 1 Night',
+        'tours.diosa.capacity': '2 - 6 Guests',
+        'tours.diosa.included': 'Private transport, all meals (D1 breakfast, D1 lunch, D1 dinner, D2 breakfast, D2 lunch), 1-night lodging at La Juana, bilingual guide, Cerro Tusa ascent, massage, yoga & meditation session, bonfire with wine, cultural Venecia tour, insurance, and photography.',
+
+        'tours.details.book': 'Check Availability',
+        'tours.details.itinerary': 'Trip Itinerary',
+        'tours.details.what_includes': 'What is included?',
+        'tours.details.what_not_includes': 'What is NOT included?',
+        'tours.details.restrictions': 'Health Restrictions',
+        'tours.details.restrictions_desc': 'The tour is NOT suitable for individuals with severe mobility issues or cardiac conditions. Basic to moderate physical condition is required for the climb.',
+        'tours.details.reviews': 'Guest Reviews',
+        'tours.details.meeting_point': 'Meeting Point',
+        'tours.details.meeting_point_desc': 'Private pickup at your hotel in Medellin (El Poblado or Laureles).',
     }
 };
 

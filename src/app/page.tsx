@@ -27,7 +27,6 @@ const Location = dynamic(() =>
 const Footer = dynamic(() =>
   import("../components/Footer").then((m) => m.Footer)
 );
-const ChatWidget = dynamic(() => import("../components/ChatWidgetLoader"));
 
 export default function Home() {
   return (
@@ -42,7 +41,6 @@ export default function Home() {
       <Testimonials />
       <Location />
       <Footer />
-      <ChatWidget />
     </main>
   );
 }

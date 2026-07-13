@@ -68,8 +68,48 @@ export function BookingCard() {
     const calendarRef = useRef<HTMLDivElement>(null);
 
     const nights = Math.max(0, Math.ceil((checkOut.getTime() - checkIn.getTime()) / (1000 * 60 * 60 * 24)));
-    const pricePerNight = 2800000;
-    const totalBasePrice = nights > 0 ? nights * pricePerNight : 0;
+    
+    // Dynamic pricing calculation
+    const calculatePricing = (start: Date, end: Date) => {
+        if (!start || !end || start >= end) return { total: 0, average: 0 };
+        
+        let total = 0;
+        let tempDate = new Date(start.getTime());
+        const nightsCount = Math.max(0, Math.ceil((end.getTime() - start.getTime()) / (1000 * 60 * 60 * 24)));
+        
+        for (let i = 0; i < nightsCount; i++) {
+            // Check high season: Dec 1 (month 11) to Jan 15 (month 0, day <= 15)
+            const month = tempDate.getMonth();
+            const day = tempDate.getDate();
+            const isHighSeason = (month === 11) || (month === 0 && day <= 15);
+            
+            if (isHighSeason) {
+                total += 3500000;
+            } else {
+                const dayOfWeek = tempDate.getDay(); // 0 = Sunday, 5 = Friday, 6 = Saturday
+                const isWeekend = (dayOfWeek === 5 || dayOfWeek === 6 || dayOfWeek === 0);
+                
+                if (isWeekend) {
+                    if (nightsCount === 1) {
+                        total += 2700000;
+                    } else {
+                        total += 2450000;
+                    }
+                } else {
+                    total += 2300000;
+                }
+            }
+            
+            tempDate.setDate(tempDate.getDate() + 1);
+        }
+        
+        return {
+            total,
+            average: nightsCount > 0 ? total / nightsCount : 0
+        };
+    };
+
+    const { total: totalBasePrice, average: pricePerNight } = calculatePricing(checkIn, checkOut);
     const totalGuests = guestCounts.adults + guestCounts.children;
 
     // Helper for labels
@@ -357,8 +397,9 @@ export function BookingCard() {
                                                     label="Adultos"
                                                     sub="Edad: 13 o más"
                                                     count={guestCounts.adults}
-                                                    onUpdate={(d) => setGuestCounts(p => ({ ...p, adults: Math.max(1, p.adults + d) }))}
+                                                    onUpdate={(d) => setGuestCounts(p => ({ ...p, adults: Math.min(16, Math.max(1, p.adults + d)) }))}
                                                     min={1}
+                                                    max={16}
                                                 />
                                                 <GuestRow
                                                     label="Niños"
@@ -382,7 +423,7 @@ export function BookingCard() {
 
                                             <div className="pt-4 border-t border-[#ebebeb]">
                                                 <p className="text-[13px] text-[#222222] leading-[18px]">
-                                                    Este alojamiento tiene una capacidad máxima de 3 huéspedes, sin incluir bebés. Si vienes con más de 2 mascotas, avísale al anfitrión.
+                                                    Este alojamiento tiene una capacidad máxima de 16 adultos. Niños y bebés no tienen límite. Si vienes con más de 2 mascotas, avísale al anfitrión.
                                                 </p>
                                             </div>
 
@@ -620,7 +661,7 @@ export function BookingCard() {
     );
 }
 
-function GuestRow({ label, sub, count, onUpdate, min = 0 }: { label: string, sub: string, count: number, onUpdate: (d: number) => void, min?: number }) {
+function GuestRow({ label, sub, count, onUpdate, min = 0, max }: { label: string, sub: string, count: number, onUpdate: (d: number) => void, min?: number, max?: number }) {
     return (
         <div className="flex items-center justify-between py-2">
             <div>
@@ -638,7 +679,8 @@ function GuestRow({ label, sub, count, onUpdate, min = 0 }: { label: string, sub
                 <span className="w-4 text-center text-[#222222] font-medium text-base tabular-nums">{count}</span>
                 <button
                     onClick={(e) => { e.stopPropagation(); onUpdate(1); }}
-                    className="w-8 h-8 rounded-full border border-[#b0b0b0] flex items-center justify-center hover:border-[#222222] transition-colors"
+                    disabled={max !== undefined && count >= max}
+                    className="w-8 h-8 rounded-full border border-[#b0b0b0] flex items-center justify-center hover:border-[#222222] transition-colors disabled:opacity-10 disabled:cursor-not-allowed"
                 >
                     <Plus className="w-4 h-4 text-[#717171]" />
                 </button>

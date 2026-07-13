@@ -24,7 +24,15 @@ export function Navbar() {
   const navLinks = [
     { name: t('nav.home'), href: "/#hero" },
     { name: t('nav.finca'), href: "/#experiencias" },
-    { name: t('nav.experiences'), href: "/#tours" },
+    { 
+      name: t('nav.experiences'), 
+      href: "/#tours",
+      dropdown: [
+        { name: language === 'es' ? 'El Ascenso Sagrado' : 'The Sacred Ascent', href: "/tours/ascenso-sagrado" },
+        { name: language === 'es' ? 'Retiro Diosa del Espejo' : 'Mirror Goddess Retreat', href: "/tours/retiro-diosa-espejo" },
+        { name: language === 'es' ? 'Actividades Locales' : 'Local Activities', href: "/#tours" }
+      ]
+    },
     { name: t('nav.testimonials'), href: "/#testimonios" },
     { name: t('nav.gallery'), href: "/galeria" },
     { name: t('nav.location'), href: "/#ubicacion" },
@@ -42,16 +50,44 @@ export function Navbar() {
       <div className="max-w-7xl mx-auto flex items-center justify-between h-full">
         <div className="flex-1 flex justify-start items-center">
           <div className="hidden md:flex gap-8">
-            {navLinks.slice(0, 3).map((link) => (
-              <Link
-                key={link.name}
-                href={link.href}
-                className={`nav-link text-sm uppercase tracking-widest ${isScrolled ? "text-slate-800" : "text-[#fffbf0]"
-                  }`}
-              >
-                {link.name}
-              </Link>
-            ))}
+            {navLinks.slice(0, 3).map((link) => {
+              if (link.dropdown) {
+                return (
+                  <div key={link.name} className="relative group flex items-center">
+                    <span
+                      className={`nav-link text-sm uppercase tracking-widest cursor-pointer flex items-center gap-1.5 ${isScrolled ? "text-slate-800" : "text-[#fffbf0]"
+                        }`}
+                    >
+                      {link.name}
+                      <span className="text-[8px] transition-transform duration-300 group-hover:rotate-180">▼</span>
+                    </span>
+                    <div className="absolute left-0 top-full pt-2 hidden group-hover:flex flex-col w-56 z-50">
+                      <div className="bg-[#fffbf0] text-slate-800 border border-[#9a7d45]/20 py-2 shadow-xl flex flex-col">
+                        {link.dropdown.map((sub) => (
+                          <Link
+                            key={sub.name}
+                            href={sub.href}
+                            className="px-4 py-2 hover:bg-[#6f7c4e]/10 text-xs tracking-wider uppercase text-slate-700 hover:text-[#6f7c4e] transition-colors"
+                          >
+                            {sub.name}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                );
+              }
+              return (
+                <Link
+                  key={link.name}
+                  href={link.href}
+                  className={`nav-link text-sm uppercase tracking-widest ${isScrolled ? "text-slate-800" : "text-[#fffbf0]"
+                    }`}
+                >
+                  {link.name}
+                </Link>
+              );
+            })}
           </div>
         </div>
 
@@ -121,21 +157,44 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="bg-[#fffbf0] border-t border-[#9a7d45]/20 mt-6 -mx-6 px-6 py-8 md:hidden shadow-2xl"
+            className="bg-[#fffbf0] border-t border-[#9a7d45]/20 mt-6 -mx-6 px-6 py-8 md:hidden shadow-2xl overflow-y-auto max-h-[80vh]"
           >
             <div className="flex flex-col gap-6 text-center">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  className="font-serif italic text-2xl text-[#6f7c4e]"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  {link.name}
-                </Link>
-              ))}
+              {navLinks.map((link) => {
+                if (link.dropdown) {
+                  return (
+                    <div key={link.name} className="flex flex-col gap-3">
+                      <span className="font-serif italic text-2xl text-[#6f7c4e]/60">
+                        {link.name}
+                      </span>
+                      <div className="flex flex-col gap-2 bg-[#6f7c4e]/5 py-2">
+                        {link.dropdown.map((sub) => (
+                          <Link
+                            key={sub.name}
+                            href={sub.href}
+                            className="font-serif italic text-lg text-[#6f7c4e]"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                          >
+                            {sub.name}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  );
+                }
+                return (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    className="font-serif italic text-2xl text-[#6f7c4e]"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                  >
+                    {link.name}
+                  </Link>
+                );
+              })}
 
-              <div className="flex flex-col gap-4 items-center">
+              <div className="flex flex-col gap-4 items-center border-t border-[#9a7d45]/20 pt-6">
                 <button
                   onClick={toggleLanguage}
                   className="flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-[#6f7c4e]"
