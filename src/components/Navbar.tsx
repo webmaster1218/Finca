@@ -28,8 +28,8 @@ export function Navbar() {
       name: t('nav.experiences'), 
       href: "/#tours",
       dropdown: [
-        { name: language === 'es' ? 'El Ascenso Sagrado' : 'The Sacred Ascent', href: "/tours/ascenso-sagrado" },
-        { name: language === 'es' ? 'Retiro Diosa del Espejo' : 'Mirror Goddess Retreat', href: "/tours/retiro-diosa-espejo" },
+        // { name: language === 'es' ? 'El Ascenso Sagrado' : 'The Sacred Ascent', href: "/tours/ascenso-sagrado" },
+        // { name: language === 'es' ? 'Retiro Diosa del Espejo' : 'Mirror Goddess Retreat', href: "/tours/retiro-diosa-espejo" },
         { name: language === 'es' ? 'Actividades Locales' : 'Local Activities', href: "/#tours" }
       ]
     },

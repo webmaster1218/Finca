@@ -113,7 +113,7 @@ export function EcoTours() {
                                     <span className="text-xs text-brand-cream/60">{t('tours.ascenso.capacity')}</span>
                                     <span className="text-sm font-bold text-[#9a7d45]">{t('tours.ascenso.price_info')}</span>
                                 </div>
-                                <Link href="/tours/ascenso-sagrado" className="absolute inset-0 z-10" />
+                                {/* <Link href="/tours/ascenso-sagrado" className="absolute inset-0 z-10" /> */}
                             </div>
                             <div className="absolute inset-4 border border-[#9a7d45]/20 pointer-events-none" />
                         </motion.div>
@@ -148,7 +148,7 @@ export function EcoTours() {
                                     <span className="text-xs text-brand-cream/60">{t('tours.diosa.capacity')}</span>
                                     <span className="text-sm font-bold text-[#9a7d45]">{t('tours.diosa.price_info')}</span>
                                 </div>
-                                <Link href="/tours/retiro-diosa-espejo" className="absolute inset-0 z-10" />
+                                {/* <Link href="/tours/retiro-diosa-espejo" className="absolute inset-0 z-10" /> */}
                             </div>
                             <div className="absolute inset-4 border border-[#9a7d45]/20 pointer-events-none" />
                         </motion.div>

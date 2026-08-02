@@ -19,7 +19,7 @@ const nextConfig: NextConfig = {
     optimizeCss: true,
   },
   turbopack: {
-    root: __dirname,
+    root: __dirname, // Explicitly set root to avoid conflict with rogue lockfiles in parent directories
   },
   compiler: {
     removeConsole: process.env.NODE_ENV === "production",
