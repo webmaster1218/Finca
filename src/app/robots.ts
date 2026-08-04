@@ -5,7 +5,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
-      disallow: '/admin/',
+      disallow: ['/admin/', '/es/admin/', '/en/admin/'],
     },
     sitemap: 'https://lajuanacerrotusa.com/sitemap.xml',
   }

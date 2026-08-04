@@ -41,6 +41,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
       : "Discover La Juana, a luxury ranch in Venecia, Antioquia. The perfect stay near Medellín for families with incredible views of Cerro Tusa. Book your full ranch rental today.";
 
   return {
+    metadataBase: new URL(baseUrl),
     title,
     description,
     icons: {
