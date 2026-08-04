@@ -18,17 +18,24 @@ function detectLocale(request: NextRequest): string {
     return 'es';
 }
 
-export function proxy(request: NextRequest) {
+export default function proxy(request: NextRequest) {
     const { pathname } = request.nextUrl;
 
-    // 1. Detección de idioma — root sin locale → redirigir a /{locale}
-    if (pathname === '/') {
+    // 1. Detección de idioma — rutas sin locale → redirigir a /{locale}{path}
+    //    (raíz, /galeria, /politicas, /gracias, /tours, etc.). Se excluyen /api y /_next.
+    if (
+      pathname === '/' ||
+      (!pathname.match(/^\/(es|en)(\/|$)/) &&
+       !pathname.startsWith('/_next') &&
+       !pathname.startsWith('/api') &&
+       // admin legacy se maneja en el bloque 2
+       !(pathname === '/admin' || pathname.startsWith('/admin/')) &&
+       // assets estáticos del servidor
+       !pathname.match(/\.(png|jpg|jpeg|webp|svg|ico|css|js|woff2?)$/))
+    ) {
         const locale = detectLocale(request);
-        if (locale !== 'es') {
-            const url = new URL(`/${locale}`, request.url);
-            return NextResponse.redirect(url);
-        }
-        const url = new URL('/es', request.url);
+        const path = pathname === '/' ? '/' : pathname;
+        const url = new URL(`/${locale}${path}`, request.url);
         return NextResponse.redirect(url);
     }
 
@@ -82,8 +89,12 @@ export function proxy(request: NextRequest) {
 
 export const config = {
     matcher: [
-        // Root (detección de idioma)
+        // Root y páginas públicas sin locale (detección de idioma)
         '/',
+        '/galeria',
+        '/politicas',
+        '/gracias',
+        '/tours/:path*',
         // Admin con y sin locale
         '/admin/:path*',
         '/es/admin/:path*',
