@@ -4,36 +4,42 @@ import { motion } from "framer-motion";
 import { Clock, Users, ArrowLeft, Check, X, ShieldAlert, Star, MessageSquare, MapPin } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
-import { Navbar } from "../../../components/Navbar";
-import { Footer } from "../../../components/Footer";
-import { useLanguage } from "../../../context/LanguageContext";
+import { Navbar } from "../../../../components/Navbar";
+import { Footer } from "../../../../components/Footer";
+import { useLanguage } from "../../../../context/LanguageContext";
 
-export default function AscensoClient() {
+export default function RetiroClient() {
   const { t, language } = useLanguage();
 
   const whatsappNumber = "573244887171";
   const wppMessage = language === 'es'
-    ? "Hola Alejo, me interesa el tour 'El Ascenso Sagrado (Day Tour Premium)'. ¿Me podrías dar información sobre disponibilidad y reservas?"
-    : "Hi Alejo, I'm interested in the 'The Sacred Ascent (Day Tour Premium)' tour. Could you provide details about availability and bookings?";
+    ? "Hola Alejo, me interesa el tour 'El Retiro de la Diosa del Espejo (Stay & Climb 2D/1N)'. ¿Me podrías dar información sobre disponibilidad y reservas?"
+    : "Hi Alejo, I'm interested in the 'The Mirror Goddess Retreat (Stay & Climb 2D/1N)' tour. Could you provide details about availability and bookings?";
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(wppMessage)}`;
 
   const itinerary = [
-    { time: "6:00 am", actES: "Recogida en Medellín", detES: "Transporte privado desde tu hotel (El Poblado o Laureles).", actEN: "Hotel Pickup in Medellín", detEN: "Private transport from your hotel (Poblado/Laureles)." },
-    { time: "7:00 am - 7:30 am", actES: "Desayuno en Cocorollo", detES: "Delicioso desayuno típico antioqueño en la variante Caldas.", actEN: "Breakfast at Cocorollo", detEN: "Authentic traditional breakfast on the Caldas route." },
-    { time: "9:00 am", actES: "Llegada a La Juana", detES: "Café de bienvenida y preparación. Dejamos el equipaje.", actEN: "Arrival at La Juana", detEN: "Welcome coffee and briefing. Store your luggage." },
-    { time: "9:30 am - 2:00 pm", actES: "Ascenso al Cerro Tusa", detES: "Expedición guiada por el Parque Comfama (4-5 horas). Vistas 360° en la cima.", actEN: "Ascent to Cerro Tusa", detEN: "Guided climb led by Comfama park guides (~4-5 hours). Panoramic 360° summit views." },
-    { time: "2:00 pm - 3:00 pm", actES: "Almuerzo regional", detES: "Almuerzo típico en el restaurante de Graciela en la base del parque.", actEN: "Regional Lunch", detEN: "Traditional local lunch at Graciela restaurant at the park entrance." },
-    { time: "3:30 pm - 5:00 pm", actES: "Wellness en La Juana", detES: "Piscina, zonas húmedas y sesión de masaje con fisioterapeuta profesional.", actEN: "Wellness at La Juana", detEN: "Relaxing afternoon at the pools, wet areas, and a therapeutic massage." },
-    { time: "5:00 pm - 7:00 pm", actES: "Regreso a Medellín", detES: "Transporte privado directo a tu hotel (sujeto a tráfico).", actEN: "Return to Medellín", detEN: "Private transport back to your hotel in Medellín." }
+    { day: "Día 1", time: "6:00 am", actES: "Recogida y viaje desde Medellín", detES: "Transporte privado por la variante Caldas.", actEN: "Pickup & Travel from Medellín", detEN: "Private transport via Caldas route." },
+    { day: "Día 1", time: "7:00 am", actES: "Desayuno en Cocorollo", detES: "Desayuno típico antioqueño de verdad para arrancar con energía.", actEN: "Breakfast at Cocorollo", detEN: "Authentic local breakfast to start with energy." },
+    { day: "Día 1", time: "9:00 am", actES: "Llegada a La Juana", detES: "Dejamos maletas, tomamos un café y bebida de bienvenida.", actEN: "Arrival at La Juana", detEN: "Store luggage, enjoy welcome coffee and refreshments." },
+    { day: "Día 1", time: "9:30 am", actES: "Ascenso al Cerro Tusa", detES: "Ascenso de ~4-5 horas con el guía del Parque Comfama Cerro Tusa.", actEN: "Summit Ascent", detEN: "4-5 hour hike led by the Comfama Park guide." },
+    { day: "Día 1", time: "2:00 pm", actES: "Almuerzo regional en Graciela", detES: "Almuerzo típico de la zona en el restaurante de la base del cerro.", actEN: "Regional Lunch at Graciela", detEN: "Local lunch served at the restaurant at the base of the hill." },
+    { day: "Día 1", time: "3:30 pm - 6:00 pm", actES: "Wellness en La Juana", detES: "Tarde de relax en la piscina, zonas húmedas y masaje con fisioterapeuta.", actEN: "Wellness at La Juana", detEN: "Relaxing afternoon with pools, steam room, and therapist massage." },
+    { day: "Día 1", time: "6:00 pm", actES: "Cena gourmet", detES: "Deliciosa cena incluida servida en la finca.", actEN: "Gourmet Dinner", detEN: "Delicious dinner served at the estate." },
+    { day: "Día 1", time: "8:00 pm - 10:00 pm", actES: "Fogata y vino", detES: "Fogata nocturna con malvaviscos y copas de vino bajo las estrellas.", actEN: "Bonfire & Wine", detEN: "Nighttime campfire with marshmallows and wine under the stars." },
+    { day: "Día 2", time: "6:00 am - 7:00 am", actES: "Yoga & Meditación", detES: "Clase matutina para estirar y conectar cuerpo y mente en la naturaleza.", actEN: "Yoga & Meditation", detEN: "Morning session to stretch and connect in nature." },
+    { day: "Día 2", time: "7:00 am - 8:30 am", actES: "Desayuno en La Juana", detES: "Desayuno completo en la finca.", actEN: "Breakfast at La Juana", detEN: "Full breakfast served at the estate." },
+    { day: "Día 2", time: "9:30 am - 11:30 am", actES: "Tour cultural por Venecia", detES: "Visita al Museo Zenufaná, Casa Museo Carlos Maldonado y Calle de los Murales.", actEN: "Cultural Tour in Venecia", detEN: "Visit Zenufaná Museum, Maldonado Art House, and Mural Street." },
+    { day: "Día 2", time: "12:00 pm", actES: "Almuerzo con Graciela en el pueblo", detES: "Último almuerzo típico antes de regresar.", actEN: "Town Lunch with Graciela", detEN: "Last traditional lunch before return." },
+    { day: "Día 2", time: "1:00 pm - 3:00 pm", actES: "Regreso a Medellín", detES: "Transporte privado directo a tu hotel (sujeto a tráfico).", actEN: "Return to Medellín", detEN: "Private transport back to your hotel in Medellín." }
   ];
 
   const reviews = [
-    { name: "John Doe", rating: 5, date: "15 May 2026", textES: "Una de las mejores experiencias que he tenido en Colombia. El ascenso al cerro es retador pero las vistas y la posterior relajación en la finca con masajes son insuperables.", textEN: "One of the best experiences I have had in Colombia. The climb is challenging but the views and the subsequent relaxation at the estate with massages are outstanding." },
-    { name: "Sarah Miller", rating: 5, date: "20 May 2026", textES: "Excelente servicio, la logística impecable y el masaje del fisioterapeuta fue clave después de subir el Cerro Tusa. ¡Recomendadísimo!", textEN: "Excellent service, logistics were flawless and the therapist's massage was key after hiking Cerro Tusa. Highly recommended!" }
+    { name: "David Carter", rating: 5, date: "10 May 2026", textES: "Un fin de semana inolvidable. Subir el cerro es retador pero el yoga de la mañana siguiente y la fogata bajo las estrellas valieron cada centavo. Trato de lujo.", textEN: "An unforgettable weekend. Climbling the mountain is tough but the next day's yoga and the bonfire under the stars were worth every penny. Luxury treatment." },
+    { name: "Emily Watson", rating: 5, date: "28 May 2026", textES: "La finca es preciosa y el tour por el pueblo de Venecia fue encantador. Alejo y su equipo coordinaron todo a la perfección.", textEN: "The estate is beautiful and the cultural tour through Venecia was lovely. Alejo and his team coordinated everything flawlessly." }
   ];
 
   const includes = [
-    t('tours.ascenso.included').split(", ").map(item => item.trim())
+    t('tours.diosa.included').split(", ").map(item => item.trim())
   ][0];
 
   const notIncludesES = ["Propinas", "Bebidas alcohólicas", "Gastos personales"];
@@ -48,8 +54,8 @@ export default function AscensoClient() {
         {/* Background Image Container with isolated overflow-hidden */}
         <div className="absolute inset-0 z-0 overflow-hidden">
           <Image
-            src="/eco tours/SaveClip.App_522169608_18051317933624494_6236629626133625721_n.jpg"
-            alt="El Ascenso Sagrado Cerro Tusa"
+            src="/imagenes/experiences/IMG_5111.webp"
+            alt="El Retiro de la Diosa del Espejo La Juana"
             fill
             priority
             className="object-cover scale-105"
@@ -67,13 +73,13 @@ export default function AscensoClient() {
               <ArrowLeft className="w-4 h-4" /> {language === 'es' ? 'Volver a Experiencias' : 'Back to Experiences'}
             </Link>
             <span className="text-[10px] md:text-sm uppercase tracking-[0.4em] md:tracking-[0.5em] text-[#9a7d45] block mb-3 md:mb-4 font-serif">
-              ALL-INCLUSIVE DAY TOUR
+              ALL-INCLUSIVE RETREAT 2D/1N
             </span>
             <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-8xl font-serif text-brand-cream mb-4 md:mb-6 leading-tight drop-shadow-xl">
-              {t('tours.ascenso.title')}
+              {t('tours.diosa.title')}
             </h1>
             <p className="text-sm sm:text-base md:text-xl lg:text-2xl font-serif italic text-brand-cream/80 max-w-3xl mx-auto font-light leading-relaxed px-2 md:px-0">
-              "{t('tours.ascenso.tagline')}"
+              "{t('tours.diosa.tagline')}"
             </p>
           </motion.div>
         </div>
@@ -83,15 +89,15 @@ export default function AscensoClient() {
           <div className="bg-[#fffbf0] border border-[#9a7d45]/20 shadow-2xl grid grid-cols-3 divide-x divide-[#9a7d45]/20 p-8 text-center backdrop-blur-md">
             <div>
               <span className="text-xs uppercase tracking-widest text-[#9a7d45] block mb-1">{t('tours.duracion')}</span>
-              <span className="text-xl font-serif text-[#6f7c4e] font-bold">{t('tours.ascenso.duration')}</span>
+              <span className="text-xl font-serif text-[#6f7c4e] font-bold">{t('tours.diosa.duration')}</span>
             </div>
             <div>
               <span className="text-xs uppercase tracking-widest text-[#9a7d45] block mb-1">{language === 'es' ? 'Grupo Máximo' : 'Max Capacity'}</span>
-              <span className="text-xl font-serif text-[#6f7c4e] font-bold">{t('tours.ascenso.capacity')}</span>
+              <span className="text-xl font-serif text-[#6f7c4e] font-bold">{t('tours.diosa.capacity')}</span>
             </div>
             <div>
-              <span className="text-xs uppercase tracking-widest text-[#9a7d45] block mb-1">{language === 'es' ? 'Tarifa Especial' : 'Special Rate'}</span>
-              <span className="text-xl font-serif text-[#6f7c4e] font-bold">$165 USD <span className="text-xs text-slate-500 font-sans">/ pax (4+ pax)</span></span>
+              <span className="text-xs uppercase tracking-widest text-[#9a7d45] block mb-1">{language === 'es' ? 'Tarifa Fija' : 'Fixed Rate'}</span>
+              <span className="text-xl font-serif text-[#6f7c4e] font-bold">$445 USD <span className="text-xs text-slate-500 font-sans">/ pax</span></span>
             </div>
           </div>
         </div>
@@ -102,15 +108,15 @@ export default function AscensoClient() {
         <div className="bg-[#fffbf0] border border-[#9a7d45]/20 shadow-xl grid grid-cols-3 divide-x divide-[#9a7d45]/20 p-4 text-center">
           <div>
             <span className="text-[10px] uppercase tracking-wider text-[#9a7d45] block mb-1">{t('tours.duracion')}</span>
-            <span className="text-xs sm:text-sm font-serif text-[#6f7c4e] font-bold block">{t('tours.ascenso.duration')}</span>
+            <span className="text-xs sm:text-sm font-serif text-[#6f7c4e] font-bold block">{t('tours.diosa.duration')}</span>
           </div>
           <div>
             <span className="text-[10px] uppercase tracking-wider text-[#9a7d45] block mb-1">{language === 'es' ? 'Grupo Máximo' : 'Max Capacity'}</span>
-            <span className="text-xs sm:text-sm font-serif text-[#6f7c4e] font-bold block">{t('tours.ascenso.capacity')}</span>
+            <span className="text-xs sm:text-sm font-serif text-[#6f7c4e] font-bold block">{t('tours.diosa.capacity')}</span>
           </div>
           <div>
-            <span className="text-[10px] uppercase tracking-wider text-[#9a7d45] block mb-1">{language === 'es' ? 'Tarifa Especial' : 'Special Rate'}</span>
-            <span className="text-xs sm:text-sm font-serif text-[#6f7c4e] font-bold block">$165 USD <span className="text-[8px] text-slate-500 font-sans block sm:inline">/ (4+ pax)</span></span>
+            <span className="text-[10px] uppercase tracking-wider text-[#9a7d45] block mb-1">{language === 'es' ? 'Tarifa Fija' : 'Fixed Rate'}</span>
+            <span className="text-xs sm:text-sm font-serif text-[#6f7c4e] font-bold block">$445 USD <span className="text-[8px] text-slate-500 font-sans block sm:inline">/ pax</span></span>
           </div>
         </div>
       </div>
@@ -119,13 +125,13 @@ export default function AscensoClient() {
       <section className="pt-16 md:pt-32 pb-16 md:pb-24 max-w-5xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
           <div className="md:col-span-7 space-y-8">
-            <span className="text-[#9a7d45] font-serif tracking-[0.3em] text-xs uppercase block">THE ASCENT OF A LEGEND</span>
+            <span className="text-[#9a7d45] font-serif tracking-[0.3em] text-xs uppercase block">AN UNFORGETTABLE JOURNEY</span>
             <h2 className="text-4xl md:text-5xl font-serif text-[#6f7c4e] leading-tight">
-              {language === 'es' ? 'Conecta con la Magia Ancestral' : 'Connect with Ancestral Magic'}
+              {language === 'es' ? 'Desconéctate en el Retiro Sagrado' : 'Unwind in the Sacred Retreat'}
             </h2>
             <div className="w-20 h-[1px] bg-[#9a7d45]" />
             <p className="text-slate-800 leading-relaxed text-lg font-serif italic font-light">
-              {t('tours.ascenso.desc')}
+              {t('tours.diosa.desc')}
             </p>
 
             <div className="p-6 bg-amber-50 border-l-4 border-amber-500 flex items-start gap-4">
@@ -139,15 +145,15 @@ export default function AscensoClient() {
 
           <div className="md:col-span-5 relative h-[300px] md:h-[420px] shadow-2xl border border-[#9a7d45]/20 group">
             <Image
-              src="/imagenes/experiences/IMG_5181.webp"
+              src="/hero-finca.webp"
               alt="Experience La Juana"
               fill
               className="object-cover group-hover:scale-105 transition-transform duration-[2s]"
             />
             <div className="absolute inset-0 bg-black/10 group-hover:bg-transparent transition-colors duration-700" />
             <div className="absolute bottom-6 left-6 bg-[#fffbf0] p-6 shadow-xl border-t-2 border-[#9a7d45]">
-              <span className="text-xs uppercase text-[#9a7d45] tracking-widest block mb-1">DESTINATION</span>
-              <span className="font-serif text-[#6f7c4e] text-xl font-bold">Venecia, Antioquia</span>
+              <span className="text-xs uppercase text-[#9a7d45] tracking-widest block mb-1">LODGING INCLUDED</span>
+              <span className="font-serif text-[#6f7c4e] text-xl font-bold">Finca La Juana</span>
             </div>
           </div>
         </div>
@@ -165,34 +171,18 @@ export default function AscensoClient() {
             </h2>
             <div className="w-16 h-[1px] bg-[#9a7d45] mx-auto" />
             <p className="text-slate-600 max-w-2xl mx-auto font-sans font-light text-sm leading-relaxed">
-              {language === 'es'
-                ? 'Descubre cada detalle del día más completo de aventura y relax en Antioquia.'
-                : 'Discover every detail of the most complete day of adventure and relaxation in Antioquia.'}
+              {language === 'es' 
+                ? 'Explora los momentos reales que vivirás durante este retiro exclusivo. Cada rincón y actividad está pensado para tu bienestar.'
+                : 'Explore the real moments you will live during this exclusive retreat. Every corner and activity is designed for your well-being.'}
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div className="relative h-64 md:h-80 overflow-hidden group shadow-lg border border-[#9a7d45]/10">
-              <Image
-                src="/eco tours/SaveClip.App_522169608_18051317933624494_6236629626133625721_n.jpg"
-                alt="Cerro Tusa Summit"
-                fill
-                className="object-cover group-hover:scale-110 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
-              <div className="absolute bottom-6 left-6 text-brand-cream">
-                <span className="text-[10px] uppercase tracking-widest text-[#9a7d45] font-serif block mb-1">
-                  {language === 'es' ? 'SENDERISMO' : 'HIKING'}
-                </span>
-                <h3 className="text-xl font-serif">{language === 'es' ? 'La Cima del Cerro Tusa' : 'Cerro Tusa Summit'}</h3>
-              </div>
-            </div>
-
-            <div className="relative h-64 md:h-80 overflow-hidden group shadow-lg border border-[#9a7d45]/10">
-              <Image
-                src="/imagenes/experiences/IMG_5181.webp"
-                alt="Path to Cerro Tusa"
-                fill
+              <Image 
+                src="/imagenes/cerro-tusa/IMG_5476.webp" 
+                alt="Cerro Tusa Ascent" 
+                fill 
                 className="object-cover group-hover:scale-110 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
@@ -200,31 +190,15 @@ export default function AscensoClient() {
                 <span className="text-[10px] uppercase tracking-widest text-[#9a7d45] font-serif block mb-1">
                   {language === 'es' ? 'AVENTURA' : 'ADVENTURE'}
                 </span>
-                <h3 className="text-xl font-serif">{language === 'es' ? 'El Camino Ancestral' : 'The Ancestral Path'}</h3>
+                <h3 className="text-xl font-serif">{language === 'es' ? 'Ascenso al Cerro Tusa' : 'Cerro Tusa Climb'}</h3>
               </div>
             </div>
 
             <div className="relative h-64 md:h-80 overflow-hidden group shadow-lg border border-[#9a7d45]/10">
-              <Image
-                src="/imagenes/espacios/IMG_5220.webp"
-                alt="Piscina La Juana"
-                fill
-                className="object-cover group-hover:scale-110 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
-              <div className="absolute bottom-6 left-6 text-brand-cream">
-                <span className="text-[10px] uppercase tracking-widest text-[#9a7d45] font-serif block mb-1">
-                  {language === 'es' ? 'RELAX' : 'RELAXATION'}
-                </span>
-                <h3 className="text-xl font-serif">{language === 'es' ? 'Piscina de Lujo' : 'Luxury Pool'}</h3>
-              </div>
-            </div>
-
-            <div className="relative h-64 md:h-80 overflow-hidden group shadow-lg border border-[#9a7d45]/10">
-              <Image
-                src="/imagenes/experiences/IMG_5132.webp"
-                alt="Massage Therapy"
-                fill
+              <Image 
+                src="/imagenes/experiences/IMG_5111.webp" 
+                alt="La Juana Finca Stay" 
+                fill 
                 className="object-cover group-hover:scale-110 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
@@ -232,39 +206,71 @@ export default function AscensoClient() {
                 <span className="text-[10px] uppercase tracking-widest text-[#9a7d45] font-serif block mb-1">
                   {language === 'es' ? 'BIENESTAR' : 'WELLNESS'}
                 </span>
-                <h3 className="text-xl font-serif">{language === 'es' ? 'Masaje con Fisioterapeuta' : 'Therapist Massage'}</h3>
+                <h3 className="text-xl font-serif">{language === 'es' ? 'Estadía en La Juana' : 'Stay at La Juana'}</h3>
               </div>
             </div>
 
             <div className="relative h-64 md:h-80 overflow-hidden group shadow-lg border border-[#9a7d45]/10">
-              <Image
-                src="/imagenes/espacios/IMG_5223.webp"
-                alt="Wet Zonas"
-                fill
+              <Image 
+                src="/imagenes/espacios/IMG_5220.webp" 
+                alt="Piscina La Juana" 
+                fill 
                 className="object-cover group-hover:scale-110 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
               <div className="absolute bottom-6 left-6 text-brand-cream">
                 <span className="text-[10px] uppercase tracking-widest text-[#9a7d45] font-serif block mb-1">
-                  {language === 'es' ? 'SPA' : 'SPA'}
+                  {language === 'es' ? 'RELAX' : 'RELAXATION'}
                 </span>
-                <h3 className="text-xl font-serif">{language === 'es' ? 'Zonas Húmedas' : 'Wet Areas & Jacuzzi'}</h3>
+                <h3 className="text-xl font-serif">{language === 'es' ? 'Piscina y Zonas Húmedas' : 'Pool & Wet Areas'}</h3>
               </div>
             </div>
 
             <div className="relative h-64 md:h-80 overflow-hidden group shadow-lg border border-[#9a7d45]/10">
-              <Image
-                src="/imagenes/espacios/IMG_5242.webp"
-                alt="La Juana Panoramic View"
-                fill
+              <Image 
+                src="/imagenes/experiences/IMG_5132.webp" 
+                alt="Masaje Fisioterapeuta" 
+                fill 
                 className="object-cover group-hover:scale-110 transition-transform duration-700"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
               <div className="absolute bottom-6 left-6 text-brand-cream">
                 <span className="text-[10px] uppercase tracking-widest text-[#9a7d45] font-serif block mb-1">
-                  {language === 'es' ? 'VISTAS' : 'VIEWS'}
+                  {language === 'es' ? 'CONEXIÓN' : 'CONNECTION'}
                 </span>
-                <h3 className="text-xl font-serif">{language === 'es' ? 'Atardecer en la Finca' : 'Sunset at the Estate'}</h3>
+                <h3 className="text-xl font-serif">{language === 'es' ? 'Masajes y Yoga' : 'Massage & Yoga'}</h3>
+              </div>
+            </div>
+
+            <div className="relative h-64 md:h-80 overflow-hidden group shadow-lg border border-[#9a7d45]/10">
+              <Image 
+                src="/imagenes/espacios/IMG_5242.webp" 
+                alt="Atardecer en la Finca" 
+                fill 
+                className="object-cover group-hover:scale-110 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
+              <div className="absolute bottom-6 left-6 text-brand-cream">
+                <span className="text-[10px] uppercase tracking-widest text-[#9a7d45] font-serif block mb-1">
+                  {language === 'es' ? 'PAISAJE' : 'LANDSCAPE'}
+                </span>
+                <h3 className="text-xl font-serif">{language === 'es' ? 'Vistas al Cerro Tusa' : 'Views of Cerro Tusa'}</h3>
+              </div>
+            </div>
+
+            <div className="relative h-64 md:h-80 overflow-hidden group shadow-lg border border-[#9a7d45]/10">
+              <Image 
+                src="/hero-finca.webp" 
+                alt="Fogata Nocturna" 
+                fill 
+                className="object-cover group-hover:scale-110 transition-transform duration-700"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
+              <div className="absolute bottom-6 left-6 text-brand-cream">
+                <span className="text-[10px] uppercase tracking-widest text-[#9a7d45] font-serif block mb-1">
+                  {language === 'es' ? 'EXPERIENCIA' : 'EXPERIENCE'}
+                </span>
+                <h3 className="text-xl font-serif">{language === 'es' ? 'Fogata bajo las Estrellas' : 'Bonfire under the Stars'}</h3>
               </div>
             </div>
           </div>
@@ -278,7 +284,7 @@ export default function AscensoClient() {
 
         <div className="max-w-4xl mx-auto px-6 relative z-10">
           <div className="text-center mb-24">
-            <span className="text-[#fffbf0]/60 font-serif tracking-[0.4em] text-xs uppercase block mb-4">{language === 'es' ? 'PASO A PASO' : 'CHRONOLOGY'}</span>
+            <span className="text-[#fffbf0]/60 font-serif tracking-[0.4em] text-xs uppercase block mb-4">{language === 'es' ? 'ITINERARIO DE 2 DÍAS' : '2-DAY CHRONOLOGY'}</span>
             <h2 className="text-4xl md:text-6xl font-serif text-[#fffbf0]">
               {t('tours.details.itinerary')}
             </h2>
@@ -297,7 +303,8 @@ export default function AscensoClient() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
               >
                 <div className="absolute -left-[9px] top-1.5 w-4 h-4 bg-[#fffbf0] rounded-full border-4 border-[#6f7c4e] group-hover:scale-125 transition-transform" />
-                <span className="text-sm font-serif text-[#fffbf0]/80 tracking-[0.2em] font-bold uppercase">{item.time}</span>
+                <span className="text-xs font-serif text-[#fffbf0] tracking-[0.2em] font-bold uppercase mr-3">{item.day}</span>
+                <span className="text-xs font-serif text-[#fffbf0]/50 tracking-[0.1em] uppercase mr-3">{item.time}</span>
                 <h3 className="text-2xl md:text-3xl font-serif text-brand-cream mt-1 group-hover:text-[#fffbf0]/90 transition-colors">
                   {language === 'es' ? item.actES : item.actEN}
                 </h3>
@@ -336,12 +343,12 @@ export default function AscensoClient() {
                 </h4>
                 <p className="text-slate-600 text-sm font-sans font-light leading-relaxed">
                   {language === 'es'
-                    ? '12 Horas de aventura puerta a puerta desde Medellín.'
-                    : '12 Hours of door-to-door adventure from Medellín.'}
+                    ? 'Retiro completo de 2 days y 1 noche de inmersión total.'
+                    : 'Full 2 days and 1 night retreat of total immersion.'}
                 </p>
               </div>
               <div className="text-[#9a7d45] text-xs font-bold font-serif tracking-widest mt-6">
-                {t('tours.ascenso.duration')}
+                {t('tours.diosa.duration')}
               </div>
             </div>
 
@@ -355,18 +362,18 @@ export default function AscensoClient() {
                 </h4>
                 <p className="text-slate-600 text-sm font-sans font-light leading-relaxed">
                   {language === 'es'
-                    ? 'Grupos pequeños y exclusivos para garantizar seguridad y confort.'
-                    : 'Small and exclusive groups to guarantee safety and comfort.'}
+                    ? 'Capacidad reducida para brindar una experiencia de bienestar íntima.'
+                    : 'Reduced capacity to provide an intimate wellness experience.'}
                 </p>
               </div>
               <div className="text-[#9a7d45] text-xs font-bold font-serif tracking-widest mt-6">
-                {t('tours.ascenso.capacity')}
+                {t('tours.diosa.capacity')}
               </div>
             </div>
 
             <div className="bg-[#fffbf0] border border-[#9a7d45]/20 p-6 md:p-8 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group">
               <div>
-                <div className="w-12 h-12 bg-brand-green/10 flex items-center justify-center text-[#6f7c4e] mb-6 group-hover:scale-110 transition-transform text-red-700">
+                <div className="w-12 h-12 bg-[#6f7c4e]/10 flex items-center justify-center text-[#6f7c4e] mb-6 group-hover:scale-110 transition-transform text-red-700">
                   <ShieldAlert className="w-6 h-6" />
                 </div>
                 <h4 className="font-serif text-[#6f7c4e] text-lg font-bold mb-2">
@@ -374,8 +381,8 @@ export default function AscensoClient() {
                 </h4>
                 <p className="text-slate-600 text-sm font-sans font-light leading-relaxed">
                   {language === 'es'
-                    ? 'Hike exigente en Cerro Tusa con pendientes inclinadas de hasta 70%.'
-                    : 'Challenging hike in Cerro Tusa with steep slopes of up to 70%.'}
+                    ? 'Ascenso exigente a Cerro Tusa el primer día, actividades de bajo impacto el segundo.'
+                    : 'Challenging climb to Cerro Tusa on day one, low impact activities on day two.'}
                 </p>
               </div>
               <div className="text-red-700 text-xs font-bold font-serif tracking-widest mt-6 uppercase">
@@ -388,17 +395,17 @@ export default function AscensoClient() {
                 <div className="w-12 h-12 bg-brand-green/10 flex items-center justify-center text-[#6f7c4e] mb-6 group-hover:scale-110 transition-transform">
                   <MapPin className="w-6 h-6" />
                 </div>
-                <h4 className="font-serif text-brand-green text-lg font-bold mb-2">
-                  {language === 'es' ? 'Ubicación de Destino' : 'Destination Location'}
+                <h4 className="font-serif text-[#6f7c4e] text-lg font-bold mb-2">
+                  {language === 'es' ? 'Alojamiento & Destino' : 'Lodging & Destination'}
                 </h4>
                 <p className="text-slate-600 text-sm font-sans font-light leading-relaxed">
                   {language === 'es'
-                    ? 'Municipio de Venecia en el Suroeste Antioqueño.'
-                    : 'Venecia municipality in Southwest Antioquia.'}
+                    ? 'Estadía premium en Finca La Juana y exploración en Venecia.'
+                    : 'Premium stay at Finca La Juana and exploration in Venecia.'}
                 </p>
               </div>
               <div className="text-[#9a7d45] text-xs font-bold font-serif tracking-widest mt-6 uppercase">
-                Venecia, Antioquia
+                La Juana, Venecia
               </div>
             </div>
           </div>
@@ -514,8 +521,8 @@ export default function AscensoClient() {
                       <span>Comfama Cerro Tusa</span>
                     </div>
                     <div className="flex justify-between border-b border-slate-100 pb-1.5">
-                      <strong className="text-slate-700">{language === 'es' ? 'Alimentación:' : 'Meals:'}</strong>
-                      <span>Cocorollo & Graciela</span>
+                      <strong className="text-slate-700">{language === 'es' ? 'Estadía:' : 'Lodging:'}</strong>
+                      <span>1 Noche Finca La Juana</span>
                     </div>
                     <div className="flex justify-between border-b border-slate-100 pb-1.5">
                       <strong className="text-slate-700">{language === 'es' ? 'Idioma Guía:' : 'Guide Lang:'}</strong>
@@ -540,28 +547,28 @@ export default function AscensoClient() {
               <div className="w-12 h-[1px] bg-[#9a7d45] mx-auto mt-4" />
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               <div className="bg-white border border-[#9a7d45]/15 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col group overflow-hidden">
                 <div className="relative w-full h-[220px] overflow-hidden shrink-0">
                   <Image
-                    src="/eco tours/SaveClip.App_522169608_18051317933624494_6236629626133625721_n.jpg"
-                    alt="Ascenso al Cerro"
+                    src="/imagenes/cerro-tusa/IMG_5476.webp"
+                    alt="Ascenso Cerro Tusa"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute top-4 left-4 bg-brand-green text-brand-cream px-3 py-1 font-serif text-xs uppercase tracking-wider">
-                    {language === 'es' ? 'Mañana - Aventura' : 'Morning - Adventure'}
+                    {language === 'es' ? 'Día 1 - Mañana' : 'Day 1 - Morning'}
                   </div>
                 </div>
                 <div className="p-6 flex-grow flex flex-col justify-between">
                   <div className="space-y-2">
                     <h4 className="font-serif text-brand-green text-lg font-bold">
-                      {language === 'es' ? '1. El Ascenso Místico' : '1. The Mystical Ascent'}
+                      {language === 'es' ? '1. Conquista de la Cumbre' : '1. Conquer the Summit'}
                     </h4>
-                    <p className="text-slate-600 text-sm font-sans font-light leading-relaxed">
+                    <p className="text-slate-600 text-xs font-sans font-light leading-relaxed">
                       {language === 'es'
-                        ? 'Sube la pirámide natural con guías expertos. Caminata guiada de 4 a 5 horas por senderos cargados de historia ancestral Zenúfana.'
-                        : 'Climb the natural pyramid with expert guides. A guided 4-5 hour hike on paths steeped in Zenúfana ancestral history.'}
+                        ? 'Sube la pirámide natural más alta del mundo en un ascenso retador de 4-5 horas rodeado de historia prehispánica.'
+                        : 'Climb the world\'s tallest natural pyramid in a challenging 4-5 hour ascent surrounded by pre-Hispanic history.'}
                     </p>
                   </div>
                 </div>
@@ -570,24 +577,24 @@ export default function AscensoClient() {
               <div className="bg-white border border-[#9a7d45]/15 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col group overflow-hidden">
                 <div className="relative w-full h-[220px] overflow-hidden shrink-0">
                   <Image
-                    src="/imagenes/experiences/IMG_5609.webp"
-                    alt="Almuerzo tipico"
+                    src="/imagenes/experiences/IMG_5132.webp"
+                    alt="Wellness La Juana"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute top-4 left-4 bg-brand-green text-brand-cream px-3 py-1 font-serif text-xs uppercase tracking-wider">
-                    {language === 'es' ? 'Mediodía - Sabor' : 'Midday - Flavor'}
+                    {language === 'es' ? 'Día 1 - Tarde' : 'Day 1 - Afternoon'}
                   </div>
                 </div>
                 <div className="p-6 flex-grow flex flex-col justify-between">
                   <div className="space-y-2">
                     <h4 className="font-serif text-brand-green text-lg font-bold">
-                      {language === 'es' ? '2. Almuerzo Tradicional' : '2. Traditional Lunch'}
+                      {language === 'es' ? '2. Alivio & Bienestar' : '2. Relief & Wellness'}
                     </h4>
-                    <p className="text-slate-600 text-sm font-sans font-light leading-relaxed">
+                    <p className="text-slate-600 text-xs font-sans font-light leading-relaxed">
                       {language === 'es'
-                        ? 'Disfruta de un banquete típico regional en el restaurante tradicional de Graciela al descender, recargando energías al estilo antioqueño.'
-                        : 'Enjoy a typical regional banquet at Graciela\'s traditional restaurant upon descent, recharging energies Antioquian style.'}
+                        ? 'Relaja tus músculos después del ascenso con un masaje profesional por un fisioterapeuta, piscina y jacuzzi en la finca.'
+                        : 'Relax your muscles after the hike with a professional massage by a therapist, pool and jacuzzi at the estate.'}
                     </p>
                   </div>
                 </div>
@@ -596,24 +603,50 @@ export default function AscensoClient() {
               <div className="bg-white border border-[#9a7d45]/15 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col group overflow-hidden">
                 <div className="relative w-full h-[220px] overflow-hidden shrink-0">
                   <Image
-                    src="/imagenes/espacios/IMG_5220.webp"
-                    alt="Relajación en La Juana"
+                    src="/hero-finca.webp"
+                    alt="Fogata Nocturna"
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute top-4 left-4 bg-brand-green text-brand-cream px-3 py-1 font-serif text-xs uppercase tracking-wider">
-                    {language === 'es' ? 'Tarde - Bienestar' : 'Afternoon - Wellness'}
+                    {language === 'es' ? 'Día 1 - Noche' : 'Day 1 - Night'}
                   </div>
                 </div>
                 <div className="p-6 flex-grow flex flex-col justify-between">
                   <div className="space-y-2">
                     <h4 className="font-serif text-brand-green text-lg font-bold">
-                      {language === 'es' ? '3. Spa & Relax Premium' : '3. Premium Spa & Relax'}
+                      {language === 'es' ? '3. Fogata & Vinos' : '3. Bonfire & Wines'}
                     </h4>
-                    <p className="text-slate-600 text-sm font-sans font-light leading-relaxed">
+                    <p className="text-slate-600 text-xs font-sans font-light leading-relaxed">
                       {language === 'es'
-                        ? 'Concluye el día en La Juana: sesión completa de masajes con fisioterapeuta y acceso libre a piscina, jacuzzi y zonas húmedas.'
-                        : 'Wrap up the day at La Juana: a full massage session with a therapist and free access to pool, jacuzzi, and wet areas.'}
+                        ? 'Una cena gourmet especial preparada en la finca, seguida de fogata bajo las estrellas con malvaviscos y vino.'
+                        : 'A special gourmet dinner prepared at the estate, followed by a bonfire under the stars with marshmallows and wine.'}
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-white border border-[#9a7d45]/15 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col group overflow-hidden">
+                <div className="relative w-full h-[220px] overflow-hidden shrink-0">
+                  <Image
+                    src="/imagenes/experiences/IMG_5111.webp"
+                    alt="Yoga & Culturas"
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  <div className="absolute top-4 left-4 bg-brand-green text-brand-cream px-3 py-1 font-serif text-xs uppercase tracking-wider">
+                    {language === 'es' ? 'Día 2 - Mañana' : 'Day 2 - Morning'}
+                  </div>
+                </div>
+                <div className="p-6 flex-grow flex flex-col justify-between">
+                  <div className="space-y-2">
+                    <h4 className="font-serif text-brand-green text-lg font-bold">
+                      {language === 'es' ? '4. Yoga & Tradición' : '4. Yoga & Tradition'}
+                    </h4>
+                    <p className="text-slate-600 text-xs font-sans font-light leading-relaxed">
+                      {language === 'es'
+                        ? 'Clase matutina de yoga y meditación, desayuno en la finca y tour por la hermosa Calle de los Murales en Venecia.'
+                        : 'Morning yoga and meditation class, breakfast at the estate, and a cultural tour of the Mural Street in Venecia.'}
                     </p>
                   </div>
                 </div>
@@ -641,10 +674,10 @@ export default function AscensoClient() {
               </div>
               <div className="flex items-center gap-2">
                 <Clock className="w-4 h-4 text-[#9a7d45]" />
-                <span>12 Horas</span>
+                <span>2 Días / 1 Noche</span>
               </div>
               <div className="flex items-center gap-2">
-                <span className="font-bold text-[#fffbf0]">$195 / $165 USD</span>
+                <span className="font-bold text-[#fffbf0]">$445 USD</span>
               </div>
             </div>
           </div>

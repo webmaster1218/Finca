@@ -1,4 +1,4 @@
-import AdminCalendar from '../../../components/AdminCalendar';
+import AdminCalendar from '../../../../components/AdminCalendar';
 import { Info, Calendar as CalendarIcon, ExternalLink } from 'lucide-react';
 
 export default function AdminCalendarioPage() {

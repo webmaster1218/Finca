@@ -4,10 +4,10 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight, Expand } from "lucide-react";
 import Image from "next/image";
-import { NavbarGallery } from "../../components/NavbarGallery";
-import { HeroGallery } from "../../components/HeroGallery";
-import { Footer } from "../../components/Footer";
-import { useLanguage } from "../../context/LanguageContext";
+import { NavbarGallery } from "../../../components/NavbarGallery";
+import { HeroGallery } from "../../../components/HeroGallery";
+import { Footer } from "../../../components/Footer";
+import { useLanguage } from "../../../context/LanguageContext";
 
 // Detailed image data structure with "Mood" descriptions
 const galleryItems = [

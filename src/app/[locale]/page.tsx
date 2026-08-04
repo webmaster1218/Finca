@@ -1,31 +1,31 @@
 import dynamic from "next/dynamic";
-import { Navbar } from "../components/Navbar";
-import { Hero } from "../components/Hero";
+import { Navbar } from "../../components/Navbar";
+import { Hero } from "../../components/Hero";
 
 // Below-the-fold: loaded lazily to reduce initial JS bundle
 const CerroTusaFeature = dynamic(() =>
-  import("../components/CerroTusaFeature").then((m) => m.CerroTusaFeature)
+  import("../../components/CerroTusaFeature").then((m) => m.CerroTusaFeature)
 );
 const Experiences = dynamic(() =>
-  import("../components/Experiences").then((m) => m.Experiences)
+  import("../../components/Experiences").then((m) => m.Experiences)
 );
 const EcoTours = dynamic(() =>
-  import("../components/EcoTours").then((m) => m.EcoTours)
+  import("../../components/EcoTours").then((m) => m.EcoTours)
 );
 const Rooms = dynamic(() =>
-  import("../components/Rooms").then((m) => m.Rooms)
+  import("../../components/Rooms").then((m) => m.Rooms)
 );
 const Gallery = dynamic(() =>
-  import("../components/Gallery").then((m) => m.Gallery)
+  import("../../components/Gallery").then((m) => m.Gallery)
 );
 const Testimonials = dynamic(() =>
-  import("../components/Testimonials").then((m) => m.Testimonials)
+  import("../../components/Testimonials").then((m) => m.Testimonials)
 );
 const Location = dynamic(() =>
-  import("../components/Location").then((m) => m.Location)
+  import("../../components/Location").then((m) => m.Location)
 );
 const Footer = dynamic(() =>
-  import("../components/Footer").then((m) => m.Footer)
+  import("../../components/Footer").then((m) => m.Footer)
 );
 
 export default function Home() {

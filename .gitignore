@@ -29,3 +29,6 @@ public/videos/
 **/*.mov
 **/*.avi
 **/*.mkv
+
+# TypeScript incremental build cache
+tsconfig.tsbuildinfo
