@@ -9,10 +9,11 @@ import Image from "next/image";
 import { useLanguage } from "../context/LanguageContext";
 
 export function Navbar() {
-  const { language, setLanguage, t } = useLanguage();
+  const { language, t, useHref } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  const router = useRouter();
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -21,26 +22,29 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const toggleLanguage = () => {
+    const other = language === 'es' ? 'en' : 'es';
+    document.cookie = `locale=${other}; path=/`;
+    const currentPath = pathname.replace(/^\/(es|en)/, '') || '/';
+    router.push(`/${other}${currentPath}`);
+  };
+
   const navLinks = [
-    { name: t('nav.home'), href: "/#hero" },
-    { name: t('nav.finca'), href: "/#experiencias" },
-    { 
-      name: t('nav.experiences'), 
-      href: "/#tours",
+    { name: t('nav.home'), href: useHref("/#hero") },
+    { name: t('nav.finca'), href: useHref("/#experiencias") },
+    {
+      name: t('nav.experiences'),
+      href: useHref("/#tours"),
       dropdown: [
-        // { name: language === 'es' ? 'El Ascenso Sagrado' : 'The Sacred Ascent', href: "/tours/ascenso-sagrado" },
-        // { name: language === 'es' ? 'Retiro Diosa del Espejo' : 'Mirror Goddess Retreat', href: "/tours/retiro-diosa-espejo" },
-        { name: language === 'es' ? 'Actividades Locales' : 'Local Activities', href: "/#tours" }
+        // { name: language === 'es' ? 'El Ascenso Sagrado' : 'The Sacred Ascent', href: useHref("/tours/ascenso-sagrado") },
+        // { name: language === 'es' ? 'Retiro Diosa del Espejo' : 'Mirror Goddess Retreat', href: useHref("/tours/retiro-diosa-espejo") },
+        { name: language === 'es' ? 'Actividades Locales' : 'Local Activities', href: useHref("/#tours") }
       ]
     },
-    { name: t('nav.testimonials'), href: "/#testimonios" },
-    { name: t('nav.gallery'), href: "/galeria" },
-    { name: t('nav.location'), href: "/#ubicacion" },
+    { name: t('nav.testimonials'), href: useHref("/#testimonios") },
+    { name: t('nav.gallery'), href: useHref("/galeria") },
+    { name: t('nav.location'), href: useHref("/#ubicacion") },
   ];
-
-  const toggleLanguage = () => {
-    setLanguage(language === 'es' ? 'en' : 'es');
-  };
 
   return (
     <nav

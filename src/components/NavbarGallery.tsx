@@ -4,11 +4,14 @@ import { useState, useEffect } from "react";
 import { Trees, Globe, ChevronLeft } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import Link from "next/link";
+import { usePathname, useRouter } from "next/navigation";
 import { useLanguage } from "../context/LanguageContext";
 
 export function NavbarGallery() {
-  const { language, setLanguage, t } = useLanguage();
+  const { language, t, useHref } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
+  const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -19,7 +22,10 @@ export function NavbarGallery() {
   }, []);
 
   const toggleLanguage = () => {
-    setLanguage(language === 'es' ? 'en' : 'es');
+    const other = language === 'es' ? 'en' : 'es';
+    document.cookie = `locale=${other}; path=/`;
+    const currentPath = pathname.replace(/^\/(es|en)/, '') || '/';
+    router.push(`/${other}${currentPath}`);
   };
 
   return (
@@ -30,7 +36,7 @@ export function NavbarGallery() {
       <div className="max-w-7xl mx-auto flex items-center justify-between h-full">
         <div className="flex-1 flex justify-start items-center">
           <Link
-            href="/"
+            href={useHref("/")}
             className={`flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.4em] transition-all py-4 ${isScrolled ? "text-[#6f7c4e]" : "text-[#fffbf0]"} hover:opacity-70 group md:flex hidden`}
           >
             <ChevronLeft className="w-5 h-5 transition-transform group-hover:-translate-x-1" />
@@ -39,7 +45,7 @@ export function NavbarGallery() {
           
           {/* Mobile Back Button */}
           <Link
-            href="/"
+            href={useHref("/")}
             className={`md:hidden flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] transition-all ${isScrolled ? "text-[#6f7c4e]" : "text-[#fffbf0]"} bg-[#fffbf0]/10 px-3 py-1.5 rounded-full backdrop-blur-sm`}
           >
             <ChevronLeft className="w-3 h-3" />
@@ -47,7 +53,7 @@ export function NavbarGallery() {
           </Link>
         </div>
 
-        <Link href="/" className="relative flex items-center justify-center w-40 h-12 group">
+        <Link href={useHref("/")} className="relative flex items-center justify-center w-40 h-12 group">
           <img
             src="/identidad de marca/LOGO LA JUANA CERRO TUSA-05.png"
             alt="La Juana Logo"
@@ -70,7 +76,7 @@ export function NavbarGallery() {
             </button>
 
             <a
-              href="/#habitaciones"
+              href={useHref("/#habitaciones")}
               className={`px-6 py-2 border font-serif italic text-sm transition-all ${isScrolled
                 ? "border-[#6f7c4e] text-[#6f7c4e] hover:bg-[#6f7c4e] hover:text-[#fffbf0]"
                 : "border-[#fffbf0] text-[#fffbf0] hover:bg-[#fffbf0] hover:text-[#6f7c4e]"
