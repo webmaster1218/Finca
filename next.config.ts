@@ -2,6 +2,8 @@ import type { NextConfig } from "next";
 import path from "path";
 
 const nextConfig: NextConfig = {
+  output: 'standalone',
+  trailingSlash: true,
   images: {
     formats: ["image/avif", "image/webp"],
     deviceSizes: [640, 750, 828, 1080, 1200, 1920],
@@ -26,6 +28,12 @@ const nextConfig: NextConfig = {
   },
   async headers() {
     return [
+      {
+        source: "/(.*)",
+        headers: [
+          { key: "Cache-Control", value: "public, s-maxage=300, stale-while-revalidate=60" },
+        ],
+      },
       {
         source: "/imagenes/:path*",
         headers: [
