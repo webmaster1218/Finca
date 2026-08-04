@@ -26,7 +26,8 @@ export function Navbar() {
     const other = language === 'es' ? 'en' : 'es';
     document.cookie = `locale=${other}; path=/`;
     const currentPath = pathname.replace(/^\/(es|en)/, '') || '/';
-    router.push(`/${other}${currentPath}`);
+    const hash = window.location.hash; // conservar el ancla (#experiencias, #testimonios, etc.)
+    router.replace(`/${other}${currentPath}${hash}`);
   };
 
   const navLinks = [
