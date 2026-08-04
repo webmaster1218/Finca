@@ -16,14 +16,14 @@ export default function AdminLayout({
     const router = useRouter();
     const pathname = usePathname();
 
-    const isLoginPage = pathname === '/admin';
+    const isLoginPage = pathname === '/es/admin';
 
     const handleLogout = async () => {
         setLoading(true);
         try {
             const res = await fetch('/api/auth/logout', { method: 'POST' });
             if (res.ok) {
-                router.push('/admin');
+                router.push('/es/admin');
                 router.refresh();
             }
         } catch (error) {
@@ -34,7 +34,7 @@ export default function AdminLayout({
     };
 
     const navItems = [
-        { name: 'Calendario', href: '/admin/calendario', icon: CalendarIcon },
+        { name: 'Calendario', href: '/es/admin/calendario', icon: CalendarIcon },
     ];
 
     if (isLoginPage) {

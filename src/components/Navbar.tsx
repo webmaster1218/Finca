@@ -132,7 +132,7 @@ export function Navbar() {
             </button>
 
             <a
-              href="/#habitaciones"
+              href={useHref("/#habitaciones")}
               className={`px-6 py-2 border font-serif italic text-sm transition-all ${isScrolled
                 ? "border-[#6f7c4e] text-[#6f7c4e] hover:bg-[#6f7c4e] hover:text-[#fffbf0]"
                 : "border-[#fffbf0] text-[#fffbf0] hover:bg-[#fffbf0] hover:text-[#6f7c4e]"
@@ -208,7 +208,7 @@ export function Navbar() {
                 </button>
 
                 <a
-                  href="/#habitaciones"
+                  href={useHref("/#habitaciones")}
                   className="btn-classic justify-center w-full"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >

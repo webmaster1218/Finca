@@ -9,7 +9,7 @@ import { Footer } from "../../../../components/Footer";
 import { useLanguage } from "../../../../context/LanguageContext";
 
 export default function AscensoClient() {
-  const { t, language } = useLanguage();
+  const { t, language, useHref } = useLanguage();
 
   const whatsappNumber = "573244887171";
   const wppMessage = language === 'es'
@@ -63,7 +63,7 @@ export default function AscensoClient() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
           >
-            <Link href="/#tours" className="inline-flex items-center gap-2 text-[10px] md:text-xs uppercase tracking-[0.3em] text-[#fffbf0]/80 hover:text-brand-cream transition-colors mb-4 md:mb-6 font-serif">
+            <Link href={useHref("/#tours")} className="inline-flex items-center gap-2 text-[10px] md:text-xs uppercase tracking-[0.3em] text-[#fffbf0]/80 hover:text-brand-cream transition-colors mb-4 md:mb-6 font-serif">
               <ArrowLeft className="w-4 h-4" /> {language === 'es' ? 'Volver a Experiencias' : 'Back to Experiences'}
             </Link>
             <span className="text-[10px] md:text-sm uppercase tracking-[0.4em] md:tracking-[0.5em] text-[#9a7d45] block mb-3 md:mb-4 font-serif">

@@ -7,14 +7,14 @@ import { ArrowLeft, Shield, FileText, Trees } from "lucide-react";
 import { useLanguage } from "../../../context/LanguageContext";
 
 export default function PoliticasPage() {
-    const { t } = useLanguage();
+    const { t, useHref } = useLanguage();
 
     return (
         <main className="min-h-screen bg-[#fffbf0] text-[#6f7c4e] font-serif">
             {/* Header / Nav Area */}
             <nav className="p-6 border-b border-[#9a7d45]/10 bg-[#fffbf0]/50 backdrop-blur-sm sticky top-0 z-50">
                 <div className="max-w-4xl mx-auto flex justify-between items-center">
-                    <Link href="/" className="flex items-center gap-2 group">
+                    <Link href={useHref("/")} className="flex items-center gap-2 group">
                         <ArrowLeft className="w-5 h-5 transition-transform group-hover:-translate-x-1" />
                         <span className="uppercase tracking-widest text-xs">{t('policies.back_home')}</span>
                     </Link>

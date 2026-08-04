@@ -19,7 +19,7 @@ interface OccupiedRange {
 }
 
 export function BookingCard() {
-    const { language, t } = useLanguage();
+    const { language, t, useHref } = useLanguage();
     const router = useRouter();
     const [currentStep, setCurrentStep] = useState<'DATES' | 'INFO' | 'SUMMARY' | 'SUCCESS'>('DATES');
     const [isGuestOpen, setIsGuestOpen] = useState(false);
@@ -293,7 +293,7 @@ export function BookingCard() {
                 });
 
                 if (response.ok) {
-                    router.push('/gracias');
+                    router.push(useHref('/gracias'));
                 } else {
                     const err = await response.json();
                     setError(err.message || (language === 'es' ? 'Error al crear la reserva' : 'Error creating reservation'));

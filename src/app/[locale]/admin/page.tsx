@@ -14,7 +14,7 @@ export default function AdminLoginPage() {
     useEffect(() => {
         // Check if already authenticated
         if (localStorage.getItem('admin_auth') === 'true') {
-            router.push('/admin/calendario');
+            router.push('/es/admin/calendario');
         }
     }, [router]);
 
@@ -32,7 +32,7 @@ export default function AdminLoginPage() {
 
             if (res.ok) {
                 localStorage.setItem('admin_auth', 'true');
-                router.push('/admin/calendario');
+                router.push('/es/admin/calendario');
                 router.refresh();
             } else {
                 const data = await res.json();
@@ -50,7 +50,7 @@ export default function AdminLoginPage() {
             {/* Back to Home Button */}
             <div className="absolute top-8 left-8">
                 <button
-                    onClick={() => router.push('/')}
+                    onClick={() => router.push('/es')}
                     className="flex items-center gap-2 text-[#6f7c4e]/60 hover:text-[#6f7c4e] font-bold text-sm transition-all group"
                 >
                     <ChevronRight className="w-4 h-4 rotate-180 group-hover:-translate-x-1 transition-transform" />

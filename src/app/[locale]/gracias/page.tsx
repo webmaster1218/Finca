@@ -6,7 +6,9 @@ import { CheckCircle } from "lucide-react";
 
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { useLanguage } from "@/context/LanguageContext";
 export default function GraciasPage() {
+    const { useHref } = useLanguage();
     return (
         <main className="min-h-screen">
             <Navbar />
@@ -33,7 +35,7 @@ export default function GraciasPage() {
                     </p>
 
                     <div className="space-y-4">
-                        <Link href="/">
+                        <Link href={useHref("/")}>
                             <motion.button
                                 whileHover={{ scale: 1.02 }}
                                 whileTap={{ scale: 0.98 }}
