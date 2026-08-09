@@ -5,6 +5,7 @@ import { Playfair_Display, Inter } from "next/font/google";
 import { isLocale, defaultLocale, type Locale } from "../../lib/i18n/locales";
 import { getDictionary } from "../../lib/i18n/getDictionary";
 import { LanguageProvider } from "../../context/LanguageContext";
+import ChatWidgetLoader from "../../components/ChatWidgetLoader";
 import "../globals.css";
 
 const playfair = Playfair_Display({
@@ -103,6 +104,7 @@ export default async function LocaleLayout({
         </noscript>
         <LanguageProvider language={locale} dictionary={dictionary}>
           {children}
+          <ChatWidgetLoader />
         </LanguageProvider>
       </body>
     </html>

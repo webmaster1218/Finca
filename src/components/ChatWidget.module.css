@@ -1,585 +1,103 @@
-/* ===== Floating Chat Button ===== */
-.chatButtonWrapper {
+/* ===== FAB: botón único de contacto con menú ===== */
+
+/* Oculta la burbuja flotante de Chatwoot: todo el contacto pasa por el FAB */
+:global(.woot-widget-bubble),
+:global(.woot--bubble-holder) {
+  display: none !important;
+}
+
+.fabRoot {
   position: fixed;
-  bottom: 30px;
-  right: 30px;
+  bottom: 20px;
+  right: 20px;
   z-index: 999;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.fabHidden {
+  display: none;
+}
+
+.fabMenu {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
   gap: 10px;
-  flex-direction: row-reverse;
 }
 
-.chatLabel {
-  background: rgba(255, 251, 240, 0.95);
-  color: #2c3e50;
-  padding: 8px 16px;
-  border-radius: 10px;
-  font-size: 14px;
-  font-weight: 600;
-  white-space: nowrap;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
-  animation: fadeInLabel 0.4s ease-out;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-}
-
-@keyframes fadeInLabel {
-  from { opacity: 0; transform: translateX(10px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-
-.chatButton {
-  background: #6f7c4e !important;
-  color: #ffffff !important;
-  width: 70px !important;
-  height: 70px !important;
-  border-radius: 50% !important;
-  border: 2px solid rgba(255, 255, 255, 0.9) !important;
-  cursor: pointer !important;
-  display: flex !important;
-  align-items: center !important;
-  justify-content: center !important;
-  box-shadow: 0 6px 20px rgba(111, 124, 78, 0.45), 0 0 0 3px rgba(111, 124, 78, 0.2) !important;
-  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
-  position: relative !important;
-  overflow: hidden !important;
-  z-index: 1000 !important;
-}
-
-.chatButton:hover {
-  transform: scale(1.1) !important;
-  box-shadow: 0 8px 25px rgba(111, 124, 78, 0.6), 0 0 0 4px rgba(111, 124, 78, 0.3) !important;
-}
-
-.chatButton svg {
-  width: 32px !important;
-  height: 32px !important;
-  stroke-width: 2 !important;
-}
-
-.chatButton::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.25) 50%, transparent 70%);
-  transform: translateX(-100%);
-  transition: transform 0.6s;
-}
-
-.chatButton:hover::before {
-  transform: translateX(100%);
-}
-
-.chatButtonActive {
-  background: linear-gradient(135deg, #6b7280, #9ca3af) !important;
-}
-
-/* Pulse animation */
-@keyframes chatPulse {
-  0% { box-shadow: 0 4px 20px rgba(111, 124, 78, 0.45), 0 0 0 0 rgba(111, 124, 78, 0.6); }
-  70% { box-shadow: 0 4px 20px rgba(111, 124, 78, 0.45), 0 0 0 18px rgba(111, 124, 78, 0); }
-  100% { box-shadow: 0 4px 20px rgba(111, 124, 78, 0.45), 0 0 0 0 rgba(111, 124, 78, 0); }
-}
-
-.chatButton:not(.chatButtonActive) {
-  animation: chatPulse 2.5s infinite;
-}
-
-/* ===== Chat Window ===== */
-.chatWindow {
-  position: fixed;
-  bottom: 180px;
-  right: 30px;
-  width: 400px;
-  max-width: calc(100vw - 40px);
-  height: 560px;
-  max-height: calc(100vh - 220px);
+.fabAction {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   background: #ffffff;
-  border-radius: 16px;
-  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.15);
-  display: flex;
-  flex-direction: column;
-  z-index: 1000;
-  overflow: hidden;
-  animation: slideUp 0.3s ease-out;
-}
-
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px) scale(0.95);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-/* ===== Header ===== */
-.chatHeader {
-  background: linear-gradient(135deg, #6f7c4e, #9a7d45);
-  color: #fffbf0;
-  padding: 14px 16px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-shrink: 0;
-}
-
-.headerLeft {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.avatar {
-  width: 36px;
-  height: 36px;
-  background: rgba(255, 251, 240, 0.2);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.headerTitle {
-  font-weight: 700;
-  font-size: 14px;
-}
-
-.headerStatus {
-  font-size: 11px;
-  color: #e8e0cc;
-  margin-top: 1px;
-}
-
-.closeButton {
-  background: rgba(255, 251, 240, 0.15);
+  color: #0f172a;
   border: none;
-  color: #fffbf0;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.2s;
-}
-
-.closeButton:hover {
-  background: rgba(255, 251, 240, 0.3);
-}
-
-.headerActions {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.whatsappBtn {
-  background: #25d366;
-  color: white;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background 0.2s, transform 0.2s;
-  text-decoration: none;
-}
-
-.whatsappBtn:hover {
-  background: #1da851;
-  transform: scale(1.1);
-}
-
-/* ===== Messages ===== */
-.messagesContainer {
-  flex: 1;
-  overflow-y: auto;
-  padding: 16px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  background: #faf9f6;
-  /* ESTO ES CLAVE: el flex box se ajusta automáticamente */
-  /* cuando el chatWindow cambia de tamaño por visualViewport */
-  min-height: 0; /* Permite que flex: 1 reduzca el tamaño */
-}
-
-.message {
-  max-width: 82%;
-  padding: 10px 14px;
-  border-radius: 16px;
+  border-radius: 999px;
+  padding: 10px 16px 10px 12px;
   font-size: 14px;
-  line-height: 1.5;
-  word-wrap: break-word;
-  white-space: pre-wrap;
-}
-
-.userMessage {
-  background: linear-gradient(135deg, #6f7c4e, #9a7d45);
-  color: #fffbf0;
-  align-self: flex-end;
-  border-bottom-right-radius: 4px;
-}
-
-.botMessage {
-  background: white;
-  color: #2c3e50;
-  align-self: flex-start;
-  border-bottom-left-radius: 4px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
-}
-
-.botMessage strong {
-  color: #6f7c4e;
-  font-weight: 700;
-}
-
-.botMessage em {
-  color: #4a5568;
-  font-style: italic;
-}
-
-.botMessage a {
-  color: #6f7c4e;
-  text-decoration: underline;
   font-weight: 600;
-  word-break: break-all;
-}
-
-.botMessage a:hover {
-  color: #4a5a32;
-}
-
-/* ===== Typing Indicator ===== */
-.typing {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  padding: 12px 18px;
-}
-
-.dot {
-  width: 8px;
-  height: 8px;
-  background: #9a7d45;
-  border-radius: 50%;
-  animation: bounce 1.4s infinite ease-in-out;
-}
-
-.dot:nth-child(1) { animation-delay: 0s; }
-.dot:nth-child(2) { animation-delay: 0.2s; }
-.dot:nth-child(3) { animation-delay: 0.4s; }
-
-@keyframes bounce {
-  0%, 60%, 100% { transform: translateY(0); }
-  30% { transform: translateY(-8px); }
-}
-
-/* ===== Input ===== */
-.inputContainer {
-  display: flex;
-  align-items: center;
-  padding: 12px 14px;
-  border-top: 1px solid #e8e8e8;
-  background: white;
-  gap: 8px;
-  flex-shrink: 0;
-  /* NUNCA position: fixed aquí — el flex del chatWindow lo posiciona */
-}
-
-.chatInput {
-  flex: 1;
-  border: 1px solid #e0e0e0;
-  border-radius: 24px;
-  padding: 10px 16px;
-  font-size: 14px;
-  outline: none;
-  transition: border-color 0.2s;
   font-family: inherit;
-}
-
-.chatInput:focus {
-  border-color: #9a7d45;
-}
-
-.chatInput:disabled {
-  background: #f5f5f5;
-  cursor: not-allowed;
-}
-
-.sendButton {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #6f7c4e, #9a7d45);
-  color: #fffbf0;
-  border: none;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: opacity 0.2s, transform 0.2s;
+  text-decoration: none;
+  white-space: nowrap;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.15);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.fabAction:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(15, 23, 42, 0.2);
+}
+
+.fabAction svg {
   flex-shrink: 0;
 }
 
-.sendButton:hover:not(:disabled) {
-  transform: scale(1.05);
+.fabAction:nth-child(1) svg {
+  color: #2563eb;
 }
 
-.sendButton:disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
+.fabAction:nth-child(2) svg {
+  color: #25d366;
 }
 
-/* ===== Scrollbar ===== */
-.messagesContainer::-webkit-scrollbar {
-  width: 5px;
+.fabAction:nth-child(3) svg {
+  color: #10b981;
 }
 
-.messagesContainer::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.messagesContainer::-webkit-scrollbar-thumb {
-  background: #ccc;
-  border-radius: 3px;
-}
-
-/* ===== Call Button ===== */
-.callButton {
-  position: fixed;
-  bottom: 100px;
-  left: 30px;
-  width: 56px;
-  height: 56px;
+.fab {
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
-  background: linear-gradient(135deg, #5b6bc0, #4a5aa8);
-  color: white;
   border: none;
   cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 16px rgba(91, 107, 192, 0.4), 0 0 0 2px rgba(255, 255, 255, 0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  z-index: 998;
-  text-decoration: none;
-  animation: fadeInCall 0.5s ease-out;
-}
-
-.callButton:hover {
-  transform: scale(1.1);
-  box-shadow: 0 6px 20px rgba(91, 107, 192, 0.6), 0 0 0 3px rgba(255, 255, 255, 0.5);
-}
-
-/* ===== WhatsApp Left Button ===== */
-.whatsappLeftButton {
-  position: fixed;
-  bottom: 30px;
-  left: 30px;
-  width: 56px;
-  height: 56px;
-  border-radius: 50%;
   background: linear-gradient(135deg, #25d366, #1da851);
-  color: white;
-  border: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4), 0 0 0 2px rgba(255, 255, 255, 0.3);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  z-index: 998;
-  text-decoration: none;
-  animation: fadeInCall 0.5s ease-out;
+  color: #fff;
+  box-shadow: 0 4px 20px rgba(37, 211, 102, 0.45);
+  transition: transform 0.25s ease, background 0.25s ease;
 }
 
-.whatsappLeftButton:hover {
-  transform: scale(1.1);
-  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.6), 0 0 0 3px rgba(255, 255, 255, 0.5);
+.fab:hover {
+  transform: scale(1.08);
 }
 
-@keyframes fadeInCall {
-  from {
-    opacity: 0;
-    transform: translateY(20px) scale(0.8);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+.fabOpen {
+  background: linear-gradient(135deg, #f43f5e, #e11d48);
 }
 
-/* ===== Mobile Responsive ===== */
 @media (max-width: 480px) {
-  /* Bloquear scroll del body cuando el chat está abierto */
-  body.chat-open {
-    overflow: hidden !important;
-    position: fixed !important;
-    width: 100% !important;
+  .fabRoot {
+    bottom: 16px;
+    right: 16px;
   }
-
-  /* Chat Window - Pantalla completa en móvil */
-  .chatWindow {
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    width: 100vw !important;
-    /* dvh = dynamic viewport height: se reduce automáticamente cuando el teclado aparece */
-    /* Fallback para navegadores sin soporte dvh */
-    height: 100vh !important;
-    height: 100dvh !important;
-    max-height: 100vh !important;
-    max-height: 100dvh !important;
-    max-width: 100vw !important;
-    border-radius: 0 !important;
-    z-index: 999999 !important;
-    animation: slideUpMobile 0.3s ease-out !important;
-    display: flex !important;
-    flex-direction: column !important;
-  }
-
-  @keyframes slideUpMobile {
-    from {
-      opacity: 0;
-      transform: translateY(100%);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  /* Header */
-  .chatHeader {
-    padding: 14px 16px !important;
-    flex-shrink: 0 !important;
-  }
-
-  .headerTitle {
-    font-size: 15px !important;
-  }
-
-  .headerStatus {
-    font-size: 11px !important;
-  }
-
-  .closeButton, .whatsappBtn {
-    width: 40px !important;
-    height: 40px !important;
-    min-width: 40px !important;
-    min-height: 40px !important;
-  }
-
-  .closeButton {
-    background: rgba(255, 255, 255, 0.9) !important;
-    color: #6f7c4e !important;
-  }
-
-  /* Messages */
-  .messagesContainer {
-    flex: 1 !important;
-    min-height: 0 !important;
-    padding: 12px !important;
-    -webkit-overflow-scrolling: touch !important;
-    scroll-behavior: smooth !important;
-  }
-
-  .message {
-    max-width: 88% !important;
-    font-size: 14px !important;
-  }
-
-  /* Input */
-  .inputContainer {
-    flex-shrink: 0 !important;
-    padding: 10px 12px !important;
-    /* Prevenir zoom en iOS */
-  }
-
-  .chatInput {
-    /* font-size >= 16px previene auto-zoom en iOS */
-    font-size: 16px !important;
-    padding: 12px 16px !important;
-    min-height: 44px !important;
-    border-radius: 22px !important;
-  }
-
-  .sendButton {
-    width: 44px !important;
-    height: 44px !important;
-    min-width: 44px !important;
-  }
-
-  /* Ocultar botones flotantes en móvil */
-  .chatButtonWrapper {
-    display: none !important;
-  }
-
-  .callButton, .whatsappLeftButton {
-    display: none !important;
-  }
-
-  /* Mobile Bottom Bar */
-  .mobileBar {
-    position: fixed !important;
-    bottom: 0 !important;
-    left: 0 !important;
-    right: 0 !important;
-    background: #25d366 !important;
-    height: 64px !important;
-    min-height: 64px !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    z-index: 1000 !important;
-    box-shadow: 0 -2px 20px rgba(0, 0, 0, 0.25) !important;
-    border-top: 2px solid rgba(255, 255, 255, 0.4) !important;
-  }
-
-  .mobileChatButton {
-    background: rgba(255, 255, 255, 0.98) !important;
-    color: #075e54 !important;
-    border: none !important;
-    padding: 14px 28px !important;
-    border-radius: 30px !important;
-    font-size: 16px !important;
-    font-weight: 700 !important;
-    cursor: pointer !important;
-    display: flex !important;
-    align-items: center !important;
-    gap: 10px !important;
-    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15) !important;
-    transition: all 0.3s ease !important;
-    min-height: 48px !important;
-    justify-content: center !important;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
-  }
-
-  .mobileChatButton:active {
-    transform: translateY(1px) !important;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15) !important;
-  }
-
-  .mobileChatButton svg {
-    width: 22px !important;
-    height: 22px !important;
-    flex-shrink: 0 !important;
-  }
-}
-
-/* Desktop: Barra móvil oculta */
-@media (min-width: 481px) {
-  .mobileBar {
-    display: none !important;
+  .fab {
+    width: 56px;
+    height: 56px;
   }
 }
