@@ -314,7 +314,7 @@ export async function POST(request: Request) {
         try {
             const evolutionUrl = process.env.EVOLUTION_API_URL;
             const evolutionApiKey = process.env.EVOLUTION_API_KEY;
-            const targetNumbers = ['573004435894', '573196588185'];
+            const targetNumbers = ['573004435894', '573021025621'];
 
             if (evolutionUrl && evolutionApiKey) {
                 const messageText = `🏡 *Nueva Reserva - Finca La Juana Cerro Tusa*\n\n` +
