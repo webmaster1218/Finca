@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 import { isAuthenticated } from './lib/auth';
+import { localizePath, type Locale } from './lib/i18n/locales';
 
 const LOCALES = ['es', 'en'];
 
@@ -21,8 +22,9 @@ function detectLocale(request: NextRequest): string {
 export default function proxy(request: NextRequest) {
     const { pathname } = request.nextUrl;
 
-    // 1. Detección de idioma — rutas sin locale → redirigir a /{locale}{path}
-    //    (raíz, /galeria, /politicas, /gracias, /tours, etc.). Se excluyen /api y /_next.
+    // 1. Detección de idioma — rutas sin locale → redirigir a /{locale}{ruta localizada}
+    //    (raíz, /galeria, /politicas, /gracias, /tours, /gallery, /policies, etc.).
+    //    Se excluyen /api y /_next.
     if (
       pathname === '/' ||
       (!pathname.match(/^\/(es|en)(\/|$)/) &&
@@ -35,7 +37,9 @@ export default function proxy(request: NextRequest) {
     ) {
         const locale = detectLocale(request);
         const path = pathname === '/' ? '/' : pathname;
-        const url = new URL(`/${locale}${path}`, request.url);
+        const localizedPath = localizePath(path, locale as Locale);
+        const redirectPath = localizedPath === '/' ? `/${locale}` : `/${locale}${localizedPath}`;
+        const url = new URL(redirectPath, request.url);
         return NextResponse.redirect(url);
     }
 
@@ -89,12 +93,11 @@ export default function proxy(request: NextRequest) {
 
 export const config = {
     matcher: [
-        // Root y páginas públicas sin locale (detección de idioma)
+        // Root y páginas públicas sin locale (detección de idioma).
+        // Los slugs en inglés (/gallery, /policies, /thank-you) se traducen aquí.
         '/',
-        '/galeria',
-        '/politicas',
-        '/gracias',
-        '/tours/:path*',
+        '/galeria', '/politicas', '/gracias', '/tours/:path*',
+        '/gallery', '/policies', '/thank-you',
         // Admin con y sin locale
         '/admin/:path*',
         '/es/admin/:path*',

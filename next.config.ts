@@ -26,6 +26,32 @@ const nextConfig: NextConfig = {
   compiler: {
     removeConsole: process.env.NODE_ENV === "production",
   },
+  // Slugs traducidos por idioma (ver src/lib/i18n/locales.ts).
+  // redirects: slug legacy que no corresponde al idioma → 301 al slug correcto.
+  // rewrites: slug público en inglés → ruta interna en español (que renderiza con locale "en").
+  async redirects() {
+    return [
+      { source: "/en/galeria", destination: "/en/gallery/", permanent: true },
+      { source: "/en/politicas", destination: "/en/policies/", permanent: true },
+      { source: "/en/gracias", destination: "/en/thank-you/", permanent: true },
+      { source: "/en/tours/ascenso-sagrado", destination: "/en/tours/sacred-ascent/", permanent: true },
+      { source: "/en/tours/retiro-diosa-espejo", destination: "/en/tours/mirror-goddess-retreat/", permanent: true },
+      { source: "/es/gallery", destination: "/es/galeria/", permanent: true },
+      { source: "/es/policies", destination: "/es/politicas/", permanent: true },
+      { source: "/es/thank-you", destination: "/es/gracias/", permanent: true },
+      { source: "/es/tours/sacred-ascent", destination: "/es/tours/ascenso-sagrado/", permanent: true },
+      { source: "/es/tours/mirror-goddess-retreat", destination: "/es/tours/retiro-diosa-espejo/", permanent: true },
+    ];
+  },
+  async rewrites() {
+    return [
+      { source: "/en/gallery", destination: "/en/galeria/" },
+      { source: "/en/policies", destination: "/en/politicas/" },
+      { source: "/en/thank-you", destination: "/en/gracias/" },
+      { source: "/en/tours/sacred-ascent", destination: "/en/tours/ascenso-sagrado/" },
+      { source: "/en/tours/mirror-goddess-retreat", destination: "/en/tours/retiro-diosa-espejo/" },
+    ];
+  },
   async headers() {
     return [
       {

@@ -7,8 +7,9 @@ import { useRouter, usePathname } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { useLanguage } from "../context/LanguageContext";
+import { localizePath, type Locale } from "../lib/i18n/locales";
 
-export function Navbar() {
+export function Navbar({ darkText = false }: { darkText?: boolean }) {
   const { language, t, useHref } = useLanguage();
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -21,13 +22,17 @@ export function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+  // En páginas con hero de fondo claro (blog), el menú usa texto oscuro desde el inicio.
+  const effectiveScrolled = darkText || isScrolled;
 
   const toggleLanguage = () => {
     const other = language === 'es' ? 'en' : 'es';
     document.cookie = `locale=${other}; path=/`;
     const currentPath = pathname.replace(/^\/(es|en)/, '') || '/';
     const hash = window.location.hash; // conservar el ancla (#experiencias, #testimonios, etc.)
-    router.replace(`/${other}${currentPath}${hash}`);
+    const localizedPath = localizePath(currentPath, other as Locale);
+    const target = localizedPath === '/' ? `/${other}` : `/${other}${localizedPath}`;
+    router.replace(`${target}${hash}`);
   };
 
   const navLinks = [
@@ -44,12 +49,13 @@ export function Navbar() {
     },
     { name: t('nav.testimonials'), href: useHref("/#testimonios") },
     { name: t('nav.gallery'), href: useHref("/galeria") },
+    { name: language === 'es' ? 'Blog' : 'Journal', href: useHref("/blog") },
     { name: t('nav.location'), href: useHref("/#ubicacion") },
   ];
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 px-6 py-6 ${isScrolled ? "bg-[#fffbf0]/95 backdrop-blur-sm shadow-md py-4" : "bg-transparent"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 px-6 py-6 ${effectiveScrolled ? "bg-[#fffbf0]/95 backdrop-blur-sm shadow-md py-4" : "bg-transparent"
         }`}
     >
       <div className="max-w-7xl mx-auto flex items-center justify-between h-full">
@@ -60,7 +66,7 @@ export function Navbar() {
                 return (
                   <div key={link.name} className="relative group flex items-center">
                     <span
-                      className={`nav-link text-sm uppercase tracking-widest cursor-pointer flex items-center gap-1.5 ${isScrolled ? "text-slate-800" : "text-[#fffbf0]"
+                      className={`nav-link text-sm uppercase tracking-widest cursor-pointer flex items-center gap-1.5 ${effectiveScrolled ? "text-slate-800" : "text-[#fffbf0]"
                         }`}
                     >
                       {link.name}
@@ -86,7 +92,7 @@ export function Navbar() {
                 <Link
                   key={link.name}
                   href={link.href}
-                  className={`nav-link text-sm uppercase tracking-widest ${isScrolled ? "text-slate-800" : "text-[#fffbf0]"
+                  className={`nav-link text-sm uppercase tracking-widest ${effectiveScrolled ? "text-slate-800" : "text-[#fffbf0]"
                     }`}
                 >
                   {link.name}
@@ -103,9 +109,9 @@ export function Navbar() {
             width={160}
             height={48}
             priority
-            className={`transition-all duration-500 object-contain ${isScrolled ? "h-26" : "h-34"
+            className={`transition-all duration-500 object-contain ${effectiveScrolled ? "h-26" : "h-34"
               }`}
-            style={!isScrolled ? { filter: 'brightness(0) invert(1)' } : {}}
+            style={!effectiveScrolled ? { filter: 'brightness(0) invert(1)' } : {}}
           />
         </Link>
 
@@ -115,7 +121,7 @@ export function Navbar() {
               <Link
                 key={link.name}
                 href={link.href}
-                className={`nav-link text-sm uppercase tracking-widest ${isScrolled ? "text-slate-800" : "text-[#fffbf0]"
+                className={`nav-link text-sm uppercase tracking-widest ${effectiveScrolled ? "text-slate-800" : "text-[#fffbf0]"
                   }`}
               >
                 {link.name}
@@ -126,7 +132,7 @@ export function Navbar() {
           <div className="md:flex hidden items-center gap-4">
             <button
               onClick={toggleLanguage}
-              className={`flex items-center gap-2 text-xs font-bold uppercase tracking-widest transition-all ${isScrolled ? "text-[#6f7c4e]" : "text-[#fffbf0]"} hover:opacity-70`}
+              className={`flex items-center gap-2 text-xs font-bold uppercase tracking-widest transition-all ${effectiveScrolled ? "text-[#6f7c4e]" : "text-[#fffbf0]"} hover:opacity-70`}
             >
               <Globe className="w-4 h-4" />
               {language === 'es' ? 'EN' : 'ES'}
@@ -134,7 +140,7 @@ export function Navbar() {
 
             <a
               href={useHref("/#habitaciones")}
-              className={`px-6 py-2 border font-serif italic text-sm transition-all ${isScrolled
+              className={`px-6 py-2 border font-serif italic text-sm transition-all ${effectiveScrolled
                 ? "border-[#6f7c4e] text-[#6f7c4e] hover:bg-[#6f7c4e] hover:text-[#fffbf0]"
                 : "border-[#fffbf0] text-[#fffbf0] hover:bg-[#fffbf0] hover:text-[#6f7c4e]"
                 }`}
@@ -149,9 +155,9 @@ export function Navbar() {
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
         >
           {isMobileMenuOpen ? (
-            <X className={isScrolled ? "text-[#6f7c4e]" : "text-[#fffbf0]"} />
+            <X className={effectiveScrolled ? "text-[#6f7c4e]" : "text-[#fffbf0]"} />
           ) : (
-            <Menu className={isScrolled ? "text-[#6f7c4e]" : "text-[#fffbf0]"} />
+            <Menu className={effectiveScrolled ? "text-[#6f7c4e]" : "text-[#fffbf0]"} />
           )}
         </button>
       </div>

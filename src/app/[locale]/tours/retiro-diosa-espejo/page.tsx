@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { isLocale, defaultLocale, localizePath, type Locale } from "../../../../lib/i18n/locales";
 import RetiroClient from "./RetiroClient";
 
 export const metadata: Metadata = {
@@ -27,7 +28,16 @@ export const metadata: Metadata = {
   }
 };
 
-export default function RetiroDiosaEspejoPage() {
+export default async function RetiroDiosaEspejoPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const lang: Locale = isLocale(locale) ? locale : defaultLocale;
+  const baseUrl = "https://lajuanacerrotusa.com";
+  const tourUrl = `${baseUrl}/${lang}${localizePath("/tours/retiro-diosa-espejo", lang)}`;
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Tour",
@@ -52,7 +62,7 @@ export default function RetiroDiosaEspejoPage() {
       "priceCurrency": "USD",
       "price": "445",
       "priceValidUntil": "2027-12-31",
-      "url": "https://lajuanacerrotusa.com/tours/retiro-diosa-espejo",
+      "url": tourUrl,
       "availability": "https://schema.org/InStock"
     },
     "provider": {

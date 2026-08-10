@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { isLocale, defaultLocale, localizePath, type Locale } from "../../../../lib/i18n/locales";
 import AscensoClient from "./AscensoClient";
 
 export const metadata: Metadata = {
@@ -27,7 +28,16 @@ export const metadata: Metadata = {
   }
 };
 
-export default function AscensoSagradoPage() {
+export default async function AscensoSagradoPage({
+  params,
+}: {
+  params: Promise<{ locale: string }>;
+}) {
+  const { locale } = await params;
+  const lang: Locale = isLocale(locale) ? locale : defaultLocale;
+  const baseUrl = "https://lajuanacerrotusa.com";
+  const tourUrl = `${baseUrl}/${lang}${localizePath("/tours/ascenso-sagrado", lang)}`;
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Tour",
@@ -55,7 +65,7 @@ export default function AscensoSagradoPage() {
       "offerCount": "2",
       "price": "165",
       "priceValidUntil": "2027-12-31",
-      "url": "https://lajuanacerrotusa.com/tours/ascenso-sagrado",
+      "url": tourUrl,
       "availability": "https://schema.org/InStock"
     },
     "provider": {
