@@ -62,7 +62,7 @@ export default async function BlogIndexPage({ params }: { params: Promise<Params
     : {
         eyebrow: "Travel Journal",
         title: "The Journal",
-        subtitle: "Stories, guides and experiences from the foothills of Cerro Tusa. Everything you need to know to visit Venecia Antioquia.",
+        subtitle: "Stories, guides and experiences in the shadow of Cerro Tusa. Everything you need to know to visit Venecia Antioquia.",
         all: "All",
         empty: "No articles in this category yet. Check back soon.",
         readMore: "Read article",
