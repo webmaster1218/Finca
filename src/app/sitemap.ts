@@ -65,9 +65,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })
   }
 
-  // Rutas del blog — categorías por idioma
+  // Rutas del blog — categorías por idioma (solo las que tienen artículos)
   for (const locale of ['es', 'en'] as const) {
+    const localeArticles = getAllArticles(locale)
     for (const cat of listCategories(locale)) {
+      if (!localeArticles.some((a) => a.categoria === cat.key)) continue
       const url = `${baseUrl}/${locale}/blog/${cat.slug}`
       const otherLocale = locale === 'es' ? 'en' : 'es'
       const otherCatKey = cat.key
@@ -95,18 +97,15 @@ export default function sitemap(): MetadataRoute.Sitemap {
       const lastmod = article.date ? new Date(article.date) : now
 
       // Construir hreflang cruzando con la otra versión si existe
-      const languages: Record<string, string> = { 'x-default': `${baseUrl}/es/blog/${getCategorySlug(article.categoria, 'es')}/${article.slug_es ?? article.slug}` }
+      const languages: Record<string, string> = { [locale]: url, 'x-default': url }
       const otherLocale = locale === 'es' ? 'en' : 'es'
       const otherSlug = locale === 'es' ? article.slug_en : article.slug_es
       const otherCat = locale === 'es' ? article.categoria_en : article.categoria_es
-      languages[locale] = url
       if (otherSlug && otherCat) {
-        const otherCatSlug = getCategorySlug(otherCat, otherLocale)
-        if (otherCatSlug) {
-          const otherExists = !!getArticle(otherLocale, otherCat, otherSlug)
-          if (otherExists) {
-            languages[otherLocale] = `${baseUrl}/${otherLocale}/blog/${otherCatSlug}/${otherSlug}`
-          }
+        // otherCat ya es el slug de la categoría en el otro idioma (ej: luxury-fincas)
+        const otherExists = !!getArticle(otherLocale, otherCat, otherSlug)
+        if (otherExists) {
+          languages[otherLocale] = `${baseUrl}/${otherLocale}/blog/${otherCat}/${otherSlug}`
         }
       }
 

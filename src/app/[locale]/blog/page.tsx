@@ -54,7 +54,7 @@ export default async function BlogIndexPage({ params }: { params: Promise<Params
     ? {
         eyebrow: "Diario de Viaje",
         title: "El Blog",
-        subtitle: "Historias, guías y experiencias desde la falda del Cerro Tusa. Todo lo que necesitas saber para visitar Venecia Antioquia.",
+        subtitle: "Historias, guías y experiencias a la sombra del Cerro Tusa. Todo lo que necesitas saber para visitar Venecia Antioquia.",
         all: "Todo",
         empty: "Aún no hay artículos en esta categoría. Vuelve pronto.",
         readMore: "Leer artículo",
