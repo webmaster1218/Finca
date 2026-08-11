@@ -2,7 +2,6 @@
 
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import Image from "next/image";
 import Link from "next/link";
 
 type Props = {
@@ -79,14 +78,13 @@ export function ArticleContent({ content }: Props) {
             const srcStr = typeof src === "string" ? src : "";
             if (!srcStr) return null;
             return (
-              <span className="block my-10 relative w-full" style={{ aspectRatio: "3 / 2" }}>
-                <Image
+              <span className="block my-10">
+                {/* Respetar la orientación natural de cada foto (las reales de la finca son verticales) */}
+                <img
                   src={srcStr}
                   alt={alt ?? ""}
-                  fill
                   loading="lazy"
-                  sizes="(max-width: 768px) 100vw, 768px"
-                  className="object-cover shadow-lg"
+                  className="w-full h-auto shadow-lg rounded-sm"
                 />
                 {alt && (
                   <span className="block text-center text-xs md:text-sm text-[#9a7d45]/70 italic mt-3 font-serif">
