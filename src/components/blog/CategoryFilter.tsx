@@ -25,19 +25,18 @@ export function CategoryFilter({ categories, active, onSelect, locale, allLabel 
   ];
 
   return (
-    <div className="flex flex-wrap items-center justify-center gap-2 md:gap-3 mb-12">
+    <div className="flex flex-wrap items-center justify-center gap-2.5 mb-20">
       {items.map((item) => {
         const isActive = active === item.key;
         return (
           <motion.button
             key={item.key ?? "all"}
             onClick={() => onSelect(item.key)}
-            whileHover={{ y: -2 }}
             whileTap={{ scale: 0.97 }}
-            className={`px-4 md:px-5 py-2 text-xs md:text-sm tracking-widest uppercase transition-all duration-300 border ${
+            className={`px-5 py-2.5 font-serif text-sm tracking-wide whitespace-nowrap transition-all duration-300 border ${
               isActive
                 ? "bg-[#6f7c4e] text-[#fffbf0] border-[#6f7c4e]"
-                : "bg-transparent text-[#6f7c4e] border-[#6f7c4e]/30 hover:border-[#6f7c4e]/70"
+                : "bg-transparent text-[#6f7c4e] border-[#9a7d45]/30 hover:bg-[#6f7c4e]/[0.06]"
             }`}
           >
             {item.label}

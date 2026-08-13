@@ -53,15 +53,15 @@ export default async function BlogIndexPage({ params }: { params: Promise<Params
   const strings = lang === "es"
     ? {
         eyebrow: "Diario de Viaje",
-        title: "El Blog",
+        title: "Crónicas del Cerro Tusa",
         subtitle: "Historias, guías y experiencias a la sombra del Cerro Tusa. Todo lo que necesitas saber para visitar Venecia Antioquia.",
-        all: "Todo",
+        all: "Todas",
         empty: "Aún no hay artículos en esta categoría. Vuelve pronto.",
         readMore: "Leer artículo",
       }
     : {
         eyebrow: "Travel Journal",
-        title: "The Journal",
+        title: "Chronicles of Cerro Tusa",
         subtitle: "Stories, guides and experiences in the shadow of Cerro Tusa. Everything you need to know to visit Venecia Antioquia.",
         all: "All",
         empty: "No articles in this category yet. Check back soon.",
