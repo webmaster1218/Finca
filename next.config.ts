@@ -40,6 +40,10 @@ const nextConfig: NextConfig = {
       { source: "/es/thank-you", destination: "/es/gracias", permanent: true },
       { source: "/es/tours/sacred-ascent", destination: "/es/tours/ascenso-sagrado", permanent: true },
       { source: "/es/tours/mirror-goddess-retreat", destination: "/es/tours/retiro-diosa-espejo", permanent: true },
+      { source: "/es/blog/hospedaje/dia-de-sol-antioquia", destination: "/es/blog/turismo-antioquia/dia-de-sol-antioquia", permanent: true },
+      { source: "/es/blog/hospedaje", destination: "/es/blog/turismo-antioquia", permanent: true },
+      { source: "/en/blog/farm-stays-colombia/day-by-the-pool-antioquia", destination: "/en/blog/antioquia-travel/day-by-the-pool-antioquia", permanent: true },
+      { source: "/en/blog/farm-stays-colombia", destination: "/en/blog/antioquia-travel", permanent: true },
     ];
   },
   async rewrites() {

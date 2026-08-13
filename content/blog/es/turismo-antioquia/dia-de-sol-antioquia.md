@@ -7,10 +7,10 @@ keyword_principal: "día de sol antioquia"
 keywords_secundarias:
   - finca con piscina antioquia
   - escapada con piscina cerca de medellin
-categoria: hospedaje
+categoria: turismo-antioquia
 slug: dia-de-sol-antioquia
 slug_en: day-by-the-pool-antioquia
-categoria_en: farm-stays-colombia
+categoria_en: antioquia-travel
 palabras: 1384
 autor: Valentina Restrepo
 portada: /blog/dia-de-sol-antioquia/portada.webp

@@ -9,12 +9,12 @@ keywords_secundarias:
   - finca with pool antioquia
   - day trip with pool from medellin
   - private pool farmhouse colombia
-categoria: farm-stays-colombia
+categoria: antioquia-travel
 slug: day-by-the-pool-antioquia
 slug_en: day-by-the-pool-antioquia
-categoria_en: farm-stays-colombia
+categoria_en: antioquia-travel
 slug_es: dia-de-sol-antioquia
-categoria_es: hospedaje
+categoria_es: turismo-antioquia
 palabras: 1581
 autor: Valentina Restrepo
 portada: /blog/dia-de-sol-antioquia/portada.webp

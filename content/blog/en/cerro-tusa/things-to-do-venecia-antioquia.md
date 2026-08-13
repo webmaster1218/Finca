@@ -156,7 +156,7 @@ For couples, the [Mirror Goddess Retreat](/en/tours/mirror-goddess-retreat) pair
 
 There are other places to stay nearby. Cerro Tusa Springs has cabins close to the mountain, and several family inns operate in the center of Venecia. For a lighter take on the landscape, [glamping near Cerro Tusa](/en/blog/glamping/glamping-cerro-tusa) is another way to sleep under the same sky.
 
-But if what you want is to wake up facing the pyramid, have a whole property to yourself, and let someone else handle the rooms, the food, and the jacuzzi, La Juana was designed for exactly that, minutes from the mountain and the activities around it. For a relaxed day with nothing on the schedule, see [how people spend a day by the pool in Antioquia](/en/blog/farm-stays-colombia/day-by-the-pool-antioquia).
+But if what you want is to wake up facing the pyramid, have a whole property to yourself, and let someone else handle the rooms, the food, and the jacuzzi, La Juana was designed for exactly that, minutes from the mountain and the activities around it. For a relaxed day with nothing on the schedule, see [how people spend a day by the pool in Antioquia](/en/blog/antioquia-travel/day-by-the-pool-antioquia).
 
 ---
 

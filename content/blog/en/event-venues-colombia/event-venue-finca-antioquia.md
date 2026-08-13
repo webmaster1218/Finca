@@ -136,7 +136,7 @@ More and more companies in Medellín are looking for a **finca for large groups*
 - A night bonfire to close the day with honest conversations
 - Executive lunch or grill-style catering
 
-**Best for:** companies of 20 to 40 people that want to take the team out of the routine without going too far from Medellín. For a lighter plan, there is the [day-by-the-pool option](/en/blog/farm-stays-colombia/day-by-the-pool-antioquia).
+**Best for:** companies of 20 to 40 people that want to take the team out of the routine without going too far from Medellín. For a lighter plan, there is the [day-by-the-pool option](/en/blog/antioquia-travel/day-by-the-pool-antioquia).
 
 ### Day trips with friends
 

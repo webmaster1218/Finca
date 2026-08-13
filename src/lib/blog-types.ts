@@ -58,11 +58,11 @@ export const CATEGORY_MAP: Record<
     label_es: "Fincas para Eventos",
     label_en: "Event Venues",
   },
-  hospedaje: {
-    es: "hospedaje",
-    en: "farm-stays-colombia",
-    label_es: "Hospedaje con Piscina",
-    label_en: "Farm Stays",
+  "turismo-antioquia": {
+    es: "turismo-antioquia",
+    en: "antioquia-travel",
+    label_es: "Turismo en Antioquia",
+    label_en: "Antioquia Travel",
   },
   familia: {
     es: "familia",
