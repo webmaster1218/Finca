@@ -48,6 +48,7 @@ function readArticleFile(
       portada: data.portada ?? "/imagenes/hero.webp",
       portada_alt: data.portada_alt ?? data.title ?? slug,
       imagenes: data.imagenes,
+      faq: data.faq,
       keyword_principal: data.keyword_principal,
       keywords_secundarias: data.keywords_secundarias,
       slug_en: data.slug_en,

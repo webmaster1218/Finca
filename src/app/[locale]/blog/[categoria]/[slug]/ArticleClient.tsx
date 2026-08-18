@@ -10,6 +10,7 @@ import { Footer } from "../../../../../components/Footer";
 import { ArticleContent } from "../../../../../components/blog/ArticleContent";
 import { ArticleCard } from "../../../../../components/blog/ArticleCard";
 import { BlogBreadcrumb } from "../../../../../components/blog/BlogBreadcrumb";
+import { FaqAccordion } from "../../../../../components/blog/FaqAccordion";
 
 type Strings = {
   home: string;
@@ -112,6 +113,10 @@ export default function ArticleClient({ article, related, locale, categoryLabel,
       <section className="px-6 pb-16 md:pb-20">
         <div className="max-w-3xl mx-auto">
           <ArticleContent content={article.content} />
+
+          {article.faq && article.faq.length > 0 && (
+            <FaqAccordion items={article.faq} locale={locale} />
+          )}
 
           {/* Autor / E-E-A-T al cierre */}
           <div className="mt-16 pt-8 border-t border-[#9a7d45]/20 text-center">

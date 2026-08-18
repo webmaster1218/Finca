@@ -26,6 +26,19 @@ imagenes:
     alt: "A space at La Juana farmhouse between the mountain and the coffee farms of Venecia"
   - archivo: /blog/finca-la-juana-experiencia-de-lujo/cuerpo-3.webp
     alt: "Detail of the bedding in La Juana's suites"
+faq:
+  - pregunta: Where is Finca La Juana located?
+    respuesta: "La Juana is in Parcelación Rochiles, Venecia, Antioquia, about two and a half hours from Medellín. It sits right next to Parque Comfama Cerro Tusa."
+  - pregunta: How many guests can stay at the finca?
+    respuesta: "The property rents as a whole for groups of up to 16 people. It has 6 bedrooms, 8 beds and 6 bathrooms, with no shared spaces with strangers."
+  - pregunta: Is service included in the booking?
+    respuesta: "Yes. Every booking includes two housekeepers and a butler, locals who cook, take care of the house and recommend activities. It is not an optional extra."
+  - pregunta: How close is Cerro Tusa?
+    respuesta: "The entrance to Parque Comfama Cerro Tusa is 5 minutes from the property. The guided ascent takes 4 to 5 hours and passes indigenous-built terraces on the way to a 360-degree summit view."
+  - pregunta: What does the finca include besides the bedrooms?
+    respuesta: "A pool, a private jacuzzi with mountain views, a steam bath, a bonfire pit, Diamante coffee every morning and high-speed WiFi."
+  - pregunta: How do I book La Juana?
+    respuesta: "Through lajuanacerrotusa.com or by phone at +57 302 102 5621. The finca is booked as a whole, with all facilities and service included."
 ---
 
 # Finca La Juana: a luxury experience at the foot of Cerro Tusa

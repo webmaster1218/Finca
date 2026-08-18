@@ -132,6 +132,22 @@ export default async function ArticlePage({ params }: { params: Promise<Params> 
     ],
   };
 
+  // JSON-LD: FAQPage (si el artículo tiene FAQ)
+  const faqSchema = article.faq?.length
+    ? {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        mainEntity: article.faq.map((f) => ({
+          "@type": "Question",
+          name: f.pregunta,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: f.respuesta,
+          },
+        })),
+      }
+    : null;
+
   const strings = lang === "es"
     ? {
         home: "Inicio",
@@ -154,6 +170,9 @@ export default async function ArticlePage({ params }: { params: Promise<Params> 
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(blogPosting) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
+      {faqSchema && (
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      )}
       <ArticleClient
         article={article}
         related={related}

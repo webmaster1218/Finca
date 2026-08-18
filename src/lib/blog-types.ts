@@ -6,6 +6,11 @@ export type ArticleImage = {
   alt: string;
 };
 
+export type FaqItem = {
+  pregunta: string;
+  respuesta: string;
+};
+
 export type Article = {
   slug: string;
   categoria: string;
@@ -19,6 +24,7 @@ export type Article = {
   portada: string;
   portada_alt: string;
   imagenes?: ArticleImage[];
+  faq?: FaqItem[];
   keyword_principal?: string;
   keywords_secundarias?: string[];
   slug_en?: string;
