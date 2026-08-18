@@ -17,7 +17,7 @@ categoria_en: event-venues-colombia
 palabras: 1882
 autor: Valentina Restrepo
 portada: /blog/finca-para-eventos-antioquia/portada.webp
-portada_alt: "Jardín principal de La Juana con vista al Cerro Tusa para eventos en Antioquia"
+portada_alt: "Casa de bahareque de la finca La Juana con vista al Cerro Tusa, finca para eventos en Antioquia"
 ---
 
 # Finca para Eventos en Antioquia: Bodas, Retiros y Celebraciones en la Falda del Cerro Tusa

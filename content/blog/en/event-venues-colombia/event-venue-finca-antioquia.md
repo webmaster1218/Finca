@@ -19,7 +19,7 @@ slug_es: finca-para-eventos-antioquia
 palabras: 1937
 autor: Valentina Restrepo
 portada: /blog/finca-para-eventos-antioquia/portada.webp
-portada_alt: "Main garden of La Juana with views of Cerro Tusa for events in Antioquia"
+portada_alt: "Bahareque farmhouse of La Juana with views of Cerro Tusa, an event venue finca in Antioquia"
 imagenes:
   - archivo: /blog/finca-para-eventos-antioquia/cuerpo-1.webp
     alt: "Outdoor wedding reception in the garden of a finca in Antioquia, long tables with flowers and lights in front of the mountains"
