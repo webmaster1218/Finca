@@ -25,6 +25,7 @@ export type Article = {
   portada_alt: string;
   imagenes?: ArticleImage[];
   faq?: FaqItem[];
+  tldr?: string[];
   keyword_principal?: string;
   keywords_secundarias?: string[];
   slug_en?: string;

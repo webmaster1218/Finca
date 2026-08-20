@@ -112,6 +112,21 @@ export default function ArticleClient({ article, related, locale, categoryLabel,
       {/* Cuerpo del artículo */}
       <section className="px-6 pb-16 md:pb-20">
         <div className="max-w-3xl mx-auto">
+          {article.tldr && article.tldr.length > 0 && (
+            <div className="mb-10 border border-[#9a7d45]/30 bg-[#6f7c4e]/[0.04] p-6 md:p-8">
+              <p className="text-[#9a7d45] font-serif tracking-[0.4em] text-xs uppercase mb-4">
+                {locale === "es" ? "En resumen" : "In short"}
+              </p>
+              <ul className="space-y-2.5">
+                {article.tldr.map((item, i) => (
+                  <li key={i} className="flex gap-3 text-[#2c3e50]/85 text-sm md:text-base leading-relaxed">
+                    <span className="mt-2 w-1.5 h-1.5 rotate-45 border border-[#9a7d45] shrink-0" aria-hidden />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
           <ArticleContent content={article.content} />
 
           {article.faq && article.faq.length > 0 && (

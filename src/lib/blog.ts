@@ -49,6 +49,7 @@ function readArticleFile(
       portada_alt: data.portada_alt ?? data.title ?? slug,
       imagenes: data.imagenes,
       faq: data.faq,
+      tldr: data.tldr,
       keyword_principal: data.keyword_principal,
       keywords_secundarias: data.keywords_secundarias,
       slug_en: data.slug_en,
