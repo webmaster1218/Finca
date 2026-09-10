@@ -11,6 +11,9 @@ import { ArticleContent } from "../../../../../components/blog/ArticleContent";
 import { ArticleCard } from "../../../../../components/blog/ArticleCard";
 import { BlogBreadcrumb } from "../../../../../components/blog/BlogBreadcrumb";
 import { FaqAccordion } from "../../../../../components/blog/FaqAccordion";
+import { ArticlePromoBanner } from "../../../../../components/blog/ArticlePromoBanner";
+import { ArticleLeadForm } from "../../../../../components/blog/ArticleLeadForm";
+import { ArticleWhatsAppButton } from "../../../../../components/blog/ArticleWhatsAppButton";
 
 type Strings = {
   home: string;
@@ -129,9 +132,23 @@ export default function ArticleClient({ article, related, locale, categoryLabel,
           )}
           <ArticleContent content={article.content} />
 
+          {/* Banner Promocional Contextual */}
+          <ArticlePromoBanner
+            categoria={article.categoria}
+            articleTitle={article.title}
+            locale={locale}
+          />
+
           {article.faq && article.faq.length > 0 && (
             <FaqAccordion items={article.faq} locale={locale} />
           )}
+
+          {/* Formulario rápido de cotización y disponibilidad */}
+          <ArticleLeadForm
+            categoria={article.categoria}
+            articleTitle={article.title}
+            locale={locale}
+          />
 
           {/* Autor / E-E-A-T al cierre */}
           <div className="mt-16 pt-8 border-t border-[#9a7d45]/20 text-center">
@@ -143,11 +160,16 @@ export default function ArticleClient({ article, related, locale, categoryLabel,
             </p>
           </div>
 
-          {/* CTA */}
-          <div className="mt-12 text-center">
-            <Link href={reserveHref} className="btn-classic inline-block">
+          {/* CTAs Finales */}
+          <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
+            <Link href={reserveHref} className="btn-classic text-center">
               {strings.reserve}
             </Link>
+            <ArticleWhatsAppButton
+              categoria={article.categoria}
+              articleTitle={article.title}
+              locale={locale}
+            />
           </div>
         </div>
       </section>
