@@ -13,7 +13,6 @@ import { BlogBreadcrumb } from "../../../../../components/blog/BlogBreadcrumb";
 import { FaqAccordion } from "../../../../../components/blog/FaqAccordion";
 import { ArticlePromoBanner } from "../../../../../components/blog/ArticlePromoBanner";
 import { ArticleLeadForm } from "../../../../../components/blog/ArticleLeadForm";
-import { ArticleWhatsAppButton } from "../../../../../components/blog/ArticleWhatsAppButton";
 
 type Strings = {
   home: string;
@@ -158,18 +157,6 @@ export default function ArticleClient({ article, related, locale, categoryLabel,
             <p className="text-[#9a7d45] text-xs md:text-sm tracking-widest uppercase mt-1">
               La Juana Cerro Tusa · Venecia, Antioquia
             </p>
-          </div>
-
-          {/* CTAs Finales */}
-          <div className="mt-12 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Link href={reserveHref} className="btn-classic text-center">
-              {strings.reserve}
-            </Link>
-            <ArticleWhatsAppButton
-              categoria={article.categoria}
-              articleTitle={article.title}
-              locale={locale}
-            />
           </div>
         </div>
       </section>
