@@ -31,9 +31,7 @@ imagenes:
       Tabla de quesos artesanales, frutas frescas y copas de vino servidas en
       balcón de madera con vista a los cafetales
   - archivo: /blog/glamping-con-jacuzzi-medellin/cuerpo-3.webp
-    alt: >-
-      Hacienda La Juana y prados verdes habilitados para carpas, la alternativa
-      superior de descanso en Venecia
+    alt: Panorámica aérea de la piscina, kiosco campestre y jardines de La Juana Cerro Tusa
 tldr:
   - >-
     Los domos geodésicos convencionales sufren de efecto invernadero durante el
@@ -146,7 +144,7 @@ La propiedad opera bajo un modelo de **alquiler de hacienda completa en uso excl
 
 Para comparar con las alternativas del sector, revisa nuestra reseña sobre el [glamping en Cerro Tusa y opciones de la zona](/es/blog/glamping/glamping-cerro-tusa).
 
-![Hacienda La Juana y prados verdes habilitados para carpas, la alternativa superior de descanso en Venecia](/blog/glamping-con-jacuzzi-medellin/cuerpo-3.webp)
+![Panorámica aérea de la piscina, kiosco campestre y jardines de La Juana Cerro Tusa](/blog/glamping-con-jacuzzi-medellin/cuerpo-3.webp)
 
 ---
 

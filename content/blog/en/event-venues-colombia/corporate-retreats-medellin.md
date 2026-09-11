@@ -25,17 +25,11 @@ portada_alt: >-
   corporate retreats near Medellín
 imagenes:
   - archivo: /blog/retiros-corporativos-medellin/cuerpo-1.webp
-    alt: >-
-      Bioclimatic pavilion for strategic ideation and group workshops at La
-      Juana
+    alt: Ancestral maloka at Parque Comfama Cerro Tusa, accessible on guided tours coordinated from La Juana
   - archivo: /blog/retiros-corporativos-medellin/cuerpo-2.webp
-    alt: >-
-      Spacious social hall with natural daylight and connectivity for corporate
-      team offsites
+    alt: Open-air covered lounge at La Juana, an inviting space for team breakouts and relaxation
   - archivo: /blog/retiros-corporativos-medellin/cuerpo-3.webp
-    alt: >-
-      Specialty Diamante coffee cupping session for corporate team building
-      experience
+    alt: Private suite bedroom at La Juana prepared for executive team rest and comfort
 tldr:
   - >-
     Countryside executive offsites boost strategic creativity and team trust by
@@ -89,7 +83,7 @@ Neuroscience applied to executive performance demonstrates that changing physica
 
 At La Juana Cerro Tusa, every environment is tailored to support both rigorous focus and restful recovery. Read more about our facilities in our guide on [event venue fincas in Antioquia](/en/blog/event-venues-colombia/event-venue-finca-antioquia).
 
-![Bioclimatic pavilion for strategic ideation and group workshops at La Juana](/blog/retiros-corporativos-medellin/cuerpo-1.webp)
+![Ancestral maloka at Parque Comfama Cerro Tusa, accessible on guided tours coordinated from La Juana](/blog/retiros-corporativos-medellin/cuerpo-1.webp)
 
 ---
 
@@ -115,7 +109,7 @@ A successful company offsite requires alternating between plenary strategy sessi
 - **High-Speed Satellite WiFi:** Reliable internet throughout the house and grounds for cloud presentations and critical communications.
 - **Wellness Amenities to Recharge:** Panoramic swimming pool, heated outdoor jacuzzi, and steam room to unwind after intensive working sessions.
 
-![Spacious social hall with natural daylight and connectivity for corporate team offsites](/blog/retiros-corporativos-medellin/cuerpo-2.webp)
+![Open-air covered lounge at La Juana, an inviting space for team breakouts and relaxation](/blog/retiros-corporativos-medellin/cuerpo-2.webp)
 
 ---
 
@@ -128,7 +122,7 @@ Shared company culture is forged through memorable shared experiences. Partnerin
 - **Stingless Bee Ecology Workshop:** An inspiring look at native «angelita» bees, providing masterclasses in organizational harmony and regenerative collaboration.
 - **Evening Fire Pit Retrospective:** A relaxed nighttime setting for leadership acknowledgments, team reflections, and setting company milestones.
 
-![Specialty Diamante coffee cupping session for corporate team building experience](/blog/retiros-corporativos-medellin/cuerpo-3.webp)
+![Private suite bedroom at La Juana prepared for executive team rest and comfort](/blog/retiros-corporativos-medellin/cuerpo-3.webp)
 
 ---
 

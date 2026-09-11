@@ -25,11 +25,9 @@ imagenes:
   - archivo: /blog/naturaleza-cerca-de-medellin/cuerpo-1.webp
     alt: Maloka ceremonial ancestral con techo de paja en el Parque Comfama Cerro Tusa, uno de los atractivos a los que acceden los huéspedes de La Juana
   - archivo: /blog/naturaleza-cerca-de-medellin/cuerpo-2.webp
-    alt: >-
-      Mirador de montaña con brisa pura y horizonte despejado en Venecia
-      Antioquia
+    alt: Zona de fogata exterior y piscina de La Juana con vista frontal al Cerro Tusa
   - archivo: /blog/naturaleza-cerca-de-medellin/cuerpo-3.webp
-    alt: Avistamiento de aves nativas y flora del bosque premontano antioqueño
+    alt: Comedores campestres en madera maciza y lámpara colonial en el corredor de La Juana
 tldr:
   - >-
     A menos de dos horas y media de Medellín, el Suroeste antioqueño ofrece un
@@ -114,7 +112,7 @@ Conectar con la naturaleza no significa dormir sobre el suelo ni renunciar a las
 
 Si buscas una opción para celebrar un evento de bienestar corporativo en este entorno, conoce los detalles en nuestro artículo sobre [retiros corporativos cerca de Medellín](/es/blog/fincas-de-eventos/retiros-corporativos-medellin).
 
-![Mirador de montaña con brisa pura y horizonte despejado en Venecia Antioquia](/blog/naturaleza-cerca-de-medellin/cuerpo-2.webp)
+![Zona de fogata exterior y piscina de La Juana con vista frontal al Cerro Tusa](/blog/naturaleza-cerca-de-medellin/cuerpo-2.webp)
 
 ---
 
@@ -126,7 +124,7 @@ Parte esencial del bienestar en el campo es la pureza de lo que se come. En La J
 - **Frutas y vegetales frescos:** Papaya campesina, maracuyá, naranjas dulces y aguacates cultivados en la región.
 - **Atención sin prisas:** Desayunos servidos en los corredores exteriores mientras la brisa matutina despereza los cafetales.
 
-![Avistamiento de aves nativas y flora del bosque premontano antioqueño](/blog/naturaleza-cerca-de-medellin/cuerpo-3.webp)
+![Comedores campestres en madera maciza y lámpara colonial en el corredor de La Juana](/blog/naturaleza-cerca-de-medellin/cuerpo-3.webp)
 
 ---
 

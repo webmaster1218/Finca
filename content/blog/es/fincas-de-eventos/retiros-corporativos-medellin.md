@@ -23,15 +23,11 @@ portada_alt: >-
   en finca campestre de Antioquia
 imagenes:
   - archivo: /blog/retiros-corporativos-medellin/cuerpo-1.webp
-    alt: >-
-      Espacio bioclimático para ideación estratégica y dinámicas de grupo en La
-      Juana
+    alt: Maloka ancestral del Parque Comfama Cerro Tusa, accesible en tours desde La Juana
   - archivo: /blog/retiros-corporativos-medellin/cuerpo-2.webp
-    alt: Salón social amplio con luz natural y conectividad para equipos de trabajo
+    alt: Kiosco y sala social exterior de La Juana, espacio para reuniones y descanso
   - archivo: /blog/retiros-corporativos-medellin/cuerpo-3.webp
-    alt: >-
-      Cata de café especial del Diamante como experiencia de team building
-      empresarial
+    alt: Habitación suite de La Juana acondicionada para el descanso de equipos ejecutivos
 tldr:
   - >-
     Los offsites ejecutivos en entornos campestres multiplican la creatividad y
@@ -88,7 +84,7 @@ La neurociencia aplicada al liderazgo demuestra que cambiar radicalmente de ento
 
 En La Juana Cerro Tusa, cada rincón está pensado para favorecer esa doble dimensión de concentración y desahogo mental. Descubre más sobre nuestra infraestructura en el artículo general sobre [fincas para eventos en Antioquia](/es/blog/fincas-de-eventos/finca-para-eventos-antioquia).
 
-![Espacio bioclimático para ideación estratégica y dinámicas de grupo en La Juana](/blog/retiros-corporativos-medellin/cuerpo-1.webp)
+![Maloka ancestral del Parque Comfama Cerro Tusa, accesible en tours desde La Juana](/blog/retiros-corporativos-medellin/cuerpo-1.webp)
 
 ---
 
@@ -114,7 +110,7 @@ Un offsite exitoso requiere alternar entre trabajo en equipo plenario, sesiones 
 - **WiFi de alta velocidad:** Conexión satelital estable que permite presentaciones en la nube, videollamadas de emergencia y descarga de archivos pesados.
 - **Zonas de bienestar para recargar energía:** Piscina panorámica, jacuzzi exterior climatizado y baño turco para desconectar al finalizar la jornada laboral.
 
-![Salón social amplio con luz natural y conectividad para equipos de trabajo](/blog/retiros-corporativos-medellin/cuerpo-2.webp)
+![Kiosco y sala social exterior de La Juana, espacio para reuniones y descanso](/blog/retiros-corporativos-medellin/cuerpo-2.webp)
 
 ---
 
@@ -127,7 +123,7 @@ El verdadero espíritu de equipo se consolida fuera de las diapositivas. En conv
 - **Tour de apicultura regenerativa:** Visita a colmenas de abejas nativas sin aguijón (angelitas), una lección magistral de trabajo en equipo, colaboración orgánica y sostenibilidad ecológica.
 - **Fogata de cierre y tertulia:** Espacio nocturno para reconocimientos de equipo, balance del retiro y celebración de metas conjuntas.
 
-![Cata de café especial del Diamante como experiencia de team building empresarial](/blog/retiros-corporativos-medellin/cuerpo-3.webp)
+![Habitación suite de La Juana acondicionada para el descanso de equipos ejecutivos](/blog/retiros-corporativos-medellin/cuerpo-3.webp)
 
 ---
 

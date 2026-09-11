@@ -25,15 +25,11 @@ portada_alt: >-
   finca rental in Antioquia
 imagenes:
   - archivo: /blog/alquiler-finca-exclusiva-antioquia/cuerpo-1.webp
-    alt: >-
-      Traditional colonial corridor with clay tile ceilings and hammocks at La
-      Juana Cerro Tusa
+    alt: Swimming pool and loungers at La Juana with panoramic views of the mountain range
   - archivo: /blog/alquiler-finca-exclusiva-antioquia/cuerpo-2.webp
     alt: Country barbecue lunch served on private terrace facing Cerro Tusa
   - archivo: /blog/alquiler-finca-exclusiva-antioquia/cuerpo-3.webp
-    alt: >-
-      High-comfort country suite with king bed, hardwood finishes, and premium
-      linens in Venecia
+    alt: Double suite bedroom at La Juana with two beds, woven hanging lamps, and rustic tile floors
 tldr:
   - >-
     An exclusive estate rental requires verifying 100% private grounds, with no
@@ -93,7 +89,7 @@ A genuinely exclusive finca delivers three non-negotiables:
 
 At La Juana Cerro Tusa, the entire estate is reserved for a single party per date. Up to 16 guests enjoy unrestricted access to open verandas, gardens, and poolside lounges. Read more about this philosophy in our overview of [luxury fincas in Antioquia and rural standards](/en/blog/luxury-fincas/luxury-finca-antioquia).
 
-![Traditional colonial corridor with clay tile ceilings and hammocks at La Juana Cerro Tusa](/blog/alquiler-finca-exclusiva-antioquia/cuerpo-1.webp)
+![Swimming pool and loungers at La Juana with panoramic views of the mountain range](/blog/alquiler-finca-exclusiva-antioquia/cuerpo-1.webp)
 
 ---
 
@@ -141,7 +137,7 @@ The journey to Venecia and La Juana balances scenic beauty with modern road engi
 
 Furthermore, our location places guests just five minutes from Comfama Cerro Tusa Ecological Park and heritage hiking paths.
 
-![High-comfort country suite with king bed, hardwood finishes, and premium linens in Venecia](/blog/alquiler-finca-exclusiva-antioquia/cuerpo-3.webp)
+![Double suite bedroom at La Juana with two beds, woven hanging lamps, and rustic tile floors](/blog/alquiler-finca-exclusiva-antioquia/cuerpo-3.webp)
 
 ---
 

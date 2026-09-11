@@ -33,9 +33,7 @@ imagenes:
       Artisanal charcuterie board, fresh fruit, and wine served on wooden
       balcony overlooking coffee mountains
   - archivo: /blog/glamping-con-jacuzzi-medellin/cuerpo-3.webp
-    alt: >-
-      La Juana hacienda estate and green lawns prepared for tents, the premier
-      countryside alternative in Venecia
+    alt: Aerial panorama of the swimming pool, countryside kiosk, and estate grounds at La Juana Cerro Tusa
 tldr:
   - >-
     Conventional geodesic domes often suffer from daytime greenhouse heat, damp
@@ -149,7 +147,7 @@ The property operates as a **private whole-estate rental**:
 
 Compare this with area alternatives in our overview of [glamping around Cerro Tusa and local options](/en/blog/glamping/glamping-cerro-tusa).
 
-![La Juana hacienda estate and green lawns prepared for tents, the premier countryside alternative in Venecia](/blog/glamping-con-jacuzzi-medellin/cuerpo-3.webp)
+![Aerial panorama of the swimming pool, countryside kiosk, and estate grounds at La Juana Cerro Tusa](/blog/glamping-con-jacuzzi-medellin/cuerpo-3.webp)
 
 ---
 

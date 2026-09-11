@@ -26,11 +26,11 @@ portada_alt: >-
   lujo con fogata en la montaña
 imagenes:
   - archivo: /blog/glamping-familiar-cerca-a-medellin/cuerpo-1.webp
-    alt: Zona húmeda con turco y áreas de descanso seguras para padres e hijos
+    alt: Terraza mirador de La Juana con comedor de hierro forjado y vista al atardecer
   - archivo: /blog/glamping-familiar-cerca-a-medellin/cuerpo-2.webp
-    alt: Habitación familiar amplia con maderas nobles y luz suave en La Juana
+    alt: Salto a la piscina panorámica de La Juana con vista frontal al Cerro Tusa
   - archivo: /blog/glamping-familiar-cerca-a-medellin/cuerpo-3.webp
-    alt: Merienda campestre y juegos de mesa en la terraza exterior de la finca
+    alt: Piscina panorámica y zona de asoleadoras de La Juana en un día despejado
 tldr:
   - >-
     La mayoría de glampings comerciales están diseñados para parejas, resultando
@@ -88,7 +88,7 @@ Viajar con niños y abuelos impone requerimientos logísticos que una carpa o do
 
 Frente a estas limitaciones, una propiedad campestre de gran formato diseñada para el descanso familiar ofrece una respuesta integral. Puedes leer más sobre cómo estructurar el viaje con niños en nuestra guía especializada de [vacaciones en familia en Medellín con niños](/es/blog/familia/vacaciones-familia-medellin-ninos).
 
-![Zona húmeda con turco y áreas de descanso seguras para padres e hijos](/blog/glamping-familiar-cerca-a-medellin/cuerpo-1.webp)
+![Terraza mirador de La Juana con comedor de hierro forjado y vista al atardecer](/blog/glamping-familiar-cerca-a-medellin/cuerpo-1.webp)
 
 ---
 
@@ -115,7 +115,7 @@ El secreto de un retiro familiar exitoso es que ninguna generación se sienta ab
 
 Puedes descubrir más ideas recreativas en nuestro compilado de [planes con niños en Antioquia](/es/blog/familia/planes-con-ninos-en-antioquia).
 
-![Habitación familiar amplia con maderas nobles y luz suave en La Juana](/blog/glamping-familiar-cerca-a-medellin/cuerpo-2.webp)
+![Salto a la piscina panorámica de La Juana con vista frontal al Cerro Tusa](/blog/glamping-familiar-cerca-a-medellin/cuerpo-2.webp)
 
 ---
 
@@ -127,7 +127,7 @@ El momento cumbre de una estancia en la naturaleza llega al anochecer. Cuando el
 - **Desconexión digital natural:** Sin necesidad de forzar prohibiciones de pantallas, los pequeños se sumergen espontáneamente en la conversación, las risas y la contemplación del fuego.
 - **Silencio reparador:** Al terminar la noche, cada quien se retira a su suite cómoda y abrigada, disfrutando de un descanso profundo que la ciudad jamás permite.
 
-![Merienda campestre y juegos de mesa en la terraza exterior de la finca](/blog/glamping-familiar-cerca-a-medellin/cuerpo-3.webp)
+![Piscina panorámica y zona de asoleadoras de La Juana en un día despejado](/blog/glamping-familiar-cerca-a-medellin/cuerpo-3.webp)
 
 ---
 

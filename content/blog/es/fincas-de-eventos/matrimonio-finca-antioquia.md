@@ -23,15 +23,11 @@ portada_alt: >-
   al Cerro Tusa al atardecer
 imagenes:
   - archivo: /blog/matrimonio-finca-antioquia/cuerpo-1.webp
-    alt: >-
-      Kiosco social y amplios jardines preparados para ceremonia de boda al aire
-      libre
+    alt: Piscina panorámica y jardines de La Juana con vista frontal al Cerro Tusa
   - archivo: /blog/matrimonio-finca-antioquia/cuerpo-2.webp
-    alt: >-
-      Atardecer dorado sobre la piscina para sesión fotográfica de novios frente
-      al Cerro Tusa
+    alt: Corredor colonial y puertas de las suites en La Juana iluminadas por el atardecer
   - archivo: /blog/matrimonio-finca-antioquia/cuerpo-3.webp
-    alt: Detalle de copas y mesa de celebración en terraza exterior de La Juana
+    alt: Sala social exterior de La Juana con muebles de mimbre, hamaca y helechos colgantes
 tldr:
   - >-
     Las micro-bodas y matrimonios íntimos de fin de semana completo superan a
@@ -88,7 +84,7 @@ A diferencia de las bodas tradicionales de una sola noche, el formato de «boda 
 
 Este formato garantiza que los novios disfruten de cada uno de sus invitados más queridos. Puedes revisar los aspectos generales de nuestros espacios para celebraciones en la guía de [finca para eventos en Antioquia](/es/blog/fincas-de-eventos/finca-para-eventos-antioquia).
 
-![Kiosco social y amplios jardines preparados para ceremonia de boda al aire libre](/blog/matrimonio-finca-antioquia/cuerpo-1.webp)
+![Piscina panorámica y jardines de La Juana con vista frontal al Cerro Tusa](/blog/matrimonio-finca-antioquia/cuerpo-1.webp)
 
 ---
 
@@ -114,7 +110,7 @@ Una de las mayores ventajas de La Juana es contar con hotelería de alto nivel d
 
 Esta configuración elimina la preocupación de que familiares mayores o personas con copas de más tengan que conducir de noche por carretera tras la fiesta. Puedes explorar la arquitectura y comodidades de la propiedad en nuestro artículo sobre [finca de lujo en Antioquia](/es/blog/fincas-de-lujo/finca-de-lujo-antioquia).
 
-![Atardecer dorado sobre la piscina para sesión fotográfica de novios frente al Cerro Tusa](/blog/matrimonio-finca-antioquia/cuerpo-2.webp)
+![Corredor colonial y puertas de las suites en La Juana iluminadas por el atardecer](/blog/matrimonio-finca-antioquia/cuerpo-2.webp)
 
 ---
 
@@ -128,7 +124,7 @@ Planificar una boda campestre requiere coordinación. En La Juana, los novios di
 
 Para quienes desean realizar dinámicas de integración o paseos previos con sus invitados, Venecia ofrece actividades excepcionales como las que detallamos en nuestra guía sobre [qué hacer en Venecia Antioquia](/es/blog/cerro-tusa/que-hacer-venecia-antioquia).
 
-![Detalle de copas y mesa de celebración en terraza exterior de La Juana](/blog/matrimonio-finca-antioquia/cuerpo-3.webp)
+![Sala social exterior de La Juana con muebles de mimbre, hamaca y helechos colgantes](/blog/matrimonio-finca-antioquia/cuerpo-3.webp)
 
 ---
 

@@ -27,9 +27,9 @@ imagenes:
       Charco natural de aguas puras y refrescantes en cañón de roca en el
       Suroeste
   - archivo: /blog/cascadas-antioquia/cuerpo-2.webp
-    alt: Ribera de quebrada y sendero ecológico de agua entre cafetales en Venecia
+    alt: Habitación privada de La Juana con cama doble, decoración artesanal y ventana colonial
   - archivo: /blog/cascadas-antioquia/cuerpo-3.webp
-    alt: Detalle de agua fresca brotando en manantial de montaña en La Juana
+    alt: Sala exterior campestre de La Juana para descansar tras los recorridos ecológicos
 tldr:
   - >-
     Antioquia posee una de las redes hídricas más ricas de Colombia, con cientos
@@ -101,7 +101,7 @@ Conocido como la tierra del agua, el vecino municipio de Támesis cuenta con dec
 ### La Cueva del Esplendor (Jardín)
 Aunque exige un traslado más largo hacia el sur, esta joya natural destaca por el espectáculo visual de una cascada que cae a través del techo de una caverna cavernosa en medio del bosque de niebla.
 
-![Ribera de quebrada y sendero ecológico de agua entre cafetales en Venecia](/blog/cascadas-antioquia/cuerpo-2.webp)
+![Habitación privada de La Juana con cama doble, decoración artesanal y ventana colonial](/blog/cascadas-antioquia/cuerpo-2.webp)
 
 ---
 
@@ -116,7 +116,7 @@ Disfrutar de una expedición matutina por senderos de río es una experiencia em
 
 Para quienes desean combinar agua dulce con senderismo técnico, los invitamos a revisar nuestra guía sobre [senderismo en Antioquia](/es/blog/ecoturismo/senderismo-antioquia).
 
-![Detalle de agua fresca brotando en manantial de montaña en La Juana](/blog/cascadas-antioquia/cuerpo-3.webp)
+![Sala exterior campestre de La Juana para descansar tras los recorridos ecológicos](/blog/cascadas-antioquia/cuerpo-3.webp)
 
 ---
 

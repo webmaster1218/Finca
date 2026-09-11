@@ -25,15 +25,11 @@ portada_alt: >-
   Antioquia
 imagenes:
   - archivo: /blog/matrimonio-finca-antioquia/cuerpo-1.webp
-    alt: >-
-      Social pavilion and broad gardens arranged for an open-air wedding
-      ceremony
+    alt: Panoramic swimming pool and gardens at La Juana with front-facing views of Cerro Tusa
   - archivo: /blog/matrimonio-finca-antioquia/cuerpo-2.webp
-    alt: >-
-      Golden sunset over swimming pool for bride and groom photography facing
-      Cerro Tusa
+    alt: Colonial veranda and suite entrance doors at La Juana bathed in golden sunset light
   - archivo: /blog/matrimonio-finca-antioquia/cuerpo-3.webp
-    alt: Celebration glasses and table setting on outdoor veranda at La Juana
+    alt: Open-air covered lounge at La Juana with wicker armchairs, hammock, and hanging ferns
 tldr:
   - >-
     Weekend destination micro-weddings surpass traditional hotel ballrooms in
@@ -87,7 +83,7 @@ Unlike one-night city affairs, an estate weekend wedding transforms your celebra
 
 This format ensures the couple genuinely connects with their closest loved ones. Explore our venue versatility in our profile on [event venue fincas in Antioquia](/en/blog/event-venues-colombia/event-venue-finca-antioquia).
 
-![Social pavilion and broad gardens arranged for an open-air wedding ceremony](/blog/matrimonio-finca-antioquia/cuerpo-1.webp)
+![Panoramic swimming pool and gardens at La Juana with front-facing views of Cerro Tusa](/blog/matrimonio-finca-antioquia/cuerpo-1.webp)
 
 ---
 
@@ -113,7 +109,7 @@ One of the standout benefits of La Juana is combining a ceremony venue with prem
 
 This layout eliminates the anxiety of having guests drive mountain roads late at night after the party. Discover our architectural standards in our guide to [luxury fincas in Antioquia](/en/blog/luxury-fincas/luxury-finca-antioquia).
 
-![Golden sunset over swimming pool for bride and groom photography facing Cerro Tusa](/blog/matrimonio-finca-antioquia/cuerpo-2.webp)
+![Colonial veranda and suite entrance doors at La Juana bathed in golden sunset light](/blog/matrimonio-finca-antioquia/cuerpo-2.webp)
 
 ---
 
@@ -127,7 +123,7 @@ Planning a destination wedding requires smooth coordination. At La Juana, couple
 
 For guests who arrive early, Venecia offers cultural adventures as highlighted in our guide to [things to do in Venecia Antioquia](/en/blog/cerro-tusa/things-to-do-venecia-antioquia).
 
-![Celebration glasses and table setting on outdoor veranda at La Juana](/blog/matrimonio-finca-antioquia/cuerpo-3.webp)
+![Open-air covered lounge at La Juana with wicker armchairs, hammock, and hanging ferns](/blog/matrimonio-finca-antioquia/cuerpo-3.webp)
 
 ---
 

@@ -29,11 +29,9 @@ imagenes:
       Ancestral ceremonial maloka with thatched roof at Parque Comfama Cerro Tusa,
       one of the guided tour destinations accessible to La Juana guests
   - archivo: /blog/naturaleza-cerca-de-medellin/cuerpo-2.webp
-    alt: Mountain overlook with fresh air and clear skies in Venecia Antioquia
+    alt: Outdoor fire pit lounge and swimming pool at La Juana with direct views of Cerro Tusa
   - archivo: /blog/naturaleza-cerca-de-medellin/cuerpo-3.webp
-    alt: >-
-      Birdwatching native species and tropical flora in Andean premontane cloud
-      forest
+    alt: Solid wood countryside dining tables and colonial chandelier on the veranda of La Juana
 tldr:
   - >-
     Less than 2.5 hours from Medellín, southwestern Antioquia provides a
@@ -118,7 +116,7 @@ Reconnecting with nature does not mean sleeping on damp ground or enduring cold 
 
 If you are planning an executive team reset in this restorative setting, explore our feature on [corporate retreats near Medellín](/en/blog/event-venues-colombia/corporate-retreats-medellin).
 
-![Mountain overlook with fresh air and clear skies in Venecia Antioquia](/blog/naturaleza-cerca-de-medellin/cuerpo-2.webp)
+![Outdoor fire pit lounge and swimming pool at La Juana with direct views of Cerro Tusa](/blog/naturaleza-cerca-de-medellin/cuerpo-2.webp)
 
 ---
 
@@ -130,7 +128,7 @@ A vital element of any true countryside retreat is wholesome, farm-fresh nutriti
 - **Sun-Ripened Tropical Produce:** Sweet papaya, passion fruit, local avocados, and citrus picked fresh from regional orchards.
 - **Unhurried Meals:** Breakfast served on shaded verandas while gentle morning breezes whisper through the coffee trees.
 
-![Birdwatching native species and tropical flora in Andean premontane cloud forest](/blog/naturaleza-cerca-de-medellin/cuerpo-3.webp)
+![Solid wood countryside dining tables and colonial chandelier on the veranda of La Juana](/blog/naturaleza-cerca-de-medellin/cuerpo-3.webp)
 
 ---
 

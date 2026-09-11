@@ -25,13 +25,9 @@ imagenes:
   - archivo: /blog/cerro-tusa-como-llegar/cuerpo-1.webp
     alt: Ruta 4G Pacífico con viaductos y montañas verdes del Suroeste antioqueño
   - archivo: /blog/cerro-tusa-como-llegar/cuerpo-2.webp
-    alt: >-
-      Portería principal y acceso al Parque Comfama Cerro Tusa en la vía Venecia
-      - Bolombolo
+    alt: Familia y visitantes con sus mascotas en el tótem oficial de entrada al Parque Comfama
   - archivo: /blog/cerro-tusa-como-llegar/cuerpo-3.webp
-    alt: >-
-      Acceso vehicular afirmado y llegada privada a La Juana Cerro Tusa en
-      Parcelación Rochiles
+    alt: Rincón de descanso interior y ventana colonial tallada en una suite de La Juana
 tldr:
   - >-
     El trayecto desde Medellín hasta Cerro Tusa en Venecia toma aproximadamente
@@ -122,7 +118,7 @@ Al abordar, puedes indicarle al conductor si te bajas en la entrada al parque ec
 
 Aprovecha el viaje para conocer los encantos de los [pueblos turísticos de Antioquia](/es/blog/turismo-antioquia/pueblos-turisticos-antioquia).
 
-![Portería principal y acceso al Parque Comfama Cerro Tusa en la vía Venecia - Bolombolo](/blog/cerro-tusa-como-llegar/cuerpo-2.webp)
+![Familia y visitantes con sus mascotas en el tótem oficial de entrada al Parque Comfama](/blog/cerro-tusa-como-llegar/cuerpo-2.webp)
 
 ---
 
@@ -148,7 +144,7 @@ Al llegar a las inmediaciones de Venecia, el acceso está claramente demarcado:
 
 Al traspasar la portería privada, dispondrás de parqueadero cubierto para hasta 6 vehículos, encontrándote de inmediato con la imponente vista de [la pirámide natural más grande del mundo](/es/blog/cerro-tusa/piramide-natural-mas-grande-del-mundo).
 
-![Acceso vehicular afirmado y llegada privada a La Juana Cerro Tusa en Parcelación Rochiles](/blog/cerro-tusa-como-llegar/cuerpo-3.webp)
+![Rincón de descanso interior y ventana colonial tallada en una suite de La Juana](/blog/cerro-tusa-como-llegar/cuerpo-3.webp)
 
 ---
 

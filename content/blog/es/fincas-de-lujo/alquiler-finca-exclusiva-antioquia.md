@@ -23,17 +23,13 @@ portada_alt: >-
   finca exclusiva en Antioquia
 imagenes:
   - archivo: /blog/alquiler-finca-exclusiva-antioquia/cuerpo-1.webp
-    alt: >-
-      Corredor colonial tradicional con techos de teja de barro y hamacas en La
-      Juana Cerro Tusa
+    alt: Piscina y asoleadoras de La Juana con vista panorámica a la cordillera
   - archivo: /blog/alquiler-finca-exclusiva-antioquia/cuerpo-2.webp
     alt: >-
       Mesa servida con asado campestre y almuerzo tradicional con vista franca
       al Cerro Tusa
   - archivo: /blog/alquiler-finca-exclusiva-antioquia/cuerpo-3.webp
-    alt: >-
-      Suite campestre de gran confort con cama king, maderas nobles y lencería
-      premium en Venecia
+    alt: Habitación doble en suite de La Juana con dos camas y lámparas artesanales
 tldr:
   - >-
     El alquiler de una finca exclusiva exige verificar que el uso sea 100%
@@ -95,7 +91,7 @@ Una finca genuinamente exclusiva garantiza tres condiciones innegociables:
 
 En La Juana Cerro Tusa la propiedad se entrega bajo contrato de exclusividad integral para un solo grupo por fecha, permitiendo que hasta 16 personas disfruten con libertad de corredores, terrazas y jardines. Conoce más sobre este enfoque en nuestra guía sobre [finca de lujo en Antioquia y su estándar rural](/es/blog/fincas-de-lujo/finca-de-lujo-antioquia).
 
-![Corredor colonial tradicional con techos de teja de barro y hamacas en La Juana Cerro Tusa](/blog/alquiler-finca-exclusiva-antioquia/cuerpo-1.webp)
+![Piscina y asoleadoras de La Juana con vista panorámica a la cordillera](/blog/alquiler-finca-exclusiva-antioquia/cuerpo-1.webp)
 
 ---
 
@@ -143,7 +139,7 @@ El trayecto hacia Venecia y La Juana combina infraestructura moderna y comodidad
 
 Además, su ubicación privilegiada sitúa a los huéspedes a solo cinco minutos del Parque Comfama Cerro Tusa y de los senderos arqueológicos de la zona.
 
-![Suite campestre de gran confort con cama king, maderas nobles y lencería premium en Venecia](/blog/alquiler-finca-exclusiva-antioquia/cuerpo-3.webp)
+![Habitación doble en suite de La Juana con dos camas y lámparas artesanales](/blog/alquiler-finca-exclusiva-antioquia/cuerpo-3.webp)
 
 ---
 

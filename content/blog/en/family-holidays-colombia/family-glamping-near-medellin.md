@@ -25,15 +25,11 @@ portada_alt: >-
   glamping dome by a fire pit
 imagenes:
   - archivo: /blog/glamping-familiar-cerca-a-medellin/cuerpo-1.webp
-    alt: >-
-      Private spa area with steam room and secure relaxation spaces for parents
-      and children
+    alt: Viewing terrace at La Juana with wrought iron dining table and sunset mountain panorama
   - archivo: /blog/glamping-familiar-cerca-a-medellin/cuerpo-2.webp
-    alt: >-
-      Spacious family bedroom with warm timber and gentle natural lighting at La
-      Juana
+    alt: Cannonball jump into the panoramic pool at La Juana with Cerro Tusa directly in the background
   - archivo: /blog/glamping-familiar-cerca-a-medellin/cuerpo-3.webp
-    alt: Afternoon picnic and board games on open-air veranda at mountain finca
+    alt: Panoramic pool and sun lounger deck at La Juana under clear blue skies
 tldr:
   - >-
     Most commercial glamping sites cater strictly to couples, making them
@@ -91,7 +87,7 @@ Traveling with young children and grandparents introduces practical requirements
 
 A private estate home built for multi-generational rest eliminates these compromises. Read our detailed guide on planning a [family vacation in Medellín with kids](/en/blog/family-holidays-colombia/family-vacation-medellin-kids).
 
-![Private spa area with steam room and secure relaxation spaces for parents and children](/blog/glamping-familiar-cerca-a-medellin/cuerpo-1.webp)
+![Viewing terrace at La Juana with wrought iron dining table and sunset mountain panorama](/blog/glamping-familiar-cerca-a-medellin/cuerpo-1.webp)
 
 ---
 
@@ -118,7 +114,7 @@ The hallmark of a great family holiday is ensuring that no generation feels bore
 
 Discover more excursion ideas in our curated list of [things to do with kids in Antioquia](/en/blog/family-holidays-colombia/things-to-do-with-kids-in-antioquia).
 
-![Spacious family bedroom with warm timber and gentle natural lighting at La Juana](/blog/glamping-familiar-cerca-a-medellin/cuerpo-2.webp)
+![Cannonball jump into the panoramic pool at La Juana with Cerro Tusa directly in the background](/blog/glamping-familiar-cerca-a-medellin/cuerpo-2.webp)
 
 ---
 
@@ -130,7 +126,7 @@ The defining memory of an outdoor stay happens after dark. As the sun sets behin
 - **Effortless Digital Detox:** Without enforcing strict screen bans, children naturally tune into the crackling flames, laughter, and fresh mountain air.
 - **Restorative Sleep:** When bedtime arrives, everyone retreats to quiet, temperature-balanced suites for the kind of deep sleep that city life never permits.
 
-![Afternoon picnic and board games on open-air veranda at mountain finca](/blog/glamping-familiar-cerca-a-medellin/cuerpo-3.webp)
+![Panoramic pool and sun lounger deck at La Juana under clear blue skies](/blog/glamping-familiar-cerca-a-medellin/cuerpo-3.webp)
 
 ---
 

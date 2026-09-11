@@ -29,13 +29,9 @@ imagenes:
       Pacífico 4G highway with viaducts and green mountain scenery of
       southwestern Antioquia
   - archivo: /blog/cerro-tusa-como-llegar/cuerpo-2.webp
-    alt: >-
-      Main entrance and access to Comfama Cerro Tusa Park on the Venecia -
-      Bolombolo road
+    alt: Family and visitors with their dogs at the official Cerro Tusa park entrance totem
   - archivo: /blog/cerro-tusa-como-llegar/cuerpo-3.webp
-    alt: >-
-      Maintained driveway and private arrival at La Juana Cerro Tusa in
-      Parcelación Rochiles
+    alt: Cozy interior seating nook and hand-carved colonial window in a suite at La Juana
 tldr:
   - >-
     The journey from Medellín to Cerro Tusa in Venecia takes approximately 2
@@ -126,7 +122,7 @@ Upon boarding, let the driver know if you are stopping at the ecological park en
 
 Combine your visit with exploring other captivating [historic towns in Antioquia](/en/blog/antioquia-travel/colonial-towns-antioquia).
 
-![Main entrance and access to Comfama Cerro Tusa Park on the Venecia - Bolombolo road](/blog/cerro-tusa-como-llegar/cuerpo-2.webp)
+![Family and visitors with their dogs at the official Cerro Tusa park entrance totem](/blog/cerro-tusa-como-llegar/cuerpo-2.webp)
 
 ---
 
@@ -152,7 +148,7 @@ As you approach Venecia, road signage makes navigation straightforward:
 
 Beyond our private gate, you will find sheltered parking for up to 6 vehicles and an immediate, front-row view of [the world's largest natural pyramid](/en/blog/cerro-tusa/largest-natural-pyramid-in-the-world).
 
-![Maintained driveway and private arrival at La Juana Cerro Tusa in Parcelación Rochiles](/blog/cerro-tusa-como-llegar/cuerpo-3.webp)
+![Cozy interior seating nook and hand-carved colonial window in a suite at La Juana](/blog/cerro-tusa-como-llegar/cuerpo-3.webp)
 
 ---
 

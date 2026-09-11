@@ -29,13 +29,9 @@ imagenes:
       Pristine freshwater natural rock pool in deep mountain canyon of Suroeste
       Antioquia
   - archivo: /blog/cascadas-antioquia/cuerpo-2.webp
-    alt: >-
-      Riverside trail and ecological stream path winding through coffee
-      plantations in Venecia
+    alt: Private bedroom at La Juana with double bed, handcrafted wooden leaf wall art, and colonial window
   - archivo: /blog/cascadas-antioquia/cuerpo-3.webp
-    alt: >-
-      Fresh mountain spring water splashing over natural stone fountain at La
-      Juana
+    alt: Open-air countryside lounge at La Juana for relaxing after hiking expeditions
 tldr:
   - >-
     Antioquia possesses one of Colombia's richest freshwater networks, fed by
@@ -109,7 +105,7 @@ Known locally as the «land of water», the neighboring municipality of Támesis
 ### La Cueva del Esplendor (Jardín)
 Located further south, this celebrated natural monument features an underground waterfall pouring through a circular skylight in the rock ceiling of a cloud forest cave.
 
-![Riverside trail and ecological stream path winding through coffee plantations in Venecia](/blog/cascadas-antioquia/cuerpo-2.webp)
+![Private bedroom at La Juana with double bed, handcrafted wooden leaf wall art, and colonial window](/blog/cascadas-antioquia/cuerpo-2.webp)
 
 ---
 
@@ -124,7 +120,7 @@ Exploring wild mountain streams in the morning is invigorating; however, by late
 
 To combine river adventures with alpine trekking, review our guide to [hiking in Antioquia](/en/blog/eco-tourism/hiking-antioquia-colombia).
 
-![Fresh mountain spring water splashing over natural stone fountain at La Juana](/blog/cascadas-antioquia/cuerpo-3.webp)
+![Open-air countryside lounge at La Juana for relaxing after hiking expeditions](/blog/cascadas-antioquia/cuerpo-3.webp)
 
 ---
 

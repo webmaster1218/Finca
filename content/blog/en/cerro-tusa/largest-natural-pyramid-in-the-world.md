@@ -25,7 +25,7 @@ portada_alt: >-
   Venecia Antioquia
 imagenes:
   - archivo: /blog/piramide-natural-mas-grande-del-mundo/cuerpo-1.webp
-    alt: Steep slopes and dramatic ridges at the base of Cerro Tusa
+    alt: Family and visitors with their dogs enjoying a sunny day at the foot of Cerro Tusa
   - archivo: /blog/piramide-natural-mas-grande-del-mundo/cuerpo-2.webp
     alt: >-
       Sacred petroglyphs and archaeological vestiges of the Zenúfana indigenous
@@ -91,7 +91,7 @@ Across geological epochs, torrential rains and winds from the Cauca River canyon
 
 Geologists and international travelers travel to Colombia drawn by its uncanny resemblance to the pyramids of Giza or Teotihuacan, yet on a much grander natural scale and cloaked entirely in emerald cloud forest and high-altitude grasses.
 
-![Steep slopes and dramatic ridges at the base of Cerro Tusa](/blog/piramide-natural-mas-grande-del-mundo/cuerpo-1.webp)
+![Family and visitors with their dogs enjoying a sunny day at the foot of Cerro Tusa](/blog/piramide-natural-mas-grande-del-mundo/cuerpo-1.webp)
 
 ---
 

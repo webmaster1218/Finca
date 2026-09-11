@@ -23,7 +23,7 @@ portada_alt: >-
   Venecia Antioquia
 imagenes:
   - archivo: /blog/piramide-natural-mas-grande-del-mundo/cuerpo-1.webp
-    alt: Relieve escarpado y aristas vertiginosas en la base del Cerro Tusa
+    alt: Familia y visitantes con sus mascotas al pie del Cerro Tusa en un día soleado
   - archivo: /blog/piramide-natural-mas-grande-del-mundo/cuerpo-2.webp
     alt: >-
       Petroglifos sagrados y vestigios arqueológicos de la cultura indígena
@@ -89,7 +89,7 @@ Con el paso de las eras, las lluvias torrenciales y los vientos del cañón del 
 
 Geólogos y exploradores de todo el mundo viajan a Antioquia cautivados por su similitud con las pirámides de Giza o Teotihuacán, pero multiplicando varias veces su escala y vestida con un manto continuo de bosque andino y pastizales de alta montaña.
 
-![Relieve escarpado y aristas vertiginosas en la base del Cerro Tusa](/blog/piramide-natural-mas-grande-del-mundo/cuerpo-1.webp)
+![Familia y visitantes con sus mascotas al pie del Cerro Tusa en un día soleado](/blog/piramide-natural-mas-grande-del-mundo/cuerpo-1.webp)
 
 ---
 
