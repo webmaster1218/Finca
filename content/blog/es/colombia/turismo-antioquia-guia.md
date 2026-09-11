@@ -27,7 +27,7 @@ imagenes:
       Casona tradicional antioqueña en bahareque y teja de barro en medio de las
       montañas
   - archivo: /blog/turismo-antioquia-guia/cuerpo-2.webp
-    alt: Hospitalidad campesina y tertulia en el kiosco social de la finca La Juana
+    alt: Vista panorámica del Cerro Tusa con su imponente silueta piramidal, tomada desde los jardines de La Juana Cerro Tusa
   - archivo: /blog/turismo-antioquia-guia/cuerpo-3.webp
     alt: >-
       Detalles de arquitectura paisa con balcones de madera tallada y faroles
@@ -116,7 +116,7 @@ El hito geográfico más imponente del departamento es el Cerro Tusa, ubicado en
 
 Descubre la historia completa de este coloso en nuestro reportaje sobre [la pirámide natural más grande del mundo](/es/blog/cerro-tusa/piramide-natural-mas-grande-del-mundo).
 
-![Hospitalidad campesina y tertulia en el kiosco social de la finca La Juana](/blog/turismo-antioquia-guia/cuerpo-2.webp)
+![Vista panorámica del Cerro Tusa con su imponente silueta piramidal, tomada desde los jardines de La Juana Cerro Tusa](/blog/turismo-antioquia-guia/cuerpo-2.webp)
 
 ---
 

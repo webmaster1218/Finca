@@ -29,7 +29,7 @@ imagenes:
       Traditional colonial Antioquian farmhouse with clay tiles and hand-carved
       wood in mountain valley
   - archivo: /blog/turismo-antioquia-guia/cuerpo-2.webp
-    alt: Rural warmth and family gathering in outdoor social pavilion at La Juana
+    alt: Panoramic view of Cerro Tusa with its commanding pyramidal shape, photographed from the gardens of La Juana Cerro Tusa
   - archivo: /blog/turismo-antioquia-guia/cuerpo-3.webp
     alt: >-
       Paisa colonial architectural details with hand-carved wooden balconies and
@@ -119,7 +119,7 @@ The most commanding landmark in Antioquia is Cerro Tusa, soaring above the coffe
 
 Discover the full mystery of this peak in our deep dive on [the largest natural pyramid in the world](/en/blog/cerro-tusa/largest-natural-pyramid-in-the-world).
 
-![Rural warmth and family gathering in outdoor social pavilion at La Juana](/blog/turismo-antioquia-guia/cuerpo-2.webp)
+![Panoramic view of Cerro Tusa with its commanding pyramidal shape, photographed from the gardens of La Juana Cerro Tusa](/blog/turismo-antioquia-guia/cuerpo-2.webp)
 
 ---
 
