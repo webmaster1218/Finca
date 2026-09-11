@@ -6,16 +6,28 @@ import { localizePath, type Locale } from './lib/i18n/locales';
 const LOCALES = ['es', 'en'];
 
 function detectLocale(request: NextRequest): string {
-    // 1. Cookie explícita del usuario
-    const cookie = request.cookies.get('locale')?.value;
-    if (cookie && LOCALES.includes(cookie)) return cookie;
-
-    // 2. Preferencia del navegador (Accept-Language)
+    // Preferencia del navegador (Accept-Language estándar con valores q)
     const header = request.headers.get('accept-language') || '';
-    const primary = header.split(',')[0]?.split('-')[0]?.trim().toLowerCase();
-    if (primary && LOCALES.includes(primary)) return primary;
+    if (!header) return 'es';
 
-    // 3. Default español
+    const languages = header
+        .split(',')
+        .map((part) => {
+            const [lang, qVal] = part.split(';q=');
+            return {
+                code: lang.trim().split('-')[0].toLowerCase(),
+                q: qVal ? parseFloat(qVal) : 1.0,
+            };
+        })
+        .filter((item) => !isNaN(item.q))
+        .sort((a, b) => b.q - a.q);
+
+    for (const item of languages) {
+        if (item.code === 'es') return 'es';
+        if (item.code === 'en') return 'en';
+    }
+
+    // Default Colombia / La Juana: español
     return 'es';
 }
 
