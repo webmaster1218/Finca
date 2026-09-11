@@ -24,14 +24,16 @@ portada_alt: >-
 imagenes:
   - archivo: /blog/glamping-de-lujo-antioquia/cuerpo-1.webp
     alt: >-
-      Jardines botánicos y senderos iluminados al atardecer en estancia de
-      naturaleza
+      Kiosco y sala social campestre de La Juana Cerro Tusa con hamaca, muebles
+      de descanso y helechos colgantes
   - archivo: /blog/glamping-de-lujo-antioquia/cuerpo-2.webp
-    alt: Estancia campestre con maderas nativas y vista panorámica a la cordillera
+    alt: >-
+      Huéspedes disfrutando de una tertulia al atardecer en el área social de La
+      Juana Cerro Tusa con vista panorámica a las montañas
   - archivo: /blog/glamping-de-lujo-antioquia/cuerpo-3.webp
     alt: >-
-      Fogata nocturna bajo el cielo estrellado del Suroeste antioqueño en La
-      Juana
+      Habitación suite de La Juana Cerro Tusa con dos camas, techos altos con vigas
+      de madera y acabados tradicionales
 tldr:
   - >-
     El glamping de lujo auténtico supera la simple carpa con bombillos: exige
@@ -86,7 +88,7 @@ Para que una estancia de naturaleza sea calificada genuinamente como lujo, debe 
 3. **Servicio invisible y atento:** La presencia de un equipo humano cálido que encienda el fuego, sirva el café de la mañana y atienda la mesa, eliminando cualquier carga logística para el huésped.
 4. **Entorno paisajístico singular:** No es lo mismo mirar una hilera de cabañas vecinas que abrir el ventanal frente a una de las maravillas geológicas del planeta.
 
-![Jardines botánicos y senderos iluminados al atardecer en estancia de naturaleza](/blog/glamping-de-lujo-antioquia/cuerpo-1.webp)
+![Kiosco y sala social campestre de La Juana Cerro Tusa con hamaca, muebles de descanso y helechos colgantes](/blog/glamping-de-lujo-antioquia/cuerpo-1.webp)
 
 ---
 
@@ -113,7 +115,7 @@ En La Juana, el lujo no es frío ni distante; es profundamente sensorial y antio
 
 Esta propuesta trasciende con creces las limitaciones de una carpa aislada, brindando a los visitantes la opción de explorar diversas [escapadas de naturaleza cerca de Medellín](/es/blog/ecoturismo/naturaleza-cerca-de-medellin) con la seguridad de regresar a una hacienda atendida.
 
-![Estancia campestre con maderas nativas y vista panorámica a la cordillera](/blog/glamping-de-lujo-antioquia/cuerpo-2.webp)
+![Huéspedes disfrutando de una tertulia al atardecer en el área social de La Juana Cerro Tusa con vista panorámica a las montañas](/blog/glamping-de-lujo-antioquia/cuerpo-2.webp)
 
 ---
 
@@ -127,7 +129,7 @@ A diferencia de los complejos hoteleros donde varias parejas o familias comparte
 
 Ya sea para una reunión familiar íntima, un reencuentro de amigos o una celebración especial, este formato combina lo mejor del glamping de naturaleza con la privacidad que solo una gran propiedad puede otorgar. Revisa los testimonios y características en nuestra reseña sobre el [glamping Cerro Tusa](/es/blog/glamping/glamping-cerro-tusa).
 
-![Fogata nocturna bajo el cielo estrellado del Suroeste antioqueño en La Juana](/blog/glamping-de-lujo-antioquia/cuerpo-3.webp)
+![Habitación suite de La Juana Cerro Tusa con dos camas, techos altos con vigas de madera y acabados tradicionales](/blog/glamping-de-lujo-antioquia/cuerpo-3.webp)
 
 ---
 

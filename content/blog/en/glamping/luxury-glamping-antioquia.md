@@ -26,16 +26,16 @@ portada_alt: >-
 imagenes:
   - archivo: /blog/glamping-de-lujo-antioquia/cuerpo-1.webp
     alt: >-
-      Botanical gardens and illuminated twilight walking paths at mountain
-      nature retreat
+      Open-air countryside lounge and social pavilion at La Juana Cerro Tusa with
+      hammock, woven armchairs, and hanging ferns
   - archivo: /blog/glamping-de-lujo-antioquia/cuerpo-2.webp
     alt: >-
-      Countryside suite featuring native timber and panoramic views of the
-      western Andes
+      Guests enjoying an evening conversation at sunset on the covered terrace of
+      La Juana Cerro Tusa with mountain vistas
   - archivo: /blog/glamping-de-lujo-antioquia/cuerpo-3.webp
     alt: >-
-      Evening wood-burning fire pit under the starlit sky of Suroeste Antioquia
-      at La Juana
+      Spacious double suite bedroom at La Juana Cerro Tusa with two beds, high
+      exposed-beam ceilings, and traditional finishes
 tldr:
   - >-
     Authentic luxury glamping transcends simple tent camping with fairy lights:
@@ -91,7 +91,7 @@ For a wilderness retreat to be legitimately classified as luxury, it must meet f
 3. **Attentive, Discreet Hospitality:** Warm local hosts who light the evening hearth, brew morning specialty coffee, and manage kitchen and grounds logistics, liberating guests from domestic burdens.
 4. **An Iconic Natural Setting:** Waking up facing a cluster of adjacent guest tents is not luxury; opening your window to direct views of the planet's largest natural pyramid is.
 
-![Botanical gardens and illuminated twilight walking paths at mountain nature retreat](/blog/glamping-de-lujo-antioquia/cuerpo-1.webp)
+![Open-air countryside lounge and social pavilion at La Juana Cerro Tusa with hammock, woven armchairs, and hanging ferns](/blog/glamping-de-lujo-antioquia/cuerpo-1.webp)
 
 ---
 
@@ -118,7 +118,7 @@ At La Juana, luxury is grounded in warmth, authenticity, and sensory richness:
 
 This holistic atmosphere far outshines isolated dome rentals, providing an idyllic base to explore [nature getaways near Medellín](/en/blog/eco-tourism/nature-getaways-near-medellin).
 
-![Countryside suite featuring native timber and panoramic views of the western Andes](/blog/glamping-de-lujo-antioquia/cuerpo-2.webp)
+![Guests enjoying an evening conversation at sunset on the covered terrace of La Juana Cerro Tusa with mountain vistas](/blog/glamping-de-lujo-antioquia/cuerpo-2.webp)
 
 ---
 
@@ -132,7 +132,7 @@ Unlike tent resorts where dozens of strangers share the same swimming pool and b
 
 Whether hosting a family holiday, an intimate milestone anniversary, or a restful weekend with friends, this format combines wilderness immersion with the privacy and comfort of an estate home. Discover more details in our review of [glamping Cerro Tusa](/en/blog/glamping/glamping-cerro-tusa).
 
-![Evening wood-burning fire pit under the starlit sky of Suroeste Antioquia at La Juana](/blog/glamping-de-lujo-antioquia/cuerpo-3.webp)
+![Spacious double suite bedroom at La Juana Cerro Tusa with two beds, high exposed-beam ceilings, and traditional finishes](/blog/glamping-de-lujo-antioquia/cuerpo-3.webp)
 
 ---
 
