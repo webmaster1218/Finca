@@ -26,8 +26,8 @@ portada_alt: >-
 imagenes:
   - archivo: /blog/naturaleza-cerca-de-medellin/cuerpo-1.webp
     alt: >-
-      Traditional eco-refuge and meditation pavilion surrounded by wild Andean
-      flora at La Juana
+      Ancestral ceremonial maloka with thatched roof at Parque Comfama Cerro Tusa,
+      one of the guided tour destinations accessible to La Juana guests
   - archivo: /blog/naturaleza-cerca-de-medellin/cuerpo-2.webp
     alt: Mountain overlook with fresh air and clear skies in Venecia Antioquia
   - archivo: /blog/naturaleza-cerca-de-medellin/cuerpo-3.webp
@@ -87,9 +87,11 @@ Southwestern Antioquia, in contrast, preserves the unhurried rhythm of authentic
 - **Balanced Mountain Climate:** Sitting at 1,500 meters (4,900 feet) elevation, Venecia enjoys perfect spring temperatures: warm 24°C (75°F) afternoons and crisp 18°C (64°F) evenings.
 - **Monumental Topography:** Deep coffee river canyons and the dramatic silhouette of Cerro Tusa presiding over the horizon like an ancient stone guardian.
 
+**La Juana Cerro Tusa** is the private luxury estate at the heart of this experience. Located just 5 minutes from the **Parque Comfama Cerro Tusa** — a protected nature reserve managed by Comfama, home to guided ecological trails, ancestral petroglyphs, the ceremonial maloka, and routes ascending to the summit — La Juana serves as your exclusive private base: a secluded estate with a panoramic pool, outdoor jacuzzi, private suites, and full house staff. Thanks to a formal partnership agreement with Comfama, we coordinate guided tours of the park so our guests can explore its wonders with privileged access.
+
 Plan your driving itinerary with our updated guide to [how to get to Cerro Tusa from Medellín in 2026](/en/blog/cerro-tusa/how-to-get-to-cerro-tusa).
 
-![Traditional eco-refuge and meditation pavilion surrounded by wild Andean flora at La Juana](/blog/naturaleza-cerca-de-medellin/cuerpo-1.webp)
+![Ancestral ceremonial maloka with thatched roof at Parque Comfama Cerro Tusa, one of the guided tour destinations accessible to La Juana guests](/blog/naturaleza-cerca-de-medellin/cuerpo-1.webp)
 
 ---
 
@@ -164,16 +166,6 @@ The protected botanical gardens and native tree canopies surrounding La Juana cr
 - **Butterflies:** Striking electric-blue morpho butterflies (*Morpho peleides*) and delicate clearwing glasswing butterflies flutter through the flowering verbenas along the garden walking paths.
 - **Mammals & Garden Wildlife:** Harmless green iguanas basking on sun-warmed fieldstone walls, playful red-tailed squirrels darting across the avocado branches, and tiny nocturnal tree frogs whose gentle chimes accompany sunset dinners.
 - **Native Epiphytes:** Over thirty distinct varieties of bromeliads and delicate wild orchids cling naturally to ancient cedar and guayacán trunks throughout the estate grounds.
-
----
-
-## Restorative Well-Being: Forest Bathing and Deep Mountain Silence
-
-Modern neuroscientific research affirms that immersive time in unpolluted natural environments significantly lowers arterial blood pressure and sharpens cognitive focus. Nature getaways in the Suroeste provide the ultimate reset:
-
-- **Acoustic Peace:** Far beyond the reach of Medellín's sirens, engine brakes, and construction noise, the acoustic backdrop at La Juana consists entirely of morning wind through cedar boughs, rhythmic cicada chirps, and bubbling creeks.
-- **Pure Mountain Air & Negative Ions:** Proximity to untouched Andean cloud forests generates an abundance of atmospheric negative ions, proven to improve cellular oxygen absorption and promote deep, restorative sleep.
-- **Starlit Skies and Dark Night Conservation:** Due to minimal municipal light pollution in rural Venecia, nights reveal breathtaking celestial panoramas where the Milky Way and Andean constellations shine with crystal clarity above the silhouetted pyramid of Cerro Tusa.
 
 ---
 

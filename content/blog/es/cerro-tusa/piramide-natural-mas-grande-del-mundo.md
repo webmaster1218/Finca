@@ -30,8 +30,8 @@ imagenes:
       Zenúfana en Cerro Tusa
   - archivo: /blog/piramide-natural-mas-grande-del-mundo/cuerpo-3.webp
     alt: >-
-      Casa de Pensamiento con arquitectura ancestral y techo de paja en La Juana
-      a la sombra del Cerro Tusa
+      Maloka ceremonial del Parque Comfama Cerro Tusa con techo cónico de paja,
+      a 5 minutos de La Juana Cerro Tusa
 tldr:
   - >-
     El Cerro Tusa se eleva a 1.950 m s.n.m. con una prominencia vertical de 600
@@ -142,7 +142,7 @@ La Juana Cerro Tusa se ubica en la Parcelación Rochiles, a tan solo cinco minut
 
 Esta experiencia fusiona la inmersión en la naturaleza con el confort de una [finca de lujo en Antioquia](/es/blog/fincas-de-lujo/finca-de-lujo-antioquia).
 
-![Casa de Pensamiento con arquitectura ancestral y techo de paja en La Juana a la sombra del Cerro Tusa](/blog/piramide-natural-mas-grande-del-mundo/cuerpo-3.webp)
+![Maloka ceremonial del Parque Comfama Cerro Tusa con techo cónico de paja, a 5 minutos de La Juana Cerro Tusa](/blog/piramide-natural-mas-grande-del-mundo/cuerpo-3.webp)
 
 ---
 

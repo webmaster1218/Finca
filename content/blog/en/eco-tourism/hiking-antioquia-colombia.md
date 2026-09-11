@@ -167,17 +167,6 @@ Preparing properly for steep mountain trails across Antioquia ensures both safet
 
 ---
 
-## Mountain Equipment Checklist for Andean Terrains
-
-Preparing properly for steep mountain trails across Antioquia ensures both safety and comfort throughout every hike:
-
-- **Footwear:** Sturdy trail-running shoes or ankle-high trekking boots with aggressive Vibram or rubber lugs provide crucial grip on slippery clay soils and steep rocky slopes.
-- **Trekking Poles:** Adjustable trekking poles are indispensable for saving knees during steep descents, especially when tackling the 60-to-75% gradients of Cerro Tusa’s access paths.
-- **Hydration Systems:** Carry at least 2.5 to 3 liters of water per hiker in a hydration bladder or insulated flasks, supplemented by electrolyte tablets to counteract tropical perspiration.
-- **Breathable Sun Protection:** Long-sleeve UPF 50+ athletic shirts, polarized sunglasses to reduce glare, wide-brimmed sun hats, and lightweight packable rain shells prepare hikers for the mountain’s quick meteorological shifts.
-
----
-
 ## Key Takeaways
 
 **Hiking in Antioquia** is a revitalizing adventure that challenges the body and inspires the spirit. Having Cerro Tusa as your compass and a private luxury estate as your recovery sanctuary turns every trail into an unforgettable milestone. Check calendar availability in our [rooms and accommodations overview](/en/#rooms) or message us via WhatsApp for customized trail guidance based on your group's fitness level.

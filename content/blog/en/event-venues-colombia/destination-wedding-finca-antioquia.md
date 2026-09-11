@@ -160,16 +160,6 @@ Creating a memorable wedding aesthetic in the mountains of Antioquia means harmo
 
 ---
 
-## Floral Design and Native Andean Botanical Decor
-
-Creating a memorable wedding aesthetic in the mountains of Antioquia means harmonizing with the breathtaking natural environment rather than imposing artificial plastic decor:
-
-- **Native Botanical Palette:** Incorporate regional flora such as wild white heliconias, local orchids (*Cattleya trianae*), fresh coffee boughs adorned with ripe red cherries, and weeping eucalyptus branches that release fresh aroma in the mountain breeze.
-- **Warm Twilight Lighting:** Complement the golden hour sunset behind Cerro Tusa with hundreds of floating glass candles around the pool edge, warm micro-LED fairy lights woven through ancient timber rafters, and handcrafted clay lanterns along garden stone pathways.
-- **Artisanal Table Styling:** Natural linen runners, hand-carved local timber charger plates, and locally thrown terracotta ceramics give the wedding feast an authentic, luxurious country elegance that feels rooted in the soul of Colombia.
-
----
-
 ## Key Takeaways
 
 Choosing a **destination wedding finca in Antioquia** means embracing intimacy, natural grandeur, and heartfelt memories. Surrounding yourself with your dearest family, toasting under the gaze of Cerro Tusa, and waking up to fresh mountain coffee turns your wedding into an enduring journey. Explore our grounds in our [rooms and accommodations overview](/en/#rooms) or message our concierge via WhatsApp to arrange a private venue walkthrough.

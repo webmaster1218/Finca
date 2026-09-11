@@ -156,17 +156,6 @@ Antioquia's vertical geography creates microclimates ranging from tropical warmt
 
 ---
 
-## Climate Zones, Elevations, and Packing Essentials
-
-Antioquia's vertical geography creates microclimates ranging from tropical warmth to brisk Andean coolness within short driving distances:
-
-- **Elevation Differences:** Medellín sits at 1,495 meters (around 22°C–26°C), while southwestern towns like Venecia enjoy a warm, breezy microclimate around 1,350 to 1,600 meters (24°C daytime, cooling to 18°C at night).
-- **Recommended Clothing Layers:** Pack breathable linen shirts and swimwear for poolside relaxation during the sunny afternoons, combined with a warm fleece or soft alpaca sweater for evenings by the open-air fire pit.
-- **Footwear Essentials:** Sturdy hiking boots with deep tread are indispensable for trekking mountain paths, alongside comfortable walking sneakers for exploring cobblestone town squares.
-- **Sun & Skin Care:** The Andean sun at high altitudes carries intense UV radiation; wide-brimmed hats, biodegradable mineral sunscreen, and natural insect repellent ensure safe outdoor exploration across all regional trails.
-
----
-
 ## Key Takeaways
 
 Knowing **things to do in Antioquia** opens a world of inspiring contrasts where mountain coffee heritage, living colonial history, and ancient geological monuments come together. Setting up your base in Venecia, resting in the shadow of Cerro Tusa, ensures an authentic, luxurious Colombian journey. Explore our [rooms and accommodations overview](/en/#rooms) or message us directly via WhatsApp to plan your regional itinerary.

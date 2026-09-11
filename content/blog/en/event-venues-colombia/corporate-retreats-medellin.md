@@ -169,16 +169,6 @@ Executive offsites demand reliable technical infrastructure to ensure strategic 
 
 ---
 
-## Technology, Power Infrastructure, and Productivity Setup
-
-Executive offsites demand reliable technical infrastructure to ensure strategic planning sessions proceed without technical friction:
-
-- **High-Speed Starlink Connectivity:** Fast satellite WiFi blankets both indoor salons and outdoor covered terraces, easily handling multi-participant video conference calls and heavy cloud file synchronization.
-- **Power Backup & Dedicated Outlets:** Unlike rustic farmhouses prone to power drops, La Juana features modern electrical installations with dedicated breakers and backup systems capable of running projectors, sound equipment, and laptop banks simultaneously.
-- **Versatile Open-Air Breakout Spaces:** Teams can split into smaller strategic pods across the main colonial corridor, the thatched gazebo (*casa de pensamiento*), and the open pool deck, encouraging diverse thinking formats without feeling confined to a corporate boardroom.
-
----
-
 ## Key Takeaways
 
 Organizing **corporate retreats near Medellín** at La Juana elevates strategic offsites into transformative leadership milestones. Absolute confidentiality, versatile open-air workspaces, and the grounding presence of Cerro Tusa create the ultimate environment for teams to shape the future with clarity. View our facilities in our [rooms and accommodations overview](/en/#rooms) or reach out via WhatsApp to request an executive retreat proposal tailored to your company.

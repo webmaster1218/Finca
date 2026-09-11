@@ -11,14 +11,49 @@ export function parseLocale(pathname: string): Locale | null {
   return first && isLocale(first) ? first : null;
 }
 
-// Pares de slugs por idioma. La variante en español es la canónica para las
-// carpetas de rutas; la variante en inglés es el slug público en /en.
 const slugPairs = [
+  // Páginas estáticas y tours
   ["galeria", "gallery"],
   ["politicas", "policies"],
   ["gracias", "thank-you"],
   ["ascenso-sagrado", "sacred-ascent"],
   ["retiro-diosa-espejo", "mirror-goddess-retreat"],
+
+  // Categorías del blog
+  ["fincas-de-lujo", "luxury-fincas"],
+  ["fincas-de-eventos", "event-venues-colombia"],
+  ["turismo-antioquia", "antioquia-travel"],
+  ["familia", "family-holidays-colombia"],
+  ["ecoturismo", "eco-tourism"],
+  ["cerro-tusa", "cerro-tusa"],
+  ["glamping", "glamping"],
+  ["colombia", "colombia"],
+
+  // Artículos del blog (24 pares bilingües)
+  ["cerro-tusa-como-llegar", "how-to-get-to-cerro-tusa"],
+  ["piramide-natural-mas-grande-del-mundo", "largest-natural-pyramid-in-the-world"],
+  ["que-hacer-venecia-antioquia", "things-to-do-venecia-antioquia"],
+  ["lugares-para-visitar-en-colombia", "places-to-visit-in-colombia"],
+  ["que-hacer-en-colombia", "things-to-do-in-colombia"],
+  ["turismo-antioquia-guia", "antioquia-travel-guide"],
+  ["cascadas-antioquia", "waterfalls-in-antioquia"],
+  ["naturaleza-cerca-de-medellin", "nature-getaways-near-medellin"],
+  ["senderismo-antioquia", "hiking-antioquia-colombia"],
+  ["glamping-familiar-cerca-a-medellin", "family-glamping-near-medellin"],
+  ["planes-con-ninos-en-antioquia", "things-to-do-with-kids-in-antioquia"],
+  ["vacaciones-familia-medellin-ninos", "family-vacation-medellin-kids"],
+  ["finca-para-eventos-antioquia", "event-venue-finca-antioquia"],
+  ["matrimonio-finca-antioquia", "destination-wedding-finca-antioquia"],
+  ["retiros-corporativos-medellin", "corporate-retreats-medellin"],
+  ["alquiler-finca-exclusiva-antioquia", "exclusive-finca-rental-antioquia"],
+  ["finca-de-lujo-antioquia", "luxury-finca-antioquia"],
+  ["finca-la-juana-experiencia-de-lujo", "finca-la-juana-luxury-experience"],
+  ["glamping-cerro-tusa", "glamping-cerro-tusa"],
+  ["glamping-con-jacuzzi-medellin", "glamping-with-jacuzzi-medellin"],
+  ["glamping-de-lujo-antioquia", "luxury-glamping-antioquia"],
+  ["dia-de-sol-antioquia", "day-by-the-pool-antioquia"],
+  ["pueblos-turisticos-antioquia", "heritage-towns-antioquia"],
+  ["que-hacer-en-antioquia", "things-to-do-in-antioquia"],
 ] as const;
 
 const segmentMap: Record<string, Record<Locale, string>> = {};

@@ -161,16 +161,6 @@ For international travelers wanting an authentic journey that combines vibrant u
 
 ---
 
-## Suggested 7-Day Andes, Coffee, and Mountain Retreat Circuit
-
-For international travelers wanting an authentic journey that combines vibrant urban culture with serene mountain exclusivity:
-
-- **Days 1 & 2 (Medellín Cultural Discovery):** Stay in El Poblado or Laureles; explore the urban innovation of Comuna 13, ride the Metrocable over hillside neighborhoods, and admire Fernando Botero’s monumental sculptures in Plaza Botero.
-- **Days 3 to 5 (Private Sanctuary at La Juana Cerro Tusa):** Travel two and a half hours south to Venecia. Relax on the panoramic sun deck facing the natural pyramid, savor traditional home-cooked meals by our resident staff, enjoy private outdoor jacuzzi sessions at dusk, and explore the ancient indigenous petroglyphs at Comfama Park.
-- **Days 6 & 7 (Southwestern Heritage & Coffee Circuit):** Take a day trip to neighboring colonial gems like Jericó or Jardín to admire historic leather workshops and vibrant floral balconies before heading directly to José María Córdova International Airport (MDE) for onward international connections.
-
----
-
 ## Key Takeaways
 
 Among the most captivating **places to visit in Colombia**, southwestern Antioquia stands out for its unspoiled authenticity, ancient pre-Columbian archaeology, and dramatic coffee mountains. Basing your journey at La Juana Cerro Tusa in Venecia turns a vacation into an enduring connection with the true spirit of Colombia. Review our suite layouts in our [rooms and accommodations overview](/en/#rooms) or reach out via WhatsApp to plan your customized Colombian itinerary.

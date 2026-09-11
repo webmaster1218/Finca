@@ -162,16 +162,6 @@ Swimming in natural mountain pools and exploring secluded rivers requires respec
 
 ---
 
-## River Etiquette and Mountain Flash Flood Safety
-
-Swimming in natural mountain pools and exploring secluded rivers requires respectful safety awareness:
-
-- **Recognizing Flash Flood Warning Signs (*Crecientes Súbitas*):** If crystal-clear mountain water suddenly shifts to a muddy brown or opaque amber hue, or if you notice floating sticks, leaves, and a sudden change in water level, exit the riverbed immediately to higher banks. This indicates rainfall higher up the watershed.
-- **Safe Footwear for Riverbeds:** Never walk bare-footed on wet river stones. Neoprene water shoes or strapped hiking sandals with textured rubber outsoles protect against sharp stones and slippery moss.
-- **Pack-It-In, Pack-It-Out Cleanliness:** Never use non-biodegradable soaps or shampoos directly in natural pools. Preserve the purity of pristine Andean headwaters so wildlife and downstream farming communities continue to thrive.
-
----
-
 ## Key Takeaways
 
 Discovering the **waterfalls of Antioquia** and secluded river swimming pools is a journey into Colombia's untamed natural abundance. In the Suroeste, resting in the shadow of Cerro Tusa, wilderness river exploration pairs perfectly with the restorative luxury of an exclusive private estate. Explore our suite layouts in our [rooms and accommodations overview](/en/#rooms) or message us via WhatsApp for curated waterfall trail recommendations.

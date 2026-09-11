@@ -171,16 +171,6 @@ A seamless travel experience in Colombia relies on practical financial and conne
 
 ---
 
-## Practical Guidance: Currency, Tipping, and Local Payments
-
-A seamless travel experience in Colombia relies on practical financial and connectivity preparedness:
-
-- **Currency and ATMs:** Colombia uses the Colombian Peso (COP). Major credit cards (Visa and Mastercard) are widely accepted in hotels, supermarkets, and established restaurants in Medellín. However, carrying small denominations of cash ($10,000, $20,000, and $50,000 COP bills) is essential for local fruit stands, market vendors, and town cafes in Venecia.
-- **Tipping Norms (*La Propina*):** In Colombian restaurants, a voluntary 10% tip (*propina voluntaria*) is customarily added to the bill upon verbal confirmation. When renting private luxury estates like La Juana, offering an appreciative tip to the house staff (butler and maids) at check-out is customary and deeply appreciated for exceptional service.
-- **Mobile Connectivity and SIM Cards:** Local eSIM cards (Claro, Tigo, or Movistar) provide robust LTE coverage throughout the Medellín-Venecia highway corridor and in town centers, complemented by fast Starlink satellite WiFi at La Juana estate.
-
----
-
 ## Key Takeaways
 
 Deciding **what to do in Colombia** is an invitation to an unforgettable journey into genuine human warmth, breathtaking Andean landscapes, and world-class mountain coffee. Experiencing this journey from an exclusive private estate in Venecia, resting in the shadow of Cerro Tusa, ensures memories that will resonate for a lifetime. Explore our accommodations in our [rooms and suites overview](/en/#rooms) or message us via WhatsApp to begin crafting your personalized Colombian travel itinerary.

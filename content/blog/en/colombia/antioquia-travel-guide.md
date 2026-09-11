@@ -166,16 +166,6 @@ Understanding regional cultural customs enriches every interaction across the co
 
 ---
 
-## Cultural Etiquette, Warmth, and Countryside Traditions
-
-Understanding regional cultural customs enriches every interaction across the countryside of southwestern Antioquia:
-
-- **The Greeting Tradition (*El Tinto*):** Welcoming guests with a freshly brewed small black coffee (*tinto*) is the universal currency of affection and hospitality across Antioquia. Accepting with a warm smile is an essential cultural courtesy.
-- **Genuine Human Warmth (*Calidez Paisa*):** Locals take profound pride in their heritage and eagerly share route tips, farming anecdotes, and family recipes. Addressing local hosts and service staff with respectful courtesies (*Don*, *Doña*, *Muchas gracias*) opens doors to heartfelt friendships.
-- **Slower Rhythms of Mountain Life:** Unlike the bustling pace of global capitals, countryside life in Venecia honors dawn birdsong, leisurely mid-morning coffee breaks, and twilight conversations on breezy verandas. Embracing this cadence transforms a holiday into a restorative personal recharge.
-
----
-
 ## Key Takeaways
 
 **Antioquia travel** delivers an extraordinary synthesis of cultural warmth, dramatic mountain relief, and restful high-end hospitality. Establishing your base in Venecia, resting peacefully in the shadow of Cerro Tusa, places you at the heart of Colombia's coffee heritage with the exclusivity and comfort of a premier private estate. View our accommodations in our [rooms and suites overview](/en/#rooms) or message us via WhatsApp to begin planning your journey across Antioquia.

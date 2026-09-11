@@ -163,16 +163,6 @@ One of the greatest luxuries of high-end countryside hospitality is the recovery
 
 ---
 
-## The Science of Restorative Mountain Sleep
-
-One of the greatest luxuries of high-end countryside hospitality is the recovery of deep, uninterrupted REM sleep that modern city living constantly disrupts:
-
-- **Natural Circadian Synchronization:** Waking to gentle morning sunlight washing over Cerro Tusa rather than harsh smartphone alarms resets melatonin production and restores natural sleep cycles.
-- **Crisp Andean Night Cooling:** Venecia’s daytime warmth gives way to refreshing 18°C evening breezes, creating the optimal bedroom ambient temperature for deep somatic recovery without dry artificial air conditioning.
-- **Zero Electromagnetic and Siren Pollution:** Sleeping enveloped by solid traditional walls, 300-thread-count natural cotton linens, and total acoustic stillness guarantees you wake up fully energized and mentally rejuvenated.
-
----
-
 ## Key Takeaways
 
 **Luxury glamping in Antioquia** has matured into an experience that celebrates architectural integrity, restorative silence, and Colombia's extraordinary mountain landscapes. In Venecia, resting peacefully in the shadow of Cerro Tusa, La Juana delivers this ideal union: pristine nature embraced with timeless warmth and refined comfort. Review calendar availability in our [rooms and suites section](/en/#rooms) or contact our concierge via WhatsApp for direct reservations.

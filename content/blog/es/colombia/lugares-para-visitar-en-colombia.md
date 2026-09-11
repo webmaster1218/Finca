@@ -158,16 +158,6 @@ Para quienes desean experimentar el contraste entre el dinamismo urbano y la ser
 
 ---
 
-## 5. Itinerario sugerido de 7 días: Medellín y la magia del Suroeste
-
-Para quienes desean experimentar el contraste entre el dinamismo urbano y la serenidad andina:
-
-- **Días 1 y 2 (Medellín cosmopolita):** Exploración urbana en El Poblado, visita guiada a la transformación social de la Comuna 13 y recorrido por los museos de Plaza Botero.
-- **Días 3 a 5 (Inmersión cafetera en La Juana Cerro Tusa):** Traslado panorámico de dos horas y media hacia Venecia. Estancia exclusiva en la finca disfrutando de la piscina panorámica frente al Cerro Tusa, cata de café especial en la terraza, tarde de spa campestre con jacuzzi y turco, y noche de fogata bajo las estrellas.
-- **Días 6 y 7 (Ruta patrimonial del Suroeste):** Excursión de día completo hacia Jericó o Jardín para conocer talleres de guarnicionería, casas coloniales y miradores cordilleranos antes de regresar a Medellín para conectar con vuelos internacionales.
-
----
-
 ## Puntos clave
 
 Entre los muchos **lugares para visitar en Colombia**, el Suroeste antioqueño sobresale por su autenticidad inalterada, su riqueza arqueológica y la majestuosidad de sus montañas cafeteras. Hospedarse a la sombra del Cerro Tusa en La Juana convierte un viaje turístico en una inmersión inolvidable en el alma misma de Colombia. Explora el detalle de nuestras instalaciones en el apartado de [habitaciones y reservas](/es/#habitaciones) o contáctanos por WhatsApp para planificar tu itinerario.

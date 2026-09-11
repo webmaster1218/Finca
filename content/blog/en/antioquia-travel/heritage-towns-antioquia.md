@@ -157,16 +157,6 @@ Beyond picturesque colonial facades, southwestern Antioquia preserves centuries-
 
 ---
 
-## Living Artisanship and Cultural Heritage of the Suroeste
-
-Beyond picturesque colonial facades, southwestern Antioquia preserves centuries-old craft traditions handed down through families of master artisans:
-
-- **The Jericó Leather Carriel:** The traditional leather satchel (*carriel antioqueño*), recognized as Colombian national cultural heritage, is hand-stitched by multi-generational leatherworkers in Jericó using up to twelve secret interior pockets.
-- **Handmade Wooden Filigree:** Towns like Jardín and Venecia are celebrated for intricately carved wooden balconies, brightly lacquered street-side tables, and brightly painted horse-drawn carriages (*chivas*) adorned with traditional geometric motifs.
-- **Micro-Lot Specialty Coffee Roasting:** Local growers in Venecia cultivate high-elevation Bourbon and Geisha varieties. Stopping at independent town roasters offers visitors a masterclass in pour-over extraction, cupping profiles, and honey-process fermentation directly from the hands of the growers.
-
----
-
 ## Key Takeaways
 
 Exploring the **heritage towns of Antioquia** is a journey into the vibrant soul of Colombia: living colonial plazas, exquisite woodwork, and the constant aroma of world-class mountain coffee. Basing your journey at La Juana Cerro Tusa in Venecia ensures you experience this cultural heritage with the safety, comfort, and restorative quiet of an exclusive private estate. Explore our suite layouts in our [rooms and accommodations overview](/en/#rooms) or message us via WhatsApp to plan your customized heritage itinerary.

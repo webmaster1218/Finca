@@ -155,16 +155,6 @@ A realistic, kid-tested weekend schedule balancing adventure, pool time, and res
 
 ---
 
-## Practical 48-Hour Weekend Family Itinerary
-
-A realistic, kid-tested weekend schedule balancing adventure, pool time, and restorative downtime for parents:
-
-- **Day 1 - Morning Departure & Pool Fun:** Depart Medellín at 7:30 a.m. to arrive at La Juana by 10:00 a.m. Welcome fresh juices and immediate transition to the swimming pool while the house staff unpacks groceries and sets up rooms.
-- **Day 1 - Afternoon Games & Sunset Bonfire:** Casual family lunch on the terrace followed by outdoor lawn games and board games in the shaded kiosk. Dusk hot tub soak followed by a campfire under the stars with hot cocoa and roasted marshmallows.
-- **Day 2 - Comfama Nature Exploration:** Short 5-minute drive to Parque Comfama Cerro Tusa after breakfast. Children love the rope-climbing playground and interactive indigenous exhibits. Return to the estate for a hearty Sunday lunch and a leisurely afternoon swim before driving back to Medellín.
-
----
-
 ## Key Takeaways
 
 Planning **things to do with kids in Antioquia** does not have to be an exhausting negotiation. In Venecia, resting in the shadow of iconic Cerro Tusa, outdoor adventure and boutique hotel hospitality unite to give your children a childhood rich in green fields, fresh mountain waters, and starlit campfires. View our suite layouts in our [rooms and accommodations overview](/en/#rooms) or connect via WhatsApp to coordinate your upcoming family getaway.

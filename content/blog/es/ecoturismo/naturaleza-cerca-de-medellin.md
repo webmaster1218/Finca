@@ -23,7 +23,7 @@ portada_alt: >-
   suave cerca de Medellín
 imagenes:
   - archivo: /blog/naturaleza-cerca-de-medellin/cuerpo-1.webp
-    alt: Refugio ecológico tradicional rodeado de flora silvestre en La Juana
+    alt: Maloka ceremonial ancestral con techo de paja en el Parque Comfama Cerro Tusa, uno de los atractivos a los que acceden los huéspedes de La Juana
   - archivo: /blog/naturaleza-cerca-de-medellin/cuerpo-2.webp
     alt: >-
       Mirador de montaña con brisa pura y horizonte despejado en Venecia
@@ -83,9 +83,11 @@ El Suroeste antioqueño, por el contrario, conserva la pureza del campo tradicio
 - **Microclima equilibrado:** A una altitud de 1.450 a 1.600 m s.n.m., Venecia goza de una temperatura ideal: 24°C durante el día bajo un sol brillante y 18°C en la noche, sin la humedad gélida del páramo.
 - **Paisajes que sobrecogen:** Valles cafeteros, cañones imponentes y la silueta enigmática del Cerro Tusa que domina el horizonte como un guardián de piedra.
 
+**La Juana Cerro Tusa** es la finca de lujo privada desde donde se vive toda esta experiencia. Ubicada a escasos 5 minutos del **Parque Comfama Cerro Tusa** — reserva natural administrada por Comfama que alberga los senderos ecológicos, petroglifos, la maloka ceremonial y las rutas de ascenso a la cima — La Juana es tu base de descanso exclusiva: un predio privado con piscina panorámica, jacuzzi exterior, suites privadas y servicio completo. Gracias a un convenio con Comfama, coordinamos tours guiados al parque para que nuestros huéspedes disfruten de sus atractivos con acceso privilegiado.
+
 Descubre las mejores rutas de acceso en nuestra guía sobre [Cerro Tusa: cómo llegar desde Medellín en 2026](/es/blog/cerro-tusa/cerro-tusa-como-llegar).
 
-![Refugio ecológico tradicional rodeado de flora silvestre en La Juana](/blog/naturaleza-cerca-de-medellin/cuerpo-1.webp)
+![Maloka ceremonial ancestral con techo de paja en el Parque Comfama Cerro Tusa, uno de los atractivos a los que acceden los huéspedes de La Juana](/blog/naturaleza-cerca-de-medellin/cuerpo-1.webp)
 
 ---
 
@@ -151,15 +153,6 @@ La transición geográfica entre el cañón cálido del río Cauca y las cumbres
 - **Flora nativa protegida:** Guayacanes amarillos y rosados que florecen estacionalmente, ceibas centenarias en las riberas y más de 30 variedades de orquídeas epífitas adaptadas al microclima de montaña.
 - **Clima terapéutico:** Con una temperatura promedio entre 22°C y 26°C de día y noches frescas de 18°C, el aire puro y la oxigenación constante aceleran la recuperación del sistema nervioso, reduciendo notablemente los niveles de cortisol acumulados en la ciudad.
 
----
-
-## 5. Biodiversidad del bosque premontano andino en Venecia
-
-La transición geográfica entre el cañón cálido del río Cauca y las cumbres templadas del Suroeste crea un corredor biológico privilegiado:
-
-- **Aves emblemáticas:** Es común observar tucanes esmeralda (*Aulacorhynchus prasinus*), barranqueros coronados (*Momotus momota*), gavilanes camineros y bandadas de loros que cruzan sobre la finca al amanecer.
-- **Flora nativa protegida:** Guayacanes amarillos y rosados que florecen estacionalmente, ceibas centenarias en las riberas y más de 30 variedades de orquídeas epífitas adaptadas al microclima de montaña.
-- **Clima terapéutico:** Con una temperatura promedio entre 22°C y 26°C de día y noches frescas de 18°C, el aire puro y la oxigenación constante aceleran la recuperación del sistema nervioso, reduciendo notablemente los niveles de cortisol acumulados en la ciudad.
 
 ---
 

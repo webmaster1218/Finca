@@ -151,18 +151,6 @@ Una agenda estructurada para asegurar diversión para los niños y verdadero rep
 
 ---
 
-## 5. Itinerario de 48 horas para un fin de semana campestre en familia
-
-Una agenda estructurada para asegurar diversión para los niños y verdadero reposo para los adultos:
-
-- **Sábado mañana (Llegada y bienvenida campestre):** Recibimiento en La Juana con jugos de fruta fresca recién exprimidos. Los niños exploran los jardines y eligen sus camas en las 6 habitaciones privadas, mientras el mayordomo ubica el equipaje.
-- **Sábado mediodía (Almuerzo y tarde acuática):** Almuerzo típico preparado por las camareras locales (sancocho trifásico o asado en la terraza). Tarde de juegos acuáticos en la piscina bajo el sol de Venecia.
-- **Sábado noche (Fogata y astronomía):** Encendido de la fogata con malvaviscos tostados, historias familiares y avistamiento de constelaciones en un cielo libre de contaminación lumínica urbana.
-- **Domingo mañana (Aventura pedagógica en Comfama):** Visita de media jornada al Parque Comfama Cerro Tusa (a solo 5 minutos de la finca) para recorrer senderos ecológicos, aprender sobre la cultura Zenúfana y disfrutar de juegos de cuerdas.
-- **Domingo tarde (Descanso final y retorno):** Regreso a la finca para un almuerzo ligero, baño de jacuzzi templado y retorno relajado a Medellín antes del tráfico de la noche.
-
----
-
 ## Puntos clave
 
 Planear **planes con niños en Antioquia** no tiene por qué ser un desafío agotador. En Venecia, a la sombra del legendario Cerro Tusa, la aventura al aire libre y el confort hotelero se encuentran para regalarle a tus hijos una infancia de prados verdes, agua fresca y noches de fogata. Descubre la distribución de las habitaciones en nuestro portal de [estancias y suites](/es/#habitaciones) o contáctanos por WhatsApp para organizar tu próxima salida familiar.

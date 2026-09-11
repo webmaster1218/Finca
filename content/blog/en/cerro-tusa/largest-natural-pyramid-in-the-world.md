@@ -32,8 +32,8 @@ imagenes:
       culture at Cerro Tusa
   - archivo: /blog/piramide-natural-mas-grande-del-mundo/cuerpo-3.webp
     alt: >-
-      Ancestral meditation pavilion with thatched roof at La Juana in the shadow
-      of Cerro Tusa
+      Ancestral ceremonial maloka with thatched roof at Parque Comfama Cerro Tusa,
+      5 minutes from La Juana estate
 tldr:
   - >-
     Cerro Tusa rises to 1,950 meters (6,400 ft) with a 600-meter sheer vertical
@@ -144,7 +144,7 @@ La Juana Cerro Tusa is located in Parcelación Rochiles, just five minutes from 
 
 This setting bridges authentic wilderness exploration with the amenities of a premier [luxury finca in Antioquia](/en/blog/luxury-fincas/luxury-finca-antioquia).
 
-![Ancestral meditation pavilion with thatched roof at La Juana in the shadow of Cerro Tusa](/blog/piramide-natural-mas-grande-del-mundo/cuerpo-3.webp)
+![Ancestral ceremonial maloka with thatched roof at Parque Comfama Cerro Tusa, 5 minutes from La Juana estate](/blog/piramide-natural-mas-grande-del-mundo/cuerpo-3.webp)
 
 ---
 

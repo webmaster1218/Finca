@@ -166,16 +166,6 @@ The key to a truly successful family vacation is offering activities where grand
 
 ---
 
-## Multi-Generational Activities That Everyone Enjoys
-
-The key to a truly successful family vacation is offering activities where grandparents, toddlers, and teenagers can connect effortlessly:
-
-- **Traditional Open-Air Board Games:** The expansive covered corridors of La Juana provide breezy shade for afternoon domino tournaments, chess matches, and card games while children splash safely in the shallow end of the pool.
-- **Campfire Storytelling & Stargazing:** As night descends, gathering around the central stone fire pit for roasted marshmallows, hot chocolate, and family storytelling creates lifelong childhood memories under an unpolluted night sky.
-- **Interactive Country Kitchen Experience:** Children love watching our friendly house cook make fresh corn arepas on the grill, offering an engaging, tactile glimpse into authentic Colombian culinary culture.
-
----
-
 ## Key Takeaways
 
 **Family glamping near Medellín** should be an enriching, safe experience for every generation. The countryside suites at La Juana in Venecia, resting in the shadow of Cerro Tusa, strike the perfect harmony: outdoor freedom for children, comforting accessibility for grandparents, and genuine rest for parents. View our bedroom arrangements in our [rooms and accommodations overview](/en/#rooms) or reach out via WhatsApp to plan your next family holiday.
