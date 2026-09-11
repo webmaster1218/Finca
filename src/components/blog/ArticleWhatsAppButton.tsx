@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import type { Locale } from "../../../lib/blog-types";
+import type { Locale } from "../../lib/blog-types";
 
 type Props = {
   categoria: string;

@@ -40,11 +40,12 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   const altEn = getAlternateLocaleArticle(article, "en");
   const altEs = getAlternateLocaleArticle(article, "es");
 
-  const languages: Record<string, string> = {
-    "x-default": `${baseUrl}/${defaultLocale}/blog/${getCategorySlug(article.categoria, defaultLocale)}/${article.slug}`,
-  };
+  const languages: Record<string, string> = {};
   if (altEs.exists) languages.es = `${baseUrl}${altEs.href}`;
   if (altEn.exists) languages.en = `${baseUrl}${altEn.href}`;
+  languages["x-default"] = altEs.exists
+    ? `${baseUrl}${altEs.href}`
+    : `${baseUrl}/${defaultLocale}/blog`;
 
   return {
     title,
@@ -52,6 +53,9 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
     alternates: {
       canonical: `${baseUrl}${article.href}`,
       languages,
+      types: {
+        'text/markdown': `${baseUrl}/api/md/${lang}/${categoria}/${slug}`,
+      },
     },
     openGraph: {
       title,
@@ -97,7 +101,13 @@ export default async function ArticlePage({ params }: { params: Promise<Params> 
     author: {
       "@type": "Person",
       name: article.autor,
-      url: baseUrl,
+      jobTitle: lang === "es" ? "Especialista en Destino y Hospitalidad" : "Destination & Hospitality Specialist",
+      worksFor: {
+        "@type": "Organization",
+        name: "La Juana Cerro Tusa",
+        url: baseUrl,
+      },
+      url: `${baseUrl}/${lang}`,
     },
     publisher: {
       "@type": "Organization",

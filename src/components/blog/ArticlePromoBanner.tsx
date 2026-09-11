@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import Link from "next/link";
-import type { Locale } from "../../../lib/blog-types";
+import type { Locale } from "../../lib/blog-types";
 import { ArticleWhatsAppButton } from "./ArticleWhatsAppButton";
 
 type Props = {

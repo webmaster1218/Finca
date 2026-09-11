@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { Users, Calendar as CalendarIcon, Sparkles } from "lucide-react";
-import type { Locale } from "../../../lib/blog-types";
+import type { Locale } from "../../lib/blog-types";
 
 type Props = {
   categoria: string;

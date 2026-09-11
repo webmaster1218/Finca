@@ -1,9 +1,12 @@
 ---
-date: 2026-06-05
-title: "Family vacation in Medellín with kids: a practical guide"
-meta_title: "Family vacation in Medellín with kids: a practical guide"
-meta_description: "Planning a family vacation in Medellín with kids? What to look for, plans by age, and a private farmhouse in Venecia with pool, house staff and Cerro Tusa 5 minutes away."
-keyword_principal: "family vacation medellin with kids"
+date: 2026-06-05T00:00:00.000Z
+title: 'Family vacation in Medellín with kids: a practical guide'
+meta_title: 'Family vacation in Medellín with kids: a practical guide'
+meta_description: >-
+  Planning a family vacation in Medellín with kids? What to look for, plans by
+  age, and a private farmhouse in Venecia with pool, house staff and Cerro Tusa
+  5 minutes away.
+keyword_principal: family vacation medellin with kids
 keywords_secundarias:
   - medellin with kids
   - family holiday colombia
@@ -16,31 +19,62 @@ slug_en: family-vacation-medellin-kids
 categoria_en: family-holidays-colombia
 categoria_es: familia
 slug_es: vacaciones-familia-medellin-ninos
-palabras:     1286
+palabras: 1414
 autor: Valentina Restrepo
-portada: /blog/vacaciones-familia-medellin-ninos/portada.webp
-portada_alt: "Country house with pool and gardens for a family vacation near Medellín, La Juana in Venecia, Antioquia"
+portada: /blog/family-vacation-medellin-kids/portada-v4.webp
+portada_alt: >-
+  Family with young children smiling and enjoying the pool and terrace of a
+  luxury country estate in Antioquia
 imagenes:
   - archivo: /blog/vacaciones-familia-medellin-ninos/cuerpo-1.webp
-    alt: "Pool with a fire pit at the center of the farmhouse, family vacation in Medellín with kids at La Juana Cerro Tusa"
+    alt: >-
+      Pool with a fire pit at the center of the farmhouse, family vacation in
+      Medellín with kids at La Juana Cerro Tusa
   - archivo: /blog/vacaciones-familia-medellin-ninos/cuerpo-2.webp
-    alt: "Barbecue table on the terrace with mountain views, family lunch on a kid-friendly vacation near Medellín"
+    alt: >-
+      Barbecue table on the terrace with mountain views, family lunch on a
+      kid-friendly vacation near Medellín
   - archivo: /blog/vacaciones-familia-medellin-ninos/cuerpo-3.webp
-    alt: "Resting in the farmhouse gardens during a family holiday in Antioquia with children"
+    alt: >-
+      Resting in the farmhouse gardens during a family holiday in Antioquia with
+      children
 tldr:
-  - "A private farmhouse two and a half hours from Medellín solves the hard parts of traveling with kids: safe space to roam, a staffed kitchen, and no daily shuttling."
-  - "La Juana Cerro Tusa hosts up to 16 people across 6 bedrooms, with a butler and two housekeepers included in the booking."
-  - "Parque Comfama Cerro Tusa is 5 minutes from the house: trails, water, and Antioquia's best-known natural pyramid."
-  - "The full estate costs COP 2,800,000 per night, with every facility and the house staff included."
+  - >-
+    A private farmhouse two and a half hours from Medellín solves the hard parts
+    of traveling with kids: safe space to roam, a staffed kitchen, and no daily
+    shuttling.
+  - >-
+    La Juana Cerro Tusa hosts up to 16 people across 6 bedrooms, with a butler
+    and two housekeepers included in the booking.
+  - >-
+    Parque Comfama Cerro Tusa is 5 minutes from the house: trails, water, and
+    Antioquia's best-known natural pyramid.
+  - >-
+    The full estate costs COP 2,800,000 per night, with every facility and the
+    house staff included.
 faq:
   - pregunta: What ages work best at the farmhouse?
-    respuesta: "All of them. Toddlers get the pool and gardens with an adult close by; kids aged 6 to 11 add trails and outdoor play; teenagers take on the guided Cerro Tusa ascent and horseback rides in the region as their own challenge."
+    respuesta: >-
+      All of them. Toddlers get the pool and gardens with an adult close by;
+      kids aged 6 to 11 add trails and outdoor play; teenagers take on the
+      guided Cerro Tusa ascent and horseback rides in the region as their own
+      challenge.
   - pregunta: Is the property safe for small children?
-    respuesta: "La Juana rents as a whole house, with no outside guests and no shared events. The butler and two housekeepers stay on the property throughout your visit. The pool has no lifeguard, so children always swim with an adult beside them."
+    respuesta: >-
+      La Juana rents as a whole house, with no outside guests and no shared
+      events. The butler and two housekeepers stay on the property throughout
+      your visit. The pool has no lifeguard, so children always swim with an
+      adult beside them.
   - pregunta: Is there someone to cook for the family?
-    respuesta: "Yes. House service is included: the butler and housekeepers are locals who cook, look after the house, and know the trails of the Suroeste. It is not an add-on you negotiate separately."
+    respuesta: >-
+      Yes. House service is included: the butler and housekeepers are locals who
+      cook, look after the house, and know the trails of the Suroeste. It is not
+      an add-on you negotiate separately.
   - pregunta: How much does a family stay cost?
-    respuesta: "The full estate rents for COP 2,800,000 per night for groups of up to 16, with pool, jacuzzi, steam room, fire pit, morning specialty coffee and the house staff all included."
+    respuesta: >-
+      The full estate rents for COP 2,800,000 per night for groups of up to 16,
+      with pool, jacuzzi, steam room, fire pit, morning specialty coffee and the
+      house staff all included.
 ---
 
 # Family vacation in Medellín with kids: a practical guide

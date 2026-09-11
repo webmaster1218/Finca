@@ -1,9 +1,12 @@
 ---
-date: 2026-06-05
-title: "Vacaciones en familia en Medellín con niños: guía práctica"
-meta_title: "Vacaciones en familia en Medellín con niños: guía práctica"
-meta_description: "Guía práctica de vacaciones en familia en Medellín con niños: qué buscar, planes por edad y una finca en Venecia con piscina, mayordomo y Cerro Tusa a 5 minutos."
-keyword_principal: "vacaciones familia medellin con niños"
+date: 2026-06-05T00:00:00.000Z
+title: 'Vacaciones en familia en Medellín con niños: guía práctica'
+meta_title: 'Vacaciones en familia en Medellín con niños: guía práctica'
+meta_description: >-
+  Guía práctica de vacaciones en familia en Medellín con niños: qué buscar,
+  planes por edad y una finca en Venecia con piscina, mayordomo y Cerro Tusa a 5
+  minutos.
+keyword_principal: vacaciones familia medellin con niños
 keywords_secundarias:
   - vacaciones en familia antioquia
   - planes con niños cerca de medellín
@@ -14,31 +17,61 @@ categoria: familia
 slug: vacaciones-familia-medellin-ninos
 slug_en: family-vacation-medellin-kids
 categoria_en: family-holidays-colombia
-palabras: 1393
+palabras: 1509
 autor: Valentina Restrepo
-portada: /blog/vacaciones-familia-medellin-ninos/portada.webp
-portada_alt: "Casa de campo con piscina y jardines amplios para vacaciones en familia cerca de Medellín, La Juana en Venecia Antioquia"
+portada: /blog/vacaciones-familia-medellin-ninos/portada-v4.webp
+portada_alt: >-
+  Familia con niños pequeños sonriendo y disfrutando de la piscina y terraza de
+  una hacienda campestre en Antioquia
 imagenes:
   - archivo: /blog/vacaciones-familia-medellin-ninos/cuerpo-1.webp
-    alt: "Piscina con fogata en el centro de la finca, plan de vacaciones familia Medellín con niños en La Juana Cerro Tusa"
+    alt: >-
+      Piscina con fogata en el centro de la finca, plan de vacaciones familia
+      Medellín con niños en La Juana Cerro Tusa
   - archivo: /blog/vacaciones-familia-medellin-ninos/cuerpo-2.webp
-    alt: "Mesa de asado en la terraza con vista a la montaña, almuerzo familiar en vacaciones cerca de Medellín con niños"
+    alt: >-
+      Mesa de asado en la terraza con vista a la montaña, almuerzo familiar en
+      vacaciones cerca de Medellín con niños
   - archivo: /blog/vacaciones-familia-medellin-ninos/cuerpo-3.webp
-    alt: "Descanso en los jardines de la finca durante unas vacaciones en familia en Antioquia con niños"
+    alt: >-
+      Descanso en los jardines de la finca durante unas vacaciones en familia en
+      Antioquia con niños
 tldr:
-  - "Una finca completa a dos horas y media de Medellín resuelve lo difícil de viajar con niños: espacio seguro, cocina atendida y cero traslados diarios."
-  - "La Juana Cerro Tusa recibe hasta 16 personas en 6 habitaciones, con mayordomo y dos camareras incluidos en la reserva."
-  - "El Parque Comfama Cerro Tusa queda a 5 minutos de la finca: senderos, agua y la pirámide natural más conocida de Antioquia."
-  - "La finca completa cuesta $2.800.000 COP por noche, con todas las instalaciones y el servicio de la casa incluidos."
+  - >-
+    Una finca completa a dos horas y media de Medellín resuelve lo difícil de
+    viajar con niños: espacio seguro, cocina atendida y cero traslados diarios.
+  - >-
+    La Juana Cerro Tusa recibe hasta 16 personas en 6 habitaciones, con
+    mayordomo y dos camareras incluidos en la reserva.
+  - >-
+    El Parque Comfama Cerro Tusa queda a 5 minutos de la finca: senderos, agua y
+    la pirámide natural más conocida de Antioquia.
+  - >-
+    La finca completa cuesta $2.800.000 COP por noche, con todas las
+    instalaciones y el servicio de la casa incluidos.
 faq:
   - pregunta: ¿Qué edad deben tener los niños para disfrutar la finca?
-    respuesta: "Todas. Los más pequeños aprovechan la piscina y los jardines con supervisión de un adulto; entre los 6 y los 11 años suman senderos y juegos al aire libre; los adolescentes tienen el ascenso al Cerro Tusa y las cabalgatas de la región como reto propio."
+    respuesta: >-
+      Todas. Los más pequeños aprovechan la piscina y los jardines con
+      supervisión de un adulto; entre los 6 y los 11 años suman senderos y
+      juegos al aire libre; los adolescentes tienen el ascenso al Cerro Tusa y
+      las cabalgatas de la región como reto propio.
   - pregunta: ¿La finca es segura para niños pequeños?
-    respuesta: "La Juana se alquila completa, sin huéspedes extraños ni eventos cruzados. El mayordomo y las dos camareras están siempre en la finca durante la estadía. La piscina no cuenta con salvavidas, así que el baño de los niños siempre se hace acompañados de un adulto."
+    respuesta: >-
+      La Juana se alquila completa, sin huéspedes extraños ni eventos cruzados.
+      El mayordomo y las dos camareras están siempre en la finca durante la
+      estadía. La piscina no cuenta con salvavidas, así que el baño de los niños
+      siempre se hace acompañados de un adulto.
   - pregunta: ¿Hay quien cocine para la familia?
-    respuesta: "Sí. El servicio de la casa está incluido: el mayordomo y las camareras son gente de la región que cocinan, atienden y conocen los trails del Suroeste. No es un extra que se negocia aparte."
+    respuesta: >-
+      Sí. El servicio de la casa está incluido: el mayordomo y las camareras son
+      gente de la región que cocinan, atienden y conocen los trails del
+      Suroeste. No es un extra que se negocia aparte.
   - pregunta: ¿Cuánto cuestan las vacaciones en familia en esta finca?
-    respuesta: "La finca completa cuesta $2.800.000 COP por noche para grupos de hasta 16 personas, con piscina, jacuzzi, turco, fogata, café del Diamante cada mañana y el personal de servicio incluidos."
+    respuesta: >-
+      La finca completa cuesta $2.800.000 COP por noche para grupos de hasta 16
+      personas, con piscina, jacuzzi, turco, fogata, café del Diamante cada
+      mañana y el personal de servicio incluidos.
 ---
 
 # Vacaciones en familia en Medellín con niños: guía práctica

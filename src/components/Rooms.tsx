@@ -23,6 +23,7 @@ export function Rooms() {
 
     return (
         <section id="habitaciones" className="relative min-h-screen flex items-center justify-center py-24 md:py-32 bg-[#fffbf0] z-20">
+            <div id="rooms" className="absolute top-0 pointer-events-none" />
             <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
                 {/* Main Header */}
                 <div className="text-center mb-16 md:mb-24">

@@ -1,9 +1,12 @@
 ---
-date: 2026-05-22
-title: "Glamping Cerro Tusa: guía completa frente a la pirámide natural"
-meta_title: "Glamping Cerro Tusa: guía de hospedaje frente a la pirámide"
-meta_description: "¿Buscas glamping en Cerro Tusa? Descubre las opciones de hospedaje frente a la Gran Pirámide Natural, desde domos hasta la exclusiva finca La Juana, en Venecia, Antioquia."
-keyword_principal: "glamping cerro tusa"
+date: 2026-05-22T00:00:00.000Z
+title: 'Glamping Cerro Tusa: guía completa frente a la pirámide natural'
+meta_title: 'Glamping Cerro Tusa: guía de hospedaje frente a la pirámide'
+meta_description: >-
+  ¿Buscas glamping en Cerro Tusa? Descubre las opciones de hospedaje frente a la
+  Gran Pirámide Natural, desde domos hasta la exclusiva finca La Juana, en
+  Venecia, Antioquia.
+keyword_principal: glamping cerro tusa
 keywords_secundarias:
   - glamping mirador de cerro tusa
   - glamping de lujo
@@ -12,10 +15,12 @@ categoria: glamping
 slug: glamping-cerro-tusa
 slug_en: glamping-cerro-tusa
 categoria_en: glamping
-palabras: 1095
+palabras: 1123
 autor: Valentina Restrepo
-portada: /blog/glamping-cerro-tusa/portada.webp
-portada_alt: "El Cerro Tusa al atardecer, la pirámide natural más grande del mundo, desde Venecia Antioquia"
+portada: /blog/glamping-cerro-tusa/portada-v2.webp
+portada_alt: >-
+  El Cerro Tusa al atardecer, la pirámide natural más grande del mundo, desde
+  Venecia Antioquia
 ---
 
 # Glamping Cerro Tusa: guía completa de alojamiento frente a la pirámide natural

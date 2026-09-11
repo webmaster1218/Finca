@@ -1,9 +1,14 @@
 ---
-date: 2026-04-10
-title: "Finca para Eventos en Antioquia: Bodas, Retiros y Celebraciones en la Falda del Cerro Tusa"
-meta_title: "Finca para Eventos en Antioquia: bodas, retiros y celebraciones"
-meta_description: "La Juana Cerro Tusa es la finca para eventos en Antioquia que buscas: capacidad para 50+ invitados, piscina, áreas verdes, catering antioqueño y vista al Cerro Tusa. Ideal para bodas, cumpleaños y retiros."
-keyword_principal: "finca para eventos antioquia"
+date: 2026-04-10T00:00:00.000Z
+title: >-
+  Finca para Eventos en Antioquia: Bodas, Retiros y Celebraciones en la Falda
+  del Cerro Tusa
+meta_title: 'Finca para Eventos en Antioquia: bodas, retiros y celebraciones'
+meta_description: >-
+  La Juana Cerro Tusa es la finca para eventos en Antioquia que buscas:
+  capacidad para 50+ invitados, piscina, áreas verdes, catering antioqueño y
+  vista al Cerro Tusa. Ideal para bodas, cumpleaños y retiros.
+keyword_principal: finca para eventos antioquia
 keywords_secundarias:
   - finca para grupos grandes
   - finca para bodas antioquia
@@ -14,10 +19,12 @@ categoria: fincas-de-eventos
 slug: finca-para-eventos-antioquia
 slug_en: event-venue-finca-antioquia
 categoria_en: event-venues-colombia
-palabras: 1882
+palabras: 2018
 autor: Valentina Restrepo
-portada: /blog/finca-para-eventos-antioquia/portada.webp
-portada_alt: "Casa de bahareque de la finca La Juana con vista al Cerro Tusa, finca para eventos en Antioquia"
+portada: /blog/finca-para-eventos-antioquia/portada-v2.webp
+portada_alt: >-
+  Montaje campestre elegante para eventos y celebraciones privadas con vista a
+  las montañas de Antioquia
 ---
 
 # Finca para Eventos en Antioquia: Bodas, Retiros y Celebraciones en la Falda del Cerro Tusa

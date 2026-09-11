@@ -1,9 +1,13 @@
 ---
-date: 2026-04-10
-title: "Event Venue in Antioquia: Weddings, Retreats and Celebrations at the Foot of Cerro Tusa"
-meta_title: "Event Venue in Antioquia: finca for weddings & retreats"
-meta_description: "Finca event venue in Antioquia for 50+ guests, with pool, green areas and Cerro Tusa views. Ideal for weddings, birthdays and corporate retreats."
-keyword_principal: "event venue antioquia"
+date: 2026-04-10T00:00:00.000Z
+title: >-
+  Event Venue in Antioquia: Weddings, Retreats and Celebrations at the Foot of
+  Cerro Tusa
+meta_title: 'Event Venue in Antioquia: finca for weddings & retreats'
+meta_description: >-
+  Finca event venue in Antioquia for 50+ guests, with pool, green areas and
+  Cerro Tusa views. Ideal for weddings, birthdays and corporate retreats.
+keyword_principal: event venue antioquia
 keywords_secundarias:
   - event finca antioquia
   - wedding venue antioquia
@@ -16,17 +20,25 @@ slug_en: event-venue-finca-antioquia
 categoria_en: event-venues-colombia
 categoria_es: fincas-de-eventos
 slug_es: finca-para-eventos-antioquia
-palabras: 1937
+palabras: 2072
 autor: Valentina Restrepo
-portada: /blog/finca-para-eventos-antioquia/portada.webp
-portada_alt: "Bahareque farmhouse of La Juana with views of Cerro Tusa, an event venue finca in Antioquia"
+portada: /blog/event-venue-finca-antioquia/portada-v2.webp
+portada_alt: >-
+  Bahareque farmhouse of La Juana with views of Cerro Tusa, an event venue finca
+  in Antioquia
 imagenes:
   - archivo: /blog/finca-para-eventos-antioquia/cuerpo-1.webp
-    alt: "Outdoor wedding reception in the garden of a finca in Antioquia, long tables with flowers and lights in front of the mountains"
+    alt: >-
+      Outdoor wedding reception in the garden of a finca in Antioquia, long
+      tables with flowers and lights in front of the mountains
   - archivo: /blog/finca-para-eventos-antioquia/cuerpo-2.webp
-    alt: "Pool terrace at a luxury finca in Antioquia with views over a green valley and the rocky peak, loungers and blue water"
+    alt: >-
+      Pool terrace at a luxury finca in Antioquia with views over a green valley
+      and the rocky peak, loungers and blue water
   - archivo: /blog/finca-para-eventos-antioquia/cuerpo-3.webp
-    alt: "Night bonfire at a finca in Antioquia, warm flames with hanging lights and the silhouette of the mountain behind"
+    alt: >-
+      Night bonfire at a finca in Antioquia, warm flames with hanging lights and
+      the silhouette of the mountain behind
 ---
 
 # Event Venue in Antioquia: Weddings, Retreats and Celebrations at the Foot of Cerro Tusa
@@ -37,7 +49,7 @@ La Juana Cerro Tusa is that place.
 
 Two hours from Medellín, in the heart of Venecia (Antioquia), this **event venue in Antioquia** pairs wide open-air spaces with the warmth of a countryside house that knows how to host. No plaster moldings, no starched tablecloths. Just grass, a pool, the shade of a guayacán tree and, in the distance, the sharp silhouette of Cerro Tusa.
 
-If you are still deciding between options, get a feel for the place in the [photo gallery](/en/gallery), or read about the [luxury farmhouse experience](/en/blog/luxury-fincas/finca-la-juana-luxury-experience) from the inside.
+If you are still deciding between options, get a feel for the place in the [photo gallery](/en/galeria), or read about the [luxury farmhouse experience](/en/blog/luxury-fincas/finca-la-juana-luxury-experience) from the inside.
 
 ---
 
@@ -196,7 +208,7 @@ There are many fincas in Antioquia. Why pick this one for your event?
 
 Because La Juana does not feel like an event hall dressed up as a farm. It is a real finca: the smell of wet earth, the hens walking around the back, the cook who prepares food with recipes she learned from her grandmother. Guests notice. The celebration becomes more authentic because the place is.
 
-And because it sits in the shadow of Cerro Tusa. No decoration competes with that view. If you want to make the most of your days here beyond the event, check the [things to do in Venecia Antioquia](/en/blog/cerro-tusa/things-to-do-venecia-antioquia) guide, or go for the [Sacred Ascent tour](/en/tours/sacred-ascent) as a full day out.
+And because it sits in the shadow of Cerro Tusa. No decoration competes with that view. If you want to make the most of your days here beyond the event, check the [things to do in Venecia Antioquia](/en/blog/cerro-tusa/things-to-do-venecia-antioquia) guide, or go for the [Sacred Ascent tour](/en/tours/ascenso-sagrado) as a full day out.
 
 ---
 

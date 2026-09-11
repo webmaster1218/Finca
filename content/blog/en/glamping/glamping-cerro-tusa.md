@@ -1,9 +1,12 @@
 ---
-date: 2026-05-22
-title: "Glamping Cerro Tusa: the complete guide to sleeping by the natural pyramid"
-meta_title: "Glamping Cerro Tusa: your guide to staying by the pyramid"
-meta_description: "Looking for glamping at Cerro Tusa? See the best stays facing the Great Natural Pyramid, from geodesic domes to La Juana farmhouse in Venecia, Antioquia."
-keyword_principal: "glamping cerro tusa"
+date: 2026-05-22T00:00:00.000Z
+title: 'Glamping Cerro Tusa: the complete guide to sleeping by the natural pyramid'
+meta_title: 'Glamping Cerro Tusa: your guide to staying by the pyramid'
+meta_description: >-
+  Looking for glamping at Cerro Tusa? See the best stays facing the Great
+  Natural Pyramid, from geodesic domes to La Juana farmhouse in Venecia,
+  Antioquia.
+keyword_principal: glamping cerro tusa
 keywords_secundarias:
   - glamping with a view of cerro tusa
   - luxury glamping colombia
@@ -14,15 +17,21 @@ slug_en: glamping-cerro-tusa
 categoria_en: glamping
 categoria_es: glamping
 slug_es: glamping-cerro-tusa
-palabras: 1281
+palabras: 1282
 autor: Valentina Restrepo
-portada: /blog/glamping-cerro-tusa/portada.webp
-portada_alt: "Cerro Tusa at sunset, the world's largest natural pyramid, seen from Venecia, Antioquia"
+portada: /blog/glamping-cerro-tusa/portada-v2.webp
+portada_alt: >-
+  Cerro Tusa at sunset, the world's largest natural pyramid, seen from Venecia,
+  Antioquia
 imagenes:
   - archivo: /blog/glamping-cerro-tusa/cuerpo-1.webp
-    alt: "A luxury glamping dome in front of Cerro Tusa in Colombia, with clear windows, a wooden terrace, and morning mist"
+    alt: >-
+      A luxury glamping dome in front of Cerro Tusa in Colombia, with clear
+      windows, a wooden terrace, and morning mist
   - archivo: /blog/glamping-cerro-tusa/cuerpo-2.webp
-    alt: "A geodesic glamping dome at sunset with warm lights inside, a bonfire outside, and a view of the mountain"
+    alt: >-
+      A geodesic glamping dome at sunset with warm lights inside, a bonfire
+      outside, and a view of the mountain
 ---
 
 # Glamping Cerro Tusa: the complete guide to sleeping by the natural pyramid
@@ -67,7 +76,7 @@ Luxury glamping solves one need: sleeping comfortably in nature. But when you ar
 
 La Juana is a complete farmhouse with 6 rooms, 8 beds, and 6 bathrooms, 1.5 kilometers from Parque Comfama Cerro Tusa. It has a pool, a private hot tub, a steam room, a bonfire, a kiosk, fast WiFi, and a staff of two maids and a butler who make sure you do not have to think about anything. For the full story of the house, take a look at our guide to the [luxury experience at La Juana](/en/blog/luxury-fincas/finca-la-juana-luxury-experience).
 
-The view of the mountain is not a postcard. It is there from the terrace, from the pool, from breakfast. More photos in the [gallery](/en/gallery).
+The view of the mountain is not a postcard. It is there from the terrace, from the pool, from breakfast. More photos in the [gallery](/en/galeria).
 
 ### What glamping does not give you (and La Juana does)
 
@@ -77,7 +86,7 @@ The view of the mountain is not a postcard. It is there from the terrace, from t
 
 **Service included.** Two maids and a butler are available through your whole stay. They cook, they serve, they take care of the rest. At a glamping site, you are the one making breakfast. Not here.
 
-**Complete experiences.** Through our alliance with Al Parche Venecia, you can add the Cerro Tusa tour (5 hours, advanced level), the [bee tour](/en/blog/cerro-tusa/things-to-do-venecia-antioquia) (beekeeping with a honey tasting), or the cultural walk through Venecia with its murals and museums. For a full day around the climb, the [Sacred Ascent tour](/en/tours/sacred-ascent) leaves from Medellín and brings you back the same day. And if you have two nights, the [Mirror Goddess Retreat](/en/tours/mirror-goddess-retreat) wraps the ascent, the pool, and sunrise yoga into one plan. Glamping gives you a bed; La Juana gives you a whole destination.
+**Complete experiences.** Through our alliance with Al Parche Venecia, you can add the Cerro Tusa tour (5 hours, advanced level), the [bee tour](/en/blog/cerro-tusa/things-to-do-venecia-antioquia) (beekeeping with a honey tasting), or the cultural walk through Venecia with its murals and museums. For a full day around the climb, the [Sacred Ascent tour](/en/tours/ascenso-sagrado) leaves from Medellín and brings you back the same day. And if you have two nights, the [Mirror Goddess Retreat](/en/tours/retiro-diosa-espejo) wraps the ascent, the pool, and sunrise yoga into one plan. Glamping gives you a bed; La Juana gives you a whole destination.
 
 ### Who is La Juana for?
 

@@ -78,6 +78,34 @@ export default async function LocaleLayout({
 
   const dictionary = await getDictionary(locale);
 
+  const lodgingBusinessSchema = {
+    "@context": "https://schema.org",
+    "@type": "LodgingBusiness",
+    name: "La Juana Cerro Tusa",
+    description:
+      locale === "es"
+        ? "Finca de lujo y glamping frente al Cerro Tusa en Venecia, Antioquia. Alquiler exclusivo, suites privadas y expediciones ecológicas."
+        : "Luxury ranch and glamping facing Cerro Tusa in Venecia, Antioquia. Exclusive rental, private suites and eco expeditions.",
+    url: `https://lajuanacerrotusa.com/${locale}`,
+    telephone: "+573003608621",
+    address: {
+      "@type": "PostalAddress",
+      addressLocality: "Venecia",
+      addressRegion: "Antioquia",
+      addressCountry: "CO",
+    },
+    geo: {
+      "@type": "GeoCoordinates",
+      latitude: "5.97",
+      longitude: "-75.73",
+    },
+    starRating: {
+      "@type": "Rating",
+      ratingValue: "5",
+    },
+    priceRange: "$$$$",
+  };
+
   return (
     <html lang={locale} className={`${playfair.variable} ${inter.variable}`}>
       <head>
@@ -92,6 +120,10 @@ export default async function LocaleLayout({
            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
           })(window,document,'script','dataLayer','GTM-KD4PBWJF');`}
         </Script>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(lodgingBusinessSchema) }}
+        />
       </head>
       <body className="antialiased font-sans">
         <noscript>

@@ -1,9 +1,12 @@
 ---
-date: 2026-03-20
-title: "Things to Do in Venecia Antioquia: A Complete Guide"
-meta_title: "Things to Do in Venecia Antioquia: Complete 2026 Guide"
-meta_description: "What to do in Venecia Antioquia: Cerro Tusa, the world's largest natural pyramid, waterfalls, museums, climate, getting there from Medellín, and where to stay."
-keyword_principal: "things to do in venecia antioquia"
+date: 2026-03-20T00:00:00.000Z
+title: 'Things to Do in Venecia Antioquia: A Complete Guide'
+meta_title: 'Things to Do in Venecia Antioquia: Complete 2026 Guide'
+meta_description: >-
+  What to do in Venecia Antioquia: Cerro Tusa, the world's largest natural
+  pyramid, waterfalls, museums, climate, getting there from Medellín, and where
+  to stay.
+keyword_principal: things to do in venecia antioquia
 keywords_secundarias:
   - venecia antioquia tourism
   - how to get to venecia antioquia
@@ -15,17 +18,23 @@ slug_en: things-to-do-venecia-antioquia
 categoria_en: cerro-tusa
 categoria_es: cerro-tusa
 slug_es: que-hacer-venecia-antioquia
-palabras: 1816
+palabras: 1922
 autor: Valentina Restrepo
-portada: /blog/que-hacer-venecia-antioquia/portada.webp
-portada_alt: "Cerro Tusa, the world's largest natural pyramid, seen from Venecia Antioquia"
+portada: /blog/things-to-do-venecia-antioquia/portada-v2.webp
+portada_alt: 'Cerro Tusa, the world''s largest natural pyramid, seen from Venecia Antioquia'
 imagenes:
   - archivo: /blog/que-hacer-venecia-antioquia/cuerpo-1.webp
-    alt: "Hiking trail up Cerro Tusa in Venecia Antioquia, between green mountains and tropical vegetation"
+    alt: >-
+      Hiking trail up Cerro Tusa in Venecia Antioquia, between green mountains
+      and tropical vegetation
   - archivo: /blog/que-hacer-venecia-antioquia/cuerpo-2.webp
-    alt: "Bee tour in Venecia Antioquia, wooden hives in a green valley with a beekeeper in a white suit"
+    alt: >-
+      Bee tour in Venecia Antioquia, wooden hives in a green valley with a
+      beekeeper in a white suit
   - archivo: /blog/que-hacer-venecia-antioquia/cuerpo-3.webp
-    alt: "Waterfall among tropical vegetation in the Venecia Antioquia canyon, crystal water falling into a natural pool"
+    alt: >-
+      Waterfall among tropical vegetation in the Venecia Antioquia canyon,
+      crystal water falling into a natural pool
 ---
 
 # Things to Do in Venecia Antioquia: A Complete Guide
@@ -52,7 +61,7 @@ The guided tour, run by **Al Parche Venecia**, lasts about five hours. It is rat
 
 ![Hiking trail up Cerro Tusa in Venecia Antioquia, between green mountains and tropical vegetation](/blog/que-hacer-venecia-antioquia/cuerpo-1.webp)
 
-For those who prefer to let someone else handle the whole day, there is a ready-made option: the [Sacred Ascent tour](/en/tours/sacred-ascent), a twelve-hour round trip from Medellín.
+For those who prefer to let someone else handle the whole day, there is a ready-made option: the [Sacred Ascent tour](/en/tours/ascenso-sagrado), a twelve-hour round trip from Medellín.
 
 ### 2. The bees tour, an apiculture experience
 
@@ -144,13 +153,13 @@ It sits 1.5 km from Parque Comfama Cerro Tusa, in the Rochiles parcel, with a di
 - High-speed WiFi (yes, it actually works)
 - Covered parking
 
-What sets it apart is the service: **2 maids and 1 butler** come with the booking. You arrive, they greet you with regional coffee, and everything is ready so you do not have to worry about a thing. If you want to see the house and the grounds before deciding, [browse the gallery](/en/gallery).
+What sets it apart is the service: **2 maids and 1 butler** come with the booking. You arrive, they greet you with regional coffee, and everything is ready so you do not have to worry about a thing. If you want to see the house and the grounds before deciding, [browse the gallery](/en/galeria).
 
 **Rating:** 4.95 stars
 
 > "The peace you feel watching the sunset in front of Cerro Tusa is priceless. The house is an architectural jewel with all the modern comforts." — Restrepo family
 
-For couples, the [Mirror Goddess Retreat](/en/tours/mirror-goddess-retreat) pairs the stay with a sunrise ascent and quiet time by the pool.
+For couples, the [Mirror Goddess Retreat](/en/tours/retiro-diosa-espejo) pairs the stay with a sunrise ascent and quiet time by the pool.
 
 ### Other options
 

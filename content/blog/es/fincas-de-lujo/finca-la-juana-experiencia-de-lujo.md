@@ -1,9 +1,12 @@
 ---
-date: 2026-07-10
-title: "Finca La Juana: una experiencia de lujo a los pies del Cerro Tusa"
-meta_title: "Finca La Juana: experiencia de lujo en el Cerro Tusa"
-meta_description: "Finca de lujo frente al Cerro Tusa en Venecia, Antioquia. Seis suites, piscina con vista, servicio incluido y la pirámide natural más grande del mundo a 5 minutos de la finca."
-keyword_principal: "finca la juana"
+date: 2026-07-10T00:00:00.000Z
+title: 'Finca La Juana: una experiencia de lujo a los pies del Cerro Tusa'
+meta_title: 'Finca La Juana: experiencia de lujo en el Cerro Tusa'
+meta_description: >-
+  Finca de lujo frente al Cerro Tusa en Venecia, Antioquia. Seis suites, piscina
+  con vista, servicio incluido y la pirámide natural más grande del mundo a 5
+  minutos de la finca.
+keyword_principal: finca la juana
 keywords_secundarias:
   - finca de lujo antioquia
   - cerro tusa hospedaje
@@ -13,30 +16,48 @@ categoria: fincas-de-lujo
 slug: finca-la-juana-experiencia-de-lujo
 slug_en: finca-la-juana-luxury-experience
 categoria_en: luxury-fincas
-palabras: 1196
+palabras: 1263
 autor: Valentina Restrepo
-portada: /blog/finca-la-juana-experiencia-de-lujo/portada.webp
-portada_alt: "Finca La Juana, casa de bahareque frente al Cerro Tusa en Venecia, Antioquia"
+portada: /blog/finca-la-juana-experiencia-de-lujo/portada-v2.webp
+portada_alt: 'Finca La Juana, casa de bahareque frente al Cerro Tusa en Venecia, Antioquia'
 imagenes:
   - archivo: /blog/finca-la-juana-experiencia-de-lujo/cuerpo-1.webp
-    alt: "El Cerro Tusa, la pirámide natural más grande del mundo, visto desde La Juana"
+    alt: >-
+      El Cerro Tusa, la pirámide natural más grande del mundo, visto desde La
+      Juana
   - archivo: /blog/finca-la-juana-experiencia-de-lujo/cuerpo-2.webp
-    alt: "Espacio de la finca La Juana entre la montaña y los cafetales de Venecia"
+    alt: Espacio de la finca La Juana entre la montaña y los cafetales de Venecia
   - archivo: /blog/finca-la-juana-experiencia-de-lujo/cuerpo-3.webp
-    alt: "Detalle del descanso en las suites de La Juana con lencería de alta calidad"
+    alt: >-
+      Detalle del descanso en las suites de La Juana con lencería de alta
+      calidad
 faq:
   - pregunta: ¿Dónde queda la finca La Juana?
-    respuesta: "La Juana está en la Parcelación Rochiles, en Venecia, Antioquia, a dos horas y media de Medellín. Queda a un paso del Parque Comfama Cerro Tusa."
+    respuesta: >-
+      La Juana está en la Parcelación Rochiles, en Venecia, Antioquia, a dos
+      horas y media de Medellín. Queda a un paso del Parque Comfama Cerro Tusa.
   - pregunta: ¿Cuántas personas se pueden hospedar?
-    respuesta: "La finca se alquila completa para grupos de hasta 16 personas. Tiene 6 habitaciones, 8 camas y 6 baños, sin compartir espacios con extraños."
+    respuesta: >-
+      La finca se alquila completa para grupos de hasta 16 personas. Tiene 6
+      habitaciones, 8 camas y 6 baños, sin compartir espacios con extraños.
   - pregunta: ¿El servicio está incluido en la reserva?
-    respuesta: "Sí. Cada reserva incluye dos camareras y un mayordomo, personas de la región que cocinan, atienden y recomiendan actividades. No es un extra opcional."
+    respuesta: >-
+      Sí. Cada reserva incluye dos camareras y un mayordomo, personas de la
+      región que cocinan, atienden y recomiendan actividades. No es un extra
+      opcional.
   - pregunta: ¿Qué tan cerca queda el Cerro Tusa?
-    respuesta: "La entrada del Parque Comfama Cerro Tusa queda a 5 minutos de la finca. El ascenso guiado toma entre 4 y 5 horas y pasa por terrazas de origen indígena hasta la cima con vista de 360 grados."
+    respuesta: >-
+      La entrada del Parque Comfama Cerro Tusa queda a 5 minutos de la finca. El
+      ascenso guiado toma entre 4 y 5 horas y pasa por terrazas de origen
+      indígena hasta la cima con vista de 360 grados.
   - pregunta: ¿Qué incluye la finca además de las habitaciones?
-    respuesta: "Piscina, jacuzzi privado con vista a la montaña, turco, fogata, café del Diamante cada mañana y WiFi de alta velocidad."
+    respuesta: >-
+      Piscina, jacuzzi privado con vista a la montaña, turco, fogata, café del
+      Diamante cada mañana y WiFi de alta velocidad.
   - pregunta: ¿Cómo reservo La Juana?
-    respuesta: "A través de lajuanacerrotusa.com o al teléfono +57 302 102 5621. La finca se reserva completa, con todas las instalaciones y el servicio incluido."
+    respuesta: >-
+      A través de lajuanacerrotusa.com o al teléfono +57 302 102 5621. La finca
+      se reserva completa, con todas las instalaciones y el servicio incluido.
 ---
 
 # Finca La Juana: una experiencia de lujo a los pies del Cerro Tusa

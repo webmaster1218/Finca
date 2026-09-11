@@ -1,9 +1,11 @@
 ---
-date: 2026-03-20
-title: "Qué hacer en Venecia Antioquia: Guía Completa"
-meta_title: "Qué hacer en Venecia Antioquia: guía completa 2026"
-meta_description: "Qué hacer en Venecia Antioquia: Cerro Tusa, la pirámide natural más grande del mundo, cascadas, museos, clima, cómo llegar desde Medellín y dónde hospedarse."
-keyword_principal: "qué hacer en venecia antioquia"
+date: 2026-03-20T00:00:00.000Z
+title: 'Qué hacer en Venecia Antioquia: Guía Completa'
+meta_title: 'Qué hacer en Venecia Antioquia: guía completa 2026'
+meta_description: >-
+  Qué hacer en Venecia Antioquia: Cerro Tusa, la pirámide natural más grande del
+  mundo, cascadas, museos, clima, cómo llegar desde Medellín y dónde hospedarse.
+keyword_principal: qué hacer en venecia antioquia
 keywords_secundarias:
   - venecia antioquia turismo
   - venecia antioquia como llegar
@@ -12,10 +14,12 @@ categoria: cerro-tusa
 slug: que-hacer-venecia-antioquia
 slug_en: things-to-do-venecia-antioquia
 categoria_en: cerro-tusa
-palabras: 1805
+palabras: 1823
 autor: Valentina Restrepo
-portada: /blog/que-hacer-venecia-antioquia/portada.webp
-portada_alt: "Vista del Cerro Tusa, la pirámide natural más grande del mundo, desde Venecia Antioquia"
+portada: /blog/que-hacer-venecia-antioquia/portada-v2.webp
+portada_alt: >-
+  Vista del Cerro Tusa, la pirámide natural más grande del mundo, desde Venecia
+  Antioquia
 ---
 
 # Qué hacer en Venecia Antioquia: Guía Completa

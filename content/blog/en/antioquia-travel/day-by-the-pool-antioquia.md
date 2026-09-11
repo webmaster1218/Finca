@@ -1,9 +1,12 @@
 ---
-date: 2026-06-18
-title: "A Day by the Pool in Antioquia: La Juana Cerro Tusa"
-meta_title: "Pool day in Antioquia: finca with pool at Cerro Tusa"
-meta_description: "A pool day in Antioquia, done differently: the whole finca to yourselves, pool, jacuzzi, Cerro Tusa views and a traditional lunch. Two hours from Medellín."
-keyword_principal: "day by the pool antioquia"
+date: 2026-06-18T00:00:00.000Z
+title: 'A Day by the Pool in Antioquia: La Juana Cerro Tusa'
+meta_title: 'Pool day in Antioquia: finca with pool at Cerro Tusa'
+meta_description: >-
+  A pool day in Antioquia, done differently: the whole finca to yourselves,
+  pool, jacuzzi, Cerro Tusa views and a traditional lunch. Two hours from
+  Medellín.
+keyword_principal: day by the pool antioquia
 keywords_secundarias:
   - pool day medellin
   - finca with pool antioquia
@@ -15,17 +18,25 @@ slug_en: day-by-the-pool-antioquia
 categoria_en: antioquia-travel
 slug_es: dia-de-sol-antioquia
 categoria_es: turismo-antioquia
-palabras: 1581
+palabras: 1620
 autor: Valentina Restrepo
-portada: /blog/dia-de-sol-antioquia/portada.webp
-portada_alt: "La Juana's pool with views of Cerro Tusa on a sunny day in Antioquia"
+portada: /blog/day-by-the-pool-antioquia/portada-v3.webp
+portada_alt: >-
+  Luxury Antioquian coffee hacienda with crystal clear pool, sun loungers and
+  panoramic Andean mountain view
 imagenes:
   - archivo: /blog/dia-de-sol-antioquia/cuerpo-1.webp
-    alt: "Entrance of an Antioquia farmhouse with a stone path among flowers and green mountains in the morning"
+    alt: >-
+      Entrance of an Antioquia farmhouse with a stone path among flowers and
+      green mountains in the morning
   - archivo: /blog/dia-de-sol-antioquia/cuerpo-2.webp
-    alt: "Pool with jacuzzi on a mountain terrace in Colombia, turquoise water and mountains around on a sunny afternoon"
+    alt: >-
+      Pool with jacuzzi on a mountain terrace in Colombia, turquoise water and
+      mountains around on a sunny afternoon
   - archivo: /blog/dia-de-sol-antioquia/cuerpo-3.webp
-    alt: "Traditional Antioquia countryside lunch outdoors on a farmhouse terrace with mountain views, fresh fruit and local dishes"
+    alt: >-
+      Traditional Antioquia countryside lunch outdoors on a farmhouse terrace
+      with mountain views, fresh fruit and local dishes
 ---
 
 # A Day by the Pool in Antioquia: La Juana Cerro Tusa
@@ -165,7 +176,7 @@ It is not the cheapest day by the pool in Antioquia. It does not try to be. It i
 
 A day by the pool at La Juana is not just any plan. It is a day you still remember weeks later. The smell of coffee. The late light on the mountain. The still water of the pool, and there in the distance, the pyramid time itself built.
 
-If the day is not enough, browse the [photo gallery](/en/gallery) and plan the overnight: [glamping at Cerro Tusa](/en/blog/glamping/glamping-cerro-tusa), the [Sacred Ascent tour](/en/tours/sacred-ascent) up the mountain, or the [Mirror Goddess Retreat](/en/tours/mirror-goddess-retreat) with its sunrise yoga. More ideas live on the [La Juana blog](/en/blog).
+If the day is not enough, browse the [photo gallery](/en/galeria) and plan the overnight: [glamping at Cerro Tusa](/en/blog/glamping/glamping-cerro-tusa), the [Sacred Ascent tour](/en/tours/ascenso-sagrado) up the mountain, or the [Mirror Goddess Retreat](/en/tours/retiro-diosa-espejo) with its sunrise yoga. More ideas live on the [La Juana blog](/en/blog).
 
 ---
 

@@ -1,9 +1,12 @@
 ---
-date: 2026-06-18
-title: "Día de Sol en Antioquia: La Experiencia La Juana Cerro Tusa"
-meta_title: "Día de Sol en Antioquia: finca con piscina frente al Cerro Tusa"
-meta_description: "Un día de sol en Antioquia distinto: finca completa con piscina, jacuzzi y vista al Cerro Tusa, a dos horas de Medellín. Almuerzo tradicional, mayordomo y servicio incluido."
-keyword_principal: "día de sol antioquia"
+date: 2026-06-18T00:00:00.000Z
+title: 'Día de Sol en Antioquia: La Experiencia La Juana Cerro Tusa'
+meta_title: 'Día de Sol en Antioquia: finca con piscina frente al Cerro Tusa'
+meta_description: >-
+  Un día de sol en Antioquia distinto: finca completa con piscina, jacuzzi y
+  vista al Cerro Tusa, a dos horas de Medellín. Almuerzo tradicional, mayordomo
+  y servicio incluido.
+keyword_principal: día de sol antioquia
 keywords_secundarias:
   - finca con piscina antioquia
   - escapada con piscina cerca de medellin
@@ -11,10 +14,12 @@ categoria: turismo-antioquia
 slug: dia-de-sol-antioquia
 slug_en: day-by-the-pool-antioquia
 categoria_en: antioquia-travel
-palabras: 1384
+palabras: 1501
 autor: Valentina Restrepo
-portada: /blog/dia-de-sol-antioquia/portada.webp
-portada_alt: "Piscina de La Juana con vista al Cerro Tusa en un día de sol en Antioquia"
+portada: /blog/dia-de-sol-antioquia/portada-v3.webp
+portada_alt: >-
+  Finca campestre antioqueña con piscina cristalina, asoleadoras y vista
+  panorámica a la cordillera verde
 ---
 
 # Día de Sol en Antioquia: La Experiencia La Juana Cerro Tusa

@@ -1,9 +1,12 @@
 ---
-date: 2026-08-05
-title: "Finca La Juana: a luxury experience at the foot of Cerro Tusa"
-meta_title: "Finca La Juana: luxury stay at Cerro Tusa, Antioquia"
-meta_description: "A luxury farmhouse in front of Cerro Tusa, the world's largest natural pyramid. Six suites, a pool with mountain views, service included — just 5 minutes from the pyramid, in Venecia, Antioquia."
-keyword_principal: "luxury farmhouse cerro tusa"
+date: 2026-08-05T00:00:00.000Z
+title: 'Finca La Juana: a luxury experience at the foot of Cerro Tusa'
+meta_title: 'Finca La Juana: luxury stay at Cerro Tusa, Antioquia'
+meta_description: >-
+  A luxury farmhouse in front of Cerro Tusa, the world's largest natural
+  pyramid. Six suites, a pool with mountain views, service included — just 5
+  minutes from the pyramid, in Venecia, Antioquia.
+keyword_principal: luxury farmhouse cerro tusa
 keywords_secundarias:
   - luxury finca antioquia
   - cerro tusa lodging
@@ -15,30 +18,61 @@ slug_en: finca-la-juana-luxury-experience
 categoria_en: luxury-fincas
 categoria_es: fincas-de-lujo
 slug_es: finca-la-juana-experiencia-de-lujo
-palabras: 1197
+palabras: 1256
 autor: Valentina Restrepo
-portada: /blog/finca-la-juana-experiencia-de-lujo/portada.webp
-portada_alt: "La Juana, a traditional bahareque farmhouse facing Cerro Tusa in Venecia, Antioquia"
+portada: /blog/finca-la-juana-luxury-experience/portada-v2.webp
+portada_alt: >-
+  La Juana, a traditional bahareque farmhouse facing Cerro Tusa in Venecia,
+  Antioquia
 imagenes:
   - archivo: /blog/finca-la-juana-experiencia-de-lujo/cuerpo-1.webp
-    alt: "Cerro Tusa, the world's largest natural pyramid, seen from La Juana"
+    alt: 'Cerro Tusa, the world''s largest natural pyramid, seen from La Juana'
   - archivo: /blog/finca-la-juana-experiencia-de-lujo/cuerpo-2.webp
-    alt: "A space at La Juana farmhouse between the mountain and the coffee farms of Venecia"
+    alt: >-
+      A space at La Juana farmhouse between the mountain and the coffee farms of
+      Venecia
   - archivo: /blog/finca-la-juana-experiencia-de-lujo/cuerpo-3.webp
-    alt: "Detail of the bedding in La Juana's suites"
+    alt: Detail of the bedding in La Juana's suites
+tldr:
+  - >-
+    A private luxury estate two and a half hours from Medellín with direct,
+    unobstructed views of Cerro Tusa.
+  - >-
+    Accommodates up to 16 guests in 6 private bedrooms with swimming pool,
+    heated jacuzzi, steam room, and evening fire pit.
+  - >-
+    Full house staff included: a private butler and two housekeepers who handle
+    cooking and daily housekeeping.
+  - >-
+    Flat transparent rate of COP 2,800,000 per night for the entire estate with
+    all amenities included.
 faq:
   - pregunta: Where is Finca La Juana located?
-    respuesta: "La Juana is in Parcelación Rochiles, Venecia, Antioquia, about two and a half hours from Medellín. It sits right next to Parque Comfama Cerro Tusa."
+    respuesta: >-
+      La Juana is in Parcelación Rochiles, Venecia, Antioquia, about two and a
+      half hours from Medellín. It sits right next to Parque Comfama Cerro Tusa.
   - pregunta: How many guests can stay at the finca?
-    respuesta: "The property rents as a whole for groups of up to 16 people. It has 6 bedrooms, 8 beds and 6 bathrooms, with no shared spaces with strangers."
+    respuesta: >-
+      The property rents as a whole for groups of up to 16 people. It has 6
+      bedrooms, 8 beds and 6 bathrooms, with no shared spaces with strangers.
   - pregunta: Is service included in the booking?
-    respuesta: "Yes. Every booking includes two housekeepers and a butler, locals who cook, take care of the house and recommend activities. It is not an optional extra."
+    respuesta: >-
+      Yes. Every booking includes two housekeepers and a butler, locals who
+      cook, take care of the house and recommend activities. It is not an
+      optional extra.
   - pregunta: How close is Cerro Tusa?
-    respuesta: "The entrance to Parque Comfama Cerro Tusa is 5 minutes from the property. The guided ascent takes 4 to 5 hours and passes indigenous-built terraces on the way to a 360-degree summit view."
+    respuesta: >-
+      The entrance to Parque Comfama Cerro Tusa is 5 minutes from the property.
+      The guided ascent takes 4 to 5 hours and passes indigenous-built terraces
+      on the way to a 360-degree summit view.
   - pregunta: What does the finca include besides the bedrooms?
-    respuesta: "A pool, a private jacuzzi with mountain views, a steam bath, a bonfire pit, Diamante coffee every morning and high-speed WiFi."
+    respuesta: >-
+      A pool, a private jacuzzi with mountain views, a steam bath, a bonfire
+      pit, Diamante coffee every morning and high-speed WiFi.
   - pregunta: How do I book La Juana?
-    respuesta: "Through lajuanacerrotusa.com or by phone at +57 302 102 5621. The finca is booked as a whole, with all facilities and service included."
+    respuesta: >-
+      Through lajuanacerrotusa.com or by phone at +57 302 102 5621. The finca is
+      booked as a whole, with all facilities and service included.
 ---
 
 # Finca La Juana: a luxury experience at the foot of Cerro Tusa

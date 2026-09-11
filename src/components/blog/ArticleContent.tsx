@@ -14,6 +14,7 @@ export function ArticleContent({ content }: Props) {
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
         components={{
+          h1: () => null,
           h2: ({ children }) => (
             <h2 className="text-3xl md:text-4xl font-serif text-[#6f7c4e] mt-14 mb-5 leading-tight">
               {children}
@@ -62,11 +63,45 @@ export function ArticleContent({ content }: Props) {
               </a>
             );
           },
-          blockquote: ({ children }) => (
-            <blockquote className="border-l-2 border-[#9a7d45]/50 pl-6 my-8 italic font-serif text-[#6f7c4e]/80 text-lg">
-              {children}
-            </blockquote>
-          ),
+          blockquote: ({ children }) => {
+            const getText = (node: any): string => {
+              if (!node) return "";
+              if (typeof node === "string") return node;
+              if (Array.isArray(node)) return node.map(getText).join("");
+              if (node.props && node.props.children) return getText(node.props.children);
+              return "";
+            };
+            const text = getText(children);
+
+            if (text.includes("Tip Secreto") || text.includes("Secret Tip")) {
+              const isEn = text.includes("Secret Tip");
+              return (
+                <div className="my-10 border border-[#9a7d45]/40 bg-[#6f7c4e]/[0.05] p-6 md:p-8 rounded-sm relative shadow-sm">
+                  <div className="flex items-center gap-2 text-[#9a7d45] text-xs font-serif tracking-[0.25em] uppercase font-semibold mb-3">
+                    <span className="w-2 h-2 rotate-45 border border-[#9a7d45] shrink-0" aria-hidden />
+                    <span>{isEn ? "Secret Tip • La Juana" : "Tip Secreto • La Juana"}</span>
+                  </div>
+                  <div className="text-[#2c3e50]/90 font-serif text-base md:text-lg leading-relaxed">
+                    {children}
+                  </div>
+                </div>
+              );
+            }
+
+            if (text.includes("Aviso sobre") || text.includes("Notice:") || text.includes("Disclaimer:") || text.includes("Note on")) {
+              return (
+                <div className="my-8 border-l-2 border-[#9a7d45]/40 pl-4 py-2 text-xs md:text-sm text-[#2c3e50]/70 font-serif italic space-y-1 bg-[#fdfbf7]">
+                  {children}
+                </div>
+              );
+            }
+
+            return (
+              <blockquote className="border-l-2 border-[#9a7d45]/50 pl-6 my-8 italic font-serif text-[#6f7c4e]/80 text-lg">
+                {children}
+              </blockquote>
+            );
+          },
           hr: () => (
             <div className="flex items-center justify-center gap-4 my-12">
               <div className="w-16 h-[1px] bg-[#9a7d45]/30" />
@@ -79,13 +114,15 @@ export function ArticleContent({ content }: Props) {
             if (!srcStr) return null;
             return (
               <span className="block my-10">
-                {/* Respetar la orientación natural de cada foto (las reales de la finca son verticales) */}
-                <img
-                  src={srcStr}
-                  alt={alt ?? ""}
-                  loading="lazy"
-                  className="w-full h-auto shadow-lg rounded-sm"
-                />
+                {/* Respetar la orientación natural de cada foto y centrar elegantemente */}
+                <span className="flex justify-center">
+                  <img
+                    src={srcStr}
+                    alt={alt ?? ""}
+                    loading="lazy"
+                    className="max-w-full max-h-[580px] w-auto h-auto shadow-lg rounded-sm object-contain"
+                  />
+                </span>
                 {alt && (
                   <span className="block text-center text-xs md:text-sm text-[#9a7d45]/70 italic mt-3 font-serif">
                     {alt}
