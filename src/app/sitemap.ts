@@ -13,7 +13,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { path: '/tours/retiro-diosa-espejo', changeFrequency: 'weekly' as const, priority: 0.9 },
     { path: '/galeria', changeFrequency: 'monthly' as const, priority: 0.8 },
     { path: '/politicas', changeFrequency: 'yearly' as const, priority: 0.5 },
-    { path: '/gracias', changeFrequency: 'yearly' as const, priority: 0.3 },
   ]
 
   const entries: MetadataRoute.Sitemap = []

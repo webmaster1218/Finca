@@ -58,6 +58,19 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
+        source: "/(llms.*\\.txt|.*ai\\.txt)",
+        headers: [
+          { key: "X-Robots-Tag", value: "noindex, nofollow" },
+          { key: "Content-Type", value: "text/plain; charset=utf-8" },
+        ],
+      },
+      {
+        source: "/api/md/:path*",
+        headers: [
+          { key: "X-Robots-Tag", value: "noindex, nofollow" },
+        ],
+      },
+      {
         source: "/imagenes/:path*",
         headers: [
           { key: "Cache-Control", value: "public, max-age=31536000, immutable" },
