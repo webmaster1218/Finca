@@ -52,7 +52,7 @@ export default async function Home({
         text: isEn
           ? "Select between exclusive full finca rental (up to 20 guests), private luxury suites, or nature glamping with private jacuzzi."
           : "Elige entre el alquiler de la finca completa (hasta 20 personas), suites privadas de lujo o glamping con jacuzzi.",
-        url: `https://lajuanacerrotusa.com/${locale}/#habitaciones`,
+        url: `https://www.lajuanacerrotusa.com/${locale}/#habitaciones`,
       },
       {
         "@type": "HowToStep",
@@ -60,7 +60,7 @@ export default async function Home({
         text: isEn
           ? "Incorporate the Sacred Ascent to Cerro Tusa or the Mirror Goddess Wellness Retreat into your stay."
           : "Incorpora el Ascenso Sagrado al Cerro Tusa o el Retiro de Bienestar de la Diosa del Espejo a tu estadía.",
-        url: `https://lajuanacerrotusa.com/${locale}/tours/ascenso-sagrado`,
+        url: `https://www.lajuanacerrotusa.com/${locale}/tours/ascenso-sagrado`,
       },
       {
         "@type": "HowToStep",
@@ -68,7 +68,7 @@ export default async function Home({
         text: isEn
           ? "Contact our concierge directly to verify live dates, customize culinary options, and secure your booking."
           : "Contacta a nuestra anfitriona para verificar fechas en vivo, personalizar servicios y asegurar tu reserva.",
-        url: `https://lajuanacerrotusa.com/${locale}`,
+        url: `https://www.lajuanacerrotusa.com/${locale}`,
       },
     ],
   };

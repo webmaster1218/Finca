@@ -29,7 +29,7 @@ description: "${article.meta_description ?? article.description ?? ""}"
 date: "${article.date}"
 author: "${article.autor}"
 locale: "${lang}"
-url: "https://lajuanacerrotusa.com${article.href}"
+url: "https://www.lajuanacerrotusa.com${article.href}"
 keyword_principal: "${article.keyword_principal ?? ""}"
 ---
 

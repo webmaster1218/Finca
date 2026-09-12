@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   const lang: Locale = isLocale(locale) ? locale : defaultLocale;
   const catKey = resolveCategoryBySlug(categoria, lang);
   if (!catKey) return {};
-  const baseUrl = "https://lajuanacerrotusa.com";
+  const baseUrl = "https://www.lajuanacerrotusa.com";
   const label = getCategoryLabel(catKey, lang);
   const title = lang === "es" ? `${label} | Blog La Juana` : `${label} | La Juana Journal`;
   const description = lang === "es"

@@ -24,6 +24,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/admin/', '/es/admin/', '/en/admin/', '/api/'],
       },
     ],
-    sitemap: 'https://lajuanacerrotusa.com/sitemap.xml',
+    sitemap: 'https://www.lajuanacerrotusa.com/sitemap.xml',
   }
 }

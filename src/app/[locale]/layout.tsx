@@ -31,7 +31,7 @@ export async function generateStaticParams(): Promise<{ locale: Locale }[]> {
 export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
   const { locale } = await params;
   const lang: Locale = isLocale(locale) ? locale : defaultLocale;
-  const baseUrl = "https://lajuanacerrotusa.com";
+  const baseUrl = "https://www.lajuanacerrotusa.com";
   const title =
     lang === "es"
       ? "La Juana | Alquiler de Finca de Lujo en Venecia Antioquia, Cerro Tusa"
@@ -86,7 +86,7 @@ export default async function LocaleLayout({
       locale === "es"
         ? "Finca de lujo y glamping frente al Cerro Tusa en Venecia, Antioquia. Alquiler exclusivo, suites privadas y expediciones ecológicas."
         : "Luxury ranch and glamping facing Cerro Tusa in Venecia, Antioquia. Exclusive rental, private suites and eco expeditions.",
-    url: `https://lajuanacerrotusa.com/${locale}`,
+    url: `https://www.lajuanacerrotusa.com/${locale}`,
     telephone: "+573003608621",
     address: {
       "@type": "PostalAddress",

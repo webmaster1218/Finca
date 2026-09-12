@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: { params: Promise<Params> }):
   const article = getArticleByAnySlug(lang, categoria, slug);
   if (!article) return {};
 
-  const baseUrl = "https://lajuanacerrotusa.com";
+  const baseUrl = "https://www.lajuanacerrotusa.com";
   const title = article.meta_title ?? article.title;
   const description = article.meta_description ?? "";
   const ogImage = article.portada.startsWith("http")
@@ -86,7 +86,7 @@ export default async function ArticlePage({ params }: { params: Promise<Params> 
   const related = getRelatedArticles(lang, article, 3);
   const categoryLabel = getCategoryLabel(article.categoria, lang);
 
-  const baseUrl = "https://lajuanacerrotusa.com";
+  const baseUrl = "https://www.lajuanacerrotusa.com";
   const ogImage = article.portada.startsWith("http") ? article.portada : `${baseUrl}${article.portada}`;
 
   // JSON-LD: BlogPosting

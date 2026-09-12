@@ -35,7 +35,7 @@ export default async function RetiroDiosaEspejoPage({
 }) {
   const { locale } = await params;
   const lang: Locale = isLocale(locale) ? locale : defaultLocale;
-  const baseUrl = "https://lajuanacerrotusa.com";
+  const baseUrl = "https://www.lajuanacerrotusa.com";
   const tourUrl = `${baseUrl}/${lang}${localizePath("/tours/retiro-diosa-espejo", lang)}`;
 
   const jsonLd = {
@@ -43,7 +43,7 @@ export default async function RetiroDiosaEspejoPage({
     "@type": "Tour",
     "name": "El Retiro de la Diosa del Espejo (Stay & Climb 2D/1N)",
     "description": "Escala una montaña mítica de día. Duerme en una finca campestre de noche. Vive Colombia como nunca antes.",
-    "image": "https://lajuanacerrotusa.com/imagenes/experiences/IMG_5111.webp",
+    "image": "https://www.lajuanacerrotusa.com/imagenes/experiences/IMG_5111.webp",
     "duration": "P2D",
     "typicalAgeRange": "18-60",
     "touristType": ["Adventure travelers", "Wellness seekers", "Cultural travelers"],

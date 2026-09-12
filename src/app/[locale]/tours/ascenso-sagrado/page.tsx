@@ -35,7 +35,7 @@ export default async function AscensoSagradoPage({
 }) {
   const { locale } = await params;
   const lang: Locale = isLocale(locale) ? locale : defaultLocale;
-  const baseUrl = "https://lajuanacerrotusa.com";
+  const baseUrl = "https://www.lajuanacerrotusa.com";
   const tourUrl = `${baseUrl}/${lang}${localizePath("/tours/ascenso-sagrado", lang)}`;
 
   const jsonLd = {
@@ -43,7 +43,7 @@ export default async function AscensoSagradoPage({
     "@type": "Tour",
     "name": "El Ascenso Sagrado (Day Tour Premium)",
     "description": "Sube una montaña mítica, nada en una finca campestre y descubre un pueblo que los turistas nunca encuentran, todo en un día épico.",
-    "image": "https://lajuanacerrotusa.com/eco%20tours/SaveClip.App_522169608_18051317933624494_6236629626133625721_n.jpg",
+    "image": "https://www.lajuanacerrotusa.com/eco%20tours/SaveClip.App_522169608_18051317933624494_6236629626133625721_n.jpg",
     "duration": "PT12H",
     "typicalAgeRange": "18-60",
     "touristType": ["Adventure travelers", "Wellness seekers", "Nature lovers"],

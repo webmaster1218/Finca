@@ -5,17 +5,17 @@ Disallow: /admin/
 Disallow: /api/calendar/
 
 # Machine-Readable Metadata & LLM Entrypoints
-LLMS-Txt: https://lajuanacerrotusa.com/llms.txt
-LLMS-Full: https://lajuanacerrotusa.com/llms-full.txt
-LLMS-Small: https://lajuanacerrotusa.com/llms-small.txt
+LLMS-Txt: https://www.lajuanacerrotusa.com/llms.txt
+LLMS-Full: https://www.lajuanacerrotusa.com/llms-full.txt
+LLMS-Small: https://www.lajuanacerrotusa.com/llms-small.txt
 
 # Entity Identity & Contact
 Site-Name: La Juana Cerro Tusa
 Organization: La Juana Finca & Glamping Boutique
-Contact: https://lajuanacerrotusa.com/
+Contact: https://www.lajuanacerrotusa.com/
 Location: Venecia, Antioquia, Colombia
 
 # AI Usage & Attribution Policy
 Content-License: Permitted for AI search engines, citation, indexing, summarization, and conversational query answering.
 Attribution-Name: La Juana Cerro Tusa
-Attribution-URL: https://lajuanacerrotusa.com/
+Attribution-URL: https://www.lajuanacerrotusa.com/

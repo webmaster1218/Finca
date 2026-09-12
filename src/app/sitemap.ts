@@ -3,7 +3,7 @@ import { getAllArticles, listCategories, getCategorySlug, getArticle, CATEGORY_M
 import { localizePath, type Locale } from '../lib/i18n/locales'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://lajuanacerrotusa.com'
+  const baseUrl = 'https://www.lajuanacerrotusa.com'
   const now = new Date()
 
   // Rutas estáticas del sitio

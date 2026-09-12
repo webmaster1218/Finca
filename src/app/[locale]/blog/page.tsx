@@ -13,7 +13,7 @@ export async function generateStaticParams() {
 export async function generateMetadata({ params }: { params: Promise<Params> }): Promise<Metadata> {
   const { locale } = await params;
   const lang: Locale = isLocale(locale) ? locale : defaultLocale;
-  const baseUrl = "https://lajuanacerrotusa.com";
+  const baseUrl = "https://www.lajuanacerrotusa.com";
   const title = lang === "es" ? "Blog | La Juana Cerro Tusa" : "Journal | La Juana Cerro Tusa";
   const description = lang === "es"
     ? "Guías, experiencias y consejos sobre la finca, el Cerro Tusa, Venecia Antioquia y el turismo de lujo en Colombia."
